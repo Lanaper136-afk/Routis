@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jeux du Code de la route gratuits : révise en t'amusant</title>
+    <meta name="description" content="Joue à des mini-jeux gratuits pour réviser le code de la route en t'amusant : reconnaissance de panneaux, réflexes et rapidité, sans inscription ni pub." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Jeux du Code de la route gratuits : révise en t'amusant" />
+    <meta property="og:description" content="Joue à des mini-jeux gratuits pour réviser le code de la route en t'amusant : reconnaissance de panneaux, réflexes et rapidité, sans inscription ni pub." />
+    <meta property="og:url" content="https://votresite.netlify.app/jeux.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.game-intro {
+  width: min(720px, calc(100% - 32px));
+  margin: 28px auto 64px;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+
+.game-intro h2 {
+  margin-bottom: 12px;
+}
+
+.game-intro p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.game-cover {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+  margin: 22px 0;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(14, 44, 79, 0.24), rgba(12, 20, 32, 0.18)),
+    linear-gradient(135deg, #eaf3ff, #dff8ef 55%, #fff4d6);
+  border: 1px solid var(--line);
+}
+
+.game-cover-road {
+  position: absolute;
+  inset: 68px -24px auto;
+  height: 112px;
+  transform: rotate(-6deg);
+  background: #3f4b58;
+  box-shadow: inset 0 0 0 7px rgba(255, 255, 255, 0.12);
+}
+
+.game-cover-road::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 5px;
+  background: repeating-linear-gradient(90deg, #fff 0 36px, transparent 36px 72px);
+}
+
+.game-cover-sign {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 86px;
+  height: 86px;
+  font-weight: 900;
+  filter: drop-shadow(0 12px 18px rgba(20, 33, 51, 0.22));
+}
+
+.game-cover-stop {
+  left: 9%;
+  top: 34px;
+  color: #fff;
+  background: var(--red);
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+}
+
+.game-cover-danger {
+  right: 12%;
+  top: 26px;
+  color: #111;
+  background: #fff;
+  border: 9px solid var(--red);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  padding-top: 24px;
+}
+
+.game-cover-slice {
+  position: absolute;
+  left: 28%;
+  right: 18%;
+  top: 104px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #fff, #6fdcff, transparent);
+  box-shadow: 0 0 26px rgba(111, 220, 255, 0.88);
+  transform: rotate(-18deg);
+}
+
+.game-shell[hidden] {
+  display: none;
+}
+
+.game-shell.is-expanded {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  width: 100vw;
+  margin: 0;
+  padding: 14px;
+  background: var(--paper);
+}
+
+.game-shell.is-expanded .slice-game {
+  height: calc(100vh - 92px);
+  min-height: calc(100vh - 92px);
+}
+
+.game-title-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.game-title-row h2 {
+  margin-bottom: 0;
+}
+
+.slice-game:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  border: 0;
+  border-radius: 0;
+}
+
+.game-level-badge {
+  margin-left: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 0.78em;
+  font-weight: 900;
+}
+
+.game-right-tools {
+  display: inline-flex;
+  justify-self: end;
+  align-items: center;
+  gap: 10px;
+}
+
+.fullscreen-btn {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  font-weight: 900;
+}
+
+.fullscreen-btn svg {
+  width: 24px;
+  height: 24px;
+}
+    </style>
+  </head>
+  <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59PS7V3L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false">
+            <circle class="tire-outer" cx="24" cy="24" r="16" />
+            <circle class="tire-inner" cx="24" cy="24" r="7" />
+            <path class="tire-tread" d="M24 8v7M24 33v7M8 24h7M33 24h7M12.7 12.7l5 5M30.3 30.3l5 5M35.3 12.7l-5 5M17.7 30.3l-5 5" />
+          </svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a class="active" href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow" data-i18n="jeux_eyebrow_hero">Jeux</p>
+        <h1 data-i18n="jeux_title">Jeux du Code de la route</h1>
+        <p data-i18n="jeux_desc">Choisis un jeu pour réviser les panneaux avec des réflexes, du rythme et un score à battre.</p>
+      </section>
+
+      <section class="game-intro" id="game-intro">
+        <h2 data-i18n="game1_title">Coupe le bon panneau</h2>
+        <p data-i18n="game1_desc">Regarde le nom affiché en blanc, puis trace un geste fluide sur le panneau correspondant avant qu'il ne tombe.</p>
+        <div class="game-cover" aria-hidden="true">
+          <div class="game-cover-road"></div>
+          <span class="game-cover-sign game-cover-stop">STOP</span>
+          <span class="game-cover-sign game-cover-danger">!</span>
+          <span class="game-cover-slice"></span>
+        </div>
+        <button class="button primary" type="button" id="game-start-intro" data-i18n="game_start_btn">Start</button>
+      </section>
+
+      <section class="game-shell" id="game-shell" aria-label="Jeu des panneaux" hidden>
+        <div class="game-title-row">
+          <div>
+            <p class="eyebrow" data-i18n="game_eyebrow">Jeu</p>
+            <h2 data-i18n="game1_title">Coupe le bon panneau</h2>
+          </div>
+        </div>
+        <div class="slice-game" id="slice-game">
+          <div class="game-hud">
+            <div class="game-score"><span data-i18n="game_score_label">Score</span> <span id="game-score">0</span><span class="game-level-badge"><span data-i18n="game_level_label">Niv.</span> <span id="game-level">1</span></span></div>
+            <div class="game-best" id="game-best" hidden>🏆 <span id="game-best-score">0</span></div>
+            <div class="game-right-tools">
+              <button class="fullscreen-btn" type="button" id="game-fullscreen" aria-label="Plein écran" data-i18n-aria="game_fullscreen_label">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M9 4H4v5M4 4l7 7M15 20h5v-5M20 20l-7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="game-lives" id="game-lives" aria-label="Vies" data-i18n-aria="game_lives_label">♥♥♥♥♥</div>
+            </div>
+          </div>
+          <div class="target-card">
+            <span data-i18n="game_target_label">Panneau à couper</span>
+            <strong id="target-name" data-i18n="game_ready">Prêt ?</strong>
+          </div>
+          <div class="game-stage" id="game-stage"></div>
+          <div class="slice-trail" id="slice-trail" aria-hidden="true"></div>
+          <div class="game-overlay" id="game-overlay">
+            <div class="game-modal">
+              <h2 id="game-overlay-title" data-i18n="game_overlay_title_start">Coupe le panneau demandé</h2>
+              <p id="game-overlay-text" data-i18n="game_overlay_text_start">Tu as 5 vies. Le score double à chaque bonne réponse d'affilée, puis repart à 10 après une erreur.</p>
+              <button class="button primary" type="button" id="game-start" data-i18n="game_replay_btn">Rejouer</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+const state = {
+  filter: "all",
+  examFilter: "all",
+  selected: signs[0],
+  status: safeGetJSON("signStatus", {}),
+  quiz: [],
+  quizIndex: 0,
+  score: 0,
+  streak: safeGetNumber("streak", 0),
+  best: safeGetNumber("bestScore", 0)
+};
+
+const grid = document.querySelector("#sign-grid");
+const searchInput = document.querySelector("#search-input");
+const preview = document.querySelector("#sign-preview");
+const previewFamily = document.querySelector("#preview-family");
+const previewTitle = document.querySelector("#preview-title");
+const previewText = document.querySelector("#preview-text");
+const previewTips = document.querySelector("#preview-tips");
+
+
+
+function renderGrid() {
+  if (!grid || !searchInput) return;
+  const query = searchInput.value.trim().toLowerCase();
+  const filtered = signs.filter((sign) => {
+    const matchesFilter = state.filter === "all" || sign.family === state.filter;
+    const haystack = `${signField(sign, "name")} ${sign.code} ${famLabel(sign.family)} ${signField(sign, "text")}`.toLowerCase();
+    return matchesFilter && haystack.includes(query);
+  });
+
+  grid.innerHTML = filtered.map((sign) => {
+    const st = state.status[sign.id];
+    const statusClass = st === "appris" ? "status-appris" : st === "revoir" ? "status-revoir" : st === "pas-appris" ? "status-pasappris" : "";
+    return `
+    <button class="sign-card ${statusClass}" type="button" data-id="${sign.id}" aria-label="${signField(sign, "name")}">
+      ${signSvg(sign)}
+      <span>
+        <span class="sign-name">${signField(sign, "name")}</span>
+        <span class="sign-family">${sign.code} - ${famLabel(sign.family)}</span>
+      </span>
+    </button>
+  `;
+  }).join("");
+}
+
+function selectSign(sign) {
+  if (!preview || !previewFamily || !previewTitle || !previewText || !previewTips) return;
+  state.selected = sign;
+  preview.innerHTML = signSvg(sign);
+  previewFamily.textContent = `${sign.code} - ${famLabel(sign.family)}`;
+  previewTitle.textContent = signField(sign, "name");
+  previewText.textContent = signField(sign, "text");
+  previewTips.innerHTML = signField(sign, "tips").map((tip) => `<li>${tip}</li>`).join("");
+  const currentStatus = state.status[sign.id] || "pas-appris";
+  document.querySelectorAll(".status-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.status === currentStatus);
+  });
+}
+
+function updateStats() {
+  const knownCount = document.querySelector("#known-count");
+  const bestScore = document.querySelector("#best-score");
+  const streakCount = document.querySelector("#streak-count");
+  const learnedCount = Object.values(state.status).filter((value) => value === "appris").length;
+  if (knownCount) knownCount.textContent = learnedCount;
+  if (bestScore) bestScore.textContent = `${state.best}%`;
+  if (streakCount) streakCount.textContent = state.streak;
+  safeSetJSON("signStatus", state.status);
+  safeSetNumber("bestScore", state.best);
+  safeSetNumber("streak", state.streak);
+  renderLearnedReveal();
+}
+
+function renderLearnedReveal() {
+  const list = document.querySelector("#learned-list");
+  if (!list) return;
+  const learnedSigns = signs.filter((sign) => state.status[sign.id] === "appris");
+  list.innerHTML = learnedSigns.length
+    ? learnedSigns.map((sign) => `
+      <div class="learned-item">
+        ${signSvg(sign)}
+        <span>
+          <span class="sign-name">${signField(sign, "name")}</span>
+          <span class="sign-family">${sign.code} - ${famLabel(sign.family)}</span>
+        </span>
+      </div>
+    `).join("")
+    : `<p class="muted">${t("learned_empty")}</p>`;
+}
+
+function shuffle(items) {
+  return [...items].sort(() => Math.random() - 0.5);
+}
+
+function startQuiz() {
+  if (!document.querySelector("#quiz-sign")) return;
+  const pool = state.examFilter === "all" ? signs : signs.filter((sign) => sign.family === state.examFilter);
+  state.quiz = shuffle(pool).slice(0, Math.min(10, pool.length));
+  state.quizIndex = 0;
+  state.score = 0;
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const current = state.quiz[state.quizIndex];
+  if (!current) return;
+  const options = shuffle([
+    current,
+    ...shuffle(signs.filter((sign) => sign.id !== current.id)).slice(0, 3)
+  ]);
+  document.querySelector("#quiz-step").textContent = t("quiz_step", { current: state.quizIndex + 1, total: state.quiz.length });
+  document.querySelector("#quiz-score").textContent = t("quiz_score", { score: state.score });
+  document.querySelector("#quiz-sign").innerHTML = signSvg(current);
+  document.querySelector("#quiz-question").textContent = t("quiz_question");
+  document.querySelector("#feedback").textContent = "";
+  document.querySelector("#answers").innerHTML = options.map((option) => `
+    <button type="button" data-id="${option.id}">${signField(option, "name")}</button>
+  `).join("");
+}
+
+function handleAnswer(button) {
+  const current = state.quiz[state.quizIndex];
+  const isCorrect = button.dataset.id === current.id;
+  const buttons = [...document.querySelectorAll("#answers button")];
+  buttons.forEach((item) => {
+    item.disabled = true;
+    if (item.dataset.id === current.id) item.classList.add("correct");
+  });
+  if (!isCorrect) button.classList.add("wrong");
+
+  if (isCorrect) {
+    state.score += 1;
+    state.streak += 1;
+    document.querySelector("#feedback").textContent = t("feedback_correct");
+  } else {
+    state.streak = 0;
+    document.querySelector("#feedback").textContent = t("feedback_wrong", { name: signField(current, "name") });
+  }
+  updateStats();
+
+  window.setTimeout(() => {
+    state.quizIndex += 1;
+    if (state.quizIndex >= state.quiz.length) {
+      const percent = Math.round((state.score / state.quiz.length) * 100);
+      state.best = Math.max(state.best, percent);
+      updateStats();
+      const finalScore = document.querySelector("#final-score");
+      const dialog = document.querySelector("#completion-dialog");
+      if (finalScore) finalScore.textContent = t("final_score", { score: state.score, total: state.quiz.length, percent });
+      if (dialog) dialog.showModal();
+      startQuiz();
+    } else {
+      renderQuestion();
+    }
+  }, 900);
+}
+
+document.querySelectorAll(".chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".chip").forEach((item) => item.classList.remove("active"));
+    chip.classList.add("active");
+    state.filter = chip.dataset.filter;
+    renderGrid();
+  });
+});
+
+document.querySelectorAll(".exam-chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".exam-chip").forEach((item) => item.classList.remove("active"));
+    chip.classList.add("active");
+    state.examFilter = chip.dataset.examfilter;
+    startQuiz();
+  });
+});
+
+if (grid) {
+  grid.addEventListener("click", (event) => {
+    const card = event.target.closest(".sign-card");
+    if (!card) return;
+    const sign = signs.find((item) => item.id === card.dataset.id);
+    selectSign(sign);
+    document.querySelector(".learn-panel").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+}
+
+if (searchInput) searchInput.addEventListener("input", renderGrid);
+
+document.querySelectorAll(".status-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (!state.selected) return;
+    state.status[state.selected.id] = btn.dataset.status;
+    selectSign(state.selected);
+    renderGrid();
+    updateStats();
+  });
+});
+
+const learnedToggle = document.querySelector("#learned-toggle");
+const learnedReveal = document.querySelector("#learned-reveal");
+if (learnedToggle && learnedReveal) {
+  learnedToggle.addEventListener("click", () => {
+    const isHidden = learnedReveal.hasAttribute("hidden");
+    const hint = document.querySelector("#toggle-hint");
+    if (isHidden) {
+      renderLearnedReveal();
+      learnedReveal.removeAttribute("hidden");
+      learnedToggle.setAttribute("aria-expanded", "true");
+      if (hint) hint.textContent = t("toggle_hide");
+    } else {
+      learnedReveal.setAttribute("hidden", "");
+      learnedToggle.setAttribute("aria-expanded", "false");
+      if (hint) hint.textContent = t("toggle_show");
+    }
+  });
+}
+
+const newQuizButton = document.querySelector("#new-quiz");
+if (newQuizButton) newQuizButton.addEventListener("click", startQuiz);
+
+const answers = document.querySelector("#answers");
+if (answers) {
+  answers.addEventListener("click", (event) => {
+    const button = event.target.closest("button");
+    if (button) handleAnswer(button);
+  });
+}
+
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector(`#sim-${button.dataset.sim}`);
+    const right = button.dataset.answer === "right";
+    target.textContent = right ? t("sim_feedback_right") : t("sim_feedback_wrong");
+    target.style.color = right ? "var(--green)" : "var(--red)";
+  });
+});
+
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+    renderGrid();
+    if (state.selected) selectSign(state.selected);
+    if (document.querySelector("#quiz-sign")) renderQuestion();
+    updateStats();
+  });
+});
+
+applyStaticTranslations();
+renderGrid();
+selectSign(state.selected);
+startQuiz();
+updateStats();
+
+
+function initSliceGame() {
+  const root = document.querySelector("#slice-game");
+  if (!root) return;
+
+  const shell = document.querySelector("#game-shell");
+  const intro = document.querySelector("#game-intro");
+  const stage = root.querySelector("#game-stage");
+  const scoreEl = root.querySelector("#game-score");
+  const levelEl = root.querySelector("#game-level");
+  const livesEl = root.querySelector("#game-lives");
+  const targetEl = root.querySelector("#target-name");
+  const bestBox = root.querySelector("#game-best");
+  const bestEl = root.querySelector("#game-best-score");
+  const overlay = root.querySelector("#game-overlay");
+  const overlayTitle = root.querySelector("#game-overlay-title");
+  const overlayText = root.querySelector("#game-overlay-text");
+  const startBtn = root.querySelector("#game-start");
+  const introStartBtn = document.querySelector("#game-start-intro");
+  const fullscreenBtn = root.querySelector("#game-fullscreen");
+  const trail = root.querySelector("#slice-trail");
+  const maxLives = 5;
+
+  const baseSpawnDelay = 1150;
+  const minSpawnDelay = 380;
+  const baseSpeed = 60;
+  const maxSpeed = 230;
+  const baseMaxActive = 3;
+  const maxMaxActive = 7;
+  const maxLevel = 15;
+  const correctPerLevel = 4;
+
+  const game = {
+    running: false,
+    score: 0,
+    lives: maxLives,
+    combo: 0,
+    correct: 0,
+    level: 1,
+    target: null,
+    active: [],
+    lastSpawn: 0,
+    lastTime: 0,
+    spawnDelay: baseSpawnDelay,
+    speed: baseSpeed,
+    maxActive: baseMaxActive,
+    pointerDown: false,
+    lastPoint: null,
+    raf: null
+  };
+
+  function bestScore() {
+    return safeGetNumber("sliceBestScore", 0);
+  }
+
+  function updateBestVisibility() {
+    const best = bestScore();
+    if (best > 0) {
+      bestBox.hidden = false;
+      bestEl.textContent = best;
+    } else {
+      bestBox.hidden = true;
+    }
+  }
+
+  function setLives() {
+    livesEl.textContent = "♥".repeat(game.lives) + "♡".repeat(maxLives - game.lives);
+  }
+
+  function setScore() {
+    scoreEl.textContent = game.score;
+  }
+
+  function setLevel() {
+    if (levelEl) levelEl.textContent = game.level;
+  }
+
+  function applyLevel() {
+    const progress = (game.level - 1) / (maxLevel - 1);
+    game.spawnDelay = Math.round(baseSpawnDelay - (baseSpawnDelay - minSpawnDelay) * progress);
+    game.speed = Math.round(baseSpeed + (maxSpeed - baseSpeed) * progress);
+    game.maxActive = Math.min(maxMaxActive, baseMaxActive + Math.floor((game.level - 1) / 2));
+    setLevel();
+  }
+
+  function registerWin() {
+    game.correct += 1;
+    const newLevel = Math.min(maxLevel, 1 + Math.floor(game.correct / correctPerLevel));
+    if (newLevel !== game.level) {
+      game.level = newLevel;
+      applyLevel();
+    }
+  }
+
+  function chooseTarget() {
+    const pool = game.active.length ? game.active.map((item) => item.sign) : signs;
+    game.target = pool[Math.floor(Math.random() * pool.length)];
+    targetEl.textContent = signField(game.target, "name");
+  }
+
+  function spawnSign() {
+    const sign = signs[Math.floor(Math.random() * signs.length)];
+    const node = document.createElement("button");
+    node.type = "button";
+    node.className = "falling-sign";
+    node.dataset.id = sign.id;
+    node.innerHTML = `${signSvg(sign)}<small>${sign.code}</small>`;
+    const rect = root.getBoundingClientRect();
+    const width = rect.width;
+    const x = Math.max(10, Math.random() * Math.max(20, width - 140));
+    const item = {
+      id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now() + Math.random()),
+      sign,
+      node,
+      x,
+      y: -170,
+      speed: game.speed + Math.random() * 25
+    };
+    stage.appendChild(node);
+    game.active.push(item);
+    if (!game.target || !game.active.some((active) => active.sign.id === game.target.id)) chooseTarget();
+  }
+
+  function loseLife() {
+    game.lives -= 1;
+    game.combo = 0;
+    setLives();
+    if (game.lives <= 0) endGame();
+  }
+
+  function removeItem(item) {
+    item.node.remove();
+    game.active = game.active.filter((active) => active !== item);
+  }
+
+  function cutItem(item) {
+    if (!game.running) return;
+    if (item.sign.id === game.target.id) {
+      const levelBonus = 1 + (game.level - 1) * 0.35;
+      const gained = Math.round(10 * Math.pow(2, game.combo) * levelBonus);
+      game.score += gained;
+      game.combo += 1;
+      registerWin();
+      removeItem(item);
+      setScore();
+      chooseTarget();
+    } else {
+      game.combo = 0;
+      removeItem(item);
+      loseLife();
+      chooseTarget();
+    }
+  }
+
+  function tick(time) {
+    if (!game.running) return;
+    if (!game.lastTime) game.lastTime = time;
+    const dt = Math.min(34, time - game.lastTime) / 1000;
+    game.lastTime = time;
+
+    if (time - game.lastSpawn > game.spawnDelay && game.active.length < game.maxActive) {
+      spawnSign();
+      game.lastSpawn = time;
+    }
+
+    const rootRect = root.getBoundingClientRect();
+    game.active.slice().forEach((item) => {
+      item.y += item.speed * dt;
+      item.node.style.transform = `translate(${item.x}px, ${item.y}px)`;
+      if (item.y > rootRect.height + 20) {
+        const wasTarget = item.sign.id === game.target?.id;
+        removeItem(item);
+        if (wasTarget) {
+          loseLife();
+          chooseTarget();
+        }
+      }
+    });
+
+    game.raf = requestAnimationFrame(tick);
+  }
+
+  function rootPoint(event) {
+    const rect = root.getBoundingClientRect();
+    return {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top
+    };
+  }
+
+  function drawTrail(a, b) {
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const length = Math.hypot(dx, dy);
+    if (length < 10) return;
+    const line = document.createElement("span");
+    line.className = "slice-line";
+    line.style.width = `${length}px`;
+    line.style.left = `${a.x}px`;
+    line.style.top = `${a.y}px`;
+    line.style.transform = `rotate(${Math.atan2(dy, dx)}rad)`;
+    trail.appendChild(line);
+    window.setTimeout(() => line.remove(), 180);
+  }
+
+  function pointNearSegment(point, a, b, tolerance) {
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const len2 = dx * dx + dy * dy;
+    if (!len2) return Math.hypot(point.x - a.x, point.y - a.y) <= tolerance;
+    const tVal = Math.max(0, Math.min(1, ((point.x - a.x) * dx + (point.y - a.y) * dy) / len2));
+    const x = a.x + tVal * dx;
+    const y = a.y + tVal * dy;
+    return Math.hypot(point.x - x, point.y - y) <= tolerance;
+  }
+
+  function checkCuts(a, b) {
+    const rootRect = root.getBoundingClientRect();
+    game.active.slice().forEach((item) => {
+      const rect = item.node.getBoundingClientRect();
+      const center = {
+        x: rect.left - rootRect.left + rect.width / 2,
+        y: rect.top - rootRect.top + rect.height / 2
+      };
+      const tolerance = Math.max(rect.width, rect.height) * 0.46;
+      if (pointNearSegment(center, a, b, tolerance)) cutItem(item);
+    });
+  }
+
+  function startGame() {
+    if (shell) shell.hidden = false;
+    if (intro) intro.hidden = true;
+    game.running = true;
+    game.score = 0;
+    game.lives = maxLives;
+    game.combo = 0;
+    game.correct = 0;
+    game.level = 1;
+    game.active.forEach((item) => item.node.remove());
+    game.active = [];
+    game.target = null;
+    game.lastSpawn = 0;
+    game.lastTime = 0;
+    applyLevel();
+    overlay.hidden = true;
+    setScore();
+    setLives();
+    updateBestVisibility();
+    spawnSign();
+    chooseTarget();
+    game.raf = requestAnimationFrame(tick);
+  }
+
+  function endGame() {
+    game.running = false;
+    cancelAnimationFrame(game.raf);
+    const previousBest = bestScore();
+    if (game.score > previousBest) {
+      safeSetNumber("sliceBestScore", game.score);
+    }
+    updateBestVisibility();
+    overlayTitle.textContent = t("game_over_title");
+    overlayText.textContent = t("game_over_text", { score: game.score });
+    startBtn.textContent = t("game_replay_btn");
+    overlay.hidden = false;
+  }
+
+  root.addEventListener("pointerdown", (event) => {
+    if (!game.running) return;
+    if (event.target.closest(".game-hud")) return;
+    game.pointerDown = true;
+    game.lastPoint = rootPoint(event);
+    root.setPointerCapture(event.pointerId);
+  });
+
+  root.addEventListener("pointermove", (event) => {
+    if (!game.running || !game.pointerDown || !game.lastPoint) return;
+    const next = rootPoint(event);
+    drawTrail(game.lastPoint, next);
+    checkCuts(game.lastPoint, next);
+    game.lastPoint = next;
+  });
+
+  function stopPointer() {
+    game.pointerDown = false;
+    game.lastPoint = null;
+  }
+
+  root.addEventListener("pointerup", stopPointer);
+  root.addEventListener("pointercancel", stopPointer);
+  startBtn.addEventListener("click", startGame);
+  if (introStartBtn) introStartBtn.addEventListener("click", startGame);
+  if (fullscreenBtn) {
+    fullscreenBtn.addEventListener("click", async () => {
+      const target = shell || root;
+      const isExpanded = target.classList.contains("is-expanded") || Boolean(document.fullscreenElement);
+      if (isExpanded) {
+        target.classList.remove("is-expanded");
+        await document.exitFullscreen().catch(() => {});
+        return;
+      }
+      target.classList.add("is-expanded");
+      if (target.requestFullscreen) {
+        await target.requestFullscreen().catch(() => {});
+      }
+    });
+    document.addEventListener("fullscreenchange", () => {
+      if (!document.fullscreenElement && shell) shell.classList.remove("is-expanded");
+    });
+  }
+  updateBestVisibility();
+  setScore();
+  setLives();
+  setLevel();
+  overlay.hidden = true;
+}
+
+initSliceGame();
+
+    </script>
+  </body>
+</html>

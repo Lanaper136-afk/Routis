@@ -1,0 +1,888 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Code de la route : examens blancs gratuits en ligne (40 questions)</title>
+    <meta name="description" content="Passe un examen blanc du code de la route gratuit en ligne : 40 questions, minuteur officiel, correction détaillée par thème, comme le vrai examen ETG." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Code de la route : examens blancs gratuits en ligne" />
+    <meta property="og:description" content="Passe un examen blanc du code de la route gratuit en ligne : 40 questions, minuteur officiel, correction détaillée par thème, comme le vrai examen ETG." />
+    <meta property="og:url" content="https://votresite.netlify.app/examens.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.quiz-knowledge-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 3rem;
+}
+
+.quiz-knowledge-badge span {
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* --- Exam start screen --- */
+.exam-start-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 18px;
+}
+
+.exam-intro-card {
+  padding: clamp(18px, 4vw, 30px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.exam-rules {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.exam-rules li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+
+.exam-rules li strong {
+  flex: 0 0 auto;
+}
+
+.exam-history-card {
+  padding: clamp(18px, 4vw, 24px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.exam-history-card h3 {
+  margin-top: 0;
+}
+
+.exam-history-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.exam-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-left-width: 4px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.exam-history-item.pass {
+  border-left-color: var(--green);
+}
+
+.exam-history-item.fail {
+  border-left-color: var(--red);
+}
+
+.exam-history-date {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.exam-history-status {
+  font-size: 0.82rem;
+}
+
+.exam-history-item.pass .exam-history-status {
+  color: var(--green);
+}
+
+.exam-history-item.fail .exam-history-status {
+  color: var(--red);
+}
+
+/* --- Running exam screen --- */
+.exam-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 900;
+}
+
+.exam-timer.urgent {
+  color: #fff;
+  background: var(--red);
+}
+
+.exam-progressbar {
+  height: 6px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  background: #eef3f8;
+  border-radius: 999px;
+}
+
+.exam-progressbar-fill {
+  height: 100%;
+  background: var(--blue);
+  transition: width 0.2s ease;
+}
+
+.answers button.selected {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.exam-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* --- Results screen --- */
+.exam-status-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 22px;
+  border-radius: 8px;
+}
+
+.exam-status-banner.pass {
+  color: #fff;
+  background: var(--green);
+}
+
+.exam-status-banner.fail {
+  color: #fff;
+  background: var(--red);
+}
+
+.exam-status-banner h2 {
+  margin: 0 0 4px;
+  color: inherit;
+}
+
+.exam-status-banner p {
+  margin: 0;
+  opacity: 0.92;
+}
+
+.exam-status-score {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.theme-recap-list {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 30px;
+}
+
+.theme-bar-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 220px) 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-bar-track {
+  height: 12px;
+  overflow: hidden;
+  background: #eef3f8;
+  border-radius: 999px;
+}
+
+.theme-bar-fill {
+  height: 100%;
+  background: var(--blue);
+  border-radius: 999px;
+}
+
+.theme-bar-fill.weak {
+  background: var(--red);
+}
+
+.theme-bar-fill.strong {
+  background: var(--green);
+}
+
+.theme-bar-score {
+  color: var(--muted);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.correction-list {
+  display: grid;
+  gap: 14px;
+}
+
+.correction-item {
+  padding: clamp(16px, 3vw, 22px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.correction-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.correction-head h4 {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.badge.badge-correct {
+  background: var(--green);
+}
+
+.badge.badge-wrong {
+  background: var(--red);
+}
+
+.correction-question {
+  margin: 0 0 12px;
+  font-weight: 800;
+}
+
+.correction-visual {
+  float: right;
+  width: 74px;
+  height: 74px;
+  margin: 0 0 10px 12px;
+}
+
+.correction-visual .sign-art {
+  width: 74px;
+  height: 74px;
+}
+
+.correction-answers {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.correction-answers .your-answer.wrong-answer {
+  color: var(--red);
+}
+
+.correction-answers .your-answer.right-answer {
+  color: var(--green);
+}
+
+.correction-explanation {
+  clear: both;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.exam-results-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 26px 0 36px;
+}
+
+@media (max-width: 760px) {
+  .exam-start-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-bar-row {
+    grid-template-columns: 1fr;
+  }
+}
+    </style>
+  </head>
+  <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59PS7V3L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false">
+            <circle class="tire-outer" cx="24" cy="24" r="16" />
+            <circle class="tire-inner" cx="24" cy="24" r="7" />
+            <path class="tire-tread" d="M24 8v7M24 33v7M8 24h7M33 24h7M12.7 12.7l5 5M30.3 30.3l5 5M35.3 12.7l-5 5M17.7 30.3l-5 5" />
+          </svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a class="active" href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow" data-i18n="examens_eyebrow_hero">Examens blancs</p>
+        <h1 data-i18n="examens_title">Teste-toi comme à l'auto-école</h1>
+        <p data-i18n="examens_desc">40 questions, 30 minutes chrono, 35 bonnes réponses pour être admis(e) : un examen blanc fidèle au vrai examen théorique général (ETG).</p>
+      </section>
+
+      <section class="section-shell" id="examen">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="examens_eyebrow_section">Examen blanc</p>
+            <h2 data-i18n="examens_heading">Simulation de l'ETG</h2>
+          </div>
+        </div>
+
+        <!-- Start screen -->
+        <div id="exam-start" class="exam-start-layout">
+          <div class="exam-intro-card">
+            <h3 data-i18n="exam_note_title">Mode examen</h3>
+            <ul class="exam-rules">
+              <li><strong>📝</strong><span data-i18n="exam_rule_count">40 questions tirées au hasard : reconnaissance de panneaux et connaissances générales, sur plusieurs thèmes officiels.</span></li>
+              <li><strong>⏱️</strong><span data-i18n="exam_rule_time">30 minutes chronométrées pour l'ensemble de l'examen. Le temps écoulé passe automatiquement au résultat.</span></li>
+              <li><strong>✅</strong><span data-i18n="exam_rule_threshold">Admis(e) à partir de 35 bonnes réponses sur 40 (5 fautes maximum tolérées).</span></li>
+              <li><strong>🙈</strong><span data-i18n="exam_rule_no_feedback">Pas de correction pendant l'examen, comme dans le vrai centre d'examen : tu découvres ton résultat à la fin.</span></li>
+            </ul>
+            <button class="button primary" id="exam-start-btn" type="button" data-i18n="exam_start_btn">Commencer l'examen blanc</button>
+          </div>
+          <div class="exam-history-card">
+            <h3 data-i18n="exam_history_title">Tes derniers examens</h3>
+            <ul class="exam-history-list" id="exam-history-list"></ul>
+          </div>
+        </div>
+
+        <!-- Running exam screen -->
+        <div id="exam-running" class="quiz-layout" hidden>
+          <div class="quiz-board">
+            <div class="quiz-topline">
+              <span id="exam-progress-label">Question 1/40</span>
+              <span class="exam-timer" id="exam-timer"><span aria-hidden="true">⏱️</span><span id="exam-timer-value">30:00</span></span>
+            </div>
+            <div class="exam-progressbar"><div class="exam-progressbar-fill" id="exam-progressbar-fill"></div></div>
+            <div class="quiz-sign" id="exam-visual"></div>
+            <h3 id="exam-question">Question</h3>
+            <div class="answers" id="exam-answers"></div>
+            <div class="exam-actions">
+              <span class="muted" id="exam-skip-hint" data-i18n="exam_skip_hint">Une question laissée sans réponse compte comme une erreur.</span>
+              <button class="button primary" id="exam-next-btn" type="button" data-i18n="exam_next_btn">Question suivante</button>
+            </div>
+          </div>
+          <aside class="exam-note">
+            <h3 data-i18n="exam_note_title">Mode examen</h3>
+            <p data-i18n="exam_note_p1">
+              40 questions, panneaux ET connaissances générales mélangés, couvrant plusieurs thèmes de l'examen officiel — comme dans un vrai centre d'examen.
+            </p>
+            <p data-i18n="exam_note_p2">
+              Conseil : gère ton temps, ne bloque pas trop longtemps sur une question. Tu pourras revoir chaque réponse en détail une fois l'examen terminé.
+            </p>
+          </aside>
+        </div>
+
+        <!-- Results screen -->
+        <div id="exam-results" hidden>
+          <div class="exam-status-banner" id="exam-status-banner">
+            <div>
+              <h2 id="exam-status-label">ADMIS(E)</h2>
+              <p id="exam-threshold-note" data-i18n="exam_threshold_note">Seuil de réussite : 35/40 (5 fautes maximum).</p>
+            </div>
+            <div class="exam-status-score" id="exam-score-line">37/40</div>
+          </div>
+
+          <h3 data-i18n="exam_theme_recap_title">Résultats par thème</h3>
+          <div class="theme-recap-list" id="exam-theme-recap"></div>
+
+          <div class="exam-results-actions">
+            <button class="button primary" id="exam-restart-btn" type="button" data-i18n="exam_new_btn">Nouvel examen</button>
+          </div>
+
+          <h3 data-i18n="exam_correction_title">Correction détaillée</h3>
+          <p class="muted" data-i18n="exam_correction_hint">Relis chaque question, surtout celles ratées, pour progresser.</p>
+          <div class="correction-list" id="exam-correction-list"></div>
+
+          <div class="exam-results-actions">
+            <button class="button primary" id="exam-restart-btn-bottom" type="button" data-i18n="exam_new_btn">Nouvel examen</button>
+          </div>
+
+          <div class="exam-history-card">
+            <h3 data-i18n="exam_history_title">Tes derniers examens</h3>
+            <ul class="exam-history-list" id="exam-history-list-results"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+const EXAM_TOTAL_QUESTIONS = 40;
+const EXAM_SIGN_QUESTIONS = 8;
+const EXAM_DURATION_SECONDS = 30 * 60;
+const EXAM_PASS_THRESHOLD = 35;
+const EXAM_HISTORY_LIMIT = 10;
+
+const examState = {
+  screen: "start",
+  questions: [],
+  answers: [],
+  index: 0,
+  secondsLeft: EXAM_DURATION_SECONDS,
+  timerId: null,
+  lastResults: null
+};
+
+function shuffle(items) {
+  return [...items].sort(() => Math.random() - 0.5);
+}
+
+function formatClock(totalSeconds) {
+  const safeSeconds = Math.max(0, totalSeconds);
+  const minutes = Math.floor(safeSeconds / 60);
+  const seconds = safeSeconds % 60;
+  return `${minutes}:${String(seconds).padStart(2, "0")}`;
+}
+
+function buildSignQuestion(sign) {
+  const distractors = shuffle(signs.filter((item) => item.id !== sign.id)).slice(0, 3);
+  const allSigns = shuffle([sign, ...distractors]);
+  const correctIndex = allSigns.findIndex((item) => item.id === sign.id);
+  return {
+    id: `sign-${sign.id}`,
+    type: "sign",
+    theme: "signalisation",
+    signRef: sign,
+    question: t("quiz_question"),
+    options: allSigns.map((item) => signField(item, "name")),
+    correctIndex,
+    explanation: signField(sign, "text")
+  };
+}
+
+function buildKnowledgeQuestion(source) {
+  const optionTexts = signField(source, "options");
+  const shuffledOptions = shuffle(optionTexts.map((text, idx) => ({ text, correct: idx === source.correctIndex })));
+  const correctIndex = shuffledOptions.findIndex((option) => option.correct);
+  return {
+    id: source.id,
+    type: "knowledge",
+    theme: source.theme,
+    question: signField(source, "question"),
+    options: shuffledOptions.map((option) => option.text),
+    correctIndex,
+    explanation: signField(source, "explanation")
+  };
+}
+
+function buildExamQuestions() {
+  const signCount = Math.min(EXAM_SIGN_QUESTIONS, signs.length);
+  const knowledgeCount = Math.min(EXAM_TOTAL_QUESTIONS - signCount, knowledgeQuestions.length);
+  const chosenSigns = shuffle(signs).slice(0, signCount).map(buildSignQuestion);
+  const chosenKnowledge = shuffle(knowledgeQuestions).slice(0, knowledgeCount).map(buildKnowledgeQuestion);
+  return shuffle([...chosenSigns, ...chosenKnowledge]);
+}
+
+function setScreen(name) {
+  examState.screen = name;
+  const start = document.querySelector("#exam-start");
+  const running = document.querySelector("#exam-running");
+  const results = document.querySelector("#exam-results");
+  if (start) start.hidden = name !== "start";
+  if (running) running.hidden = name !== "running";
+  if (results) results.hidden = name !== "results";
+}
+
+function startExam() {
+  if (examState.timerId) window.clearInterval(examState.timerId);
+  examState.questions = buildExamQuestions();
+  examState.answers = examState.questions.map(() => null);
+  examState.index = 0;
+  examState.secondsLeft = EXAM_DURATION_SECONDS;
+  examState.lastResults = null;
+  setScreen("running");
+  renderRunning();
+  examState.timerId = window.setInterval(tickTimer, 1000);
+}
+
+function tickTimer() {
+  examState.secondsLeft -= 1;
+  if (examState.secondsLeft <= 0) {
+    examState.secondsLeft = 0;
+    updateTimerDisplay();
+    finishExam();
+    return;
+  }
+  updateTimerDisplay();
+}
+
+function updateTimerDisplay() {
+  const timerValue = document.querySelector("#exam-timer-value");
+  const timer = document.querySelector("#exam-timer");
+  if (timerValue) timerValue.textContent = formatClock(examState.secondsLeft);
+  if (timer) timer.classList.toggle("urgent", examState.secondsLeft <= 60);
+}
+
+function renderRunning() {
+  const current = examState.questions[examState.index];
+  if (!current) return;
+
+  const progressLabel = document.querySelector("#exam-progress-label");
+  const progressFill = document.querySelector("#exam-progressbar-fill");
+  const visual = document.querySelector("#exam-visual");
+  const question = document.querySelector("#exam-question");
+  const answers = document.querySelector("#exam-answers");
+  const nextBtn = document.querySelector("#exam-next-btn");
+
+  if (progressLabel) progressLabel.textContent = t("quiz_step", { current: examState.index + 1, total: examState.questions.length });
+  if (progressFill) progressFill.style.width = `${Math.round(((examState.index + 1) / examState.questions.length) * 100)}%`;
+  updateTimerDisplay();
+
+  if (visual) {
+    visual.innerHTML = current.type === "sign"
+      ? signSvg(current.signRef)
+      : `<div class="quiz-knowledge-badge">🧠<span>${t("quiz_knowledge_label")}</span></div>`;
+  }
+  if (question) question.textContent = current.question;
+
+  const selected = examState.answers[examState.index];
+  if (answers) {
+    answers.innerHTML = current.options.map((text, idx) => `
+      <button type="button" data-index="${idx}" class="${selected === idx ? "selected" : ""}">${text}</button>
+    `).join("");
+  }
+
+  if (nextBtn) {
+    nextBtn.textContent = examState.index === examState.questions.length - 1 ? t("exam_finish_btn") : t("exam_next_btn");
+  }
+}
+
+function selectAnswer(index) {
+  examState.answers[examState.index] = index;
+  const answers = document.querySelector("#exam-answers");
+  if (!answers) return;
+  [...answers.querySelectorAll("button")].forEach((button) => {
+    button.classList.toggle("selected", Number(button.dataset.index) === index);
+  });
+}
+
+function goNext() {
+  if (examState.index >= examState.questions.length - 1) {
+    finishExam();
+    return;
+  }
+  examState.index += 1;
+  renderRunning();
+}
+
+function computeResults() {
+  const perQuestion = examState.questions.map((question, idx) => {
+    const selected = examState.answers[idx];
+    const isCorrect = selected !== null && selected !== undefined && selected === question.correctIndex;
+    return { question, selected, isCorrect };
+  });
+  // Feed the per-theme/per-family stats and the spaced-repetition boxes
+  // (qStats / signStats) even for the mock exam, so progression.html's
+  // "weak themes" view stays accurate — the exam's own random draw is
+  // untouched, only this tracking is added.
+  perQuestion.forEach((item) => {
+    const q = item.question;
+    if (q.type === "sign") {
+      recordSignAnswer(q.signRef.id, q.signRef.family, item.isCorrect);
+    } else {
+      recordQuestionAnswer(q.id, q.theme, item.isCorrect);
+    }
+  });
+  const score = perQuestion.filter((item) => item.isCorrect).length;
+  const total = examState.questions.length;
+  const passed = score >= EXAM_PASS_THRESHOLD;
+  const themeStats = {};
+  perQuestion.forEach((item) => {
+    const key = item.question.theme;
+    if (!themeStats[key]) themeStats[key] = { correct: 0, total: 0 };
+    themeStats[key].total += 1;
+    if (item.isCorrect) themeStats[key].correct += 1;
+  });
+  return { perQuestion, score, total, passed, themeStats, date: new Date().toISOString() };
+}
+
+function saveHistory(results) {
+  const history = safeGetJSON("examHistory", []);
+  history.unshift({ date: results.date, score: results.score, total: results.total, passed: results.passed });
+  safeSetJSON("examHistory", history.slice(0, EXAM_HISTORY_LIMIT));
+}
+
+function finishExam() {
+  if (examState.timerId) {
+    window.clearInterval(examState.timerId);
+    examState.timerId = null;
+  }
+  const results = computeResults();
+  examState.lastResults = results;
+  saveHistory(results);
+  setScreen("results");
+  renderResults();
+}
+
+function themeLabel(theme) {
+  const key = `theme_${theme}`;
+  const label = t(key);
+  return label === key ? theme : label;
+}
+
+function renderResults() {
+  const results = examState.lastResults;
+  if (!results) return;
+
+  const banner = document.querySelector("#exam-status-banner");
+  const statusLabel = document.querySelector("#exam-status-label");
+  const scoreLine = document.querySelector("#exam-score-line");
+  if (banner) banner.classList.toggle("pass", results.passed);
+  if (banner) banner.classList.toggle("fail", !results.passed);
+  if (statusLabel) statusLabel.textContent = results.passed ? t("exam_status_admis") : t("exam_status_ajourne");
+  if (scoreLine) scoreLine.textContent = t("exam_score_line", { score: results.score, total: results.total });
+
+  const themeRecap = document.querySelector("#exam-theme-recap");
+  if (themeRecap) {
+    const rows = Object.keys(results.themeStats).sort((a, b) => themeLabel(a).localeCompare(themeLabel(b)));
+    themeRecap.innerHTML = rows.map((theme) => {
+      const stat = results.themeStats[theme];
+      const percent = Math.round((stat.correct / stat.total) * 100);
+      const fillClass = percent >= 80 ? "strong" : percent < 50 ? "weak" : "";
+      return `
+        <div class="theme-bar-row">
+          <span>${themeLabel(theme)}</span>
+          <div class="theme-bar-track"><div class="theme-bar-fill ${fillClass}" style="width:${percent}%"></div></div>
+          <span class="theme-bar-score">${stat.correct}/${stat.total}</span>
+        </div>
+      `;
+    }).join("");
+  }
+
+  const correctionList = document.querySelector("#exam-correction-list");
+  if (correctionList) {
+    correctionList.innerHTML = results.perQuestion.map((item, idx) => {
+      const q = item.question;
+      const yourAnswerText = item.selected === null || item.selected === undefined ? t("exam_unanswered") : q.options[item.selected];
+      const yourAnswerClass = item.isCorrect ? "right-answer" : "wrong-answer";
+      const visual = q.type === "sign" ? `<div class="correction-visual">${signSvg(q.signRef)}</div>` : "";
+      return `
+        <article class="correction-item">
+          <div class="correction-head">
+            <h4>${t("quiz_step", { current: idx + 1, total: results.total })} · ${themeLabel(q.theme)}</h4>
+            <span class="badge ${item.isCorrect ? "badge-correct" : "badge-wrong"}">${item.isCorrect ? t("exam_badge_correct") : t("exam_badge_wrong")}</span>
+          </div>
+          ${visual}
+          <p class="correction-question">${q.question}</p>
+          <div class="correction-answers">
+            <span class="your-answer ${yourAnswerClass}">${t("exam_your_answer")} ${yourAnswerText}</span>
+            ${!item.isCorrect ? `<span class="right-answer">${t("exam_correct_answer")} ${q.options[q.correctIndex]}</span>` : ""}
+          </div>
+          <p class="correction-explanation">${q.explanation}</p>
+        </article>
+      `;
+    }).join("");
+  }
+
+  renderHistoryList("#exam-history-list-results");
+}
+
+function renderHistoryList(selector) {
+  const container = document.querySelector(selector);
+  if (!container) return;
+  const history = safeGetJSON("examHistory", []);
+  if (!history.length) {
+    container.innerHTML = `<li class="muted">${t("exam_history_empty")}</li>`;
+    return;
+  }
+  container.innerHTML = history.map((entry) => {
+    const entryDate = new Date(entry.date);
+    const dateLabel = Number.isNaN(entryDate.getTime())
+      ? ""
+      : `${String(entryDate.getDate()).padStart(2, "0")}/${String(entryDate.getMonth() + 1).padStart(2, "0")}`;
+    const statusLabel = entry.passed ? t("exam_status_admis") : t("exam_status_ajourne");
+    return `
+      <li class="exam-history-item ${entry.passed ? "pass" : "fail"}">
+        <span class="exam-history-date">${dateLabel}</span>
+        <span class="exam-history-score">${entry.score}/${entry.total}</span>
+        <span class="exam-history-status">${statusLabel}</span>
+      </li>
+    `;
+  }).join("");
+}
+
+function renderCurrentScreen() {
+  if (examState.screen === "start") {
+    renderHistoryList("#exam-history-list");
+  } else if (examState.screen === "running") {
+    renderRunning();
+  } else if (examState.screen === "results") {
+    renderResults();
+  }
+}
+
+const startBtn = document.querySelector("#exam-start-btn");
+if (startBtn) startBtn.addEventListener("click", startExam);
+
+const restartBtn = document.querySelector("#exam-restart-btn");
+if (restartBtn) restartBtn.addEventListener("click", startExam);
+
+const restartBtnBottom = document.querySelector("#exam-restart-btn-bottom");
+if (restartBtnBottom) restartBtnBottom.addEventListener("click", startExam);
+
+const nextBtn = document.querySelector("#exam-next-btn");
+if (nextBtn) nextBtn.addEventListener("click", goNext);
+
+const examAnswers = document.querySelector("#exam-answers");
+if (examAnswers) {
+  examAnswers.addEventListener("click", (event) => {
+    const button = event.target.closest("button");
+    if (!button) return;
+    selectAnswer(Number(button.dataset.index));
+  });
+}
+
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+    renderCurrentScreen();
+  });
+});
+
+applyStaticTranslations();
+setScreen("start");
+renderHistoryList("#exam-history-list");
+
+    </script>
+  </body>
+</html>

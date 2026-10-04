@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mises en situation Code de la route : simulations gratuites</title>
+    <meta name="description" content="Entraîne-toi avec des mises en situation réalistes (giratoire, dépassement, passage à niveau...) pour appliquer les règles du code de la route en ligne." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Mises en situation Code de la route : simulations gratuites" />
+    <meta property="og:description" content="Entraîne-toi avec des mises en situation réalistes (giratoire, dépassement, passage à niveau...) pour appliquer les règles du code de la route en ligne." />
+    <meta property="og:url" content="https://votresite.netlify.app/simulations.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.sim-card[hidden] {
+  display: none;
+}
+
+.sim-card-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.sim-level-badge {
+  display: inline-block;
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.sim-theme-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  color: var(--blue);
+  font-size: 0.78rem;
+  font-weight: 800;
+  background: #eaf1fc;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.generic-scene {
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #eaf1fc, #f4f8fc);
+}
+
+.generic-emoji {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.sim-actions button {
+  position: relative;
+  padding-left: 40px;
+}
+
+.sim-actions button::before {
+  content: attr(data-letter);
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  display: grid;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  place-items: center;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 900;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+}
+
+.sim-actions button.correct::before,
+.sim-actions button.wrong::before {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.25);
+  border-color: transparent;
+}
+
+.sim-explanation {
+  margin: 10px 0 0;
+  padding: 12px 14px;
+  color: var(--ink);
+  line-height: 1.55;
+  background: #f5f8fb;
+  border-left: 4px solid var(--blue);
+  border-radius: 4px;
+}
+
+.sim-explanation[hidden] {
+  display: none;
+}
+    </style>
+  </head>
+  <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59PS7V3L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false">
+            <circle class="tire-outer" cx="24" cy="24" r="16" />
+            <circle class="tire-inner" cx="24" cy="24" r="7" />
+            <path class="tire-tread" d="M24 8v7M24 33v7M8 24h7M33 24h7M12.7 12.7l5 5M30.3 30.3l5 5M35.3 12.7l-5 5M17.7 30.3l-5 5" />
+          </svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a class="active" href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow" data-i18n="sim_eyebrow_hero">Situations</p>
+        <h1 data-i18n="sim_title">Mini-simulations pour décider</h1>
+        <p data-i18n="sim_desc">Observe la scène, choisis le bon réflexe, puis retiens la règle de sécurité associée.</p>
+      </section>
+
+      <section class="section-shell" id="simulations">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="sim_eyebrow_section">Entraînement</p>
+            <h2 data-i18n="sim_heading">Décisions rapides</h2>
+          </div>
+        </div>
+        <div class="filters" aria-label="Choisir un niveau">
+          <button class="chip sim-level-chip active" data-level="1" data-i18n="sim_level1_chip">Niveau 1</button>
+          <button class="chip sim-level-chip" data-level="2" data-i18n="sim_level2_chip">Niveau 2</button>
+          <button class="chip sim-level-chip" data-level="3" data-i18n="sim_level3_chip">Niveau 3</button>
+        </div>
+        <div class="sim-grid" id="sim-grid"></div>
+      </section>
+    </main>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+const state = {
+  filter: "all",
+  examFilter: "all",
+  selected: signs[0],
+  status: safeGetJSON("signStatus", {}),
+  quiz: [],
+  quizIndex: 0,
+  score: 0,
+  streak: safeGetNumber("streak", 0),
+  best: safeGetNumber("bestScore", 0)
+};
+
+const grid = document.querySelector("#sign-grid");
+const searchInput = document.querySelector("#search-input");
+const preview = document.querySelector("#sign-preview");
+const previewFamily = document.querySelector("#preview-family");
+const previewTitle = document.querySelector("#preview-title");
+const previewText = document.querySelector("#preview-text");
+const previewTips = document.querySelector("#preview-tips");
+
+
+
+function renderGrid() {
+  if (!grid || !searchInput) return;
+  const query = searchInput.value.trim().toLowerCase();
+  const filtered = signs.filter((sign) => {
+    const matchesFilter = state.filter === "all" || sign.family === state.filter;
+    const haystack = `${signField(sign, "name")} ${sign.code} ${famLabel(sign.family)} ${signField(sign, "text")}`.toLowerCase();
+    return matchesFilter && haystack.includes(query);
+  });
+
+  grid.innerHTML = filtered.map((sign) => {
+    const st = state.status[sign.id];
+    const statusClass = st === "appris" ? "status-appris" : st === "revoir" ? "status-revoir" : st === "pas-appris" ? "status-pasappris" : "";
+    return `
+    <button class="sign-card ${statusClass}" type="button" data-id="${sign.id}" aria-label="${signField(sign, "name")}">
+      ${signSvg(sign)}
+      <span>
+        <span class="sign-name">${signField(sign, "name")}</span>
+        <span class="sign-family">${sign.code} - ${famLabel(sign.family)}</span>
+      </span>
+    </button>
+  `;
+  }).join("");
+}
+
+function selectSign(sign) {
+  if (!preview || !previewFamily || !previewTitle || !previewText || !previewTips) return;
+  state.selected = sign;
+  preview.innerHTML = signSvg(sign);
+  previewFamily.textContent = `${sign.code} - ${famLabel(sign.family)}`;
+  previewTitle.textContent = signField(sign, "name");
+  previewText.textContent = signField(sign, "text");
+  previewTips.innerHTML = signField(sign, "tips").map((tip) => `<li>${tip}</li>`).join("");
+  const currentStatus = state.status[sign.id] || "pas-appris";
+  document.querySelectorAll(".status-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.status === currentStatus);
+  });
+}
+
+function updateStats() {
+  const knownCount = document.querySelector("#known-count");
+  const bestScore = document.querySelector("#best-score");
+  const streakCount = document.querySelector("#streak-count");
+  const learnedCount = Object.values(state.status).filter((value) => value === "appris").length;
+  if (knownCount) knownCount.textContent = learnedCount;
+  if (bestScore) bestScore.textContent = `${state.best}%`;
+  if (streakCount) streakCount.textContent = state.streak;
+  safeSetJSON("signStatus", state.status);
+  safeSetNumber("bestScore", state.best);
+  safeSetNumber("streak", state.streak);
+  renderLearnedReveal();
+}
+
+function renderLearnedReveal() {
+  const list = document.querySelector("#learned-list");
+  if (!list) return;
+  const learnedSigns = signs.filter((sign) => state.status[sign.id] === "appris");
+  list.innerHTML = learnedSigns.length
+    ? learnedSigns.map((sign) => `
+      <div class="learned-item">
+        ${signSvg(sign)}
+        <span>
+          <span class="sign-name">${signField(sign, "name")}</span>
+          <span class="sign-family">${sign.code} - ${famLabel(sign.family)}</span>
+        </span>
+      </div>
+    `).join("")
+    : `<p class="muted">${t("learned_empty")}</p>`;
+}
+
+function shuffle(items) {
+  return [...items].sort(() => Math.random() - 0.5);
+}
+
+function startQuiz() {
+  if (!document.querySelector("#quiz-sign")) return;
+  const pool = state.examFilter === "all" ? signs : signs.filter((sign) => sign.family === state.examFilter);
+  state.quiz = shuffle(pool).slice(0, Math.min(10, pool.length));
+  state.quizIndex = 0;
+  state.score = 0;
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const current = state.quiz[state.quizIndex];
+  if (!current) return;
+  const options = shuffle([
+    current,
+    ...shuffle(signs.filter((sign) => sign.id !== current.id)).slice(0, 3)
+  ]);
+  document.querySelector("#quiz-step").textContent = t("quiz_step", { current: state.quizIndex + 1, total: state.quiz.length });
+  document.querySelector("#quiz-score").textContent = t("quiz_score", { score: state.score });
+  document.querySelector("#quiz-sign").innerHTML = signSvg(current);
+  document.querySelector("#quiz-question").textContent = t("quiz_question");
+  document.querySelector("#feedback").textContent = "";
+  document.querySelector("#answers").innerHTML = options.map((option) => `
+    <button type="button" data-id="${option.id}">${signField(option, "name")}</button>
+  `).join("");
+}
+
+function handleAnswer(button) {
+  const current = state.quiz[state.quizIndex];
+  const isCorrect = button.dataset.id === current.id;
+  const buttons = [...document.querySelectorAll("#answers button")];
+  buttons.forEach((item) => {
+    item.disabled = true;
+    if (item.dataset.id === current.id) item.classList.add("correct");
+  });
+  if (!isCorrect) button.classList.add("wrong");
+
+  if (isCorrect) {
+    state.score += 1;
+    state.streak += 1;
+    document.querySelector("#feedback").textContent = t("feedback_correct");
+  } else {
+    state.streak = 0;
+    document.querySelector("#feedback").textContent = t("feedback_wrong", { name: signField(current, "name") });
+  }
+  updateStats();
+
+  window.setTimeout(() => {
+    state.quizIndex += 1;
+    if (state.quizIndex >= state.quiz.length) {
+      const percent = Math.round((state.score / state.quiz.length) * 100);
+      state.best = Math.max(state.best, percent);
+      updateStats();
+      const finalScore = document.querySelector("#final-score");
+      const dialog = document.querySelector("#completion-dialog");
+      if (finalScore) finalScore.textContent = t("final_score", { score: state.score, total: state.quiz.length, percent });
+      if (dialog) dialog.showModal();
+      startQuiz();
+    } else {
+      renderQuestion();
+    }
+  }, 900);
+}
+
+document.querySelectorAll(".chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".chip").forEach((item) => item.classList.remove("active"));
+    chip.classList.add("active");
+    state.filter = chip.dataset.filter;
+    renderGrid();
+  });
+});
+
+document.querySelectorAll(".exam-chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".exam-chip").forEach((item) => item.classList.remove("active"));
+    chip.classList.add("active");
+    state.examFilter = chip.dataset.examfilter;
+    startQuiz();
+  });
+});
+
+if (grid) {
+  grid.addEventListener("click", (event) => {
+    const card = event.target.closest(".sign-card");
+    if (!card) return;
+    const sign = signs.find((item) => item.id === card.dataset.id);
+    selectSign(sign);
+    document.querySelector(".learn-panel").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+}
+
+if (searchInput) searchInput.addEventListener("input", renderGrid);
+
+document.querySelectorAll(".status-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (!state.selected) return;
+    state.status[state.selected.id] = btn.dataset.status;
+    selectSign(state.selected);
+    renderGrid();
+    updateStats();
+  });
+});
+
+const learnedToggle = document.querySelector("#learned-toggle");
+const learnedReveal = document.querySelector("#learned-reveal");
+if (learnedToggle && learnedReveal) {
+  learnedToggle.addEventListener("click", () => {
+    const isHidden = learnedReveal.hasAttribute("hidden");
+    const hint = document.querySelector("#toggle-hint");
+    if (isHidden) {
+      renderLearnedReveal();
+      learnedReveal.removeAttribute("hidden");
+      learnedToggle.setAttribute("aria-expanded", "true");
+      if (hint) hint.textContent = t("toggle_hide");
+    } else {
+      learnedReveal.setAttribute("hidden", "");
+      learnedToggle.setAttribute("aria-expanded", "false");
+      if (hint) hint.textContent = t("toggle_show");
+    }
+  });
+}
+
+const newQuizButton = document.querySelector("#new-quiz");
+if (newQuizButton) newQuizButton.addEventListener("click", startQuiz);
+
+const answers = document.querySelector("#answers");
+if (answers) {
+  answers.addEventListener("click", (event) => {
+    const button = event.target.closest("button");
+    if (button) handleAnswer(button);
+  });
+}
+
+// ---------------------------------------------------------------------
+// Mises en situation (simulations.html) : 22 scenarios, 4 options chacun,
+// une seule conforme au code de la route. La bonne réponse est répartie
+// volontairement sur les 4 positions pour ne pas être devinable par la
+// position du bouton. Contenu en français uniquement (comme les questions
+// de connaissances d'examens.html), seule l'interface change de langue.
+const simulations = [
+  {
+    id: "stop", theme: "circulation", level: 2, icon: "🛑",
+    title: "Intersection avec panneau STOP",
+    question: "La voiture A arrive à un STOP. Aucun panneau ne signale la route qu'elle croise. Que doit-elle faire ?",
+    options: [
+      "Marquer un arrêt total, même si la voie semble libre, puis s'engager si aucun véhicule n'approche",
+      "S'arrêter uniquement si elle voit un véhicule arriver",
+      "Ralentir fortement sans s'arrêter complètement, comme à un cédez-le-passage",
+      "S'arrêter, mais pouvoir repartir dès que le compteur affiche 0 km/h même si un véhicule approche"
+    ],
+    correctIndex: 0,
+    explanation: "Le panneau STOP impose un arrêt total et complet du véhicule, roues immobiles, même si aucune circulation n'est visible. C'est la différence essentielle avec le cédez-le-passage, qui permet de ne pas s'arrêter si la voie est réellement libre : confondre les deux est un piège classique de l'examen."
+  },
+  {
+    id: "zone30", theme: "circulation", level: 1, icon: "🚸",
+    title: "Zone 30 avec piétons",
+    question: "Tu entres dans une zone 30 où des piétons se trouvent entre des véhicules stationnés. Quel est le bon réflexe ?",
+    options: [
+      "Rouler à 30 km/h suffit, aucune autre précaution n'est nécessaire",
+      "Ralentir sous 30 km/h si besoin et rester attentif aux enfants pouvant surgir entre les véhicules stationnés",
+      "Garder 50 km/h car c'est la vitesse par défaut en agglomération",
+      "Accélérer légèrement pour dégager rapidement la zone à risque"
+    ],
+    correctIndex: 1,
+    explanation: "Respecter la limite de 30 km/h est un plafond, pas une garantie de sécurité : il faut adapter sa vitesse à la situation réelle et rester prêt à s'arrêter, notamment quand la visibilité est réduite par des véhicules stationnés."
+  },
+  {
+    id: "roundabout", theme: "circulation", level: 2, icon: "🔄",
+    title: "Entrée dans un rond-point",
+    question: "Au rond-point, la voiture D est à l'entrée avec un panneau cédez-le-passage. La voiture E circule dans l'anneau mais met son clignotant pour sortir juste avant l'arrivée de D. D peut-elle s'engager ?",
+    options: [
+      "Oui, puisque E va sortir avant, D peut s'engager sans attendre",
+      "Oui, car D est arrivée en premier à l'entrée du rond-point",
+      "Non, D doit céder le passage à E tant qu'elle circule dans l'anneau, quel que soit son clignotant",
+      "Cela dépend uniquement de la taille du rond-point"
+    ],
+    correctIndex: 2,
+    explanation: "Un clignotant n'annule jamais la priorité d'un véhicule déjà engagé dans l'anneau : il indique une intention, pas un engagement immédiat. Tant qu'elle n'est pas sortie, E reste prioritaire sur D."
+  },
+  {
+    id: "overtake", theme: "circulation", level: 2, icon: "🚫",
+    title: "Doubler avant un virage sans visibilité",
+    question: "La ligne est continue et le virage devant toi est sans visibilité. La voiture F devant toi roule très lentement (tracteur agricole). Peux-tu la doubler ?",
+    options: [
+      "Oui, car F roule très lentement",
+      "Oui, si tu klaxonnes avant de te déporter",
+      "Oui, mais seulement de nuit, les phares compensant le manque de visibilité",
+      "Non, doubler est interdit tant que la ligne est continue, quelle que soit la lenteur du véhicule qui précède"
+    ],
+    correctIndex: 3,
+    explanation: "Une ligne continue interdit tout franchissement pour dépasser, sans exception liée à la vitesse du véhicule suivi, au klaxon ou à l'heure de la journée : elle signale un danger ou un manque de visibilité qui reste vrai en toutes circonstances."
+  },
+  {
+    id: "crossing", theme: "circulation", level: 1, icon: "🚂",
+    title: "Passage à niveau qui se ferme",
+    question: "Les barrières d'un passage à niveau commencent à s'abaisser pendant que tu approches. Que fais-tu ?",
+    options: [
+      "S'arrêter avant la barrière dès qu'elle commence à s'abaisser ou que les feux clignotent, sans attendre qu'elle soit totalement fermée",
+      "Accélérer pour passer avant la fermeture complète",
+      "Klaxonner et attendre de voir le train avant de s'arrêter",
+      "Continuer tant qu'aucune barrière n'est encore posée au sol"
+    ],
+    correctIndex: 0,
+    explanation: "Il faut s'arrêter dès le début de la fermeture ou dès que les feux rouges clignotent, sans attendre la fermeture complète ni chercher à voir le train : à ce stade, franchir la voie est déjà interdit et extrêmement dangereux."
+  },
+  {
+    id: "parking", theme: "reglementation", level: 1, icon: "🅿️",
+    title: "Stationnement près d'un passage piéton",
+    question: "Une place semble libre juste avant un passage piéton, sans aucun panneau d'interdiction visible à cet endroit précis. Peux-tu t'y garer ?",
+    options: [
+      "Oui, s'il reste un espace visuellement libre juste avant le passage piéton",
+      "Non, le stationnement est interdit sur les 5 mètres précédant le passage piéton dans le sens de la circulation, même sans panneau spécifique",
+      "Oui, à condition de rester moins de 5 minutes",
+      "Non, mais seulement si un panneau l'indique explicitement à cet endroit"
+    ],
+    correctIndex: 1,
+    explanation: "Le code de la route interdit le stationnement sur les 5 mètres en amont d'un passage piéton (dans le sens de circulation), afin que les piétons qui s'apprêtent à traverser restent visibles des conducteurs qui arrivent. Cette règle s'applique même sans panneau, aucune tolérance de durée n'existe."
+  },
+  {
+    id: "fog", theme: "conducteur", level: 1, icon: "🌫️",
+    title: "Conduite de nuit sous le brouillard",
+    question: "Tu roules de nuit avec un brouillard épais. Quel réflexe adopter ?",
+    options: [
+      "Garder les feux de route (pleins phares) allumés pour voir plus loin",
+      "Utiliser uniquement les feux de position pour ne pas éblouir les autres",
+      "Utiliser les feux de croisement ou antibrouillard, réduire sa vitesse et augmenter les distances de sécurité",
+      "Suivre de très près le véhicule qui précède pour se repérer sur ses feux arrière"
+    ],
+    correctIndex: 2,
+    explanation: "Les feux de route se reflètent sur les gouttelettes de brouillard et réduisent la visibilité au lieu de l'améliorer : il faut utiliser feux de croisement ou antibrouillard, ralentir et augmenter les distances de sécurité. Les feux de position seuls sont insuffisants, et coller le véhicule qui précède est dangereux."
+  },
+  {
+    id: "priority-right", theme: "circulation", level: 3, icon: "🔀",
+    title: "Carrefour sans aucun panneau",
+    question: "Aucun panneau ne règle ce carrefour. La voiture J arrive à ta droite au même moment que toi (voiture K), sur une route qui semble plus large que la tienne. Que fais-tu ?",
+    options: [
+      "K passe en premier car il roule sur la route la plus large",
+      "Le premier arrivé au carrefour est prioritaire, peu importe le côté",
+      "Le véhicule le plus rapide doit accélérer pour passer avant l'autre",
+      "K doit céder le passage à J qui vient de sa droite, en l'absence de tout panneau"
+    ],
+    correctIndex: 3,
+    explanation: "En l'absence de toute signalisation, la priorité à droite s'applique strictement, quelle que soit la largeur apparente des routes ou l'ordre d'arrivée : c'est un des pièges les plus fréquents de l'examen théorique."
+  },
+  {
+    id: "merge", theme: "circulation", level: 3, icon: "🛣️",
+    title: "Insertion sur voie rapide",
+    question: "Tu arrives par la voie d'accélération et la voiture M circule déjà sur la voie principale. Comment t'insères-tu ?",
+    options: [
+      "Adapter sa vitesse au trafic de la voie principale et s'insérer dès qu'un espace suffisant se présente, sans s'arrêter sur la voie d'accélération",
+      "S'arrêter sur la voie d'accélération pour laisser passer tout le trafic avant de s'insérer",
+      "Forcer le passage, car les véhicules de la voie principale doivent lui céder le passage",
+      "Rester sur la voie d'accélération le plus longtemps possible pour trouver l'espace idéal"
+    ],
+    correctIndex: 0,
+    explanation: "Il faut utiliser la voie d'accélération pour adapter sa vitesse à celle du trafic et s'insérer dès qu'un espace suffisant apparaît. S'y arrêter est dangereux (les véhicules derrière ne s'y attendent pas), et ce sont les véhicules qui s'insèrent qui doivent s'adapter au trafic déjà engagé, pas l'inverse."
+  },
+  {
+    id: "blindspot", theme: "conducteur", level: 3, icon: "🏍️",
+    title: "Angle mort avant un changement de voie",
+    question: "Tu veux changer de voie. Tes rétroviseurs ne montrent rien mais un deux-roues peut se trouver dans ton angle mort. Que fais-tu avant de tourner le volant ?",
+    options: [
+      "Se fier uniquement au rétroviseur intérieur",
+      "Vérifier les rétroviseurs latéraux puis tourner brièvement la tête pour contrôler l'angle mort avant de se rabattre",
+      "Mettre le clignotant et se rabattre immédiatement, aux autres de s'adapter",
+      "Vérifier uniquement le rétroviseur extérieur du côté où l'on tourne, sans tourner la tête"
+    ],
+    correctIndex: 1,
+    explanation: "Aucun rétroviseur ne couvre entièrement l'angle mort : un rapide coup d'œil par-dessus l'épaule reste indispensable avant tout changement de voie, en plus des rétroviseurs, surtout pour repérer un deux-roues plus petit et plus rapide qu'une voiture."
+  },
+  {
+    id: "bus-stop", theme: "usagers", level: 2, icon: "🚌",
+    title: "Un bus quitte son arrêt",
+    question: "En agglomération, un autobus signale son intention de quitter un arrêt marqué juste devant toi. Que dois-tu faire ?",
+    options: [
+      "Accélérer pour le dépasser avant qu'il ne redémarre",
+      "Cette règle ne s'applique qu'aux transports scolaires",
+      "Céder le passage au bus qui a signalé son intention de quitter l'arrêt, en ralentissant ou en s'arrêtant si nécessaire",
+      "Le bus doit toujours attendre que la voie soit totalement libre avant de démarrer, ce n'est pas à toi de céder"
+    ],
+    correctIndex: 2,
+    explanation: "En agglomération, tout conducteur doit céder le passage à un autobus (ou autocar) qui a signalé, depuis un arrêt marqué, son intention de repartir, en ralentissant ou en s'arrêtant si nécessaire pour le laisser se réinsérer. C'est une règle précise et souvent méconnue, valable pour tous les bus, pas seulement les cars scolaires."
+  },
+  {
+    id: "emergency", theme: "secours", level: 2, icon: "🚨",
+    title: "Véhicule prioritaire en approche",
+    question: "Un véhicule prioritaire (pompiers, SAMU, police) approche d'une intersection tous avertisseurs sonores et lumineux activés. Le feu est vert pour toi. Que fais-tu ?",
+    options: [
+      "Continuer normalement puisque le feu est vert pour toi",
+      "Accélérer pour dégager le carrefour avant qu'il n'arrive",
+      "S'arrêter uniquement s'il est directement derrière toi",
+      "Faciliter son passage en te rangeant si possible, même en cas de feu vert ou de priorité en ta faveur"
+    ],
+    correctIndex: 3,
+    explanation: "Un véhicule d'intervention en urgence (deux dispositifs actifs : sonore ET lumineux) prime sur toute autre règle de circulation, y compris un feu vert en ta faveur : il faut faciliter son passage en se rangeant dès que possible, sans jamais accélérer pour le devancer."
+  },
+  {
+    id: "twosec", theme: "circulation", level: 1, icon: "⏱️",
+    title: "Distance de sécurité sur autoroute",
+    question: "Sur autoroute, à vitesse élevée, quelle distance de sécurité minimale dois-tu conserver avec le véhicule qui te précède ?",
+    options: [
+      "Une distance correspondant à environ 2 secondes est nécessaire, quelle que soit la vitesse",
+      "Une distance correspondant à environ 1 seconde suffit à cette vitesse",
+      "Il suffit de garder environ deux longueurs de voiture de distance",
+      "La distance de sécurité n'a pas besoin d'être augmentée sur autoroute, la visibilité y étant meilleure"
+    ],
+    correctIndex: 0,
+    explanation: "La règle des 2 secondes (le temps qui doit s'écouler entre le passage du véhicule qui précède et le tien à un même point fixe) donne une distance de sécurité qui s'adapte automatiquement à la vitesse, contrairement à une distance fixe en mètres ou en nombre de véhicules."
+  },
+  {
+    id: "cyclelane", theme: "usagers", level: 2, icon: "🚴",
+    title: "Cycliste sur bande cyclable au carrefour",
+    question: "Un cycliste circule sur une bande cyclable qui continue tout droit à un carrefour où tu veux tourner à droite. Qui doit céder le passage ?",
+    options: [
+      "La voiture a la priorité car elle circule sur la voie principale",
+      "Le cycliste continue tout droit sur sa bande cyclable et la voiture qui tourne à droite doit lui céder le passage",
+      "C'est au cycliste de s'arrêter pour laisser tourner la voiture",
+      "La priorité dépend de qui klaxonne en premier"
+    ],
+    correctIndex: 1,
+    explanation: "Un conducteur qui tourne doit céder le passage aux usagers qui continuent tout droit sur une bande ou piste cyclable qu'il traverse, exactement comme il le ferait pour un piéton sur un passage protégé : c'est une cause fréquente d'accidents par angle mort au moment du virage."
+  },
+  {
+    id: "secours", theme: "secours", level: 1, icon: "🚑",
+    title: "Témoin d'un accident",
+    question: "Tu es le premier témoin d'un accident de la route. Dans quel ordre agis-tu ?",
+    options: [
+      "Porter secours immédiatement à la victime, puis alerter, puis protéger les lieux",
+      "Alerter uniquement les secours, sans jamais approcher ni protéger les lieux",
+      "Protéger d'abord les lieux (baliser, couper le contact), puis alerter les secours, puis porter assistance si on en a les moyens",
+      "Déplacer systématiquement la victime hors de la route avant toute autre action"
+    ],
+    correctIndex: 2,
+    explanation: "La méthode PAS (Protéger, Alerter, Secourir) impose de sécuriser d'abord les lieux pour éviter un sur-accident, avant d'alerter les secours puis d'intervenir dans la limite de ses compétences. Déplacer une victime sans nécessité absolue peut aggraver des blessures, notamment au dos ou au cou."
+  },
+  {
+    id: "police-feu", theme: "route", level: 3, icon: "👮",
+    title: "Agent qui règle la circulation",
+    question: "À un carrefour, un agent fait signe d'avancer alors que le feu tricolore est rouge dans ta direction. Que fais-tu ?",
+    options: [
+      "Respecter le feu rouge, qui prévaut toujours sur les gestes d'un agent",
+      "S'arrêter et attendre que le feu passe au vert avant de suivre les indications de l'agent",
+      "Les deux signalisations ayant la même valeur, choisir celle que l'on préfère",
+      "Suivre les indications de l'agent, qui priment sur la signalisation lumineuse"
+    ],
+    correctIndex: 3,
+    explanation: "L'ordre de priorité des signalisations en France place les gestes d'un agent règlant la circulation au-dessus des feux tricolores, eux-mêmes au-dessus des panneaux, eux-mêmes au-dessus de la priorité à droite. Les indications de l'agent doivent donc toujours être suivies en premier."
+  },
+  {
+    id: "crosswalk", theme: "usagers", level: 2, icon: "🚶",
+    title: "Piéton qui s'apprête à traverser",
+    question: "Tu approches d'un passage piéton sans feu. Un piéton sur le trottoir regarde la route et s'avance clairement vers la chaussée pour traverser, sans avoir encore posé un pied dessus. Que fais-tu ?",
+    options: [
+      "Ralentir et t'arrêter si nécessaire dès que le piéton manifeste clairement son intention de traverser, même sans avoir posé un pied sur la chaussée",
+      "S'arrêter uniquement si le piéton a déjà un pied sur la chaussée",
+      "Continuer, un conducteur n'est jamais obligé de s'arrêter sur un passage sans feu tricolore",
+      "S'arrêter seulement si un agent régule la circulation à cet endroit"
+    ],
+    correctIndex: 0,
+    explanation: "La priorité piéton s'applique dès qu'un piéton engagé ou s'apprêtant clairement à s'engager sur un passage protégé est visible, qu'il y ait un feu ou non, et sans attendre qu'il ait posé un pied sur la chaussée : il faut ralentir suffisamment tôt pour pouvoir s'arrêter si besoin."
+  },
+  {
+    id: "parking-exit", theme: "circulation", level: 3, icon: "🚙",
+    title: "Sortie d'un parking privé",
+    question: "Tu sors d'un parking privé pour t'engager sur une route ouverte à la circulation. Comment gères-tu la priorité ?",
+    options: [
+      "Le véhicule qui sort du parking a la priorité s'il roule lentement",
+      "Le véhicule qui sort du parking doit céder le passage à tous les usagers déjà engagés sur la route, quel que soit leur sens",
+      "La priorité à droite s'applique normalement à cette sortie de parking",
+      "Il faut klaxonner puis s'engager si personne ne réagit"
+    ],
+    correctIndex: 1,
+    explanation: "Un véhicule qui débouche d'un accès privé, d'un parking ou d'un chemin doit toujours céder le passage à tous les usagers déjà engagés sur la route, y compris piétons et cyclistes sur le trottoir ou la piste qu'il traverse. La priorité à droite ne s'applique pas dans cette configuration."
+  },
+  {
+    id: "zfe", theme: "environnement", level: 1, icon: "🏙️",
+    title: "Entrer dans une zone à faibles émissions",
+    question: "Tu dois traverser le centre d'une grande ville équipée d'une Zone à Faibles Émissions (ZFE) avec ta voiture. Que dois-tu vérifier avant d'y circuler ?",
+    options: [
+      "Rien, les ZFE ne concernent que les poids lourds et les bus",
+      "Que ton contrôle technique est à jour : c'est la seule condition exigée en ZFE",
+      "Que ta vignette Crit'Air (et la classe d'émission de ton véhicule) est autorisée à circuler dans cette zone, aux horaires concernés",
+      "Que tu as fait le plein récemment"
+    ],
+    correctIndex: 2,
+    explanation: "Les ZFE restreignent l'accès en fonction de la vignette Crit'Air et de la classe d'émission du véhicule, pour tous les types de véhicules motorisés (pas seulement les poids lourds), aux horaires et jours définis localement. Le contrôle technique est une obligation distincte, sans lien avec l'accès aux ZFE."
+  },
+  {
+    id: "alternat", theme: "notions", level: 3, icon: "🚧",
+    title: "Chantier avec feux temporaires",
+    question: "Un chantier réduit la route à une seule voie, régulée par des feux tricolores temporaires. Plus loin, un panneau permanent de priorité à droite semble contredire le sens indiqué par les feux. Que fais-tu ?",
+    options: [
+      "Appliquer le panneau de priorité à droite, car il est permanent",
+      "Choisir la règle qui semble la plus prudente entre les deux signalisations",
+      "Klaxonner pour avertir puis avancer en priorité",
+      "Appliquer les feux tricolores temporaires du chantier, qui priment sur la signalisation permanente le temps des travaux"
+    ],
+    correctIndex: 3,
+    explanation: "La signalisation temporaire de chantier (feux, panneaux jaune-orange) prévaut toujours sur la signalisation permanente tant que le danger ou les travaux qu'elle signale sont en place, précisément pour gérer ce type de configuration inhabituelle en toute sécurité."
+  },
+  {
+    id: "equipement", theme: "equipements", level: 2, icon: "⚠️",
+    title: "Panne sur l'autoroute",
+    question: "Ta voiture tombe en panne sur l'autoroute et tu parviens à t'arrêter sur la bande d'arrêt d'urgence. Que fais-tu avant d'attendre les secours ?",
+    options: [
+      "Rester dans le véhicule, ceinture attachée, feux de détresse allumés",
+      "Descendre côté opposé à la circulation, enfiler un gilet rétro-réfléchissant, poser le triangle en amont, puis se mettre à l'abri derrière les glissières, hors de la chaussée et de la bande d'arrêt d'urgence",
+      "Sortir côté circulation pour poser le triangle, puis attendre à côté de la voiture",
+      "Laisser le véhicule en plein sur la voie de droite avec les warnings et attendre à l'intérieur"
+    ],
+    correctIndex: 1,
+    explanation: "Sur autoroute, la bande d'arrêt d'urgence reste dangereuse : il faut sortir du côté opposé à la circulation, porter un gilet rétro-réfléchissant, placer le triangle assez en amont pour prévenir les autres usagers, puis se mettre à l'abri derrière les glissières — rester dans ou à côté du véhicule expose à un risque de collision par l'arrière."
+  },
+  {
+    id: "siege-auto", theme: "securite_passagers", level: 1, icon: "🧒",
+    title: "Transporter un enfant de 8 ans",
+    question: "Tu dois transporter un enfant de 8 ans dans ta voiture. Quelle installation est réglementaire ?",
+    options: [
+      "Il peut être attaché uniquement avec la ceinture adulte, sans dispositif additionnel, dès qu'il a plus de 6 ans",
+      "Un dispositif de retenue homologué et adapté (siège auto ou réhausseur) est obligatoire tant qu'il mesure moins de 1,35 m",
+      "Il peut voyager sans dispositif particulier s'il est assis à l'arrière",
+      "Un dispositif est obligatoire uniquement pour les trajets de plus de 50 km"
+    ],
+    correctIndex: 1,
+    explanation: "En France, tout enfant de moins de 1,35 m doit être installé dans un dispositif de retenue homologué et adapté à sa taille et à son poids (siège auto ou réhausseur avec la ceinture), quel que soit son âge, sa place dans le véhicule ou la longueur du trajet."
+  }
+];
+
+function renderSimulations() {
+  const grid = document.querySelector("#sim-grid");
+  if (!grid) return;
+  grid.innerHTML = simulations.map((sim) => `
+    <article class="sim-card" data-level="${sim.level}" data-theme="${sim.theme}" data-sim-id="${sim.id}">
+      <div class="sim-card-top">
+        <span class="sim-level-badge">${t("sim_level" + sim.level + "_badge")}</span>
+        <span class="sim-theme-badge">${t("theme_" + sim.theme)}</span>
+      </div>
+      <div class="street-scene generic-scene"><span class="generic-emoji" aria-hidden="true">${sim.icon}</span></div>
+      <h3>${sim.title}</h3>
+      <p>${sim.question}</p>
+      <div class="sim-actions" role="group" aria-label="${sim.title}">
+        ${sim.options.map((opt, idx) => `<button type="button" data-index="${idx}" data-letter="${String.fromCharCode(65 + idx)}">${opt}</button>`).join("")}
+      </div>
+      <p class="sim-result" aria-live="polite"></p>
+      <p class="sim-explanation" hidden></p>
+    </article>
+  `).join("");
+}
+
+function handleSimAnswer(card, button) {
+  if (!card || !button || card.classList.contains("sim-answered")) return;
+  const sim = simulations.find((item) => item.id === card.dataset.simId);
+  if (!sim) return;
+  card.classList.add("sim-answered");
+  const chosenIndex = Number(button.dataset.index);
+  const isCorrect = chosenIndex === sim.correctIndex;
+  const buttons = [...card.querySelectorAll(".sim-actions button")];
+  buttons.forEach((item) => {
+    item.disabled = true;
+    if (Number(item.dataset.index) === sim.correctIndex) item.classList.add("correct");
+  });
+  if (!isCorrect) button.classList.add("wrong");
+
+  const result = card.querySelector(".sim-result");
+  if (result) {
+    result.textContent = isCorrect ? t("sim_feedback_right") : t("sim_feedback_wrong");
+    result.style.color = isCorrect ? "var(--green)" : "var(--red)";
+  }
+  const explanation = card.querySelector(".sim-explanation");
+  if (explanation) {
+    explanation.textContent = `${t("sim_explanation_label")} ${sim.explanation}`;
+    explanation.hidden = false;
+  }
+
+  // Feeds qStats under the scenario's theme, so progression.html's per-theme
+  // stats include mises en situation just like exams, fiches and the sign quiz.
+  recordQuestionAnswer(`sim-${sim.id}`, sim.theme, isCorrect);
+}
+
+const simGrid = document.querySelector("#sim-grid");
+if (simGrid) {
+  simGrid.addEventListener("click", (event) => {
+    const button = event.target.closest(".sim-actions button");
+    if (!button) return;
+    const card = button.closest(".sim-card");
+    handleSimAnswer(card, button);
+  });
+}
+
+document.querySelectorAll(".sim-level-chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".sim-level-chip").forEach((item) => item.classList.remove("active"));
+    chip.classList.add("active");
+    const level = chip.dataset.level;
+    document.querySelectorAll(".sim-card").forEach((card) => {
+      card.hidden = card.dataset.level !== level;
+    });
+  });
+});
+
+const firstLevelChip = document.querySelector('.sim-level-chip[data-level="1"]');
+
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+    renderGrid();
+    if (state.selected) selectSign(state.selected);
+    if (document.querySelector("#quiz-sign")) renderQuestion();
+    renderSimulations();
+    if (firstLevelChip) firstLevelChip.click();
+    updateStats();
+  });
+});
+
+applyStaticTranslations();
+renderGrid();
+selectSign(state.selected);
+startQuiz();
+renderSimulations();
+if (firstLevelChip) firstLevelChip.click();
+updateStats();
+
+
+function initSliceGame() {
+  const root = document.querySelector("#slice-game");
+  if (!root) return;
+
+  const stage = root.querySelector("#game-stage");
+  const scoreEl = root.querySelector("#game-score");
+  const livesEl = root.querySelector("#game-lives");
+  const targetEl = root.querySelector("#target-name");
+  const bestBox = root.querySelector("#game-best");
+  const bestEl = root.querySelector("#game-best-score");
+  const overlay = root.querySelector("#game-overlay");
+  const overlayTitle = root.querySelector("#game-overlay-title");
+  const overlayText = root.querySelector("#game-overlay-text");
+  const startBtn = root.querySelector("#game-start");
+  const trail = root.querySelector("#slice-trail");
+
+  const game = {
+    running: false,
+    score: 0,
+    lives: 3,
+    combo: 0,
+    target: null,
+    active: [],
+    lastSpawn: 0,
+    lastTime: 0,
+    spawnDelay: 820,
+    speed: 95,
+    pointerDown: false,
+    lastPoint: null,
+    raf: null
+  };
+
+  function bestScore() {
+    return safeGetNumber("sliceBestScore", 0);
+  }
+
+  function updateBestVisibility() {
+    const best = bestScore();
+    if (best > 0) {
+      bestBox.hidden = false;
+      bestEl.textContent = best;
+    } else {
+      bestBox.hidden = true;
+    }
+  }
+
+  function setLives() {
+    livesEl.textContent = "♥".repeat(game.lives) + "♡".repeat(3 - game.lives);
+  }
+
+  function setScore() {
+    scoreEl.textContent = game.score;
+  }
+
+  function chooseTarget() {
+    const pool = game.active.length ? game.active.map((item) => item.sign) : signs;
+    game.target = pool[Math.floor(Math.random() * pool.length)];
+    targetEl.textContent = signField(game.target, "name");
+  }
+
+  function spawnSign() {
+    const sign = signs[Math.floor(Math.random() * signs.length)];
+    const node = document.createElement("button");
+    node.type = "button";
+    node.className = "falling-sign";
+    node.dataset.id = sign.id;
+    node.innerHTML = `${signSvg(sign)}<small>${sign.code}</small>`;
+    const rect = root.getBoundingClientRect();
+    const width = rect.width;
+    const x = Math.max(10, Math.random() * Math.max(20, width - 140));
+    const item = {
+      id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now() + Math.random()),
+      sign,
+      node,
+      x,
+      y: -170,
+      speed: game.speed + Math.random() * 55
+    };
+    stage.appendChild(node);
+    game.active.push(item);
+    if (!game.target || !game.active.some((active) => active.sign.id === game.target.id)) chooseTarget();
+  }
+
+  function loseLife() {
+    game.lives -= 1;
+    game.combo = 0;
+    setLives();
+    if (game.lives <= 0) endGame();
+  }
+
+  function removeItem(item) {
+    item.node.remove();
+    game.active = game.active.filter((active) => active !== item);
+  }
+
+  function cutItem(item) {
+    if (!game.running) return;
+    if (item.sign.id === game.target.id) {
+      const gained = 10 * Math.pow(2, game.combo);
+      game.score += gained;
+      game.combo += 1;
+      removeItem(item);
+      setScore();
+      chooseTarget();
+    } else {
+      game.combo = 0;
+      removeItem(item);
+      loseLife();
+      chooseTarget();
+    }
+  }
+
+  function tick(time) {
+    if (!game.running) return;
+    if (!game.lastTime) game.lastTime = time;
+    const dt = Math.min(34, time - game.lastTime) / 1000;
+    game.lastTime = time;
+
+    if (time - game.lastSpawn > game.spawnDelay) {
+      spawnSign();
+      game.lastSpawn = time;
+      game.spawnDelay = Math.max(520, game.spawnDelay - 8);
+      game.speed = Math.min(175, game.speed + 1.4);
+    }
+
+    const rootRect = root.getBoundingClientRect();
+    game.active.slice().forEach((item) => {
+      item.y += item.speed * dt;
+      item.node.style.transform = `translate(${item.x}px, ${item.y}px)`;
+      if (item.y > rootRect.height + 20) {
+        const wasTarget = item.sign.id === game.target?.id;
+        removeItem(item);
+        if (wasTarget) loseLife();
+        chooseTarget();
+      }
+    });
+
+    game.raf = requestAnimationFrame(tick);
+  }
+
+  function rootPoint(event) {
+    const rect = root.getBoundingClientRect();
+    return {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top
+    };
+  }
+
+  function drawTrail(a, b) {
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const length = Math.hypot(dx, dy);
+    if (length < 10) return;
+    const line = document.createElement("span");
+    line.className = "slice-line";
+    line.style.width = `${length}px`;
+    line.style.left = `${a.x}px`;
+    line.style.top = `${a.y}px`;
+    line.style.transform = `rotate(${Math.atan2(dy, dx)}rad)`;
+    trail.appendChild(line);
+    window.setTimeout(() => line.remove(), 180);
+  }
+
+  function pointNearSegment(point, a, b, tolerance) {
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const len2 = dx * dx + dy * dy;
+    if (!len2) return Math.hypot(point.x - a.x, point.y - a.y) <= tolerance;
+    const tVal = Math.max(0, Math.min(1, ((point.x - a.x) * dx + (point.y - a.y) * dy) / len2));
+    const x = a.x + tVal * dx;
+    const y = a.y + tVal * dy;
+    return Math.hypot(point.x - x, point.y - y) <= tolerance;
+  }
+
+  function checkCuts(a, b) {
+    const rootRect = root.getBoundingClientRect();
+    game.active.slice().forEach((item) => {
+      const rect = item.node.getBoundingClientRect();
+      const center = {
+        x: rect.left - rootRect.left + rect.width / 2,
+        y: rect.top - rootRect.top + rect.height / 2
+      };
+      const tolerance = Math.max(rect.width, rect.height) * 0.46;
+      if (pointNearSegment(center, a, b, tolerance)) cutItem(item);
+    });
+  }
+
+  function startGame() {
+    game.running = true;
+    game.score = 0;
+    game.lives = 3;
+    game.combo = 0;
+    game.active.forEach((item) => item.node.remove());
+    game.active = [];
+    game.target = null;
+    game.lastSpawn = 0;
+    game.lastTime = 0;
+    game.spawnDelay = 820;
+    game.speed = 95;
+    overlay.hidden = true;
+    setScore();
+    setLives();
+    updateBestVisibility();
+    spawnSign();
+    chooseTarget();
+    game.raf = requestAnimationFrame(tick);
+  }
+
+  function endGame() {
+    game.running = false;
+    cancelAnimationFrame(game.raf);
+    const previousBest = bestScore();
+    if (game.score > previousBest) {
+      safeSetNumber("sliceBestScore", game.score);
+    }
+    updateBestVisibility();
+    overlayTitle.textContent = "Partie terminée";
+    overlayText.textContent = `Score final : ${game.score} points.`;
+    startBtn.textContent = "Rejouer";
+    overlay.hidden = false;
+  }
+
+  root.addEventListener("pointerdown", (event) => {
+    if (!game.running) return;
+    game.pointerDown = true;
+    game.lastPoint = rootPoint(event);
+    root.setPointerCapture(event.pointerId);
+  });
+
+  root.addEventListener("pointermove", (event) => {
+    if (!game.running || !game.pointerDown || !game.lastPoint) return;
+    const next = rootPoint(event);
+    drawTrail(game.lastPoint, next);
+    checkCuts(game.lastPoint, next);
+    game.lastPoint = next;
+  });
+
+  function stopPointer() {
+    game.pointerDown = false;
+    game.lastPoint = null;
+  }
+
+  root.addEventListener("pointerup", stopPointer);
+  root.addEventListener("pointercancel", stopPointer);
+  startBtn.addEventListener("click", startGame);
+  updateBestVisibility();
+  setScore();
+  setLives();
+}
+
+initSliceGame();
+
+    </script>
+  </body>
+</html>

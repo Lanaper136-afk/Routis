@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panneaux du Code de la route : liste complète illustrée</title>
+    <meta name="description" content="Retrouve la liste complète des panneaux du code de la route, classés par catégorie (danger, interdiction, obligation...), avec leur signification illustrée." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Panneaux du Code de la route : liste complète illustrée" />
+    <meta property="og:description" content="Retrouve la liste complète des panneaux du code de la route, classés par catégorie (danger, interdiction, obligation...), avec leur signification illustrée." />
+    <meta property="og:url" content="https://votresite.netlify.app/panneaux.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="assets/style.css" />
+  </head>
+  <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59PS7V3L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false">
+            <circle class="tire-outer" cx="24" cy="24" r="16" />
+            <circle class="tire-inner" cx="24" cy="24" r="7" />
+            <path class="tire-tread" d="M24 8v7M24 33v7M8 24h7M33 24h7M12.7 12.7l5 5M30.3 30.3l5 5M35.3 12.7l-5 5M17.7 30.3l-5 5" />
+          </svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a class="active" href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow" data-i18n="panneaux_eyebrow_hero">Catalogue interactif</p>
+        <h1 data-i18n="panneaux_title">Tous les grands types de panneaux</h1>
+        <p data-i18n="panneaux_desc">Filtre, clique sur un panneau et retiens les bons réflexes avant de passer aux examens blancs.</p>
+      </section>
+
+      <section class="section-shell" id="catalogue">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="panneaux_eyebrow_section">Panneaux</p>
+            <h2 data-i18n="panneaux_heading">Explorer par famille</h2>
+          </div>
+          <label class="search">
+            <span data-i18n="search_label">Rechercher</span>
+            <input id="search-input" type="search" placeholder="Ex. stop, priorité, vélo..." data-i18n-placeholder="search_placeholder" />
+          </label>
+        </div>
+
+        <div class="filters" aria-label="Filtrer les panneaux">
+          <button class="chip active" data-filter="all" data-i18n="chip_all">Tous</button>
+          <button class="chip" data-filter="danger" data-i18n="chip_danger">Danger</button>
+          <button class="chip" data-filter="priorite" data-i18n="chip_priorite">Priorité</button>
+          <button class="chip" data-filter="interdiction" data-i18n="chip_interdiction">Interdiction</button>
+          <button class="chip" data-filter="obligation" data-i18n="chip_obligation">Obligation</button>
+          <button class="chip" data-filter="indication" data-i18n="chip_indication">Indication</button>
+          <button class="chip" data-filter="services" data-i18n="chip_services">Services</button>
+          <button class="chip" data-filter="panonceau" data-i18n="chip_panonceau">💡 Panonceaux</button>
+        </div>
+
+        <div class="catalog-grid" id="sign-grid" aria-live="polite"></div>
+      </section>
+
+      <section class="learn-panel" aria-label="Fiche panneau">
+        <div class="preview" id="sign-preview"></div>
+        <div class="explanation">
+          <p class="eyebrow" id="preview-family">Selection</p>
+          <h2 id="preview-title">Clique sur un panneau</h2>
+          <p id="preview-text">
+            Sa signification, les bons réflexes et les pièges fréquents s'afficheront ici.
+          </p>
+          <ul id="preview-tips"></ul>
+          <div class="status-buttons" role="group" aria-label="Statut d'apprentissage">
+            <button class="status-btn status-btn-appris" data-status="appris" type="button" data-i18n="status_appris">Appris</button>
+            <button class="status-btn status-btn-revoir" data-status="revoir" type="button" data-i18n="status_revoir">À revoir</button>
+            <button class="status-btn status-btn-pasappris" data-status="pas-appris" type="button" data-i18n="status_pasappris">Pas encore appris</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell" id="sign-quiz" aria-label="Quiz de reconnaissance de panneaux">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow" data-i18n="quiz_eyebrow">Entraînement</p>
+            <h2 data-i18n="quiz_heading">Quiz de reconnaissance</h2>
+          </div>
+          <button class="button secondary" type="button" id="revision-btn" data-i18n="revision_cta_btn">Réviser mes points faibles</button>
+        </div>
+        <p class="muted" id="revision-banner" hidden data-i18n="revision_banner_text">Révision ciblée : cette série met en avant les panneaux que tu rates le plus souvent ou que tu n'as jamais vus.</p>
+        <div class="quiz-layout">
+          <div class="quiz-board">
+            <div class="quiz-topline">
+              <span id="quiz-step">Question 1/10</span>
+              <span id="quiz-score">Score 0</span>
+            </div>
+            <div class="quiz-sign" id="quiz-sign"></div>
+            <h3 id="quiz-question">Que signifie ce panneau ?</h3>
+            <div class="answers" id="answers"></div>
+            <p class="feedback" id="feedback"></p>
+          </div>
+          <div class="exam-note">
+            <h3 data-i18n="quiz_note_heading">Astuce</h3>
+            <p data-i18n="quiz_note_text">Chaque série pioche en priorité les panneaux que tu maîtrises le moins (jamais vus ou récemment ratés), pour progresser plus vite.</p>
+            <button class="button primary" type="button" id="new-quiz" data-i18n="new_quiz_btn">Nouvelle série</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <dialog id="completion-dialog">
+      <p id="final-score">Score final</p>
+      <form method="dialog"><button class="button primary" type="submit" data-i18n="dialog_close_btn">Continuer</button></form>
+    </dialog>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+const REVISION_QUIZ_SIZE = 18;
+const urlParams = new URLSearchParams(window.location.search);
+
+const state = {
+  filter: "all",
+  examFilter: "all",
+  selected: signs[0],
+  status: safeGetJSON("signStatus", {}),
+  quiz: [],
+  quizIndex: 0,
+  score: 0,
+  streak: safeGetNumber("streak", 0),
+  best: safeGetNumber("bestScore", 0),
+  revision: urlParams.get("mode") === "revision"
+};
+
+const grid = document.querySelector("#sign-grid");
+const searchInput = document.querySelector("#search-input");
+const preview = document.querySelector("#sign-preview");
+const previewFamily = document.querySelector("#preview-family");
+const previewTitle = document.querySelector("#preview-title");
+const previewText = document.querySelector("#preview-text");
+const previewTips = document.querySelector("#preview-tips");
+
+
+
+function renderGrid() {
+  if (!grid || !searchInput) return;
+  const query = searchInput.value.trim().toLowerCase();
+  const filtered = signs.filter((sign) => {
+    const matchesFilter = state.filter === "all" || sign.family === state.filter;
+    const haystack = `${signField(sign, "name")} ${sign.code} ${famLabel(sign.family)} ${signField(sign, "text")}`.toLowerCase();
+    return matchesFilter && haystack.includes(query);
+  });
+
+  grid.innerHTML = filtered.map((sign) => {
+    const st = state.status[sign.id];
+    const statusClass = st === "appris" ? "status-appris" : st === "revoir" ? "status-revoir" : st === "pas-appris" ? "status-pasappris" : "";
+    return `
+    <button class="sign-card ${statusClass}" type="button" data-id="${sign.id}" aria-label="${signField(sign, "name")}">
+      ${signSvg(sign)}
+      <span>
+        <span class="sign-name">${signField(sign, "name")}</span>
+        <span class="sign-family">${sign.code} - ${famLabel(sign.family)}</span>
+      </span>
+    </button>
+  `;
+  }).join("");
+}
+
+function selectSign(sign) {
+  if (!preview || !previewFamily || !previewTitle || !previewText || !previewTips) return;
+  state.selected = sign;
+  preview.innerHTML = signSvg(sign);
+  previewFamily.textContent = `${sign.code} - ${famLabel(sign.family)}`;
+  previewTitle.textContent = signField(sign, "name");
+  previewText.textContent = signField(sign, "text");
+  previewTips.innerHTML = signField(sign, "tips").map((tip) => `<li>${tip}</li>`).join("");
+  const currentStatus = state.status[sign.id] || "pas-appris";
+  document.querySelectorAll(".status-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.status === currentStatus);
+  });
+}
+
+function updateStats() {
+  const knownCount = document.querySelector("#known-count");
+  const bestScore = document.querySelector("#best-score");
+  const streakCount = document.querySelector("#streak-count");
+  const learnedCount = Object.values(state.status).filter((value) => value === "appris").length;
+  if (knownCount) knownCount.textContent = learnedCount;
+  if (bestScore) bestScore.textContent = `${state.best}%`;
+  if (streakCount) streakCount.textContent = state.streak;
+  safeSetJSON("signStatus", state.status);
+  safeSetNumber("bestScore", state.best);
+  safeSetNumber("streak", state.streak);
+  renderLearnedReveal();
+}
+
+function renderLearnedReveal() {
+  const list = document.querySelector("#learned-list");
+  if (!list) return;
+  const learnedSigns = signs.filter((sign) => state.status[sign.id] === "appris");
+  list.innerHTML = learnedSigns.length
+    ? learnedSigns.map((sign) => `
+      <div class="learned-item">
+        ${signSvg(sign)}
+        <span>
+          <span class="sign-name">${signField(sign, "name")}</span>
+          <span class="sign-family">${sign.code} - ${famLabel(sign.family)}</span>
+        </span>
+      </div>
+    `).join("")
+    : `<p class="muted">${t("learned_empty")}</p>`;
+}
+
+function shuffle(items) {
+  return [...items].sort(() => Math.random() - 0.5);
+}
+
+function startQuiz() {
+  if (!document.querySelector("#quiz-sign")) return;
+  const signStats = safeGetJSON("signStats", {});
+  const revisionBanner = document.querySelector("#revision-banner");
+  if (revisionBanner) revisionBanner.hidden = !state.revision;
+
+  if (state.revision) {
+    // Révision ciblée : tous panneaux confondus (pas de filtre famille),
+    // tirage pondéré vers les panneaux en boîte basse / jamais vus.
+    const allIds = signs.map((sign) => sign.id);
+    const pickedIds = pickWeightedPool(allIds, signStats, Math.min(REVISION_QUIZ_SIZE, allIds.length));
+    state.quiz = pickedIds.map((id) => signs.find((sign) => sign.id === id)).filter(Boolean);
+  } else {
+    const pool = state.examFilter === "all" ? signs : signs.filter((sign) => sign.family === state.examFilter);
+    const pickedIds = pickWeightedPool(pool.map((sign) => sign.id), signStats, Math.min(10, pool.length));
+    state.quiz = pickedIds.map((id) => pool.find((sign) => sign.id === id)).filter(Boolean);
+  }
+  state.quizIndex = 0;
+  state.score = 0;
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const current = state.quiz[state.quizIndex];
+  if (!current) return;
+  const options = shuffle([
+    current,
+    ...shuffle(signs.filter((sign) => sign.id !== current.id)).slice(0, 3)
+  ]);
+  document.querySelector("#quiz-step").textContent = t("quiz_step", { current: state.quizIndex + 1, total: state.quiz.length });
+  document.querySelector("#quiz-score").textContent = t("quiz_score", { score: state.score });
+  document.querySelector("#quiz-sign").innerHTML = signSvg(current);
+  document.querySelector("#quiz-question").textContent = t("quiz_question");
+  document.querySelector("#feedback").textContent = "";
+  document.querySelector("#answers").innerHTML = options.map((option) => `
+    <button type="button" data-id="${option.id}">${signField(option, "name")}</button>
+  `).join("");
+}
+
+function handleAnswer(button) {
+  const current = state.quiz[state.quizIndex];
+  const isCorrect = button.dataset.id === current.id;
+  const buttons = [...document.querySelectorAll("#answers button")];
+  buttons.forEach((item) => {
+    item.disabled = true;
+    if (item.dataset.id === current.id) item.classList.add("correct");
+  });
+  if (!isCorrect) button.classList.add("wrong");
+  recordSignAnswer(current.id, current.family, isCorrect);
+
+  if (isCorrect) {
+    state.score += 1;
+    state.streak += 1;
+    document.querySelector("#feedback").textContent = t("feedback_correct");
+  } else {
+    state.streak = 0;
+    document.querySelector("#feedback").textContent = t("feedback_wrong", { name: signField(current, "name") });
+  }
+  updateStats();
+
+  window.setTimeout(() => {
+    state.quizIndex += 1;
+    if (state.quizIndex >= state.quiz.length) {
+      const percent = Math.round((state.score / state.quiz.length) * 100);
+      state.best = Math.max(state.best, percent);
+      updateStats();
+      const finalScore = document.querySelector("#final-score");
+      const dialog = document.querySelector("#completion-dialog");
+      if (finalScore) finalScore.textContent = t("final_score", { score: state.score, total: state.quiz.length, percent });
+      if (dialog) dialog.showModal();
+      startQuiz();
+    } else {
+      renderQuestion();
+    }
+  }, 900);
+}
+
+document.querySelectorAll(".chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".chip").forEach((item) => item.classList.remove("active"));
+    chip.classList.add("active");
+    state.filter = chip.dataset.filter;
+    renderGrid();
+  });
+});
+
+document.querySelectorAll(".exam-chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".exam-chip").forEach((item) => item.classList.remove("active"));
+    chip.classList.add("active");
+    state.examFilter = chip.dataset.examfilter;
+    startQuiz();
+  });
+});
+
+if (grid) {
+  grid.addEventListener("click", (event) => {
+    const card = event.target.closest(".sign-card");
+    if (!card) return;
+    const sign = signs.find((item) => item.id === card.dataset.id);
+    selectSign(sign);
+    document.querySelector(".learn-panel").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+}
+
+if (searchInput) searchInput.addEventListener("input", renderGrid);
+
+document.querySelectorAll(".status-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (!state.selected) return;
+    state.status[state.selected.id] = btn.dataset.status;
+    selectSign(state.selected);
+    renderGrid();
+    updateStats();
+  });
+});
+
+const learnedToggle = document.querySelector("#learned-toggle");
+const learnedReveal = document.querySelector("#learned-reveal");
+if (learnedToggle && learnedReveal) {
+  learnedToggle.addEventListener("click", () => {
+    const isHidden = learnedReveal.hasAttribute("hidden");
+    const hint = document.querySelector("#toggle-hint");
+    if (isHidden) {
+      renderLearnedReveal();
+      learnedReveal.removeAttribute("hidden");
+      learnedToggle.setAttribute("aria-expanded", "true");
+      if (hint) hint.textContent = t("toggle_hide");
+    } else {
+      learnedReveal.setAttribute("hidden", "");
+      learnedToggle.setAttribute("aria-expanded", "false");
+      if (hint) hint.textContent = t("toggle_show");
+    }
+  });
+}
+
+const newQuizButton = document.querySelector("#new-quiz");
+if (newQuizButton) newQuizButton.addEventListener("click", startQuiz);
+
+const revisionButton = document.querySelector("#revision-btn");
+if (revisionButton) {
+  revisionButton.addEventListener("click", () => {
+    state.revision = true;
+    startQuiz();
+    document.querySelector("#sign-quiz").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
+const answers = document.querySelector("#answers");
+if (answers) {
+  answers.addEventListener("click", (event) => {
+    const button = event.target.closest("button");
+    if (button) handleAnswer(button);
+  });
+}
+
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector(`#sim-${button.dataset.sim}`);
+    const right = button.dataset.answer === "right";
+    target.textContent = right ? t("sim_feedback_right") : t("sim_feedback_wrong");
+    target.style.color = right ? "var(--green)" : "var(--red)";
+  });
+});
+
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+    renderGrid();
+    if (state.selected) selectSign(state.selected);
+    if (document.querySelector("#quiz-sign")) renderQuestion();
+    updateStats();
+  });
+});
+
+applyStaticTranslations();
+renderGrid();
+selectSign(state.selected);
+startQuiz();
+updateStats();
+if (state.revision) {
+  const quizSection = document.querySelector("#sign-quiz");
+  if (quizSection) window.setTimeout(() => quizSection.scrollIntoView({ behavior: "smooth", block: "start" }), 200);
+}
+
+
+function initSliceGame() {
+  const root = document.querySelector("#slice-game");
+  if (!root) return;
+
+  const stage = root.querySelector("#game-stage");
+  const scoreEl = root.querySelector("#game-score");
+  const livesEl = root.querySelector("#game-lives");
+  const targetEl = root.querySelector("#target-name");
+  const bestBox = root.querySelector("#game-best");
+  const bestEl = root.querySelector("#game-best-score");
+  const overlay = root.querySelector("#game-overlay");
+  const overlayTitle = root.querySelector("#game-overlay-title");
+  const overlayText = root.querySelector("#game-overlay-text");
+  const startBtn = root.querySelector("#game-start");
+  const trail = root.querySelector("#slice-trail");
+
+  const game = {
+    running: false,
+    score: 0,
+    lives: 3,
+    combo: 0,
+    target: null,
+    active: [],
+    lastSpawn: 0,
+    lastTime: 0,
+    spawnDelay: 820,
+    speed: 95,
+    pointerDown: false,
+    lastPoint: null,
+    raf: null
+  };
+
+  function bestScore() {
+    return safeGetNumber("sliceBestScore", 0);
+  }
+
+  function updateBestVisibility() {
+    const best = bestScore();
+    if (best > 0) {
+      bestBox.hidden = false;
+      bestEl.textContent = best;
+    } else {
+      bestBox.hidden = true;
+    }
+  }
+
+  function setLives() {
+    livesEl.textContent = "♥".repeat(game.lives) + "♡".repeat(3 - game.lives);
+  }
+
+  function setScore() {
+    scoreEl.textContent = game.score;
+  }
+
+  function chooseTarget() {
+    const pool = game.active.length ? game.active.map((item) => item.sign) : signs;
+    game.target = pool[Math.floor(Math.random() * pool.length)];
+    targetEl.textContent = signField(game.target, "name");
+  }
+
+  function spawnSign() {
+    const sign = signs[Math.floor(Math.random() * signs.length)];
+    const node = document.createElement("button");
+    node.type = "button";
+    node.className = "falling-sign";
+    node.dataset.id = sign.id;
+    node.innerHTML = `${signSvg(sign)}<small>${sign.code}</small>`;
+    const rect = root.getBoundingClientRect();
+    const width = rect.width;
+    const x = Math.max(10, Math.random() * Math.max(20, width - 140));
+    const item = {
+      id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now() + Math.random()),
+      sign,
+      node,
+      x,
+      y: -170,
+      speed: game.speed + Math.random() * 55
+    };
+    stage.appendChild(node);
+    game.active.push(item);
+    if (!game.target || !game.active.some((active) => active.sign.id === game.target.id)) chooseTarget();
+  }
+
+  function loseLife() {
+    game.lives -= 1;
+    game.combo = 0;
+    setLives();
+    if (game.lives <= 0) endGame();
+  }
+
+  function removeItem(item) {
+    item.node.remove();
+    game.active = game.active.filter((active) => active !== item);
+  }
+
+  function cutItem(item) {
+    if (!game.running) return;
+    if (item.sign.id === game.target.id) {
+      const gained = 10 * Math.pow(2, game.combo);
+      game.score += gained;
+      game.combo += 1;
+      removeItem(item);
+      setScore();
+      chooseTarget();
+    } else {
+      game.combo = 0;
+      removeItem(item);
+      loseLife();
+      chooseTarget();
+    }
+  }
+
+  function tick(time) {
+    if (!game.running) return;
+    if (!game.lastTime) game.lastTime = time;
+    const dt = Math.min(34, time - game.lastTime) / 1000;
+    game.lastTime = time;
+
+    if (time - game.lastSpawn > game.spawnDelay) {
+      spawnSign();
+      game.lastSpawn = time;
+      game.spawnDelay = Math.max(520, game.spawnDelay - 8);
+      game.speed = Math.min(175, game.speed + 1.4);
+    }
+
+    const rootRect = root.getBoundingClientRect();
+    game.active.slice().forEach((item) => {
+      item.y += item.speed * dt;
+      item.node.style.transform = `translate(${item.x}px, ${item.y}px)`;
+      if (item.y > rootRect.height + 20) {
+        const wasTarget = item.sign.id === game.target?.id;
+        removeItem(item);
+        if (wasTarget) loseLife();
+        chooseTarget();
+      }
+    });
+
+    game.raf = requestAnimationFrame(tick);
+  }
+
+  function rootPoint(event) {
+    const rect = root.getBoundingClientRect();
+    return {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top
+    };
+  }
+
+  function drawTrail(a, b) {
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const length = Math.hypot(dx, dy);
+    if (length < 10) return;
+    const line = document.createElement("span");
+    line.className = "slice-line";
+    line.style.width = `${length}px`;
+    line.style.left = `${a.x}px`;
+    line.style.top = `${a.y}px`;
+    line.style.transform = `rotate(${Math.atan2(dy, dx)}rad)`;
+    trail.appendChild(line);
+    window.setTimeout(() => line.remove(), 180);
+  }
+
+  function pointNearSegment(point, a, b, tolerance) {
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const len2 = dx * dx + dy * dy;
+    if (!len2) return Math.hypot(point.x - a.x, point.y - a.y) <= tolerance;
+    const tVal = Math.max(0, Math.min(1, ((point.x - a.x) * dx + (point.y - a.y) * dy) / len2));
+    const x = a.x + tVal * dx;
+    const y = a.y + tVal * dy;
+    return Math.hypot(point.x - x, point.y - y) <= tolerance;
+  }
+
+  function checkCuts(a, b) {
+    const rootRect = root.getBoundingClientRect();
+    game.active.slice().forEach((item) => {
+      const rect = item.node.getBoundingClientRect();
+      const center = {
+        x: rect.left - rootRect.left + rect.width / 2,
+        y: rect.top - rootRect.top + rect.height / 2
+      };
+      const tolerance = Math.max(rect.width, rect.height) * 0.46;
+      if (pointNearSegment(center, a, b, tolerance)) cutItem(item);
+    });
+  }
+
+  function startGame() {
+    game.running = true;
+    game.score = 0;
+    game.lives = 3;
+    game.combo = 0;
+    game.active.forEach((item) => item.node.remove());
+    game.active = [];
+    game.target = null;
+    game.lastSpawn = 0;
+    game.lastTime = 0;
+    game.spawnDelay = 820;
+    game.speed = 95;
+    overlay.hidden = true;
+    setScore();
+    setLives();
+    updateBestVisibility();
+    spawnSign();
+    chooseTarget();
+    game.raf = requestAnimationFrame(tick);
+  }
+
+  function endGame() {
+    game.running = false;
+    cancelAnimationFrame(game.raf);
+    const previousBest = bestScore();
+    if (game.score > previousBest) {
+      safeSetNumber("sliceBestScore", game.score);
+    }
+    updateBestVisibility();
+    overlayTitle.textContent = "Partie terminée";
+    overlayText.textContent = `Score final : ${game.score} points.`;
+    startBtn.textContent = "Rejouer";
+    overlay.hidden = false;
+  }
+
+  root.addEventListener("pointerdown", (event) => {
+    if (!game.running) return;
+    game.pointerDown = true;
+    game.lastPoint = rootPoint(event);
+    root.setPointerCapture(event.pointerId);
+  });
+
+  root.addEventListener("pointermove", (event) => {
+    if (!game.running || !game.pointerDown || !game.lastPoint) return;
+    const next = rootPoint(event);
+    drawTrail(game.lastPoint, next);
+    checkCuts(game.lastPoint, next);
+    game.lastPoint = next;
+  });
+
+  function stopPointer() {
+    game.pointerDown = false;
+    game.lastPoint = null;
+  }
+
+  root.addEventListener("pointerup", stopPointer);
+  root.addEventListener("pointercancel", stopPointer);
+  startBtn.addEventListener("click", startGame);
+  updateBestVisibility();
+  setScore();
+  setLives();
+}
+
+initSliceGame();
+
+    </script>
+  </body>
+</html>
