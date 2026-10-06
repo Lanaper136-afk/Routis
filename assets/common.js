@@ -173,3 +173,25 @@ function initOfflineIndicator() {
 
 registerServiceWorker();
 initOfflineIndicator();
+
+// Sends a visit notification to the Netlify serverless function.
+// Telegram credentials are never exposed to the browser.
+function notifyRoutisVisit() {
+  try {
+    fetch("/.netlify/functions/notify-visit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        page: window.location.pathname,
+        timestamp: new Date().toISOString()
+      }),
+      keepalive: true
+    }).catch(() => {});
+  } catch (e) {
+    // Notification failure must never affect the site itself.
+  }
+}
+
+notifyRoutisVisit();
