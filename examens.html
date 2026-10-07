@@ -312,6 +312,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   font-weight: 800;
 }
 
+.scene-art { width: 100%; max-width: 460px; margin: 0 auto; }
+.scene-art svg { display: block; width: 100%; height: auto; border-radius: 8px; }
+.quiz-sign:has(.scene-art) { padding: 8px; }
+.correction-scene { max-width: 280px; margin: 0 0 12px; }
 .correction-visual {
   float: right;
   width: 74px;
@@ -538,6 +542,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <script src="assets/signs-data.js"></script>
     <script src="assets/questions-data.js"></script>
+    <script src="assets/scenes.js"></script>
     <script src="assets/i18n.js"></script>
     <script src="assets/common.js"></script>
     <script src="assets/stats.js"></script>
@@ -599,7 +604,8 @@ function buildKnowledgeQuestion(source) {
     question: signField(source, "question"),
     options: shuffledOptions.map((option) => option.text),
     correctIndex,
-    explanation: signField(source, "explanation")
+    explanation: signField(source, "explanation"),
+    scene: source.scene || null
   };
 }
 
@@ -669,6 +675,8 @@ function renderRunning() {
   if (visual) {
     visual.innerHTML = current.type === "sign"
       ? signSvg(current.signRef)
+      : current.scene
+      ? sceneSvg(current.scene)
       : `<div class="quiz-knowledge-badge">🧠<span>${t("quiz_knowledge_label")}</span></div>`;
   }
   if (question) question.textContent = current.question;
@@ -793,7 +801,9 @@ function renderResults() {
       const q = item.question;
       const yourAnswerText = item.selected === null || item.selected === undefined ? t("exam_unanswered") : q.options[item.selected];
       const yourAnswerClass = item.isCorrect ? "right-answer" : "wrong-answer";
-      const visual = q.type === "sign" ? `<div class="correction-visual">${signSvg(q.signRef)}</div>` : "";
+      const visual = q.type === "sign"
+        ? `<div class="correction-visual">${signSvg(q.signRef)}</div>`
+        : q.scene ? `<div class="correction-scene">${sceneSvg(q.scene)}</div>` : "";
       return `
         <article class="correction-item">
           <div class="correction-head">

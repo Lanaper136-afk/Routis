@@ -200,7 +200,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <section class="page-hero">
         <p class="eyebrow" data-i18n="sim_eyebrow_hero">Situations</p>
         <h1 data-i18n="sim_title">Mini-simulations pour décider</h1>
-        <p data-i18n="sim_desc">Observe la scène, choisis le bon réflexe, puis retiens la règle de sécurité associée.</p>
+        <p data-i18n="sim_desc">Lis chaque situation, choisis le bon réflexe, puis retiens la règle de sécurité associée.</p>
       </section>
 
       <section class="section-shell" id="simulations">
@@ -504,9 +504,9 @@ const simulations = [
   {
     id: "overtake", theme: "circulation", level: 2, icon: "🚫",
     title: "Doubler avant un virage sans visibilité",
-    question: "La ligne est continue et le virage devant toi est sans visibilité. La voiture F devant toi roule très lentement (tracteur agricole). Peux-tu la doubler ?",
+    question: "La ligne est continue et le virage devant toi est sans visibilité. Le véhicule devant toi est un tracteur agricole qui roule très lentement. Peux-tu le doubler ?",
     options: [
-      "Oui, car F roule très lentement",
+      "Oui, car il roule très lentement",
       "Oui, si tu klaxonnes avant de te déporter",
       "Oui, mais seulement de nuit, les phares compensant le manque de visibilité",
       "Non, doubler est interdit tant que la ligne est continue, quelle que soit la lenteur du véhicule qui précède"
@@ -533,12 +533,12 @@ const simulations = [
     question: "Une place semble libre juste avant un passage piéton, sans aucun panneau d'interdiction visible à cet endroit précis. Peux-tu t'y garer ?",
     options: [
       "Oui, s'il reste un espace visuellement libre juste avant le passage piéton",
-      "Non, le stationnement est interdit sur les 5 mètres précédant le passage piéton dans le sens de la circulation, même sans panneau spécifique",
+      "Non, l'arrêt et le stationnement sont interdits sur les 5 mètres précédant le passage piéton dans le sens de la circulation (sauf emplacement matérialisé), même sans panneau spécifique",
       "Oui, à condition de rester moins de 5 minutes",
       "Non, mais seulement si un panneau l'indique explicitement à cet endroit"
     ],
     correctIndex: 1,
-    explanation: "Le code de la route interdit le stationnement sur les 5 mètres en amont d'un passage piéton (dans le sens de circulation), afin que les piétons qui s'apprêtent à traverser restent visibles des conducteurs qui arrivent. Cette règle s'applique même sans panneau, aucune tolérance de durée n'existe."
+    explanation: "Le code de la route interdit le stationnement sur les 5 mètres en amont d'un passage piéton (dans le sens de circulation), afin que les piétons qui s'apprêtent à traverser restent visibles des conducteurs qui arrivent. Cette règle s'applique même sans panneau (sauf emplacement matérialisé par la commune), sans tolérance de durée ; c'est un stationnement très gênant (amende de 135 €)."
   },
   {
     id: "fog", theme: "conducteur", level: 1, icon: "🌫️",
@@ -556,12 +556,12 @@ const simulations = [
   {
     id: "priority-right", theme: "circulation", level: 3, icon: "🔀",
     title: "Carrefour sans aucun panneau",
-    question: "Aucun panneau ne règle ce carrefour. La voiture J arrive à ta droite au même moment que toi (voiture K), sur une route qui semble plus large que la tienne. Que fais-tu ?",
+    question: "Aucun panneau ne règle ce carrefour. Un autre véhicule arrive sur ta droite au même moment que toi, sur une route qui semble plus large que la tienne. Que fais-tu ?",
     options: [
-      "K passe en premier car il roule sur la route la plus large",
+      "Tu passes en premier car tu roules sur la route la plus large",
       "Le premier arrivé au carrefour est prioritaire, peu importe le côté",
       "Le véhicule le plus rapide doit accélérer pour passer avant l'autre",
-      "K doit céder le passage à J qui vient de sa droite, en l'absence de tout panneau"
+      "Tu dois céder le passage au véhicule qui vient de ta droite, en l'absence de tout panneau"
     ],
     correctIndex: 3,
     explanation: "En l'absence de toute signalisation, la priorité à droite s'applique strictement, quelle que soit la largeur apparente des routes ou l'ordre d'arrivée : c'est un des pièges les plus fréquents de l'examen théorique."
@@ -571,7 +571,7 @@ const simulations = [
     title: "Insertion sur voie rapide",
     question: "Tu arrives par la voie d'accélération et la voiture M circule déjà sur la voie principale. Comment t'insères-tu ?",
     options: [
-      "Adapter sa vitesse au trafic de la voie principale et s'insérer dès qu'un espace suffisant se présente, sans s'arrêter sur la voie d'accélération",
+      "Adapter sa vitesse au trafic de la voie principale, céder le passage aux véhicules déjà engagés et s'insérer dès qu'un espace suffisant se présente, sans s'arrêter sur la voie d'accélération",
       "S'arrêter sur la voie d'accélération pour laisser passer tout le trafic avant de s'insérer",
       "Forcer le passage, car les véhicules de la voie principale doivent lui céder le passage",
       "Rester sur la voie d'accélération le plus longtemps possible pour trouver l'espace idéal"
@@ -623,7 +623,7 @@ const simulations = [
     title: "Distance de sécurité sur autoroute",
     question: "Sur autoroute, à vitesse élevée, quelle distance de sécurité minimale dois-tu conserver avec le véhicule qui te précède ?",
     options: [
-      "Une distance correspondant à environ 2 secondes est nécessaire, quelle que soit la vitesse",
+      "Une distance correspondant à au moins 2 secondes est nécessaire, à augmenter si la chaussée est mouillée",
       "Une distance correspondant à environ 1 seconde suffit à cette vitesse",
       "Il suffit de garder environ deux longueurs de voiture de distance",
       "La distance de sécurité n'a pas besoin d'être augmentée sur autoroute, la visibilité y étant meilleure"
@@ -651,7 +651,7 @@ const simulations = [
     options: [
       "Porter secours immédiatement à la victime, puis alerter, puis protéger les lieux",
       "Alerter uniquement les secours, sans jamais approcher ni protéger les lieux",
-      "Protéger d'abord les lieux (baliser, couper le contact), puis alerter les secours, puis porter assistance si on en a les moyens",
+      "Protéger d'abord les lieux (baliser, couper le contact), puis alerter les secours (18, 15 ou 112), puis porter assistance à la victime sans prendre de risque",
       "Déplacer systématiquement la victime hors de la route avant toute autre action"
     ],
     correctIndex: 2,
@@ -668,7 +668,7 @@ const simulations = [
       "Suivre les indications de l'agent, qui priment sur la signalisation lumineuse"
     ],
     correctIndex: 3,
-    explanation: "L'ordre de priorité des signalisations en France place les gestes d'un agent règlant la circulation au-dessus des feux tricolores, eux-mêmes au-dessus des panneaux, eux-mêmes au-dessus de la priorité à droite. Les indications de l'agent doivent donc toujours être suivies en premier."
+    explanation: "L'ordre de priorité des signalisations en France place les gestes d'un agent réglant la circulation au-dessus des feux tricolores, eux-mêmes au-dessus des panneaux, eux-mêmes au-dessus de la priorité à droite. Les indications de l'agent doivent donc toujours être suivies en premier."
   },
   {
     id: "crosswalk", theme: "usagers", level: 2, icon: "🚶",
@@ -681,7 +681,7 @@ const simulations = [
       "S'arrêter seulement si un agent régule la circulation à cet endroit"
     ],
     correctIndex: 0,
-    explanation: "La priorité piéton s'applique dès qu'un piéton engagé ou s'apprêtant clairement à s'engager sur un passage protégé est visible, qu'il y ait un feu ou non, et sans attendre qu'il ait posé un pied sur la chaussée : il faut ralentir suffisamment tôt pour pouvoir s'arrêter si besoin."
+    explanation: "La priorité piéton s'applique dès qu'un piéton engagé ou s'apprêtant clairement à s'engager sur un passage protégé est visible, y compris sur un passage non équipé de feux, et sans attendre qu'il ait posé un pied sur la chaussée : il faut ralentir suffisamment tôt pour pouvoir s'arrêter si besoin."
   },
   {
     id: "parking-exit", theme: "circulation", level: 3, icon: "🚙",
@@ -712,15 +712,15 @@ const simulations = [
   {
     id: "alternat", theme: "notions", level: 3, icon: "🚧",
     title: "Chantier avec feux temporaires",
-    question: "Un chantier réduit la route à une seule voie, régulée par des feux tricolores temporaires. Plus loin, un panneau permanent de priorité à droite semble contredire le sens indiqué par les feux. Que fais-tu ?",
+    question: "Un chantier réduit la route à une seule voie, régulée par des feux tricolores temporaires. Plus loin, un panneau permanent de priorité (par exemple un cédez-le-passage ou un STOP) semble contredire les indications des feux. Que fais-tu ?",
     options: [
-      "Appliquer le panneau de priorité à droite, car il est permanent",
+      "Appliquer le panneau de priorité permanent, car il est permanent",
       "Choisir la règle qui semble la plus prudente entre les deux signalisations",
       "Klaxonner pour avertir puis avancer en priorité",
       "Appliquer les feux tricolores temporaires du chantier, qui priment sur la signalisation permanente le temps des travaux"
     ],
     correctIndex: 3,
-    explanation: "La signalisation temporaire de chantier (feux, panneaux jaune-orange) prévaut toujours sur la signalisation permanente tant que le danger ou les travaux qu'elle signale sont en place, précisément pour gérer ce type de configuration inhabituelle en toute sécurité."
+    explanation: "La signalisation temporaire de chantier (feux, panneaux à fond jaune) prévaut toujours sur la signalisation permanente tant que le danger ou les travaux qu'elle signale sont en place, précisément pour gérer ce type de configuration inhabituelle en toute sécurité."
   },
   {
     id: "equipement", theme: "equipements", level: 2, icon: "⚠️",
@@ -728,12 +728,12 @@ const simulations = [
     question: "Ta voiture tombe en panne sur l'autoroute et tu parviens à t'arrêter sur la bande d'arrêt d'urgence. Que fais-tu avant d'attendre les secours ?",
     options: [
       "Rester dans le véhicule, ceinture attachée, feux de détresse allumés",
-      "Descendre côté opposé à la circulation, enfiler un gilet rétro-réfléchissant, poser le triangle en amont, puis se mettre à l'abri derrière les glissières, hors de la chaussée et de la bande d'arrêt d'urgence",
+      "Allumer les feux de détresse, enfiler le gilet rétro-réfléchissant avant de sortir, descendre côté opposé à la circulation avec les passagers (sans poser le triangle sur autoroute), puis se mettre à l'abri derrière les glissières, hors de la chaussée et de la bande d'arrêt d'urgence, et appeler les secours (borne d'appel ou 112)",
       "Sortir côté circulation pour poser le triangle, puis attendre à côté de la voiture",
       "Laisser le véhicule en plein sur la voie de droite avec les warnings et attendre à l'intérieur"
     ],
     correctIndex: 1,
-    explanation: "Sur autoroute, la bande d'arrêt d'urgence reste dangereuse : il faut sortir du côté opposé à la circulation, porter un gilet rétro-réfléchissant, placer le triangle assez en amont pour prévenir les autres usagers, puis se mettre à l'abri derrière les glissières — rester dans ou à côté du véhicule expose à un risque de collision par l'arrière."
+    explanation: "Sur autoroute, la bande d'arrêt d'urgence reste dangereuse : il faut allumer les feux de détresse, enfiler un gilet rétro-réfléchissant avant de sortir, sortir du côté opposé à la circulation, ne pas chercher à poser le triangle (trop dangereux sur autoroute), puis se mettre à l'abri derrière les glissières et appeler les secours — rester dans ou à côté du véhicule expose à un risque de collision par l'arrière."
   },
   {
     id: "siege-auto", theme: "securite_passagers", level: 1, icon: "🧒",
@@ -741,12 +741,12 @@ const simulations = [
     question: "Tu dois transporter un enfant de 8 ans dans ta voiture. Quelle installation est réglementaire ?",
     options: [
       "Il peut être attaché uniquement avec la ceinture adulte, sans dispositif additionnel, dès qu'il a plus de 6 ans",
-      "Un dispositif de retenue homologué et adapté (siège auto ou réhausseur) est obligatoire tant qu'il mesure moins de 1,35 m",
+      "Un dispositif de retenue homologué et adapté à sa morphologie et à son poids (siège auto ou réhausseur) est obligatoire jusqu'à 10 ans",
       "Il peut voyager sans dispositif particulier s'il est assis à l'arrière",
       "Un dispositif est obligatoire uniquement pour les trajets de plus de 50 km"
     ],
     correctIndex: 1,
-    explanation: "En France, tout enfant de moins de 1,35 m doit être installé dans un dispositif de retenue homologué et adapté à sa taille et à son poids (siège auto ou réhausseur avec la ceinture), quel que soit son âge, sa place dans le véhicule ou la longueur du trajet."
+    explanation: "En France, tout enfant de moins de 10 ans doit être installé dans un dispositif de retenue homologué et adapté à sa morphologie et à son poids (siège auto ou réhausseur avec la ceinture), quelle que soit sa place dans le véhicule ou la longueur du trajet. Amende forfaitaire de 135 €."
   }
 ];
 
