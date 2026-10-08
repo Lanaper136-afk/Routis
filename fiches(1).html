@@ -1,0 +1,1934 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fiches de révision du Code de la route gratuites par thème</title>
+    <meta name="description" content="Fiches de révision gratuites du code de la route par thème : priorités, panneaux, distances d'arrêt, vitesse, alcool... Idéal pour réviser avant l'examen." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Fiches de révision du Code de la route gratuites par thème" />
+    <meta property="og:description" content="Fiches de révision gratuites du code de la route par thème : priorités, panneaux, distances d'arrêt, vitesse, alcool... Idéal pour réviser avant l'examen." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/fiches.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    </style>
+  </head>
+  <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59PS7V3L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" focusable="false">
+            <circle class="tire-outer" cx="24" cy="24" r="16" />
+            <circle class="tire-inner" cx="24" cy="24" r="7" />
+            <path class="tire-tread" d="M24 8v7M24 33v7M8 24h7M33 24h7M12.7 12.7l5 5M30.3 30.3l5 5M35.3 12.7l-5 5M17.7 30.3l-5 5" />
+          </svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a class="active" href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow" data-i18n="fiches_hub_eyebrow">Fiches</p>
+        <h1 data-i18n="fiches_hub_title">Toutes les fiches</h1>
+        <p data-i18n="fiches_hub_desc">Des résumés clairs sur les notions théoriques qui tombent souvent à l'examen, avec un quiz à la fin de chaque fiche.</p>
+      </section>
+
+      <section class="fiche-index" aria-label="Liste des fiches">
+        <a class="fiche-index-card" href="#fiche-distances-arret">
+          <span class="fiche-index-badge">01</span>
+          <span class="fiche-index-body">
+            <span class="fiche-index-title" data-i18n="fiche_title">Distances d'arrêt et temps de réaction</span>
+            <span class="fiche-index-desc" data-i18n="fiche_desc">Un chapitre clé de l'examen : le temps de réaction, la distance de freinage, et pourquoi la distance d'arrêt augmente très vite avec la vitesse.</span>
+          </span>
+          <span class="fiche-index-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="fiche-index-card" href="#fiche-conducteur">
+          <span class="fiche-index-badge">02</span>
+          <span class="fiche-index-body">
+            <span class="fiche-index-title" data-i18n="fiche2_title">Le conducteur : fatigue, alcool, téléphone</span>
+            <span class="fiche-index-desc" data-i18n="fiche2_desc">Les trois facteurs humains qui reviennent le plus souvent à l'examen, avec les seuils légaux et les bons réflexes à connaître.</span>
+          </span>
+          <span class="fiche-index-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="fiche-index-card" href="#fiche-priorites">
+          <span class="fiche-index-badge">03</span>
+          <span class="fiche-index-body">
+            <span class="fiche-index-title" data-i18n="fiche3_title">Les priorités : véhicules prioritaires et piétons</span>
+            <span class="fiche-index-desc" data-i18n="fiche3_desc">Qui passe en premier ? Véhicules d'urgence, piétons aux passages protégés, et les pièges de priorité les plus fréquents à l'examen.</span>
+          </span>
+          <span class="fiche-index-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="fiche-index-card" href="#fiche-route">
+          <span class="fiche-index-badge">04</span>
+          <span class="fiche-index-body">
+            <span class="fiche-index-title">La route : signalisation et marquages</span>
+            <span class="fiche-index-desc">Les familles de panneaux, les lignes au sol et les types de voies à connaître pour décoder n'importe quelle route.</span>
+          </span>
+          <span class="fiche-index-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="fiche-index-card" href="#fiche-usagers">
+          <span class="fiche-index-badge">05</span>
+          <span class="fiche-index-body">
+            <span class="fiche-index-title">Les autres usagers de la route</span>
+            <span class="fiche-index-desc">Piétons, cyclistes, deux-roues motorisés, poids lourds : les règles de cohabitation et les angles morts à surveiller.</span>
+          </span>
+          <span class="fiche-index-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="fiche-index-card" href="#fiche-reglementation">
+          <span class="fiche-index-badge">06</span>
+          <span class="fiche-index-body">
+            <span class="fiche-index-title">La réglementation : points, assurance, sanctions</span>
+            <span class="fiche-index-desc">Le permis à points, les documents obligatoires, le contrôle technique et les sanctions les plus fréquentes à l'examen.</span>
+          </span>
+          <span class="fiche-index-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="fiche-index-card" href="#fiche-environnement">
+          <span class="fiche-index-badge">07</span>
+          <span class="fiche-index-body">
+            <span class="fiche-index-title">L'environnement et l'écoconduite</span>
+            <span class="fiche-index-desc">Zones à faibles émissions, vignette Crit'Air et bons réflexes pour réduire sa consommation et sa pollution.</span>
+          </span>
+          <span class="fiche-index-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="fiche-index-card" href="#fiche-notions">
+          <span class="fiche-index-badge">08</span>
+          <span class="fiche-index-body">
+            <span class="fiche-index-title">Notions diverses : enfants, chargement, remorque</span>
+            <span class="fiche-index-desc">Transport d'enfants, arrimage du chargement, remorque et covoiturage : les notions transversales à connaître.</span>
+          </span>
+          <span class="fiche-index-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="fiche-index-card" href="#fiche-securite-passagers">
+          <span class="fiche-index-badge">09</span>
+          <span class="fiche-index-body">
+            <span class="fiche-index-title">Sécurité des passagers : ceinture, siège enfant, casque</span>
+            <span class="fiche-index-desc">Ceinture, sièges auto, airbags et casque : ce qui protège vraiment en cas de choc, et ce que dit la loi.</span>
+          </span>
+          <span class="fiche-index-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="fiche-index-card" href="#fiche-equipements">
+          <span class="fiche-index-badge">10</span>
+          <span class="fiche-index-body">
+            <span class="fiche-index-title">Les équipements de sécurité du véhicule</span>
+            <span class="fiche-index-desc">Triangle, gilet, ABS, ESP, pneus : les équipements à connaître et à vérifier régulièrement.</span>
+          </span>
+          <span class="fiche-index-arrow" aria-hidden="true">→</span>
+        </a>
+        <a class="fiche-index-card" href="#fiche-secours">
+          <span class="fiche-index-badge">11</span>
+          <span class="fiche-index-body">
+            <span class="fiche-index-title">Premiers secours et mécanique de base</span>
+            <span class="fiche-index-desc">Le réflexe PAS (Protéger, Alerter, Secourir), la PLS, et la conduite à tenir en cas de panne ou d'accident.</span>
+          </span>
+          <span class="fiche-index-arrow" aria-hidden="true">→</span>
+        </a>
+      </section>
+
+      <section class="fiche-chapter" id="fiche-distances-arret" data-theme="route">
+        <div class="fiche-chapter-header">
+          <span class="fiche-chapter-badge" data-i18n="fiche_chapter_label">Fiche 1</span>
+          <h2 data-i18n="fiche_title">Distances d'arrêt et temps de réaction</h2>
+        </div>
+
+        <div class="fiche-card">
+          <h3 data-i18n="fiche_reaction_title">1. Le temps de réaction</h3>
+          <p data-i18n="fiche_reaction_p1">En moyenne, un conducteur attentif met environ <span class="fiche-highlight">1 seconde</span> pour réagir : voir le danger, comprendre la situation, puis commencer à freiner. Ce délai peut doubler en cas de fatigue, d'alcool ou de distraction (téléphone).</p>
+          <p data-i18n="fiche_reaction_p2">Pendant cette seconde, le véhicule continue tout droit à la même vitesse. Plus tu roules vite, plus la distance parcourue « à l'aveugle » pendant la réaction est grande.</p>
+          <table class="fiche-table">
+            <thead>
+              <tr>
+                <th data-i18n="fiche_table_speed">Vitesse</th>
+                <th data-i18n="fiche_table_reaction">Distance parcourue pendant la réaction (~1 s)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>30 km/h</td><td>≈ 8 m</td></tr>
+              <tr><td>50 km/h</td><td>≈ 14 m</td></tr>
+              <tr><td>70 km/h</td><td>≈ 19 m</td></tr>
+              <tr><td>90 km/h</td><td>≈ 25 m</td></tr>
+              <tr><td>110 km/h</td><td>≈ 31 m</td></tr>
+              <tr><td>130 km/h</td><td>≈ 36 m</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="fiche-card">
+          <h3 data-i18n="fiche_braking_title">2. La distance de freinage</h3>
+          <p data-i18n="fiche_braking_p1">Une fois les freins actionnés, le véhicule ne s'arrête pas immédiatement : c'est la distance de freinage. Elle dépend de la vitesse, de l'état de la route, des pneus et du poids du véhicule.</p>
+          <p data-i18n="fiche_braking_p2">Point souvent mal compris à l'examen : la distance de freinage n'est <span class="fiche-highlight">pas proportionnelle</span> à la vitesse, mais à son carré. Si la vitesse double, l'énergie à absorber est multipliée par 4 — la distance de freinage aussi est donc multipliée par environ 4, et non par 2.</p>
+          <table class="fiche-table">
+            <thead>
+              <tr>
+                <th data-i18n="fiche_table_speed">Vitesse</th>
+                <th data-i18n="fiche_table_braking">Distance de freinage (route sèche)</th>
+                <th data-i18n="fiche_table_total">Distance d'arrêt totale</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>50 km/h</td><td>≈ 14 m</td><td>≈ 28 m</td></tr>
+              <tr><td>90 km/h</td><td>≈ 50 m</td><td>≈ 75 m</td></tr>
+              <tr><td>130 km/h</td><td>≈ 105 m</td><td>≈ 141 m</td></tr>
+            </tbody>
+          </table>
+          <p class="fiche-note" data-i18n="fiche_braking_p3">Distance d'arrêt totale = distance de réaction + distance de freinage.</p>
+          <figure class="fiche-figure"><div data-scene="fig_arret"></div><figcaption data-i18n="figcap_fig_arret">Plus on roule vite, plus la distance d'arrêt s'allonge très vite : à 130 km/h, elle est environ 5 fois celle à 50 km/h.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3 data-i18n="fiche_wet_title">3. Route mouillée : tout s'allonge</h3>
+          <p data-i18n="fiche_wet_p1">Sur route mouillée, l'adhérence des pneus diminue fortement : la distance de freinage peut <span class="fiche-highlight">doubler</span>, voire plus sur une route glissante (feuilles mortes, verglas) ou avec des pneus usés.</p>
+          <p data-i18n="fiche_wet_p2">Le temps de réaction, lui, ne change pas avec la météo — c'est pourquoi il faut augmenter ses distances de sécurité par temps de pluie plutôt que de compter sur des réflexes plus rapides.</p>
+        </div>
+
+        <div class="section-shell" id="fiche-quiz">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow" data-i18n="fiche_quiz_eyebrow">Vérifie tes connaissances</p>
+              <h3 data-i18n="fiche_quiz_heading">Quiz : distances d'arrêt</h3>
+            </div>
+          </div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3 data-i18n="fq1_title">Temps de réaction</h3>
+              <p data-i18n="fq1_q">Quel est le temps de réaction moyen d'un conducteur attentif ?</p>
+              <div class="sim-actions">
+                <button data-sim="fq1" data-answer="wrong" data-i18n="fq1_wrong">Environ 0,1 seconde</button>
+                <button data-sim="fq1" data-answer="right" data-i18n="fq1_right">Environ 1 seconde</button>
+              </div>
+              <p class="sim-result" id="sim-fq1"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="fq2_title">Distance de réaction à 50 km/h</h3>
+              <p data-i18n="fq2_q">À 50 km/h, quelle distance parcours-tu pendant ton temps de réaction ?</p>
+              <div class="sim-actions">
+                <button data-sim="fq2" data-answer="right" data-i18n="fq2_right">Environ 14 mètres</button>
+                <button data-sim="fq2" data-answer="wrong" data-i18n="fq2_wrong">Environ 30 mètres</button>
+              </div>
+              <p class="sim-result" id="sim-fq2"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="fq3_title">Vitesse et freinage</h3>
+              <p data-i18n="fq3_q">Si la vitesse double, la distance de freinage est multipliée par :</p>
+              <div class="sim-actions">
+                <button data-sim="fq3" data-answer="wrong" data-i18n="fq3_wrong">2</button>
+                <button data-sim="fq3" data-answer="right" data-i18n="fq3_right">4</button>
+              </div>
+              <p class="sim-result" id="sim-fq3"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="fq4_title">Distance d'arrêt totale</h3>
+              <p data-i18n="fq4_q">La distance d'arrêt totale correspond à :</p>
+              <div class="sim-actions">
+                <button data-sim="fq4" data-answer="wrong" data-i18n="fq4_wrong">La distance de freinage seule</button>
+                <button data-sim="fq4" data-answer="right" data-i18n="fq4_right">La distance de réaction + la distance de freinage</button>
+              </div>
+              <p class="sim-result" id="sim-fq4"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="fq5_title">Route mouillée</h3>
+              <p data-i18n="fq5_q">Sur route mouillée, la distance de freinage :</p>
+              <div class="sim-actions">
+                <button data-sim="fq5" data-answer="wrong" data-i18n="fq5_wrong">Reste identique</button>
+                <button data-sim="fq5" data-answer="right" data-i18n="fq5_right">Peut doubler</button>
+              </div>
+              <p class="sim-result" id="sim-fq5"></p>
+            </article>
+          </div>
+        </div>
+
+        <a class="fiche-back-link" href="#top" data-i18n="fiche_back_to_list">↑ Retour à la liste des fiches</a>
+      </section>
+
+      <section class="fiche-chapter" id="fiche-conducteur" data-theme="conducteur">
+        <div class="fiche-chapter-header">
+          <span class="fiche-chapter-badge" data-i18n="fiche2_chapter_label">Fiche 2</span>
+          <h2 data-i18n="fiche2_title">Le conducteur : fatigue, alcool, téléphone</h2>
+        </div>
+
+        <div class="fiche-card">
+          <h3 data-i18n="fiche2_fatigue_title">1. La fatigue au volant</h3>
+          <p data-i18n="fiche2_fatigue_p1">La fatigue est l'une des toutes premières causes d'accident mortel sur autoroute, surtout la nuit. Elle ralentit les réflexes, réduit la vigilance et peut provoquer un endormissement de quelques secondes, largement suffisant pour sortir de la route.</p>
+          <p data-i18n="fiche2_fatigue_p2">Deux périodes sont particulièrement à risque : entre 2 h et 5 h du matin, et en début d'après-midi (13 h - 15 h), même chez un conducteur qui se sent en forme.</p>
+          <p class="fiche-note" data-i18n="fiche2_fatigue_p3">Bon réflexe : une vraie pause de 15 à 20 minutes toutes les deux heures ou tous les 200 km — pas juste ouvrir la fenêtre ou monter la musique, qui ne font qu'illusion quelques minutes.</p>
+        </div>
+
+        <div class="fiche-card">
+          <h3 data-i18n="fiche2_alcool_title">2. L'alcool et les stupéfiants</h3>
+          <p data-i18n="fiche2_alcool_p1">En France, le taux d'alcoolémie maximal autorisé est de <span class="fiche-highlight">0,5 gramme par litre de sang</span> (0,25 mg par litre d'air expiré) pour un permis classique.</p>
+          <p data-i18n="fiche2_alcool_p2">Pour les conducteurs en permis probatoire (moins de 3 ans après l'obtention) et les conducteurs de transport en commun, ce seuil est abaissé à <span class="fiche-highlight">0,2 g/L</span> — soit quasiment zéro tolérance.</p>
+          <table class="fiche-table">
+            <thead>
+              <tr>
+                <th data-i18n="fiche2_table_driver">Type de conducteur</th>
+                <th data-i18n="fiche2_table_limit">Taux limite autorisé</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="fiche2_table_row1">Permis classique</td><td>0,5 g/L</td></tr>
+              <tr><td data-i18n="fiche2_table_row2">Permis probatoire</td><td>0,2 g/L</td></tr>
+              <tr><td data-i18n="fiche2_table_row3">Conducteur transport en commun</td><td>0,2 g/L</td></tr>
+            </tbody>
+          </table>
+          <p data-i18n="fiche2_alcool_p3">L'alcool allonge le temps de réaction, réduit le champ de vision et donne une fausse confiance en soi. Pour les stupéfiants (cannabis, cocaïne...), la règle est différente : c'est une <span class="fiche-highlight">tolérance zéro</span> — toute trace détectée est sanctionnée, quel que soit le taux.</p>
+          <figure class="fiche-figure"><div data-scene="fig_alcool"></div><figcaption data-i18n="figcap_fig_alcool">Taux d'alcoolémie : la limite est de 0,5 g/L pour un conducteur confirmé, mais de seulement 0,2 g/L en permis probatoire. À partir de 0,8 g/L, c'est un délit.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3 data-i18n="fiche2_phone_title">3. Le téléphone et les distractions</h3>
+          <p data-i18n="fiche2_phone_p1">Tenir son téléphone en main au volant est interdit et sanctionné (amende et retrait de points), que ce soit pour téléphoner, lire un message ou consulter une carte.</p>
+          <p data-i18n="fiche2_phone_p2">Point souvent ignoré : le port d'une <span class="fiche-highlight">oreillette, d'écouteurs ou d'un casque</span> est lui aussi interdit en France, car il isole l'audition de l'environnement sonore de la route (seul un kit mains libres intégré au véhicule, ou le haut-parleur, reste toléré sans tenir le téléphone).</p>
+          <p class="fiche-note" data-i18n="fiche2_phone_p3">Une seconde d'inattention à 90 km/h, c'est déjà 25 mètres parcourus sans regarder la route — l'équivalent d'une conduite les yeux fermés sur la longueur d'un terrain de basket.</p>
+        </div>
+
+        <div class="section-shell" id="fiche2-quiz">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow" data-i18n="fiche_quiz_eyebrow">Vérifie tes connaissances</p>
+              <h3 data-i18n="fiche2_quiz_heading">Quiz : le conducteur</h3>
+            </div>
+          </div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3 data-i18n="cq1_title">Taux légal (permis classique)</h3>
+              <p data-i18n="cq1_q">Quel est le taux d'alcoolémie maximal autorisé avec un permis classique en France ?</p>
+              <div class="sim-actions">
+                <button data-sim="cq1" data-answer="right" data-i18n="cq1_right">0,5 g/L de sang</button>
+                <button data-sim="cq1" data-answer="wrong" data-i18n="cq1_wrong">0,8 g/L de sang</button>
+              </div>
+              <p class="sim-result" id="sim-cq1"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="cq2_title">Taux légal (permis probatoire)</h3>
+              <p data-i18n="cq2_q">Quel est le taux limite pour un conducteur en permis probatoire ?</p>
+              <div class="sim-actions">
+                <button data-sim="cq2" data-answer="wrong" data-i18n="cq2_wrong">0,5 g/L de sang</button>
+                <button data-sim="cq2" data-answer="right" data-i18n="cq2_right">0,2 g/L de sang</button>
+              </div>
+              <p class="sim-result" id="sim-cq2"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="cq3_title">Stupéfiants au volant</h3>
+              <p data-i18n="cq3_q">Concernant les stupéfiants au volant, la règle est :</p>
+              <div class="sim-actions">
+                <button data-sim="cq3" data-answer="wrong" data-i18n="cq3_wrong">Autorisé sous un certain seuil</button>
+                <button data-sim="cq3" data-answer="right" data-i18n="cq3_right">Tolérance zéro, quel que soit le taux</button>
+              </div>
+              <p class="sim-result" id="sim-cq3"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="cq4_title">Oreillette au volant</h3>
+              <p data-i18n="cq4_q">Utiliser une oreillette ou un casque au volant en France est :</p>
+              <div class="sim-actions">
+                <button data-sim="cq4" data-answer="wrong" data-i18n="cq4_wrong">Autorisé si les mains restent sur le volant</button>
+                <button data-sim="cq4" data-answer="right" data-i18n="cq4_right">Interdit, comme le téléphone en main</button>
+              </div>
+              <p class="sim-result" id="sim-cq4"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="cq5_title">Contre la fatigue</h3>
+              <p data-i18n="cq5_q">Quel est le meilleur réflexe contre la fatigue au volant ?</p>
+              <div class="sim-actions">
+                <button data-sim="cq5" data-answer="wrong" data-i18n="cq5_wrong">Ouvrir la fenêtre et monter la musique</button>
+                <button data-sim="cq5" data-answer="right" data-i18n="cq5_right">Faire une vraie pause de 15-20 minutes</button>
+              </div>
+              <p class="sim-result" id="sim-cq5"></p>
+            </article>
+          </div>
+        </div>
+
+        <a class="fiche-back-link" href="#top" data-i18n="fiche_back_to_list">↑ Retour à la liste des fiches</a>
+      </section>
+
+      <section class="fiche-chapter" id="fiche-priorites" data-theme="circulation">
+        <div class="fiche-chapter-header">
+          <span class="fiche-chapter-badge" data-i18n="fiche3_chapter_label">Fiche 3</span>
+          <h2 data-i18n="fiche3_title">Les priorités : véhicules prioritaires et piétons</h2>
+        </div>
+
+        <div class="fiche-card">
+          <h3 data-i18n="fiche3_urgence_title">1. Les véhicules prioritaires</h3>
+          <p data-i18n="fiche3_urgence_p1">Police, gendarmerie, pompiers et SAMU sont prioritaires uniquement lorsqu'ils sont <span class="fiche-highlight">en intervention</span> : feux spéciaux bleus tournants ou à éclats <span class="fiche-highlight">et</span> avertisseur sonore deux tons activés en même temps.</p>
+          <p data-i18n="fiche3_urgence_p2">Piège classique : un gyrophare allumé seul, sans sirène (dépanneuse, véhicule de chantier), ne rend pas le véhicule prioritaire — il signale juste sa présence ou un danger.</p>
+          <p class="fiche-note" data-i18n="fiche3_urgence_p3">Bon réflexe : dès que tu vois ou entends un véhicule prioritaire en intervention, dégage la voie dès que possible, sans freiner brusquement ni paniquer — même si tu es normalement prioritaire à cet endroit.</p>
+          <figure class="fiche-figure"><div data-scene="prioritaire"></div><figcaption data-i18n="figcap_prioritaire">Un véhicule prioritaire en intervention (feux bleus et deux-tons) : on le laisse passer, même si le feu est vert pour nous.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3 data-i18n="fiche3_pieton_title">2. Les piétons</h3>
+          <p data-i18n="fiche3_pieton_p1">Sur un passage piéton, dès qu'un piéton est engagé ou s'apprête clairement à traverser, il est prioritaire : le conducteur doit s'arrêter pour le laisser passer (si le passage est équipé de feux, le piéton doit traverser au feu piéton vert ; en tournant, on cède aussi aux piétons qui traversent régulièrement).</p>
+          <p data-i18n="fiche3_pieton_p2">Hors passage piéton, le piéton n'a pas de priorité légale, mais la prudence reste toujours de mise, en particulier envers les enfants et les personnes âgées.</p>
+          <p class="fiche-note" data-i18n="fiche3_pieton_p3">À retenir : un piéton muni d'une canne blanche est un usager particulièrement vulnérable. Ralentis, arrête-toi si nécessaire et laisse-lui le temps de traverser, sans klaxonner.</p>
+          <figure class="fiche-figure"><div data-scene="pieton"></div><figcaption data-i18n="figcap_pieton">Un piéton engagé sur le passage : le conducteur ralentit et s'arrête pour le laisser traverser.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3 data-i18n="fiche3_pieges_title">3. Les pièges de priorité classiques</h3>
+          <p data-i18n="fiche3_pieges_p1">Un panneau STOP impose de s'arrêter même si tu serais normalement prioritaire à droite à cette intersection : le panneau prend toujours le dessus sur la règle générale.</p>
+          <p data-i18n="fiche3_pieges_p2">Pour tourner à gauche à une intersection, tu dois céder le passage aux véhicules qui arrivent en face et vont tout droit — même si tu es arrivé le premier au carrefour.</p>
+          <p data-i18n="fiche3_pieges_p3">Un bus qui quitte son arrêt en agglomération, clignotant activé, est prioritaire pour se réinsérer dans la circulation : c'est un piège très fréquent à l'examen.</p>
+          <figure class="fiche-figure"><div data-scene="inter_droite"></div><figcaption data-i18n="figcap_inter_droite">Sans panneau, la priorité à droite s'applique : A cède le passage à B, qui arrive de sa droite.</figcaption></figure>
+        </div>
+
+        <div class="section-shell" id="fiche3-quiz">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow" data-i18n="fiche_quiz_eyebrow">Vérifie tes connaissances</p>
+              <h3 data-i18n="fiche3_quiz_heading">Quiz : les priorités</h3>
+            </div>
+          </div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3 data-i18n="pq1_title">Gyrophare sans sirène</h3>
+              <p data-i18n="pq1_q">Un véhicule avec un gyrophare allumé mais sans sirène audible est :</p>
+              <div class="sim-actions">
+                <button data-sim="pq1" data-answer="wrong" data-i18n="pq1_wrong">Automatiquement prioritaire</button>
+                <button data-sim="pq1" data-answer="right" data-i18n="pq1_right">Pas prioritaire au sens légal</button>
+              </div>
+              <p class="sim-result" id="sim-pq1"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="pq2_title">Véhicule en intervention</h3>
+              <p data-i18n="pq2_q">Face à un véhicule prioritaire en intervention (feux + sirène), tu dois :</p>
+              <div class="sim-actions">
+                <button data-sim="pq2" data-answer="right" data-i18n="pq2_right">Dégager la voie dès que possible, sans freiner brusquement</button>
+                <button data-sim="pq2" data-answer="wrong" data-i18n="pq2_wrong">Garder ta vitesse normale, à lui de s'adapter</button>
+              </div>
+              <p class="sim-result" id="sim-pq2"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="pq3_title">Canne blanche</h3>
+              <p data-i18n="pq3_q">Face à un piéton avec une canne blanche qui s'engage hors passage piéton, tu dois :</p>
+              <div class="sim-actions">
+                <button data-sim="pq3" data-answer="wrong" data-i18n="pq3_wrong">Klaxonner pour qu'il se dépêche</button>
+                <button data-sim="pq3" data-answer="right" data-i18n="pq3_right">Ralentir, t'arrêter au besoin et le laisser traverser</button>
+              </div>
+              <p class="sim-result" id="sim-pq3"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="pq4_title">Tourner à gauche</h3>
+              <p data-i18n="pq4_q">Tu veux tourner à gauche, une voiture arrive en face tout droit. Tu es arrivé le premier au carrefour :</p>
+              <div class="sim-actions">
+                <button data-sim="pq4" data-answer="wrong" data-i18n="pq4_wrong">Je passe en premier, je suis arrivé avant</button>
+                <button data-sim="pq4" data-answer="right" data-i18n="pq4_right">Je dois lui céder le passage</button>
+              </div>
+              <p class="sim-result" id="sim-pq4"></p>
+            </article>
+
+            <article class="sim-card">
+              <h3 data-i18n="pq5_title">Bus qui redémarre</h3>
+              <p data-i18n="pq5_q">Un bus quitte son arrêt en agglomération, clignotant activé :</p>
+              <div class="sim-actions">
+                <button data-sim="pq5" data-answer="wrong" data-i18n="pq5_wrong">Je n'ai pas à ralentir</button>
+                <button data-sim="pq5" data-answer="right" data-i18n="pq5_right">Je dois lui laisser la priorité</button>
+              </div>
+              <p class="sim-result" id="sim-pq5"></p>
+            </article>
+          </div>
+        </div>
+
+        <a class="fiche-back-link" href="#top" data-i18n="fiche_back_to_list">↑ Retour à la liste des fiches</a>
+      </section>
+
+      <section class="fiche-chapter" id="fiche-route" data-theme="route">
+        <div class="fiche-chapter-header">
+          <span class="fiche-chapter-badge">Fiche 4</span>
+          <h2>La route : signalisation et marquages</h2>
+        </div>
+
+        <div class="fiche-card">
+          <h3>1. Les grandes familles de panneaux</h3>
+          <p>Les panneaux de <span class="fiche-highlight">danger</span> sont des triangles à fond blanc bordés de rouge : ils annoncent un risque à venir (virage, chaussée glissante, passage piéton...). Les panneaux d'<span class="fiche-highlight">interdiction</span> sont ronds à bordure rouge, tandis que les panneaux d'<span class="fiche-highlight">obligation</span> sont ronds à fond bleu.</p>
+          <p>Les panneaux d'<span class="fiche-highlight">indication</span> (parkings, stations-service, directions) sont carrés ou rectangulaires, à fond bleu sur autoroute et voies rapides. Retenir la forme d'un panneau, avant même sa couleur, permet souvent de deviner sa famille même de loin ou mal éclairé.</p>
+          <table class="fiche-table">
+            <thead>
+              <tr><th>Forme / couleur</th><th>Famille</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Triangle, fond blanc, bord rouge</td><td>Danger</td></tr>
+              <tr><td>Rond, bord rouge</td><td>Interdiction</td></tr>
+              <tr><td>Rond, fond bleu</td><td>Obligation</td></tr>
+              <tr><td>Carré / rectangle, fond bleu</td><td>Indication</td></tr>
+              <tr><td>Octogone rouge</td><td>STOP (forme unique)</td></tr>
+            </tbody>
+          </table>
+          <figure class="fiche-figure"><div data-scene="fam_panneaux"></div><figcaption data-i18n="figcap_fam_panneaux">Un exemple pour chaque famille : danger, interdiction, obligation.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3>2. Les marquages au sol</h3>
+          <p>Une ligne <span class="fiche-highlight">continue</span> interdit tout franchissement, y compris pour dépasser. Une ligne <span class="fiche-highlight">discontinue</span> autorise le franchissement si la manœuvre est sûre. Lorsqu'une ligne continue est accolée à une discontinue, c'est la ligne située de son propre côté qui fait foi.</p>
+          <p>La signalisation temporaire de chantier, sur fond jaune, prévaut toujours sur la signalisation permanente le temps que dure le chantier.</p>
+          <figure class="fiche-figure"><div data-scene="fig_lignes"></div><figcaption data-i18n="figcap_fig_lignes">Les trois lignes à connaître : continue, discontinue, et la ligne à traits rapprochés qui annonce une ligne continue.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3>3. Les types de voies</h3>
+          <p>Bande cyclable (simple marquage sur la chaussée), piste cyclable (physiquement séparée), voie de bus, voie verte (réservée aux déplacements non motorisés) : chaque aménagement a ses propres règles d'accès, et s'y stationner est souvent verbalisé plus sévèrement qu'un stationnement classique.</p>
+          <p class="fiche-note">Astuce d'examen : sur autoroute, les panneaux de direction sont bleus ; sur route nationale, ils sont généralement verts.</p>
+          <figure class="fiche-figure"><div data-scene="cycliste"></div><figcaption data-i18n="figcap_cycliste">Une bande cyclable à droite de la chaussée : en tournant à droite, on laisse passer le cycliste qui continue tout droit.</figcaption></figure>
+        </div>
+
+        <div class="section-shell" id="fiche4-quiz">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Vérifie tes connaissances</p>
+              <h3>Quiz : la route</h3>
+            </div>
+          </div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3>Panneau de danger</h3>
+              <p>Un panneau de danger a la forme :</p>
+              <div class="sim-actions">
+                <button data-sim="rt1" data-answer="right">D'un triangle à fond blanc bordé de rouge</button>
+                <button data-sim="rt1" data-answer="wrong">D'un cercle à fond bleu</button>
+              </div>
+              <p class="sim-result" id="sim-rt1"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Ligne continue</h3>
+              <p>Une ligne blanche continue au sol signifie :</p>
+              <div class="sim-actions">
+                <button data-sim="rt2" data-answer="wrong">Le franchissement est autorisé avec prudence</button>
+                <button data-sim="rt2" data-answer="right">Le franchissement est interdit</button>
+              </div>
+              <p class="sim-result" id="sim-rt2"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Panneau d'obligation</h3>
+              <p>Un panneau d'obligation a la forme :</p>
+              <div class="sim-actions">
+                <button data-sim="rt3" data-answer="right">Un cercle à fond bleu</button>
+                <button data-sim="rt3" data-answer="wrong">Un triangle rouge</button>
+              </div>
+              <p class="sim-result" id="sim-rt3"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Panneau STOP</h3>
+              <p>Le panneau STOP se reconnaît car il est le seul avec cette forme :</p>
+              <div class="sim-actions">
+                <button data-sim="rt4" data-answer="wrong">Ronde</button>
+                <button data-sim="rt4" data-answer="right">Octogonale</button>
+              </div>
+              <p class="sim-result" id="sim-rt4"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Piste cyclable</h3>
+              <p>Se garer sur une piste cyclable est :</p>
+              <div class="sim-actions">
+                <button data-sim="rt5" data-answer="wrong">Toléré quelques minutes</button>
+                <button data-sim="rt5" data-answer="right">Interdit et dangereux pour les cyclistes</button>
+              </div>
+              <p class="sim-result" id="sim-rt5"></p>
+            </article>
+          </div>
+        </div>
+
+        <a class="fiche-back-link" href="#top">↑ Retour à la liste des fiches</a>
+      </section>
+
+      <section class="fiche-chapter" id="fiche-usagers" data-theme="usagers">
+        <div class="fiche-chapter-header">
+          <span class="fiche-chapter-badge">Fiche 5</span>
+          <h2>Les autres usagers de la route</h2>
+        </div>
+
+        <div class="fiche-card">
+          <h3>1. Piétons et personnes à mobilité réduite</h3>
+          <p>Dès qu'un piéton est engagé ou s'apprête clairement à traverser sur un passage protégé, il est prioritaire : il faut s'arrêter pour le laisser passer. Face à un piéton muni d'une canne blanche ou accompagné d'un chien guide, usager particulièrement vulnérable, il faut ralentir, s'arrêter si nécessaire et lui laisser le temps de traverser, même hors passage piéton.</p>
+          <p>Les personnes à mobilité réduite bénéficient de places de stationnement réservées avec une carte dédiée ; il faut toujours leur laisser le temps nécessaire pour traverser ou monter dans un véhicule, sans manifester d'impatience.</p>
+          <figure class="fiche-figure"><div data-scene="pieton_trottoir"></div><figcaption data-i18n="figcap_pieton_trottoir">Un piéton qui s'avance vers la chaussée pour traverser : on ralentit et on se prépare à s'arrêter.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3>2. Cyclistes et deux-roues motorisés</h3>
+          <p>Au moment de dépasser un cycliste, la loi impose une distance latérale d'au moins <span class="fiche-highlight">1 mètre en agglomération</span> et <span class="fiche-highlight">1,5 mètre hors agglomération</span>. De nuit, hors agglomération, le cycliste doit porter un gilet de haute visibilité certifié (de nuit ou par visibilité insuffisante).</p>
+          <p>Les deux-roues motorisés sont plus vulnérables et moins visibles : il faut leur laisser une distance de sécurité au moins équivalente à celle d'une voiture. Le port du casque homologué est obligatoire pour le conducteur <span class="fiche-highlight">et</span> pour tout passager.</p>
+          <figure class="fiche-figure"><div data-scene="fig_depasse_cycliste"></div><figcaption data-i18n="figcap_fig_depasse_cycliste">Pour dépasser un cycliste, on laisse au moins 1 m en agglomération et 1,5 m hors agglomération.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3>3. Poids lourds et angles morts</h3>
+          <p>Les poids lourds ont des angles morts très étendus, en particulier côté passager : ne jamais stationner longtemps à leur droite quand ils s'apprêtent à tourner. Ils sont aussi limités à une vitesse inférieure à celle des voitures sur autoroute (environ 90 km/h), et les dépasser demande davantage de distance et d'anticipation en raison de leur longueur.</p>
+          <p class="fiche-note">Bon réflexe : « si tu ne vois pas le rétroviseur du camion, le camionneur ne te voit pas non plus ».</p>
+          <figure class="fiche-figure"><div data-scene="fig_angle_mort_pl"></div><figcaption data-i18n="figcap_fig_angle_mort_pl">Autour d'un poids lourd, les zones rouges sont des angles morts : le chauffeur ne voit pas un cycliste ou une moto qui s'y trouve.</figcaption></figure>
+        </div>
+
+        <div class="section-shell" id="fiche5-quiz">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Vérifie tes connaissances</p>
+              <h3>Quiz : les autres usagers</h3>
+            </div>
+          </div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3>Dépassement de cycliste</h3>
+              <p>Distance latérale minimale pour dépasser un cycliste hors agglomération :</p>
+              <div class="sim-actions">
+                <button data-sim="us1" data-answer="wrong">1 mètre</button>
+                <button data-sim="us1" data-answer="right">1,5 mètre</button>
+              </div>
+              <p class="sim-result" id="sim-us1"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Canne blanche</h3>
+              <p>Face à un piéton avec une canne blanche qui s'engage hors passage piéton, tu dois :</p>
+              <div class="sim-actions">
+                <button data-sim="us2" data-answer="wrong">Klaxonner pour qu'il se dépêche</button>
+                <button data-sim="us2" data-answer="right">Ralentir, t'arrêter au besoin et le laisser traverser</button>
+              </div>
+              <p class="sim-result" id="sim-us2"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Casque passager moto</h3>
+              <p>Le port du casque pour un passager de moto est :</p>
+              <div class="sim-actions">
+                <button data-sim="us3" data-answer="right">Obligatoire, comme pour le conducteur</button>
+                <button data-sim="us3" data-answer="wrong">Facultatif si le trajet est court</button>
+              </div>
+              <p class="sim-result" id="sim-us3"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Angle mort poids lourd</h3>
+              <p>Un poids lourd qui tourne à droite présente un risque lié à :</p>
+              <div class="sim-actions">
+                <button data-sim="us4" data-answer="right">Ses angles morts très étendus</button>
+                <button data-sim="us4" data-answer="wrong">Sa faible hauteur</button>
+              </div>
+              <p class="sim-result" id="sim-us4"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Vitesse poids lourd</h3>
+              <p>Sur autoroute, un poids lourd roule au maximum autour de :</p>
+              <div class="sim-actions">
+                <button data-sim="us5" data-answer="wrong">130 km/h</button>
+                <button data-sim="us5" data-answer="right">90 km/h</button>
+              </div>
+              <p class="sim-result" id="sim-us5"></p>
+            </article>
+          </div>
+        </div>
+
+        <a class="fiche-back-link" href="#top">↑ Retour à la liste des fiches</a>
+      </section>
+
+      <section class="fiche-chapter" id="fiche-reglementation" data-theme="reglementation">
+        <div class="fiche-chapter-header">
+          <span class="fiche-chapter-badge">Fiche 6</span>
+          <h2>La réglementation : points, assurance, sanctions</h2>
+        </div>
+
+        <div class="fiche-card">
+          <h3>1. Le permis à points</h3>
+          <p>Le permis dispose d'un capital de <span class="fiche-highlight">12 points</span> maximum. Pendant la période probatoire (3 ans, ou 2 ans avec la conduite accompagnée), ce capital démarre à <span class="fiche-highlight">6 points</span> et augmente sans infraction : de 2 points par an (6, 8, 10, puis 12) après 3 ans en filière classique, ou de 3 points par an (9 puis 12) après 2 ans avec la conduite accompagnée.</p>
+          <p>La perte de la totalité des points invalide le permis : il faut alors respecter un délai avant de repasser les examens. Un stage de sensibilisation permet de récupérer jusqu'à 4 points, une fois par an maximum.</p>
+          <table class="fiche-table">
+            <thead><tr><th>Infraction</th><th>Points retirés (indicatif)</th></tr></thead>
+            <tbody>
+              <tr><td>Téléphone tenu en main</td><td>3 points</td></tr>
+              <tr><td>Non-port de la ceinture</td><td>3 points</td></tr>
+              <tr><td>Franchissement de ligne continue</td><td>3 points</td></tr>
+              <tr><td>Feu rouge / STOP grillé</td><td>4 points</td></tr>
+              <tr><td>Excès de vitesse &lt; 20 km/h</td><td>1 point</td></tr>
+            </tbody>
+          </table>
+          <figure class="fiche-figure"><div data-scene="fig_points"></div><figcaption data-i18n="figcap_fig_points">Quelques infractions courantes et le nombre de points qu'elles font perdre sur un capital de 12.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3>2. Assurance, contrôle technique et documents</h3>
+          <p>L'assurance responsabilité civile est obligatoire pour tout véhicule motorisé, même simplement stationné sur la voie publique. Le contrôle technique doit être renouvelé tous les 2 ans, après un premier contrôle 4 ans après la mise en circulation.</p>
+          <p>En cas de contrôle, il faut pouvoir présenter son permis de conduire et la carte grise. L'assurance est vérifiée par les forces de l'ordre dans le fichier des véhicules assurés : la carte verte n'existe plus depuis le 1er avril 2024.</p>
+        </div>
+
+        <div class="fiche-card">
+          <h3>3. Les sanctions les plus fréquentes</h3>
+          <p>Un excès de vitesse de 50 km/h ou plus au-dessus de la limite est un <span class="fiche-highlight">délit</span> : suspension possible immédiate du permis, retrait de 6 points, amende pouvant aller jusqu'à 3 750 EUR, jusqu'à 3 mois d'emprisonnement et comparution devant un tribunal dès la première infraction. Un taux d'alcoolémie de 0,8 g/L ou plus est également un délit.</p>
+          <p class="fiche-note">Le délit de fuite après un accident est en général sanctionné plus sévèrement que l'accident lui-même : il ne faut jamais quitter les lieux sans s'identifier.</p>
+        </div>
+
+        <div class="section-shell" id="fiche6-quiz">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Vérifie tes connaissances</p>
+              <h3>Quiz : la réglementation</h3>
+            </div>
+          </div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3>Capital de points</h3>
+              <p>Le permis de conduire fonctionne sur un barème de :</p>
+              <div class="sim-actions">
+                <button data-sim="rg1" data-answer="right">12 points maximum</button>
+                <button data-sim="rg1" data-answer="wrong">6 points maximum</button>
+              </div>
+              <p class="sim-result" id="sim-rg1"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Permis probatoire</h3>
+              <p>Le permis probatoire démarre avec :</p>
+              <div class="sim-actions">
+                <button data-sim="rg2" data-answer="wrong">12 points</button>
+                <button data-sim="rg2" data-answer="right">6 points</button>
+              </div>
+              <p class="sim-result" id="sim-rg2"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Contrôle technique</h3>
+              <p>Le contrôle technique doit être renouvelé :</p>
+              <div class="sim-actions">
+                <button data-sim="rg3" data-answer="right">Tous les 2 ans</button>
+                <button data-sim="rg3" data-answer="wrong">Tous les 5 ans</button>
+              </div>
+              <p class="sim-result" id="sim-rg3"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Grand excès de vitesse</h3>
+              <p>Un excès de vitesse de 50 km/h ou plus est :</p>
+              <div class="sim-actions">
+                <button data-sim="rg4" data-answer="wrong">Une simple contravention</button>
+                <button data-sim="rg4" data-answer="right">Un délit</button>
+              </div>
+              <p class="sim-result" id="sim-rg4"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Assurance</h3>
+              <p>L'assurance responsabilité civile est obligatoire :</p>
+              <div class="sim-actions">
+                <button data-sim="rg5" data-answer="right">Pour tout véhicule motorisé, même à l'arrêt</button>
+                <button data-sim="rg5" data-answer="wrong">Uniquement pour les véhicules neufs</button>
+              </div>
+              <p class="sim-result" id="sim-rg5"></p>
+            </article>
+          </div>
+        </div>
+
+        <a class="fiche-back-link" href="#top">↑ Retour à la liste des fiches</a>
+      </section>
+
+      <section class="fiche-chapter" id="fiche-environnement" data-theme="environnement">
+        <div class="fiche-chapter-header">
+          <span class="fiche-chapter-badge">Fiche 7</span>
+          <h2>L'environnement et l'écoconduite</h2>
+        </div>
+
+        <div class="fiche-card">
+          <h3>1. Zones à faibles émissions et vignette Crit'Air</h3>
+          <p>Une <span class="fiche-highlight">zone à faibles émissions (ZFE)</span> restreint ou interdit la circulation des véhicules les plus polluants dans certaines zones urbaines. La vignette Crit'Air classe les véhicules selon leur niveau de pollution et conditionne l'accès à ces zones.</p>
+          <figure class="fiche-figure"><div data-scene="zfe"></div><figcaption data-i18n="figcap_zfe">À l'entrée d'une zone à faibles émissions, la vignette Crit'Air sur le pare-brise est nécessaire pour savoir si le véhicule a le droit d'y circuler.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3>2. Les bons réflexes d'écoconduite</h3>
+          <p>Anticiper la circulation, éviter les accélérations et freinages brusques, rouler à vitesse stabilisée et couper le moteur lors d'un arrêt prolongé réduisent la consommation de carburant et les émissions de CO2.</p>
+          <p>Un entretien régulier (pression des pneus, filtres, moteur) et l'absence de charge inutile dans le véhicule contribuent aussi à limiter la pollution et la consommation.</p>
+        </div>
+
+        <div class="fiche-card">
+          <h3>3. Le covoiturage</h3>
+          <p class="fiche-note">Le covoiturage réduit le nombre de véhicules utilisés pour un même trajet, ce qui diminue à la fois les émissions et la congestion routière, tout en partageant les frais entre passagers.</p>
+        </div>
+
+        <div class="section-shell" id="fiche7-quiz">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Vérifie tes connaissances</p>
+              <h3>Quiz : l'environnement</h3>
+            </div>
+          </div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3>ZFE</h3>
+              <p>Une zone à faibles émissions a pour but de :</p>
+              <div class="sim-actions">
+                <button data-sim="en1" data-answer="right">Restreindre la circulation des véhicules les plus polluants</button>
+                <button data-sim="en1" data-answer="wrong">Favoriser les véhicules polluants</button>
+              </div>
+              <p class="sim-result" id="sim-en1"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Écoconduite</h3>
+              <p>L'écoconduite consiste principalement à :</p>
+              <div class="sim-actions">
+                <button data-sim="en2" data-answer="right">Anticiper pour limiter accélérations et freinages brusques</button>
+                <button data-sim="en2" data-answer="wrong">Rouler le plus vite possible entre les feux</button>
+              </div>
+              <p class="sim-result" id="sim-en2"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Pneus sous-gonflés</h3>
+              <p>Des pneus sous-gonflés entraînent :</p>
+              <div class="sim-actions">
+                <button data-sim="en3" data-answer="wrong">Une consommation réduite</button>
+                <button data-sim="en3" data-answer="right">Une consommation augmentée</button>
+              </div>
+              <p class="sim-result" id="sim-en3"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Covoiturage</h3>
+              <p>Le covoiturage contribue à réduire l'impact environnemental en :</p>
+              <div class="sim-actions">
+                <button data-sim="en4" data-answer="right">Réduisant le nombre de véhicules en circulation</button>
+                <button data-sim="en4" data-answer="wrong">Augmentant le trafic</button>
+              </div>
+              <p class="sim-result" id="sim-en4"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Arrêt prolongé</h3>
+              <p>Lors d'un arrêt prolongé, couper le moteur permet de :</p>
+              <div class="sim-actions">
+                <button data-sim="en5" data-answer="right">Réduire consommation et émissions inutiles</button>
+                <button data-sim="en5" data-answer="wrong">Augmenter la pollution</button>
+              </div>
+              <p class="sim-result" id="sim-en5"></p>
+            </article>
+          </div>
+        </div>
+
+        <a class="fiche-back-link" href="#top">↑ Retour à la liste des fiches</a>
+      </section>
+
+      <section class="fiche-chapter" id="fiche-notions" data-theme="notions">
+        <div class="fiche-chapter-header">
+          <span class="fiche-chapter-badge">Fiche 8</span>
+          <h2>Notions diverses : enfants, chargement, remorque</h2>
+        </div>
+
+        <div class="fiche-card">
+          <h3>1. Le transport d'enfants</h3>
+          <p>Tout enfant de moins de <span class="fiche-highlight">10 ans</span> doit voyager dans un dispositif de retenue homologué adapté à sa morphologie et à son poids (siège auto, réhausseur). Il est recommandé de garder un réhausseur jusqu'à environ <span class="fiche-highlight">135 cm</span>. Un siège installé dos à la route à l'avant impose de désactiver l'airbag frontal passager.</p>
+          <figure class="fiche-figure"><div data-scene="siege_enfant"></div><figcaption data-i18n="figcap_siege_enfant">Un enfant de moins de 10 ans doit voyager dans un siège ou sur un réhausseur adapté, attaché par la ceinture.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3>2. Chargement et remorque</h3>
+          <p>Un chargement qui dépasse l'aplomb du véhicule doit être signalé par un dispositif visible, y compris la nuit. Le poids total en charge doit respecter le PTAC indiqué sur la carte grise. Le permis B permet de tracter une remorque dans certaines limites de poids ; au-delà, une catégorie supplémentaire est nécessaire.</p>
+          <p>Avec une remorque ou une caravane, la vitesse maximale sur autoroute reste 130 km/h si le PTRA de l'ensemble ne dépasse pas 3,5 t ; au-delà de 3,5 t, elle est limitée à 90 km/h.</p>
+          <figure class="fiche-figure"><div data-scene="fig_chargement"></div><figcaption data-i18n="figcap_fig_chargement">Une charge qui dépasse à l'arrière doit être signalée dès qu'elle dépasse d'1 m.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3>3. Covoiturage et animaux</h3>
+          <p class="fiche-note">Le transport d'un animal doit se faire de façon sécurisée (caisse, harnais, grille de séparation), afin de ne pas gêner la conduite ni risquer de blesser les occupants en cas de freinage brusque.</p>
+        </div>
+
+        <div class="section-shell" id="fiche8-quiz">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Vérifie tes connaissances</p>
+              <h3>Quiz : notions diverses</h3>
+            </div>
+          </div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3>Siège enfant</h3>
+              <p>Un enfant de moins de 10 ans doit :</p>
+              <div class="sim-actions">
+                <button data-sim="no1" data-answer="right">Utiliser un siège ou réhausseur adapté</button>
+                <button data-sim="no1" data-answer="wrong">Voyager sans dispositif particulier</button>
+              </div>
+              <p class="sim-result" id="sim-no1"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Airbag et siège dos à la route</h3>
+              <p>Un siège dos à la route à l'avant impose de :</p>
+              <div class="sim-actions">
+                <button data-sim="no2" data-answer="right">Désactiver l'airbag frontal passager</button>
+                <button data-sim="no2" data-answer="wrong">Ne rien faire de particulier</button>
+              </div>
+              <p class="sim-result" id="sim-no2"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Chargement dépassant</h3>
+              <p>Un chargement qui dépasse à l'arrière doit être :</p>
+              <div class="sim-actions">
+                <button data-sim="no3" data-answer="right">Signalé par un dispositif visible</button>
+                <button data-sim="no3" data-answer="wrong">Laissé sans signalisation</button>
+              </div>
+              <p class="sim-result" id="sim-no3"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Vitesse avec remorque</h3>
+              <p>Sur autoroute, avec une remorque, si le PTRA de l'ensemble dépasse 3,5 t, la vitesse maximale est :</p>
+              <div class="sim-actions">
+                <button data-sim="no4" data-answer="wrong">130 km/h comme d'habitude</button>
+                <button data-sim="no4" data-answer="right">90 km/h</button>
+              </div>
+              <p class="sim-result" id="sim-no4"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Transport d'animal</h3>
+              <p>Un animal doit être transporté :</p>
+              <div class="sim-actions">
+                <button data-sim="no5" data-answer="right">De façon sécurisée (caisse, harnais, grille)</button>
+                <button data-sim="no5" data-answer="wrong">Librement sans précaution</button>
+              </div>
+              <p class="sim-result" id="sim-no5"></p>
+            </article>
+          </div>
+        </div>
+
+        <a class="fiche-back-link" href="#top">↑ Retour à la liste des fiches</a>
+      </section>
+
+      <section class="fiche-chapter" id="fiche-securite-passagers" data-theme="securite_passagers">
+        <div class="fiche-chapter-header">
+          <span class="fiche-chapter-badge">Fiche 9</span>
+          <h2>Sécurité des passagers : ceinture, siège enfant, casque</h2>
+        </div>
+
+        <div class="fiche-card">
+          <h3>1. La ceinture de sécurité</h3>
+          <p>Le port de la ceinture est obligatoire pour <span class="fiche-highlight">tous les occupants</span>, à l'avant comme à l'arrière. Un passager arrière non attaché peut être projeté violemment vers l'avant lors d'un choc et blesser les occupants situés devant lui. Le non-port est sanctionné par une amende de 135€ et un retrait de 3 points.</p>
+        </div>
+
+        <div class="fiche-card">
+          <h3>2. Siège enfant et airbags</h3>
+          <p>Les sièges auto sont homologués par groupes de poids (0+, 1, 2, 3) ou selon la taille (norme i-Size). Il est recommandé de garder un enfant dos à la route le plus longtemps possible, car cette position protège mieux la tête et la nuque en cas de choc frontal.</p>
+          <p>Les airbags <span class="fiche-highlight">complètent</span> la ceinture de sécurité, ils ne la remplacent pas : leur efficacité dépend du port simultané de la ceinture.</p>
+        </div>
+
+        <div class="fiche-card">
+          <h3>3. Casque et gilet</h3>
+          <p class="fiche-note">Le casque homologué, correctement attaché (jugulaire fermée), est obligatoire pour le conducteur et tout passager d'un deux-roues motorisé. En cas de panne ou d'arrêt d'urgence, le gilet haute visibilité doit être enfilé avant de sortir du véhicule.</p>
+          <figure class="fiche-figure"><div data-scene="panne_autoroute"></div><figcaption data-i18n="figcap_panne_autoroute">En panne sur autoroute : feux de détresse, gilet enfilé avant de sortir, puis on se met à l'abri derrière la glissière.</figcaption></figure>
+        </div>
+
+        <div class="section-shell" id="fiche9-quiz">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Vérifie tes connaissances</p>
+              <h3>Quiz : sécurité des passagers</h3>
+            </div>
+          </div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3>Ceinture arrière</h3>
+              <p>La ceinture de sécurité est obligatoire :</p>
+              <div class="sim-actions">
+                <button data-sim="sp1" data-answer="right">Pour tous les occupants, avant et arrière</button>
+                <button data-sim="sp1" data-answer="wrong">Uniquement à l'avant</button>
+              </div>
+              <p class="sim-result" id="sim-sp1"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Dos à la route</h3>
+              <p>Il est recommandé de garder un enfant dos à la route :</p>
+              <div class="sim-actions">
+                <button data-sim="sp2" data-answer="right">Le plus longtemps possible</button>
+                <button data-sim="sp2" data-answer="wrong">Le moins longtemps possible</button>
+              </div>
+              <p class="sim-result" id="sim-sp2"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Airbags</h3>
+              <p>Les airbags du véhicule :</p>
+              <div class="sim-actions">
+                <button data-sim="sp3" data-answer="right">Complètent la ceinture, sans la remplacer</button>
+                <button data-sim="sp3" data-answer="wrong">Remplacent totalement la ceinture</button>
+              </div>
+              <p class="sim-result" id="sim-sp3"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Casque passager</h3>
+              <p>Le port du casque pour le passager d'un deux-roues est :</p>
+              <div class="sim-actions">
+                <button data-sim="sp4" data-answer="right">Obligatoire, comme pour le conducteur</button>
+                <button data-sim="sp4" data-answer="wrong">Facultatif</button>
+              </div>
+              <p class="sim-result" id="sim-sp4"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Gilet en cas de panne</h3>
+              <p>En cas de panne, le gilet haute visibilité doit être enfilé :</p>
+              <div class="sim-actions">
+                <button data-sim="sp5" data-answer="right">Avant de sortir du véhicule</button>
+                <button data-sim="sp5" data-answer="wrong">Uniquement après avoir posé le triangle</button>
+              </div>
+              <p class="sim-result" id="sim-sp5"></p>
+            </article>
+          </div>
+        </div>
+
+        <a class="fiche-back-link" href="#top">↑ Retour à la liste des fiches</a>
+      </section>
+
+      <section class="fiche-chapter" id="fiche-equipements" data-theme="equipements">
+        <div class="fiche-chapter-header">
+          <span class="fiche-chapter-badge">Fiche 10</span>
+          <h2>Les équipements de sécurité du véhicule</h2>
+        </div>
+
+        <div class="fiche-card">
+          <h3>1. Le kit de sécurité obligatoire</h3>
+          <p>Tout véhicule doit disposer à bord d'un <span class="fiche-highlight">triangle de présignalisation</span> et, depuis 2008, d'un <span class="fiche-highlight">gilet de haute visibilité</span>. L'extincteur, contrairement à une idée reçue, n'est pas obligatoire dans une voiture particulière, mais reste recommandé.</p>
+          <figure class="fiche-figure"><div data-scene="fig_triangle"></div><figcaption data-i18n="figcap_fig_triangle">Le triangle de présignalisation se place à au moins 30 m derrière le véhicule, sur route normale (pas sur autoroute si c'est dangereux).</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3>2. ABS, ESP et pneus</h3>
+          <p>L'<span class="fiche-highlight">ABS</span> empêche les roues de se bloquer lors d'un freinage d'urgence, pour garder la maîtrise de la direction. L'<span class="fiche-highlight">ESP</span> corrige un début de dérapage en freinant automatiquement certaines roues. La profondeur minimale légale des sculptures de pneu est de 1,6 mm.</p>
+          <p>Vérifier régulièrement la pression des pneus (à froid, de préférence) et les niveaux (huile, liquide de refroidissement, lave-glace) permet d'anticiper bien des pannes.</p>
+        </div>
+
+        <div class="fiche-card">
+          <h3>3. Éclairage et signalisation</h3>
+          <p class="fiche-note">Les feux de croisement sont obligatoires de nuit et dès que la visibilité est insuffisante, même le jour. Les feux de détresse signalent un danger ou un arrêt d'urgence ; les feux de brouillard arrière ne doivent être utilisés qu'en cas de visibilité inférieure à environ 50 mètres.</p>
+        </div>
+
+        <div class="section-shell" id="fiche10-quiz">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Vérifie tes connaissances</p>
+              <h3>Quiz : les équipements</h3>
+            </div>
+          </div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3>Kit de sécurité</h3>
+              <p>Le kit de sécurité obligatoire à bord comprend :</p>
+              <div class="sim-actions">
+                <button data-sim="eq1" data-answer="right">Un triangle et un gilet de haute visibilité</button>
+                <button data-sim="eq1" data-answer="wrong">Un extincteur obligatoire</button>
+              </div>
+              <p class="sim-result" id="sim-eq1"></p>
+            </article>
+            <article class="sim-card">
+              <h3>ABS</h3>
+              <p>Le système ABS sert à :</p>
+              <div class="sim-actions">
+                <button data-sim="eq2" data-answer="right">Éviter le blocage des roues au freinage</button>
+                <button data-sim="eq2" data-answer="wrong">Augmenter la vitesse maximale</button>
+              </div>
+              <p class="sim-result" id="sim-eq2"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Profondeur des pneus</h3>
+              <p>La profondeur minimale légale des sculptures d'un pneu est de :</p>
+              <div class="sim-actions">
+                <button data-sim="eq3" data-answer="right">1,6 mm</button>
+                <button data-sim="eq3" data-answer="wrong">4 mm</button>
+              </div>
+              <p class="sim-result" id="sim-eq3"></p>
+            </article>
+            <article class="sim-card">
+              <h3>ESP</h3>
+              <p>Le système ESP intervient pour :</p>
+              <div class="sim-actions">
+                <button data-sim="eq4" data-answer="right">Corriger un début de dérapage</button>
+                <button data-sim="eq4" data-answer="wrong">Augmenter la puissance du moteur</button>
+              </div>
+              <p class="sim-result" id="sim-eq4"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Feux de brouillard arrière</h3>
+              <p>Les feux de brouillard arrière doivent être utilisés :</p>
+              <div class="sim-actions">
+                <button data-sim="eq5" data-answer="right">Si la visibilité est inférieure à 50 m environ</button>
+                <button data-sim="eq5" data-answer="wrong">En permanence la nuit</button>
+              </div>
+              <p class="sim-result" id="sim-eq5"></p>
+            </article>
+          </div>
+        </div>
+
+        <a class="fiche-back-link" href="#top">↑ Retour à la liste des fiches</a>
+      </section>
+
+      <section class="fiche-chapter" id="fiche-secours" data-theme="secours">
+        <div class="fiche-chapter-header">
+          <span class="fiche-chapter-badge">Fiche 11</span>
+          <h2>Premiers secours et mécanique de base</h2>
+        </div>
+
+        <div class="fiche-card">
+          <h3>1. Le réflexe PAS</h3>
+          <p>Face à un accident, la conduite à tenir se résume par le sigle <span class="fiche-highlight">PAS</span> : Protéger la zone (signalisation, gilet, triangle), Alerter les secours (15 SAMU, 17 Police, 18 Pompiers, 112 numéro d'urgence européen), puis Secourir si l'on en a la capacité.</p>
+          <figure class="fiche-figure"><div data-scene="fig_pas"></div><figcaption data-i18n="figcap_fig_pas">Le réflexe PAS : on protège d'abord, puis on alerte les secours, puis on secourt la victime.</figcaption></figure>
+        </div>
+
+        <div class="fiche-card">
+          <h3>2. La Position Latérale de Sécurité (PLS)</h3>
+          <p>La PLS s'applique à une victime <span class="fiche-highlight">inconsciente mais qui respire</span> : elle dégage les voies respiratoires et évite l'étouffement en cas de vomissement. On ne retire jamais le casque d'un motard accidenté, sauf nécessité vitale absolue et avec grande précaution.</p>
+          <p>Sauf danger immédiat (incendie, sur-accident), on ne déplace jamais un blessé, au risque d'aggraver d'éventuelles fractures ou lésions internes.</p>
+        </div>
+
+        <div class="fiche-card">
+          <h3>3. Panne et vérifications de base</h3>
+          <p class="fiche-note">En cas de panne sur autoroute : se garer sur la bande d'arrêt d'urgence, enfiler son gilet avant de sortir, sortir côté passager si possible, et se mettre à l'abri derrière la glissière en attendant les secours. Avant un trajet, pensez à vérifier les niveaux (huile, liquide de refroidissement, lave-glace) et l'état des pneus.</p>
+        </div>
+
+        <div class="section-shell" id="fiche11-quiz">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Vérifie tes connaissances</p>
+              <h3>Quiz : premiers secours</h3>
+            </div>
+          </div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3>Le sigle PAS</h3>
+              <p>PAS signifie :</p>
+              <div class="sim-actions">
+                <button data-sim="sc1" data-answer="right">Protéger, Alerter, Secourir</button>
+                <button data-sim="sc1" data-answer="wrong">Prévenir, Attendre, Soigner</button>
+              </div>
+              <p class="sim-result" id="sim-sc1"></p>
+            </article>
+            <article class="sim-card">
+              <h3>PLS</h3>
+              <p>La Position Latérale de Sécurité s'applique à une victime :</p>
+              <div class="sim-actions">
+                <button data-sim="sc2" data-answer="right">Inconsciente mais qui respire</button>
+                <button data-sim="sc2" data-answer="wrong">Consciente et qui parle</button>
+              </div>
+              <p class="sim-result" id="sim-sc2"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Casque du motard</h3>
+              <p>Face à un motard accidenté portant son casque, il faut :</p>
+              <div class="sim-actions">
+                <button data-sim="sc3" data-answer="wrong">Le retirer systématiquement</button>
+                <button data-sim="sc3" data-answer="right">Ne pas le retirer sauf nécessité vitale</button>
+              </div>
+              <p class="sim-result" id="sim-sc3"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Numéro d'urgence européen</h3>
+              <p>Le 112 fonctionne :</p>
+              <div class="sim-actions">
+                <button data-sim="sc4" data-answer="right">Dans tous les pays de l'Union européenne</button>
+                <button data-sim="sc4" data-answer="wrong">Uniquement en France</button>
+              </div>
+              <p class="sim-result" id="sim-sc4"></p>
+            </article>
+            <article class="sim-card">
+              <h3>Panne sur autoroute</h3>
+              <p>En cas de panne sur autoroute, il faut :</p>
+              <div class="sim-actions">
+                <button data-sim="sc5" data-answer="right">Se garer sur la BAU et se mettre à l'abri derrière la glissière</button>
+                <button data-sim="sc5" data-answer="wrong">Rester dans le véhicule sur la voie de circulation</button>
+              </div>
+              <p class="sim-result" id="sim-sc5"></p>
+            </article>
+          </div>
+        </div>
+
+        <a class="fiche-back-link" href="#top">↑ Retour à la liste des fiches</a>
+      </section>
+    </main>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+
+    <script src="assets/scenes.js"></script>
+    <script>
+function renderFiguresOnPage() {
+  document.querySelectorAll("[data-scene]").forEach((el) => {
+    const id = el.dataset.scene;
+    if (id === "fam_panneaux") {
+      el.innerHTML = ["danger", "interdiction", "obligation"].map((f) => {
+        const sg = signs.find((x) => x.family === f);
+        return sg ? signSvg(sg) : "";
+      }).join("");
+    } else if (typeof sceneSvg === "function") {
+      el.innerHTML = sceneSvg(id);
+    }
+  });
+}
+renderFiguresOnPage();
+document.querySelectorAll(".lang-option").forEach((b) => b.addEventListener("click", () => setTimeout(renderFiguresOnPage, 0)));
+    </script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+const state = {
+  filter: "all",
+  examFilter: "all",
+  selected: signs[0],
+  status: safeGetJSON("signStatus", {}),
+  quiz: [],
+  quizIndex: 0,
+  score: 0,
+  streak: safeGetNumber("streak", 0),
+  best: safeGetNumber("bestScore", 0)
+};
+
+const grid = document.querySelector("#sign-grid");
+const searchInput = document.querySelector("#search-input");
+const preview = document.querySelector("#sign-preview");
+const previewFamily = document.querySelector("#preview-family");
+const previewTitle = document.querySelector("#preview-title");
+const previewText = document.querySelector("#preview-text");
+const previewTips = document.querySelector("#preview-tips");
+
+
+
+function renderGrid() {
+  if (!grid || !searchInput) return;
+  const query = searchInput.value.trim().toLowerCase();
+  const filtered = signs.filter((sign) => {
+    const matchesFilter = state.filter === "all" || sign.family === state.filter;
+    const haystack = `${signField(sign, "name")} ${sign.code} ${famLabel(sign.family)} ${signField(sign, "text")}`.toLowerCase();
+    return matchesFilter && haystack.includes(query);
+  });
+
+  grid.innerHTML = filtered.map((sign) => {
+    const st = state.status[sign.id];
+    const statusClass = st === "appris" ? "status-appris" : st === "revoir" ? "status-revoir" : st === "pas-appris" ? "status-pasappris" : "";
+    return `
+    <button class="sign-card ${statusClass}" type="button" data-id="${sign.id}" aria-label="${signField(sign, "name")}">
+      ${signSvg(sign)}
+      <span>
+        <span class="sign-name">${signField(sign, "name")}</span>
+        <span class="sign-family">${sign.code} - ${famLabel(sign.family)}</span>
+      </span>
+    </button>
+  `;
+  }).join("");
+}
+
+function selectSign(sign) {
+  if (!preview || !previewFamily || !previewTitle || !previewText || !previewTips) return;
+  state.selected = sign;
+  preview.innerHTML = signSvg(sign);
+  previewFamily.textContent = `${sign.code} - ${famLabel(sign.family)}`;
+  previewTitle.textContent = signField(sign, "name");
+  previewText.textContent = signField(sign, "text");
+  previewTips.innerHTML = signField(sign, "tips").map((tip) => `<li>${tip}</li>`).join("");
+  const currentStatus = state.status[sign.id] || "pas-appris";
+  document.querySelectorAll(".status-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.status === currentStatus);
+  });
+}
+
+function updateStats() {
+  const knownCount = document.querySelector("#known-count");
+  const bestScore = document.querySelector("#best-score");
+  const streakCount = document.querySelector("#streak-count");
+  const learnedCount = Object.values(state.status).filter((value) => value === "appris").length;
+  if (knownCount) knownCount.textContent = learnedCount;
+  if (bestScore) bestScore.textContent = `${state.best}%`;
+  if (streakCount) streakCount.textContent = state.streak;
+  safeSetJSON("signStatus", state.status);
+  safeSetNumber("bestScore", state.best);
+  safeSetNumber("streak", state.streak);
+  renderLearnedReveal();
+}
+
+function renderLearnedReveal() {
+  const list = document.querySelector("#learned-list");
+  if (!list) return;
+  const learnedSigns = signs.filter((sign) => state.status[sign.id] === "appris");
+  list.innerHTML = learnedSigns.length
+    ? learnedSigns.map((sign) => `
+      <div class="learned-item">
+        ${signSvg(sign)}
+        <span>
+          <span class="sign-name">${signField(sign, "name")}</span>
+          <span class="sign-family">${sign.code} - ${famLabel(sign.family)}</span>
+        </span>
+      </div>
+    `).join("")
+    : `<p class="muted">${t("learned_empty")}</p>`;
+}
+
+function shuffle(items) {
+  return [...items].sort(() => Math.random() - 0.5);
+}
+
+function startQuiz() {
+  if (!document.querySelector("#quiz-sign")) return;
+  const pool = state.examFilter === "all" ? signs : signs.filter((sign) => sign.family === state.examFilter);
+  state.quiz = shuffle(pool).slice(0, Math.min(10, pool.length));
+  state.quizIndex = 0;
+  state.score = 0;
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const current = state.quiz[state.quizIndex];
+  if (!current) return;
+  const options = shuffle([
+    current,
+    ...shuffle(signs.filter((sign) => sign.id !== current.id)).slice(0, 3)
+  ]);
+  document.querySelector("#quiz-step").textContent = t("quiz_step", { current: state.quizIndex + 1, total: state.quiz.length });
+  document.querySelector("#quiz-score").textContent = t("quiz_score", { score: state.score });
+  document.querySelector("#quiz-sign").innerHTML = signSvg(current);
+  document.querySelector("#quiz-question").textContent = t("quiz_question");
+  document.querySelector("#feedback").textContent = "";
+  document.querySelector("#answers").innerHTML = options.map((option) => `
+    <button type="button" data-id="${option.id}">${signField(option, "name")}</button>
+  `).join("");
+}
+
+function handleAnswer(button) {
+  const current = state.quiz[state.quizIndex];
+  const isCorrect = button.dataset.id === current.id;
+  const buttons = [...document.querySelectorAll("#answers button")];
+  buttons.forEach((item) => {
+    item.disabled = true;
+    if (item.dataset.id === current.id) item.classList.add("correct");
+  });
+  if (!isCorrect) button.classList.add("wrong");
+
+  if (isCorrect) {
+    state.score += 1;
+    state.streak += 1;
+    document.querySelector("#feedback").textContent = t("feedback_correct");
+  } else {
+    state.streak = 0;
+    document.querySelector("#feedback").textContent = t("feedback_wrong", { name: signField(current, "name") });
+  }
+  updateStats();
+
+  window.setTimeout(() => {
+    state.quizIndex += 1;
+    if (state.quizIndex >= state.quiz.length) {
+      const percent = Math.round((state.score / state.quiz.length) * 100);
+      state.best = Math.max(state.best, percent);
+      updateStats();
+      const finalScore = document.querySelector("#final-score");
+      const dialog = document.querySelector("#completion-dialog");
+      if (finalScore) finalScore.textContent = t("final_score", { score: state.score, total: state.quiz.length, percent });
+      if (dialog) dialog.showModal();
+      startQuiz();
+    } else {
+      renderQuestion();
+    }
+  }, 900);
+}
+
+document.querySelectorAll(".chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".chip").forEach((item) => item.classList.remove("active"));
+    chip.classList.add("active");
+    state.filter = chip.dataset.filter;
+    renderGrid();
+  });
+});
+
+document.querySelectorAll(".exam-chip").forEach((chip) => {
+  chip.addEventListener("click", () => {
+    document.querySelectorAll(".exam-chip").forEach((item) => item.classList.remove("active"));
+    chip.classList.add("active");
+    state.examFilter = chip.dataset.examfilter;
+    startQuiz();
+  });
+});
+
+if (grid) {
+  grid.addEventListener("click", (event) => {
+    const card = event.target.closest(".sign-card");
+    if (!card) return;
+    const sign = signs.find((item) => item.id === card.dataset.id);
+    selectSign(sign);
+    document.querySelector(".learn-panel").scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+}
+
+if (searchInput) searchInput.addEventListener("input", renderGrid);
+
+document.querySelectorAll(".status-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (!state.selected) return;
+    state.status[state.selected.id] = btn.dataset.status;
+    selectSign(state.selected);
+    renderGrid();
+    updateStats();
+  });
+});
+
+const learnedToggle = document.querySelector("#learned-toggle");
+const learnedReveal = document.querySelector("#learned-reveal");
+if (learnedToggle && learnedReveal) {
+  learnedToggle.addEventListener("click", () => {
+    const isHidden = learnedReveal.hasAttribute("hidden");
+    const hint = document.querySelector("#toggle-hint");
+    if (isHidden) {
+      renderLearnedReveal();
+      learnedReveal.removeAttribute("hidden");
+      learnedToggle.setAttribute("aria-expanded", "true");
+      if (hint) hint.textContent = t("toggle_hide");
+    } else {
+      learnedReveal.setAttribute("hidden", "");
+      learnedToggle.setAttribute("aria-expanded", "false");
+      if (hint) hint.textContent = t("toggle_show");
+    }
+  });
+}
+
+const newQuizButton = document.querySelector("#new-quiz");
+if (newQuizButton) newQuizButton.addEventListener("click", startQuiz);
+
+const answers = document.querySelector("#answers");
+if (answers) {
+  answers.addEventListener("click", (event) => {
+    const button = event.target.closest("button");
+    if (button) handleAnswer(button);
+  });
+}
+
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector(`#sim-${button.dataset.sim}`);
+    const right = button.dataset.answer === "right";
+    const ficheChapter = button.closest(".fiche-chapter");
+    const isFiche = ficheChapter !== null;
+    target.textContent = right
+      ? t(isFiche ? "fiche_feedback_right" : "sim_feedback_right")
+      : t(isFiche ? "fiche_feedback_wrong" : "sim_feedback_wrong");
+    target.style.color = right ? "var(--green)" : "var(--red)";
+    // Each fiche mini-quiz item feeds qStats/box under the fiche's theme,
+    // so progression.html's per-theme stats include fiche revision too.
+    if (isFiche) {
+      recordQuestionAnswer(`fiche-${button.dataset.sim}`, ficheChapter.dataset.theme, right);
+    }
+  });
+});
+
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+    renderGrid();
+    if (state.selected) selectSign(state.selected);
+    if (document.querySelector("#quiz-sign")) renderQuestion();
+    updateStats();
+  });
+});
+
+applyStaticTranslations();
+renderGrid();
+selectSign(state.selected);
+startQuiz();
+updateStats();
+
+
+function initSliceGame() {
+  const root = document.querySelector("#slice-game");
+  if (!root) return;
+
+  const stage = root.querySelector("#game-stage");
+  const scoreEl = root.querySelector("#game-score");
+  const livesEl = root.querySelector("#game-lives");
+  const targetEl = root.querySelector("#target-name");
+  const bestBox = root.querySelector("#game-best");
+  const bestEl = root.querySelector("#game-best-score");
+  const overlay = root.querySelector("#game-overlay");
+  const overlayTitle = root.querySelector("#game-overlay-title");
+  const overlayText = root.querySelector("#game-overlay-text");
+  const startBtn = root.querySelector("#game-start");
+  const trail = root.querySelector("#slice-trail");
+
+  const game = {
+    running: false,
+    score: 0,
+    lives: 3,
+    combo: 0,
+    target: null,
+    active: [],
+    lastSpawn: 0,
+    lastTime: 0,
+    spawnDelay: 820,
+    speed: 95,
+    pointerDown: false,
+    lastPoint: null,
+    raf: null
+  };
+
+  function bestScore() {
+    return safeGetNumber("sliceBestScore", 0);
+  }
+
+  function updateBestVisibility() {
+    const best = bestScore();
+    if (best > 0) {
+      bestBox.hidden = false;
+      bestEl.textContent = best;
+    } else {
+      bestBox.hidden = true;
+    }
+  }
+
+  function setLives() {
+    livesEl.textContent = "♥".repeat(game.lives) + "♡".repeat(3 - game.lives);
+  }
+
+  function setScore() {
+    scoreEl.textContent = game.score;
+  }
+
+  function chooseTarget() {
+    const pool = game.active.length ? game.active.map((item) => item.sign) : signs;
+    game.target = pool[Math.floor(Math.random() * pool.length)];
+    targetEl.textContent = signField(game.target, "name");
+  }
+
+  function spawnSign() {
+    const sign = signs[Math.floor(Math.random() * signs.length)];
+    const node = document.createElement("button");
+    node.type = "button";
+    node.className = "falling-sign";
+    node.dataset.id = sign.id;
+    node.innerHTML = `${signSvg(sign)}<small>${sign.code}</small>`;
+    const rect = root.getBoundingClientRect();
+    const width = rect.width;
+    const x = Math.max(10, Math.random() * Math.max(20, width - 140));
+    const item = {
+      id: crypto.randomUUID ? crypto.randomUUID() : String(Date.now() + Math.random()),
+      sign,
+      node,
+      x,
+      y: -170,
+      speed: game.speed + Math.random() * 55
+    };
+    stage.appendChild(node);
+    game.active.push(item);
+    if (!game.target || !game.active.some((active) => active.sign.id === game.target.id)) chooseTarget();
+  }
+
+  function loseLife() {
+    game.lives -= 1;
+    game.combo = 0;
+    setLives();
+    if (game.lives <= 0) endGame();
+  }
+
+  function removeItem(item) {
+    item.node.remove();
+    game.active = game.active.filter((active) => active !== item);
+  }
+
+  function cutItem(item) {
+    if (!game.running) return;
+    if (item.sign.id === game.target.id) {
+      const gained = 10 * Math.pow(2, game.combo);
+      game.score += gained;
+      game.combo += 1;
+      removeItem(item);
+      setScore();
+      chooseTarget();
+    } else {
+      game.combo = 0;
+      removeItem(item);
+      loseLife();
+      chooseTarget();
+    }
+  }
+
+  function tick(time) {
+    if (!game.running) return;
+    if (!game.lastTime) game.lastTime = time;
+    const dt = Math.min(34, time - game.lastTime) / 1000;
+    game.lastTime = time;
+
+    if (time - game.lastSpawn > game.spawnDelay) {
+      spawnSign();
+      game.lastSpawn = time;
+      game.spawnDelay = Math.max(520, game.spawnDelay - 8);
+      game.speed = Math.min(175, game.speed + 1.4);
+    }
+
+    const rootRect = root.getBoundingClientRect();
+    game.active.slice().forEach((item) => {
+      item.y += item.speed * dt;
+      item.node.style.transform = `translate(${item.x}px, ${item.y}px)`;
+      if (item.y > rootRect.height + 20) {
+        const wasTarget = item.sign.id === game.target?.id;
+        removeItem(item);
+        if (wasTarget) loseLife();
+        chooseTarget();
+      }
+    });
+
+    game.raf = requestAnimationFrame(tick);
+  }
+
+  function rootPoint(event) {
+    const rect = root.getBoundingClientRect();
+    return {
+      x: event.clientX - rect.left,
+      y: event.clientY - rect.top
+    };
+  }
+
+  function drawTrail(a, b) {
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const length = Math.hypot(dx, dy);
+    if (length < 10) return;
+    const line = document.createElement("span");
+    line.className = "slice-line";
+    line.style.width = `${length}px`;
+    line.style.left = `${a.x}px`;
+    line.style.top = `${a.y}px`;
+    line.style.transform = `rotate(${Math.atan2(dy, dx)}rad)`;
+    trail.appendChild(line);
+    window.setTimeout(() => line.remove(), 180);
+  }
+
+  function pointNearSegment(point, a, b, tolerance) {
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const len2 = dx * dx + dy * dy;
+    if (!len2) return Math.hypot(point.x - a.x, point.y - a.y) <= tolerance;
+    const tVal = Math.max(0, Math.min(1, ((point.x - a.x) * dx + (point.y - a.y) * dy) / len2));
+    const x = a.x + tVal * dx;
+    const y = a.y + tVal * dy;
+    return Math.hypot(point.x - x, point.y - y) <= tolerance;
+  }
+
+  function checkCuts(a, b) {
+    const rootRect = root.getBoundingClientRect();
+    game.active.slice().forEach((item) => {
+      const rect = item.node.getBoundingClientRect();
+      const center = {
+        x: rect.left - rootRect.left + rect.width / 2,
+        y: rect.top - rootRect.top + rect.height / 2
+      };
+      const tolerance = Math.max(rect.width, rect.height) * 0.46;
+      if (pointNearSegment(center, a, b, tolerance)) cutItem(item);
+    });
+  }
+
+  function startGame() {
+    game.running = true;
+    game.score = 0;
+    game.lives = 3;
+    game.combo = 0;
+    game.active.forEach((item) => item.node.remove());
+    game.active = [];
+    game.target = null;
+    game.lastSpawn = 0;
+    game.lastTime = 0;
+    game.spawnDelay = 820;
+    game.speed = 95;
+    overlay.hidden = true;
+    setScore();
+    setLives();
+    updateBestVisibility();
+    spawnSign();
+    chooseTarget();
+    game.raf = requestAnimationFrame(tick);
+  }
+
+  function endGame() {
+    game.running = false;
+    cancelAnimationFrame(game.raf);
+    const previousBest = bestScore();
+    if (game.score > previousBest) {
+      safeSetNumber("sliceBestScore", game.score);
+    }
+    updateBestVisibility();
+    overlayTitle.textContent = "Partie terminée";
+    overlayText.textContent = `Score final : ${game.score} points.`;
+    startBtn.textContent = "Rejouer";
+    overlay.hidden = false;
+  }
+
+  root.addEventListener("pointerdown", (event) => {
+    if (!game.running) return;
+    game.pointerDown = true;
+    game.lastPoint = rootPoint(event);
+    root.setPointerCapture(event.pointerId);
+  });
+
+  root.addEventListener("pointermove", (event) => {
+    if (!game.running || !game.pointerDown || !game.lastPoint) return;
+    const next = rootPoint(event);
+    drawTrail(game.lastPoint, next);
+    checkCuts(game.lastPoint, next);
+    game.lastPoint = next;
+  });
+
+  function stopPointer() {
+    game.pointerDown = false;
+    game.lastPoint = null;
+  }
+
+  root.addEventListener("pointerup", stopPointer);
+  root.addEventListener("pointercancel", stopPointer);
+  startBtn.addEventListener("click", startGame);
+  updateBestVisibility();
+  setScore();
+  setLives();
+}
+
+initSliceGame();
+
+    </script>
+  </body>
+</html>

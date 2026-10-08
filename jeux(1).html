@@ -11,8 +11,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ma progression au Code de la route : stats et points faibles</title>
-    <meta name="description" content="Suis ta progression au code de la route gratuitement : score moyen, thèmes maîtrisés, points faibles à revoir et historique complet de tes quiz et examens." />
+    <title>Jeux du Code de la route gratuits : révise en t'amusant</title>
+    <meta name="description" content="Joue à des mini-jeux gratuits pour réviser le code de la route en t'amusant : reconnaissance de panneaux, réflexes et rapidité, sans inscription ni pub." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
@@ -21,77 +21,177 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Routis" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Ma progression au Code de la route : stats et points faibles" />
-    <meta property="og:description" content="Suis ta progression au code de la route gratuitement : score moyen, thèmes maîtrisés, points faibles à revoir et historique complet de tes quiz et examens." />
-    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/progression.html" />
+    <meta property="og:title" content="Jeux du Code de la route gratuits : révise en t'amusant" />
+    <meta property="og:description" content="Joue à des mini-jeux gratuits pour réviser le code de la route en t'amusant : reconnaissance de panneaux, réflexes et rapidité, sans inscription ni pub." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/jeux.html" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Routis" />
     <meta name="twitter:card" content="summary" />
     <link rel="stylesheet" href="assets/style.css" />
     <style>
-.stat-toggle {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  border: none;
-  background: none;
-  font: inherit;
-  color: inherit;
-  text-align: inherit;
-  cursor: pointer;
+.game-intro {
+  width: min(720px, calc(100% - 32px));
+  margin: 28px auto 64px;
+  padding: clamp(22px, 4vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: var(--shadow);
 }
 
-.theme-recap-list {
-  display: grid;
-  gap: 12px;
-  margin: 0;
+.game-intro h2 {
+  margin-bottom: 12px;
 }
 
-.theme-bar-row {
-  display: grid;
-  grid-template-columns: minmax(140px, 220px) 1fr auto;
-  align-items: center;
-  gap: 12px;
-}
-
-.theme-bar-track {
-  height: 12px;
-  overflow: hidden;
-  background: #eef3f8;
-  border-radius: 999px;
-}
-
-.theme-bar-fill {
-  height: 100%;
-  background: var(--blue);
-  border-radius: 999px;
-}
-
-.theme-bar-fill.weak {
-  background: var(--red);
-}
-
-.theme-bar-fill.strong {
-  background: var(--green);
-}
-
-.theme-bar-score {
+.game-intro p {
   color: var(--muted);
-  font-weight: 800;
-  white-space: nowrap;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
-.priority-row {
-  border-left: 4px solid var(--red);
-  padding-left: 10px;
+.game-cover {
+  position: relative;
+  min-height: 220px;
+  overflow: hidden;
+  margin: 22px 0;
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(14, 44, 79, 0.24), rgba(12, 20, 32, 0.18)),
+    linear-gradient(135deg, #eaf3ff, #dff8ef 55%, #fff4d6);
+  border: 1px solid var(--line);
 }
 
-@media (max-width: 640px) {
-  .theme-bar-row {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
+.game-cover-road {
+  position: absolute;
+  inset: 68px -24px auto;
+  height: 112px;
+  transform: rotate(-6deg);
+  background: #3f4b58;
+  box-shadow: inset 0 0 0 7px rgba(255, 255, 255, 0.12);
+}
+
+.game-cover-road::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 5px;
+  background: repeating-linear-gradient(90deg, #fff 0 36px, transparent 36px 72px);
+}
+
+.game-cover-sign {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 86px;
+  height: 86px;
+  font-weight: 900;
+  filter: drop-shadow(0 12px 18px rgba(20, 33, 51, 0.22));
+}
+
+.game-cover-stop {
+  left: 9%;
+  top: 34px;
+  color: #fff;
+  background: var(--red);
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+}
+
+.game-cover-danger {
+  right: 12%;
+  top: 26px;
+  color: #111;
+  background: #fff;
+  border: 9px solid var(--red);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  padding-top: 24px;
+}
+
+.game-cover-slice {
+  position: absolute;
+  left: 28%;
+  right: 18%;
+  top: 104px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, #fff, #6fdcff, transparent);
+  box-shadow: 0 0 26px rgba(111, 220, 255, 0.88);
+  transform: rotate(-18deg);
+}
+
+.game-shell[hidden] {
+  display: none;
+}
+
+.game-shell.is-expanded {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  width: 100vw;
+  margin: 0;
+  padding: 14px;
+  background: var(--paper);
+}
+
+.game-shell.is-expanded .slice-game {
+  height: calc(100vh - 92px);
+  min-height: calc(100vh - 92px);
+}
+
+.game-title-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.game-title-row h2 {
+  margin-bottom: 0;
+}
+
+.slice-game:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  border: 0;
+  border-radius: 0;
+}
+
+.game-level-badge {
+  margin-left: 4px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 0.78em;
+  font-weight: 900;
+}
+
+.game-right-tools {
+  display: inline-flex;
+  justify-self: end;
+  align-items: center;
+  gap: 10px;
+}
+
+.fullscreen-btn {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  font-weight: 900;
+}
+
+.fullscreen-btn svg {
+  width: 24px;
+  height: 24px;
 }
     </style>
   </head>
@@ -128,8 +228,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
         <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
         <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
-        <a class="active" href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
-        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a class="active" href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
         <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
       </nav>
       <div class="topbar-end">
@@ -175,66 +275,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <main>
       <section class="page-hero">
-        <p class="eyebrow" data-i18n="progression_eyebrow">Progression</p>
-        <h1 data-i18n="progression_title">Suis ton évolution</h1>
-        <p data-i18n="progression_desc">Retrouve tes panneaux appris, ton meilleur score et ta série de bonnes réponses.</p>
+        <p class="eyebrow" data-i18n="jeux_eyebrow_hero">Jeux</p>
+        <h1 data-i18n="jeux_title">Jeux du Code de la route</h1>
+        <p data-i18n="jeux_desc">Choisis un jeu pour réviser les panneaux avec des réflexes, du rythme et un score à battre.</p>
       </section>
 
-      <section class="dashboard progress-dashboard" aria-label="Progression">
-        <article class="stat-card">
-          <button class="stat-toggle" id="learned-toggle" type="button" aria-expanded="false" aria-controls="learned-reveal">
-            <span class="stat" id="known-count">0</span>
-            <span data-i18n="stat_panneaux_appris">Panneaux appris</span>
-            <span class="toggle-hint" id="toggle-hint" data-i18n="toggle_show">Voir la liste ↓</span>
-          </button>
-        </article>
-        <article>
-          <span class="stat" id="best-score">0%</span>
-          <span data-i18n="stat_meilleur_score">Meilleur score</span>
-        </article>
-        <article>
-          <span class="stat" id="streak-count">0</span>
-          <span data-i18n="stat_streak">Bonnes réponses d'affilée</span>
-        </article>
-      </section>
-
-      <section class="learned-reveal" id="learned-reveal" hidden aria-label="Panneaux appris">
-        <h2 data-i18n="learned_reveal_heading">Panneaux marqués comme appris</h2>
-        <div class="learned-list" id="learned-list"></div>
-      </section>
-
-      <section class="section-shell" id="priority-stats" aria-label="Points à travailler en priorité">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow" data-i18n="progression_priority_eyebrow">Priorité</p>
-            <h2 data-i18n="progression_priority_heading">Points à travailler en priorité</h2>
-            <p class="muted" data-i18n="progression_priority_intro">Les thèmes et familles où tu as le plus de marge de progression.</p>
-          </div>
-          <a class="button primary" href="panneaux.html?mode=revision#sign-quiz" data-i18n="revision_cta_btn">Réviser mes points faibles</a>
+      <section class="game-intro" id="game-intro">
+        <h2 data-i18n="game1_title">Coupe le bon panneau</h2>
+        <p data-i18n="game1_desc">Regarde le nom affiché en blanc, puis trace un geste fluide sur le panneau correspondant avant qu'il ne tombe.</p>
+        <div class="game-cover" aria-hidden="true">
+          <div class="game-cover-road"></div>
+          <span class="game-cover-sign game-cover-stop">STOP</span>
+          <span class="game-cover-sign game-cover-danger">!</span>
+          <span class="game-cover-slice"></span>
         </div>
-        <div class="theme-recap-list" id="priority-list"></div>
+        <button class="button primary" type="button" id="game-start-intro" data-i18n="game_start_btn">Start</button>
       </section>
 
-      <section class="section-shell" id="theme-stats" aria-label="Statistiques par thème">
-        <div class="section-heading">
+      <section class="game-shell" id="game-shell" aria-label="Jeu des panneaux" hidden>
+        <div class="game-title-row">
           <div>
-            <p class="eyebrow" data-i18n="progression_stats_eyebrow">Statistiques</p>
-            <h2 data-i18n="progression_stats_heading">Statistiques par thème</h2>
-            <p class="muted" data-i18n="progression_stats_intro">Ton taux de réussite sur les questions de connaissances, thème par thème.</p>
+            <p class="eyebrow" data-i18n="game_eyebrow">Jeu</p>
+            <h2 data-i18n="game1_title">Coupe le bon panneau</h2>
           </div>
         </div>
-        <div class="theme-recap-list" id="theme-stats-list"></div>
-      </section>
-
-      <section class="section-shell" id="sign-family-stats" aria-label="Statistiques par famille de panneaux">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow" data-i18n="progression_stats_signs_eyebrow">Panneaux</p>
-            <h2 data-i18n="progression_stats_signs_heading">Statistiques par famille de panneaux</h2>
-            <p class="muted" data-i18n="progression_stats_signs_intro">Ton taux de réussite au quiz de reconnaissance, famille par famille.</p>
+        <div class="slice-game" id="slice-game">
+          <div class="game-hud">
+            <div class="game-score"><span data-i18n="game_score_label">Score</span> <span id="game-score">0</span><span class="game-level-badge"><span data-i18n="game_level_label">Niv.</span> <span id="game-level">1</span></span></div>
+            <div class="game-best" id="game-best" hidden>🏆 <span id="game-best-score">0</span></div>
+            <div class="game-right-tools">
+              <button class="fullscreen-btn" type="button" id="game-fullscreen" aria-label="Plein écran" data-i18n-aria="game_fullscreen_label">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M9 4H4v5M4 4l7 7M15 20h5v-5M20 20l-7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+              <div class="game-lives" id="game-lives" aria-label="Vies" data-i18n-aria="game_lives_label">♥♥♥♥♥</div>
+            </div>
+          </div>
+          <div class="target-card">
+            <span data-i18n="game_target_label">Panneau à couper</span>
+            <strong id="target-name" data-i18n="game_ready">Prêt ?</strong>
+          </div>
+          <div class="game-stage" id="game-stage"></div>
+          <div class="slice-trail" id="slice-trail" aria-hidden="true"></div>
+          <div class="game-overlay" id="game-overlay">
+            <div class="game-modal">
+              <h2 id="game-overlay-title" data-i18n="game_overlay_title_start">Coupe le panneau demandé</h2>
+              <p id="game-overlay-text" data-i18n="game_overlay_text_start">Tu as 5 vies. Le score double à chaque bonne réponse d'affilée, puis repart à 10 après une erreur.</p>
+              <button class="button primary" type="button" id="game-start" data-i18n="game_replay_btn">Rejouer</button>
+            </div>
           </div>
         </div>
-        <div class="theme-recap-list" id="sign-stats-list"></div>
       </section>
     </main>
     <script src="assets/signs-data.js"></script>
@@ -318,76 +409,6 @@ function updateStats() {
   safeSetNumber("bestScore", state.best);
   safeSetNumber("streak", state.streak);
   renderLearnedReveal();
-}
-
-const KNOWLEDGE_THEME_ORDER = [
-  "circulation", "conducteur", "route", "usagers", "reglementation",
-  "environnement", "notions", "securite_passagers", "equipements", "secours"
-];
-const SIGN_FAMILY_ORDER = ["danger", "priorite", "interdiction", "obligation", "indication", "services", "panonceau"];
-
-function themeBarRow(label, summaryRow) {
-  const attempted = summaryRow ? summaryRow.attempted : 0;
-  const percent = summaryRow ? summaryRow.percent : 0;
-  if (!attempted) {
-    return `
-      <div class="theme-bar-row">
-        <span>${label}</span>
-        <div class="theme-bar-track"><div class="theme-bar-fill" style="width:0%"></div></div>
-        <span class="theme-bar-score">—</span>
-      </div>
-    `;
-  }
-  const fillClass = percent >= 80 ? "strong" : percent < 50 ? "weak" : "";
-  return `
-    <div class="theme-bar-row">
-      <span>${label}</span>
-      <div class="theme-bar-track"><div class="theme-bar-fill ${fillClass}" style="width:${percent}%"></div></div>
-      <span class="theme-bar-score">${percent}% · ${t("stat_attempts_label", { attempted })}</span>
-    </div>
-  `;
-}
-
-function renderThemeAndSignStats() {
-  const themeList = document.querySelector("#theme-stats-list");
-  const signList = document.querySelector("#sign-stats-list");
-  const priorityList = document.querySelector("#priority-list");
-  if (!themeList && !signList && !priorityList) return;
-
-  const qStats = safeGetJSON("qStats", {});
-  const signStats = safeGetJSON("signStats", {});
-  const themeSummary = summarizeStatsByGroup(qStats);
-  const familySummary = summarizeStatsByGroup(signStats);
-
-  if (themeList) {
-    themeList.innerHTML = KNOWLEDGE_THEME_ORDER
-      .map((theme) => themeBarRow(t(`theme_${theme}`), themeSummary[theme]))
-      .join("");
-  }
-
-  if (signList) {
-    signList.innerHTML = SIGN_FAMILY_ORDER
-      .map((family) => themeBarRow(famLabel(family), familySummary[family]))
-      .join("");
-  }
-
-  if (priorityList) {
-    const candidates = [
-      ...KNOWLEDGE_THEME_ORDER.map((theme) => ({ label: t(`theme_${theme}`), row: themeSummary[theme] })),
-      ...SIGN_FAMILY_ORDER.map((family) => ({ label: famLabel(family), row: familySummary[family] }))
-    ].filter((item) => item.row && item.row.attempted > 0);
-
-    if (!candidates.length) {
-      priorityList.innerHTML = `<p class="muted">${t("progression_priority_empty")}</p>`;
-    } else {
-      const weakest = candidates
-        .sort((a, b) => a.row.percent - b.row.percent)
-        .slice(0, 3);
-      priorityList.innerHTML = weakest
-        .map((item) => `<div class="priority-row">${themeBarRow(item.label, item.row)}</div>`)
-        .join("");
-    }
-  }
 }
 
 function renderLearnedReveal() {
@@ -562,7 +583,6 @@ document.querySelectorAll(".lang-option").forEach((btn) => {
     if (state.selected) selectSign(state.selected);
     if (document.querySelector("#quiz-sign")) renderQuestion();
     updateStats();
-    renderThemeAndSignStats();
   });
 });
 
@@ -571,15 +591,17 @@ renderGrid();
 selectSign(state.selected);
 startQuiz();
 updateStats();
-renderThemeAndSignStats();
 
 
 function initSliceGame() {
   const root = document.querySelector("#slice-game");
   if (!root) return;
 
+  const shell = document.querySelector("#game-shell");
+  const intro = document.querySelector("#game-intro");
   const stage = root.querySelector("#game-stage");
   const scoreEl = root.querySelector("#game-score");
+  const levelEl = root.querySelector("#game-level");
   const livesEl = root.querySelector("#game-lives");
   const targetEl = root.querySelector("#target-name");
   const bestBox = root.querySelector("#game-best");
@@ -588,19 +610,34 @@ function initSliceGame() {
   const overlayTitle = root.querySelector("#game-overlay-title");
   const overlayText = root.querySelector("#game-overlay-text");
   const startBtn = root.querySelector("#game-start");
+  const introStartBtn = document.querySelector("#game-start-intro");
+  const fullscreenBtn = root.querySelector("#game-fullscreen");
   const trail = root.querySelector("#slice-trail");
+  const maxLives = 5;
+
+  const baseSpawnDelay = 1150;
+  const minSpawnDelay = 380;
+  const baseSpeed = 60;
+  const maxSpeed = 230;
+  const baseMaxActive = 3;
+  const maxMaxActive = 7;
+  const maxLevel = 15;
+  const correctPerLevel = 4;
 
   const game = {
     running: false,
     score: 0,
-    lives: 3,
+    lives: maxLives,
     combo: 0,
+    correct: 0,
+    level: 1,
     target: null,
     active: [],
     lastSpawn: 0,
     lastTime: 0,
-    spawnDelay: 820,
-    speed: 95,
+    spawnDelay: baseSpawnDelay,
+    speed: baseSpeed,
+    maxActive: baseMaxActive,
     pointerDown: false,
     lastPoint: null,
     raf: null
@@ -621,11 +658,32 @@ function initSliceGame() {
   }
 
   function setLives() {
-    livesEl.textContent = "♥".repeat(game.lives) + "♡".repeat(3 - game.lives);
+    livesEl.textContent = "♥".repeat(game.lives) + "♡".repeat(maxLives - game.lives);
   }
 
   function setScore() {
     scoreEl.textContent = game.score;
+  }
+
+  function setLevel() {
+    if (levelEl) levelEl.textContent = game.level;
+  }
+
+  function applyLevel() {
+    const progress = (game.level - 1) / (maxLevel - 1);
+    game.spawnDelay = Math.round(baseSpawnDelay - (baseSpawnDelay - minSpawnDelay) * progress);
+    game.speed = Math.round(baseSpeed + (maxSpeed - baseSpeed) * progress);
+    game.maxActive = Math.min(maxMaxActive, baseMaxActive + Math.floor((game.level - 1) / 2));
+    setLevel();
+  }
+
+  function registerWin() {
+    game.correct += 1;
+    const newLevel = Math.min(maxLevel, 1 + Math.floor(game.correct / correctPerLevel));
+    if (newLevel !== game.level) {
+      game.level = newLevel;
+      applyLevel();
+    }
   }
 
   function chooseTarget() {
@@ -650,7 +708,7 @@ function initSliceGame() {
       node,
       x,
       y: -170,
-      speed: game.speed + Math.random() * 55
+      speed: game.speed + Math.random() * 25
     };
     stage.appendChild(node);
     game.active.push(item);
@@ -672,9 +730,11 @@ function initSliceGame() {
   function cutItem(item) {
     if (!game.running) return;
     if (item.sign.id === game.target.id) {
-      const gained = 10 * Math.pow(2, game.combo);
+      const levelBonus = 1 + (game.level - 1) * 0.35;
+      const gained = Math.round(10 * Math.pow(2, game.combo) * levelBonus);
       game.score += gained;
       game.combo += 1;
+      registerWin();
       removeItem(item);
       setScore();
       chooseTarget();
@@ -692,11 +752,9 @@ function initSliceGame() {
     const dt = Math.min(34, time - game.lastTime) / 1000;
     game.lastTime = time;
 
-    if (time - game.lastSpawn > game.spawnDelay) {
+    if (time - game.lastSpawn > game.spawnDelay && game.active.length < game.maxActive) {
       spawnSign();
       game.lastSpawn = time;
-      game.spawnDelay = Math.max(520, game.spawnDelay - 8);
-      game.speed = Math.min(175, game.speed + 1.4);
     }
 
     const rootRect = root.getBoundingClientRect();
@@ -706,8 +764,10 @@ function initSliceGame() {
       if (item.y > rootRect.height + 20) {
         const wasTarget = item.sign.id === game.target?.id;
         removeItem(item);
-        if (wasTarget) loseLife();
-        chooseTarget();
+        if (wasTarget) {
+          loseLife();
+          chooseTarget();
+        }
       }
     });
 
@@ -762,17 +822,20 @@ function initSliceGame() {
   }
 
   function startGame() {
+    if (shell) shell.hidden = false;
+    if (intro) intro.hidden = true;
     game.running = true;
     game.score = 0;
-    game.lives = 3;
+    game.lives = maxLives;
     game.combo = 0;
+    game.correct = 0;
+    game.level = 1;
     game.active.forEach((item) => item.node.remove());
     game.active = [];
     game.target = null;
     game.lastSpawn = 0;
     game.lastTime = 0;
-    game.spawnDelay = 820;
-    game.speed = 95;
+    applyLevel();
     overlay.hidden = true;
     setScore();
     setLives();
@@ -790,14 +853,15 @@ function initSliceGame() {
       safeSetNumber("sliceBestScore", game.score);
     }
     updateBestVisibility();
-    overlayTitle.textContent = "Partie terminée";
-    overlayText.textContent = `Score final : ${game.score} points.`;
-    startBtn.textContent = "Rejouer";
+    overlayTitle.textContent = t("game_over_title");
+    overlayText.textContent = t("game_over_text", { score: game.score });
+    startBtn.textContent = t("game_replay_btn");
     overlay.hidden = false;
   }
 
   root.addEventListener("pointerdown", (event) => {
     if (!game.running) return;
+    if (event.target.closest(".game-hud")) return;
     game.pointerDown = true;
     game.lastPoint = rootPoint(event);
     root.setPointerCapture(event.pointerId);
@@ -819,9 +883,30 @@ function initSliceGame() {
   root.addEventListener("pointerup", stopPointer);
   root.addEventListener("pointercancel", stopPointer);
   startBtn.addEventListener("click", startGame);
+  if (introStartBtn) introStartBtn.addEventListener("click", startGame);
+  if (fullscreenBtn) {
+    fullscreenBtn.addEventListener("click", async () => {
+      const target = shell || root;
+      const isExpanded = target.classList.contains("is-expanded") || Boolean(document.fullscreenElement);
+      if (isExpanded) {
+        target.classList.remove("is-expanded");
+        await document.exitFullscreen().catch(() => {});
+        return;
+      }
+      target.classList.add("is-expanded");
+      if (target.requestFullscreen) {
+        await target.requestFullscreen().catch(() => {});
+      }
+    });
+    document.addEventListener("fullscreenchange", () => {
+      if (!document.fullscreenElement && shell) shell.classList.remove("is-expanded");
+    });
+  }
   updateBestVisibility();
   setScore();
   setLives();
+  setLevel();
+  overlay.hidden = true;
 }
 
 initSliceGame();

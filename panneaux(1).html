@@ -11,8 +11,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ma progression au Code de la route : stats et points faibles</title>
-    <meta name="description" content="Suis ta progression au code de la route gratuitement : score moyen, thèmes maîtrisés, points faibles à revoir et historique complet de tes quiz et examens." />
+    <title>Panneaux du Code de la route : liste complète illustrée</title>
+    <meta name="description" content="Retrouve la liste complète des panneaux du code de la route, classés par catégorie (danger, interdiction, obligation...), avec leur signification illustrée." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
@@ -21,79 +21,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Routis" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Ma progression au Code de la route : stats et points faibles" />
-    <meta property="og:description" content="Suis ta progression au code de la route gratuitement : score moyen, thèmes maîtrisés, points faibles à revoir et historique complet de tes quiz et examens." />
-    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/progression.html" />
+    <meta property="og:title" content="Panneaux du Code de la route : liste complète illustrée" />
+    <meta property="og:description" content="Retrouve la liste complète des panneaux du code de la route, classés par catégorie (danger, interdiction, obligation...), avec leur signification illustrée." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/panneaux.html" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Routis" />
     <meta name="twitter:card" content="summary" />
     <link rel="stylesheet" href="assets/style.css" />
-    <style>
-.stat-toggle {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  border: none;
-  background: none;
-  font: inherit;
-  color: inherit;
-  text-align: inherit;
-  cursor: pointer;
-}
-
-.theme-recap-list {
-  display: grid;
-  gap: 12px;
-  margin: 0;
-}
-
-.theme-bar-row {
-  display: grid;
-  grid-template-columns: minmax(140px, 220px) 1fr auto;
-  align-items: center;
-  gap: 12px;
-}
-
-.theme-bar-track {
-  height: 12px;
-  overflow: hidden;
-  background: #eef3f8;
-  border-radius: 999px;
-}
-
-.theme-bar-fill {
-  height: 100%;
-  background: var(--blue);
-  border-radius: 999px;
-}
-
-.theme-bar-fill.weak {
-  background: var(--red);
-}
-
-.theme-bar-fill.strong {
-  background: var(--green);
-}
-
-.theme-bar-score {
-  color: var(--muted);
-  font-weight: 800;
-  white-space: nowrap;
-}
-
-.priority-row {
-  border-left: 4px solid var(--red);
-  padding-left: 10px;
-}
-
-@media (max-width: 640px) {
-  .theme-bar-row {
-    grid-template-columns: 1fr;
-    gap: 6px;
-  }
-}
-    </style>
   </head>
   <body>
 <!-- Google Tag Manager (noscript) -->
@@ -125,10 +59,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a class="active" href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
         <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
         <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
-        <a class="active" href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
         <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
         <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
       </nav>
@@ -175,68 +109,86 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <main>
       <section class="page-hero">
-        <p class="eyebrow" data-i18n="progression_eyebrow">Progression</p>
-        <h1 data-i18n="progression_title">Suis ton évolution</h1>
-        <p data-i18n="progression_desc">Retrouve tes panneaux appris, ton meilleur score et ta série de bonnes réponses.</p>
+        <p class="eyebrow" data-i18n="panneaux_eyebrow_hero">Catalogue interactif</p>
+        <h1 data-i18n="panneaux_title">Tous les grands types de panneaux</h1>
+        <p data-i18n="panneaux_desc">Filtre, clique sur un panneau et retiens les bons réflexes avant de passer aux examens blancs.</p>
       </section>
 
-      <section class="dashboard progress-dashboard" aria-label="Progression">
-        <article class="stat-card">
-          <button class="stat-toggle" id="learned-toggle" type="button" aria-expanded="false" aria-controls="learned-reveal">
-            <span class="stat" id="known-count">0</span>
-            <span data-i18n="stat_panneaux_appris">Panneaux appris</span>
-            <span class="toggle-hint" id="toggle-hint" data-i18n="toggle_show">Voir la liste ↓</span>
-          </button>
-        </article>
-        <article>
-          <span class="stat" id="best-score">0%</span>
-          <span data-i18n="stat_meilleur_score">Meilleur score</span>
-        </article>
-        <article>
-          <span class="stat" id="streak-count">0</span>
-          <span data-i18n="stat_streak">Bonnes réponses d'affilée</span>
-        </article>
-      </section>
-
-      <section class="learned-reveal" id="learned-reveal" hidden aria-label="Panneaux appris">
-        <h2 data-i18n="learned_reveal_heading">Panneaux marqués comme appris</h2>
-        <div class="learned-list" id="learned-list"></div>
-      </section>
-
-      <section class="section-shell" id="priority-stats" aria-label="Points à travailler en priorité">
+      <section class="section-shell" id="catalogue">
         <div class="section-heading">
           <div>
-            <p class="eyebrow" data-i18n="progression_priority_eyebrow">Priorité</p>
-            <h2 data-i18n="progression_priority_heading">Points à travailler en priorité</h2>
-            <p class="muted" data-i18n="progression_priority_intro">Les thèmes et familles où tu as le plus de marge de progression.</p>
+            <p class="eyebrow" data-i18n="panneaux_eyebrow_section">Panneaux</p>
+            <h2 data-i18n="panneaux_heading">Explorer par famille</h2>
           </div>
-          <a class="button primary" href="panneaux.html?mode=revision#sign-quiz" data-i18n="revision_cta_btn">Réviser mes points faibles</a>
+          <label class="search">
+            <span data-i18n="search_label">Rechercher</span>
+            <input id="search-input" type="search" placeholder="Ex. stop, priorité, vélo..." data-i18n-placeholder="search_placeholder" />
+          </label>
         </div>
-        <div class="theme-recap-list" id="priority-list"></div>
+
+        <div class="filters" aria-label="Filtrer les panneaux">
+          <button class="chip active" data-filter="all" data-i18n="chip_all">Tous</button>
+          <button class="chip" data-filter="danger" data-i18n="chip_danger">Danger</button>
+          <button class="chip" data-filter="priorite" data-i18n="chip_priorite">Priorité</button>
+          <button class="chip" data-filter="interdiction" data-i18n="chip_interdiction">Interdiction</button>
+          <button class="chip" data-filter="obligation" data-i18n="chip_obligation">Obligation</button>
+          <button class="chip" data-filter="indication" data-i18n="chip_indication">Indication</button>
+          <button class="chip" data-filter="services" data-i18n="chip_services">Services</button>
+          <button class="chip" data-filter="panonceau" data-i18n="chip_panonceau">💡 Panonceaux</button>
+        </div>
+
+        <div class="catalog-grid" id="sign-grid" aria-live="polite"></div>
       </section>
 
-      <section class="section-shell" id="theme-stats" aria-label="Statistiques par thème">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow" data-i18n="progression_stats_eyebrow">Statistiques</p>
-            <h2 data-i18n="progression_stats_heading">Statistiques par thème</h2>
-            <p class="muted" data-i18n="progression_stats_intro">Ton taux de réussite sur les questions de connaissances, thème par thème.</p>
+      <section class="learn-panel" aria-label="Fiche panneau">
+        <div class="preview" id="sign-preview"></div>
+        <div class="explanation">
+          <p class="eyebrow" id="preview-family">Selection</p>
+          <h2 id="preview-title">Clique sur un panneau</h2>
+          <p id="preview-text">
+            Sa signification, les bons réflexes et les pièges fréquents s'afficheront ici.
+          </p>
+          <ul id="preview-tips"></ul>
+          <div class="status-buttons" role="group" aria-label="Statut d'apprentissage">
+            <button class="status-btn status-btn-appris" data-status="appris" type="button" data-i18n="status_appris">Appris</button>
+            <button class="status-btn status-btn-revoir" data-status="revoir" type="button" data-i18n="status_revoir">À revoir</button>
+            <button class="status-btn status-btn-pasappris" data-status="pas-appris" type="button" data-i18n="status_pasappris">Pas encore appris</button>
           </div>
         </div>
-        <div class="theme-recap-list" id="theme-stats-list"></div>
       </section>
 
-      <section class="section-shell" id="sign-family-stats" aria-label="Statistiques par famille de panneaux">
+      <section class="section-shell" id="sign-quiz" aria-label="Quiz de reconnaissance de panneaux">
         <div class="section-heading">
           <div>
-            <p class="eyebrow" data-i18n="progression_stats_signs_eyebrow">Panneaux</p>
-            <h2 data-i18n="progression_stats_signs_heading">Statistiques par famille de panneaux</h2>
-            <p class="muted" data-i18n="progression_stats_signs_intro">Ton taux de réussite au quiz de reconnaissance, famille par famille.</p>
+            <p class="eyebrow" data-i18n="quiz_eyebrow">Entraînement</p>
+            <h2 data-i18n="quiz_heading">Quiz de reconnaissance</h2>
+          </div>
+          <button class="button secondary" type="button" id="revision-btn" data-i18n="revision_cta_btn">Réviser mes points faibles</button>
+        </div>
+        <p class="muted" id="revision-banner" hidden data-i18n="revision_banner_text">Révision ciblée : cette série met en avant les panneaux que tu rates le plus souvent ou que tu n'as jamais vus.</p>
+        <div class="quiz-layout">
+          <div class="quiz-board">
+            <div class="quiz-topline">
+              <span id="quiz-step">Question 1/10</span>
+              <span id="quiz-score">Score 0</span>
+            </div>
+            <div class="quiz-sign" id="quiz-sign"></div>
+            <h3 id="quiz-question">Que signifie ce panneau ?</h3>
+            <div class="answers" id="answers"></div>
+            <p class="feedback" id="feedback"></p>
+          </div>
+          <div class="exam-note">
+            <h3 data-i18n="quiz_note_heading">Astuce</h3>
+            <p data-i18n="quiz_note_text">Chaque série pioche en priorité les panneaux que tu maîtrises le moins (jamais vus ou récemment ratés), pour progresser plus vite.</p>
+            <button class="button primary" type="button" id="new-quiz" data-i18n="new_quiz_btn">Nouvelle série</button>
           </div>
         </div>
-        <div class="theme-recap-list" id="sign-stats-list"></div>
       </section>
     </main>
+    <dialog id="completion-dialog">
+      <p id="final-score">Score final</p>
+      <form method="dialog"><button class="button primary" type="submit" data-i18n="dialog_close_btn">Continuer</button></form>
+    </dialog>
     <script src="assets/signs-data.js"></script>
     <script src="assets/questions-data.js"></script>
     <script src="assets/i18n.js"></script>
@@ -246,6 +198,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="assets/auth-ui.js" defer></script>
     <script src="assets/sync.js" defer></script>
     <script>
+const REVISION_QUIZ_SIZE = 18;
+const urlParams = new URLSearchParams(window.location.search);
+
 const state = {
   filter: "all",
   examFilter: "all",
@@ -255,7 +210,8 @@ const state = {
   quizIndex: 0,
   score: 0,
   streak: safeGetNumber("streak", 0),
-  best: safeGetNumber("bestScore", 0)
+  best: safeGetNumber("bestScore", 0),
+  revision: urlParams.get("mode") === "revision"
 };
 
 const grid = document.querySelector("#sign-grid");
@@ -320,76 +276,6 @@ function updateStats() {
   renderLearnedReveal();
 }
 
-const KNOWLEDGE_THEME_ORDER = [
-  "circulation", "conducteur", "route", "usagers", "reglementation",
-  "environnement", "notions", "securite_passagers", "equipements", "secours"
-];
-const SIGN_FAMILY_ORDER = ["danger", "priorite", "interdiction", "obligation", "indication", "services", "panonceau"];
-
-function themeBarRow(label, summaryRow) {
-  const attempted = summaryRow ? summaryRow.attempted : 0;
-  const percent = summaryRow ? summaryRow.percent : 0;
-  if (!attempted) {
-    return `
-      <div class="theme-bar-row">
-        <span>${label}</span>
-        <div class="theme-bar-track"><div class="theme-bar-fill" style="width:0%"></div></div>
-        <span class="theme-bar-score">—</span>
-      </div>
-    `;
-  }
-  const fillClass = percent >= 80 ? "strong" : percent < 50 ? "weak" : "";
-  return `
-    <div class="theme-bar-row">
-      <span>${label}</span>
-      <div class="theme-bar-track"><div class="theme-bar-fill ${fillClass}" style="width:${percent}%"></div></div>
-      <span class="theme-bar-score">${percent}% · ${t("stat_attempts_label", { attempted })}</span>
-    </div>
-  `;
-}
-
-function renderThemeAndSignStats() {
-  const themeList = document.querySelector("#theme-stats-list");
-  const signList = document.querySelector("#sign-stats-list");
-  const priorityList = document.querySelector("#priority-list");
-  if (!themeList && !signList && !priorityList) return;
-
-  const qStats = safeGetJSON("qStats", {});
-  const signStats = safeGetJSON("signStats", {});
-  const themeSummary = summarizeStatsByGroup(qStats);
-  const familySummary = summarizeStatsByGroup(signStats);
-
-  if (themeList) {
-    themeList.innerHTML = KNOWLEDGE_THEME_ORDER
-      .map((theme) => themeBarRow(t(`theme_${theme}`), themeSummary[theme]))
-      .join("");
-  }
-
-  if (signList) {
-    signList.innerHTML = SIGN_FAMILY_ORDER
-      .map((family) => themeBarRow(famLabel(family), familySummary[family]))
-      .join("");
-  }
-
-  if (priorityList) {
-    const candidates = [
-      ...KNOWLEDGE_THEME_ORDER.map((theme) => ({ label: t(`theme_${theme}`), row: themeSummary[theme] })),
-      ...SIGN_FAMILY_ORDER.map((family) => ({ label: famLabel(family), row: familySummary[family] }))
-    ].filter((item) => item.row && item.row.attempted > 0);
-
-    if (!candidates.length) {
-      priorityList.innerHTML = `<p class="muted">${t("progression_priority_empty")}</p>`;
-    } else {
-      const weakest = candidates
-        .sort((a, b) => a.row.percent - b.row.percent)
-        .slice(0, 3);
-      priorityList.innerHTML = weakest
-        .map((item) => `<div class="priority-row">${themeBarRow(item.label, item.row)}</div>`)
-        .join("");
-    }
-  }
-}
-
 function renderLearnedReveal() {
   const list = document.querySelector("#learned-list");
   if (!list) return;
@@ -413,8 +299,21 @@ function shuffle(items) {
 
 function startQuiz() {
   if (!document.querySelector("#quiz-sign")) return;
-  const pool = state.examFilter === "all" ? signs : signs.filter((sign) => sign.family === state.examFilter);
-  state.quiz = shuffle(pool).slice(0, Math.min(10, pool.length));
+  const signStats = safeGetJSON("signStats", {});
+  const revisionBanner = document.querySelector("#revision-banner");
+  if (revisionBanner) revisionBanner.hidden = !state.revision;
+
+  if (state.revision) {
+    // Révision ciblée : tous panneaux confondus (pas de filtre famille),
+    // tirage pondéré vers les panneaux en boîte basse / jamais vus.
+    const allIds = signs.map((sign) => sign.id);
+    const pickedIds = pickWeightedPool(allIds, signStats, Math.min(REVISION_QUIZ_SIZE, allIds.length));
+    state.quiz = pickedIds.map((id) => signs.find((sign) => sign.id === id)).filter(Boolean);
+  } else {
+    const pool = state.examFilter === "all" ? signs : signs.filter((sign) => sign.family === state.examFilter);
+    const pickedIds = pickWeightedPool(pool.map((sign) => sign.id), signStats, Math.min(10, pool.length));
+    state.quiz = pickedIds.map((id) => pool.find((sign) => sign.id === id)).filter(Boolean);
+  }
   state.quizIndex = 0;
   state.score = 0;
   renderQuestion();
@@ -446,6 +345,7 @@ function handleAnswer(button) {
     if (item.dataset.id === current.id) item.classList.add("correct");
   });
   if (!isCorrect) button.classList.add("wrong");
+  recordSignAnswer(current.id, current.family, isCorrect);
 
   if (isCorrect) {
     state.score += 1;
@@ -536,6 +436,15 @@ if (learnedToggle && learnedReveal) {
 const newQuizButton = document.querySelector("#new-quiz");
 if (newQuizButton) newQuizButton.addEventListener("click", startQuiz);
 
+const revisionButton = document.querySelector("#revision-btn");
+if (revisionButton) {
+  revisionButton.addEventListener("click", () => {
+    state.revision = true;
+    startQuiz();
+    document.querySelector("#sign-quiz").scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
 const answers = document.querySelector("#answers");
 if (answers) {
   answers.addEventListener("click", (event) => {
@@ -562,7 +471,6 @@ document.querySelectorAll(".lang-option").forEach((btn) => {
     if (state.selected) selectSign(state.selected);
     if (document.querySelector("#quiz-sign")) renderQuestion();
     updateStats();
-    renderThemeAndSignStats();
   });
 });
 
@@ -571,7 +479,10 @@ renderGrid();
 selectSign(state.selected);
 startQuiz();
 updateStats();
-renderThemeAndSignStats();
+if (state.revision) {
+  const quizSection = document.querySelector("#sign-quiz");
+  if (quizSection) window.setTimeout(() => quizSection.scrollIntoView({ behavior: "smooth", block: "start" }), 200);
+}
 
 
 function initSliceGame() {

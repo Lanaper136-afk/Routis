@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://votresite.netlify.app/sitemap.xml
+Sitemap: https://code-route-gratuit-routis.netlify.app/sitemap.xml
