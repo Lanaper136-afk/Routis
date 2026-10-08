@@ -23,11 +23,47 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Code de la route 2026 : fiches, quiz et examens blancs gratuits" />
     <meta property="og:description" content="Apprends le code de la route gratuitement en ligne : panneaux illustrés, fiches de révision, quiz, mises en situation et examens blancs pour réussir ton ETG." />
-    <meta property="og:url" content="https://votresite.netlify.app/" />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Routis" />
     <meta name="twitter:card" content="summary" />
     <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.hero .hero-content .hero-slogan { margin: 4px 0 14px; font-size: clamp(1.25rem, 3vw, 1.7rem); font-weight: 900; color: var(--yellow); max-width: none; }
+.hm-wrap { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
+.hm-section { padding: clamp(36px, 6vw, 64px) 0; }
+.hm-section h2 { margin: 0 0 8px; font-size: clamp(1.5rem, 3vw, 2rem); }
+.hm-sub { margin: 0 0 24px; color: var(--muted); max-width: 60ch; }
+.hm-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: -34px; position: relative; z-index: 2; }
+.hm-stat { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; text-align: center; box-shadow: var(--shadow); }
+.hm-stat strong { display: block; font-size: 1.9rem; line-height: 1.1; color: var(--blue); }
+.hm-stat span { color: var(--muted); font-size: 0.9rem; font-weight: 700; }
+.hm-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+.hm-step { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+.hm-step h3 { margin: 10px 0 6px; font-size: 1.1rem; }
+.hm-step p { margin: 0; color: var(--muted); }
+.hm-step-num { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 900; }
+.hm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.hm-card { display: flex; flex-direction: column; gap: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; color: inherit; text-decoration: none; transition: transform .15s, box-shadow .15s; }
+.hm-card:hover, .hm-card:focus-visible { transform: translateY(-3px); box-shadow: var(--shadow); }
+.hm-card h3 { margin: 4px 0 0; font-size: 1.15rem; }
+.hm-card p { margin: 0; color: var(--muted); flex: 1; }
+.hm-card-go { color: var(--blue); font-weight: 800; }
+.hm-card-visual { min-height: 120px; border-radius: 8px; background: #eef3f8; display: grid; place-items: center; overflow: hidden; }
+.hm-card-visual .scene-art { width: 100%; }
+.hm-card-visual .scene-art svg { display: block; width: 100%; height: 160px; }
+.hm-signs { display: flex; gap: 14px; align-items: center; justify-content: center; padding: 10px; }
+.hm-signs .sign-art { width: 70px; height: 70px; }
+.hm-card-visual:empty { min-height: 6px; background: linear-gradient(90deg, var(--blue), var(--yellow), var(--red)); }
+.hm-faq { display: grid; gap: 10px; }
+.hm-faq-item { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+.hm-faq-item summary { cursor: pointer; font-weight: 800; }
+.hm-faq-item p { margin: 10px 0 0; color: var(--muted); }
+.hm-cta { margin: 20px 0 56px; padding: clamp(28px, 5vw, 48px); border-radius: 16px; text-align: center; color: #fff; background: linear-gradient(135deg, var(--blue-dark), var(--blue)); }
+.hm-cta h2 { margin: 0 0 8px; }
+.hm-cta p { margin: 0 auto 20px; max-width: 52ch; opacity: .92; }
+.hm-cta .hero-actions { justify-content: center; }
+    </style>
   </head>
   <body>
 <!-- Google Tag Manager (noscript) -->
@@ -119,9 +155,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero-content">
           <p class="eyebrow" data-i18n="home_eyebrow">Code de la route France</p>
           <h1 id="hero-title" data-i18n="home_title">Apprendre les panneaux en jouant</h1>
+          <p class="hero-slogan" data-i18n="home_slogan">Cassez les codes, avec Routis</p>
           <p data-i18n="home_desc">
-            Explore les familles de panneaux, clique pour comprendre les règles,
-            puis lance des séries d'examen et des mini-situations pour t'entrainer.
+            Explore les familles de panneaux, clique pour comprendre les règles, puis lance des séries d'examen et des mini-situations pour t'entraîner.
           </p>
           <div class="hero-actions">
             <a class="button primary" href="panneaux.html" data-i18n="home_cta_primary">Explorer les panneaux</a>
@@ -131,13 +167,114 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </section>
 
+      <section class="hm-wrap" aria-label="Chiffres clés">
+        <div class="hm-stats">
+          <div class="hm-stat"><strong data-count="signs">180</strong><span data-i18n="hm_stat_signs">panneaux illustrés</span></div>
+          <div class="hm-stat"><strong data-count="questions">480</strong><span data-i18n="hm_stat_questions">questions de code</span></div>
+          <div class="hm-stat"><strong>22</strong><span data-i18n="hm_stat_sims">mises en situation</span></div>
+          <div class="hm-stat"><strong>100&nbsp;%</strong><span data-i18n="hm_stat_free">gratuit</span></div>
+        </div>
+      </section>
+
+      <section class="hm-wrap hm-section" aria-labelledby="hm-how-title">
+        <h2 id="hm-how-title" data-i18n="hm_how_title">Comment ça marche ?</h2>
+        <p class="hm-sub" data-i18n="hm_how_sub">Quatre étapes simples pour te préparer à l'épreuve théorique du permis (l'ETG).</p>
+        <ol class="hm-steps">
+          <li class="hm-step"><span class="hm-step-num" aria-hidden="true">1</span><h3 data-i18n="hm_step1_t">Apprends</h3><p data-i18n="hm_step1_p">Parcours les fiches de cours et le catalogue de panneaux : chaque règle est expliquée simplement, avec des exemples.</p></li>
+          <li class="hm-step"><span class="hm-step-num" aria-hidden="true">2</span><h3 data-i18n="hm_step2_t">Entraîne-toi</h3><p data-i18n="hm_step2_p">Fais des quiz, des mises en situation et des jeux pour fixer les règles, à ton rythme et sans pression.</p></li>
+          <li class="hm-step"><span class="hm-step-num" aria-hidden="true">3</span><h3 data-i18n="hm_step3_t">Passe un examen blanc</h3><p data-i18n="hm_step3_p">40 questions en 30 minutes, comme à l'examen officiel : il faut 35 bonnes réponses pour réussir. À la fin, tu vois la correction de chaque question.</p></li>
+          <li class="hm-step"><span class="hm-step-num" aria-hidden="true">4</span><h3 data-i18n="hm_step4_t">Révise tes points faibles</h3><p data-i18n="hm_step4_p">Routis retient les questions que tu rates et te les repropose, pour que les règles difficiles finissent par rester en tête.</p></li>
+        </ol>
+      </section>
+
+      <section class="hm-wrap hm-section" aria-labelledby="hm-all-title">
+        <h2 id="hm-all-title" data-i18n="hm_all_title">Tout pour réviser le code, au même endroit</h2>
+        <p class="hm-sub" data-i18n="hm_all_sub">Choisis par où commencer : chaque partie fonctionne seule, mais elles se complètent.</p>
+        <div class="hm-grid">
+          <a class="hm-card" href="panneaux.html">
+            <div class="hm-card-visual hm-signs" data-vis="hm-signs"></div>
+            <h3 data-i18n="hm_card_panneaux_t">Panneaux</h3><p data-i18n="hm_card_panneaux_p">Le catalogue des panneaux par famille : danger, interdiction, obligation, indication… avec leur signification.</p>
+            <span class="hm-card-go" data-i18n="hm_card_open">Ouvrir</span>
+          </a>
+          <a class="hm-card" href="fiches.html">
+            <div class="hm-card-visual " aria-hidden="true"></div>
+            <h3 data-i18n="hm_card_fiches_t">Fiches de cours</h3><p data-i18n="hm_card_fiches_p">Les règles essentielles résumées par thème : priorités, vitesse, alcool, permis à points, sécurité des passagers, secours…</p>
+            <span class="hm-card-go" data-i18n="hm_card_open">Ouvrir</span>
+          </a>
+          <a class="hm-card" href="simulations.html">
+            <div class="hm-card-visual hm-scene-sim" data-vis="hm-scene-sim"></div>
+            <h3 data-i18n="hm_card_sims_t">Simulations</h3><p data-i18n="hm_card_sims_p">Des situations de conduite dessinées vues de dessus : tu choisis le bon réflexe, puis tu lis l'explication.</p>
+            <span class="hm-card-go" data-i18n="hm_card_open">Ouvrir</span>
+          </a>
+          <a class="hm-card" href="examens.html">
+            <div class="hm-card-visual hm-scene-exam" data-vis="hm-scene-exam"></div>
+            <h3 data-i18n="hm_card_exam_t">Examens blancs</h3><p data-i18n="hm_card_exam_p">Un examen complet dans les conditions de l'ETG, avec chronomètre, score et correction détaillée.</p>
+            <span class="hm-card-go" data-i18n="hm_card_open">Ouvrir</span>
+          </a>
+          <a class="hm-card" href="jeux.html">
+            <div class="hm-card-visual " aria-hidden="true"></div>
+            <h3 data-i18n="hm_card_jeux_t">Jeux</h3><p data-i18n="hm_card_jeux_p">Des mini-jeux pour mémoriser les panneaux et les règles en t'amusant.</p>
+            <span class="hm-card-go" data-i18n="hm_card_open">Ouvrir</span>
+          </a>
+          <a class="hm-card" href="progression.html">
+            <div class="hm-card-visual " aria-hidden="true"></div>
+            <h3 data-i18n="hm_card_prog_t">Progression</h3><p data-i18n="hm_card_prog_p">Tes scores, tes thèmes forts et tes points faibles, pour savoir quoi revoir avant le jour J.</p>
+            <span class="hm-card-go" data-i18n="hm_card_open">Ouvrir</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="hm-wrap hm-section" aria-labelledby="hm-faq-title">
+        <h2 id="hm-faq-title" data-i18n="hm_faq_title">Questions fréquentes</h2>
+        <div class="hm-faq">
+          <details class="hm-faq-item"><summary data-i18n="hm_faq1_q">Est-ce vraiment gratuit ?</summary><p data-i18n="hm_faq1_a">Oui. Tout le contenu de Routis est accessible gratuitement, sans abonnement.</p></details>
+          <details class="hm-faq-item"><summary data-i18n="hm_faq2_q">Faut-il créer un compte ?</summary><p data-i18n="hm_faq2_a">Non. Ta progression est enregistrée sur ton appareil. Un compte, facultatif, permet de la retrouver sur un autre appareil.</p></details>
+          <details class="hm-faq-item"><summary data-i18n="hm_faq3_q">Le contenu est-il à jour ?</summary><p data-i18n="hm_faq3_a">Les questions et les fiches sont relues régulièrement par rapport à la réglementation en vigueur (dernière relecture : octobre 2026). Les règles évoluent : en cas de doute, vérifie sur service-public.fr ou securite-routiere.gouv.fr.</p></details>
+          <details class="hm-faq-item"><summary data-i18n="hm_faq4_q">Est-ce que cela remplace l'auto-école ?</summary><p data-i18n="hm_faq4_a">Non. Routis sert à réviser et à t'entraîner. L'examen officiel se passe dans un centre agréé, et ce site n'est pas affilié aux autorités.</p></details>
+          <details class="hm-faq-item"><summary data-i18n="hm_faq5_q">Puis-je réviser sans connexion ?</summary><p data-i18n="hm_faq5_a">En grande partie, oui : une fois le site ouvert, la plupart des pages restent disponibles sans réseau. Tu peux aussi l'ajouter à l'écran d'accueil de ton téléphone.</p></details>
+        </div>
+      </section>
+
+      <section class="hm-wrap" aria-labelledby="hm-cta-title">
+        <div class="hm-cta">
+          <h2 id="hm-cta-title" data-i18n="hm_cta_title">Prêt à t'entraîner ?</h2>
+          <p data-i18n="hm_cta_p">Lance un examen blanc pour voir où tu en es : tu verras tout de suite quels thèmes réviser.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="examens.html" data-i18n="hm_cta_btn1">Lancer un examen blanc</a>
+            <a class="button secondary" href="panneaux.html" data-i18n="hm_cta_btn2">Explorer les panneaux</a>
+          </div>
+        </div>
+      </section>
+
     </main>
     <script src="assets/signs-data.js"></script>
     <script src="assets/questions-data.js"></script>
+    <script src="assets/scenes.js"></script>
     <script src="assets/i18n.js"></script>
     <script src="assets/common.js"></script>
     <script src="assets/stats.js"></script>
     <script type="module" src="assets/supabase-client.js"></script>
+    <script>
+      (function () {
+        try {
+          document.querySelectorAll("[data-count=signs]").forEach(function (el) { if (typeof signs !== "undefined") el.textContent = signs.length; });
+          document.querySelectorAll("[data-count=questions]").forEach(function (el) { if (typeof knowledgeQuestions !== "undefined") el.textContent = knowledgeQuestions.length; });
+          var box = document.querySelector(".hm-signs");
+          if (box && typeof signs !== "undefined" && typeof signSvg === "function") {
+            ["danger", "interdiction", "obligation"].forEach(function (f) {
+              var s = signs.find(function (x) { return x.family === f; });
+              if (s) box.insertAdjacentHTML("beforeend", signSvg(s));
+            });
+          }
+          if (typeof sceneSvg === "function") {
+            var a = document.querySelector(".hm-scene-sim"); if (a) a.innerHTML = sceneSvg("rond_point_sortie");
+            var b = document.querySelector(".hm-scene-exam"); if (b) b.innerHTML = sceneSvg("inter_droite");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Est-ce vraiment gratuit ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Tout le contenu de Routis est accessible gratuitement, sans abonnement."}}, {"@type": "Question", "name": "Faut-il créer un compte ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Ta progression est enregistrée sur ton appareil. Un compte, facultatif, permet de la retrouver sur un autre appareil."}}, {"@type": "Question", "name": "Le contenu est-il à jour ?", "acceptedAnswer": {"@type": "Answer", "text": "Les questions et les fiches sont relues régulièrement par rapport à la réglementation en vigueur (dernière relecture : octobre 2026). Les règles évoluent : en cas de doute, vérifie sur service-public.fr ou securite-routiere.gouv.fr."}}, {"@type": "Question", "name": "Est-ce que cela remplace l'auto-école ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Routis sert à réviser et à t'entraîner. L'examen officiel se passe dans un centre agréé, et ce site n'est pas affilié aux autorités."}}, {"@type": "Question", "name": "Puis-je réviser sans connexion ?", "acceptedAnswer": {"@type": "Answer", "text": "En grande partie, oui : une fois le site ouvert, la plupart des pages restent disponibles sans réseau. Tu peux aussi l'ajouter à l'écran d'accueil de ton téléphone."}}]}</script>
+
     <script src="assets/auth-ui.js" defer></script>
     <script src="assets/sync.js" defer></script>
     <script>

@@ -23,7 +23,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Mises en situation Code de la route : simulations gratuites" />
     <meta property="og:description" content="Entraîne-toi avec des mises en situation réalistes (giratoire, dépassement, passage à niveau...) pour appliquer les règles du code de la route en ligne." />
-    <meta property="og:url" content="https://votresite.netlify.app/simulations.html" />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/simulations.html" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Routis" />
     <meta name="twitter:card" content="summary" />
@@ -61,6 +61,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   border-radius: 999px;
   white-space: nowrap;
 }
+
+.sim-scene { margin-bottom: 18px; }
+.sim-scene .scene-art { width: 100%; }
+.sim-scene .scene-art svg { display: block; width: 100%; height: auto; max-height: 320px; border-radius: 8px; }
 
 .generic-scene {
   display: grid;
@@ -220,6 +224,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </main>
     <script src="assets/signs-data.js"></script>
     <script src="assets/questions-data.js"></script>
+    <script src="assets/scenes.js"></script>
     <script src="assets/i18n.js"></script>
     <script src="assets/common.js"></script>
     <script src="assets/stats.js"></script>
@@ -463,7 +468,7 @@ if (answers) {
 // de connaissances d'examens.html), seule l'interface change de langue.
 const simulations = [
   {
-    id: "stop", theme: "circulation", level: 2, icon: "🛑",
+    id: "stop", scene: "stop", theme: "circulation", level: 2, icon: "🛑",
     title: "Intersection avec panneau STOP",
     question: "La voiture A arrive à un STOP. Aucun panneau ne signale la route qu'elle croise. Que doit-elle faire ?",
     options: [
@@ -476,7 +481,7 @@ const simulations = [
     explanation: "Le panneau STOP impose un arrêt total et complet du véhicule, roues immobiles, même si aucune circulation n'est visible. C'est la différence essentielle avec le cédez-le-passage, qui permet de ne pas s'arrêter si la voie est réellement libre : confondre les deux est un piège classique de l'examen."
   },
   {
-    id: "zone30", theme: "circulation", level: 1, icon: "🚸",
+    id: "zone30", scene: "zone30", theme: "circulation", level: 1, icon: "🚸",
     title: "Zone 30 avec piétons",
     question: "Tu entres dans une zone 30 où des piétons se trouvent entre des véhicules stationnés. Quel est le bon réflexe ?",
     options: [
@@ -489,7 +494,7 @@ const simulations = [
     explanation: "Respecter la limite de 30 km/h est un plafond, pas une garantie de sécurité : il faut adapter sa vitesse à la situation réelle et rester prêt à s'arrêter, notamment quand la visibilité est réduite par des véhicules stationnés."
   },
   {
-    id: "roundabout", theme: "circulation", level: 2, icon: "🔄",
+    id: "roundabout", scene: "rond_point_sortie", theme: "circulation", level: 2, icon: "🔄",
     title: "Entrée dans un rond-point",
     question: "Au rond-point, la voiture D est à l'entrée avec un panneau cédez-le-passage. La voiture E circule dans l'anneau mais met son clignotant pour sortir juste avant l'arrivée de D. D peut-elle s'engager ?",
     options: [
@@ -502,7 +507,7 @@ const simulations = [
     explanation: "Un clignotant n'annule jamais la priorité d'un véhicule déjà engagé dans l'anneau : il indique une intention, pas un engagement immédiat. Tant qu'elle n'est pas sortie, E reste prioritaire sur D."
   },
   {
-    id: "overtake", theme: "circulation", level: 2, icon: "🚫",
+    id: "overtake", scene: "depassement_virage", theme: "circulation", level: 2, icon: "🚫",
     title: "Doubler avant un virage sans visibilité",
     question: "La ligne est continue et le virage devant toi est sans visibilité. Le véhicule devant toi est un tracteur agricole qui roule très lentement. Peux-tu le doubler ?",
     options: [
@@ -515,7 +520,7 @@ const simulations = [
     explanation: "Une ligne continue interdit tout franchissement pour dépasser, sans exception liée à la vitesse du véhicule suivi, au klaxon ou à l'heure de la journée : elle signale un danger ou un manque de visibilité qui reste vrai en toutes circonstances."
   },
   {
-    id: "crossing", theme: "circulation", level: 1, icon: "🚂",
+    id: "crossing", scene: "passage_niveau", theme: "circulation", level: 1, icon: "🚂",
     title: "Passage à niveau qui se ferme",
     question: "Les barrières d'un passage à niveau commencent à s'abaisser pendant que tu approches. Que fais-tu ?",
     options: [
@@ -528,7 +533,7 @@ const simulations = [
     explanation: "Il faut s'arrêter dès le début de la fermeture ou dès que les feux rouges clignotent, sans attendre la fermeture complète ni chercher à voir le train : à ce stade, franchir la voie est déjà interdit et extrêmement dangereux."
   },
   {
-    id: "parking", theme: "reglementation", level: 1, icon: "🅿️",
+    id: "parking", scene: "stationnement_passage", theme: "reglementation", level: 1, icon: "🅿️",
     title: "Stationnement près d'un passage piéton",
     question: "Une place semble libre juste avant un passage piéton, sans aucun panneau d'interdiction visible à cet endroit précis. Peux-tu t'y garer ?",
     options: [
@@ -541,7 +546,7 @@ const simulations = [
     explanation: "Le code de la route interdit le stationnement sur les 5 mètres en amont d'un passage piéton (dans le sens de circulation), afin que les piétons qui s'apprêtent à traverser restent visibles des conducteurs qui arrivent. Cette règle s'applique même sans panneau (sauf emplacement matérialisé par la commune), sans tolérance de durée ; c'est un stationnement très gênant (amende de 135 €)."
   },
   {
-    id: "fog", theme: "conducteur", level: 1, icon: "🌫️",
+    id: "fog", scene: "brouillard", theme: "conducteur", level: 1, icon: "🌫️",
     title: "Conduite de nuit sous le brouillard",
     question: "Tu roules de nuit avec un brouillard épais. Quel réflexe adopter ?",
     options: [
@@ -554,7 +559,7 @@ const simulations = [
     explanation: "Les feux de route se reflètent sur les gouttelettes de brouillard et réduisent la visibilité au lieu de l'améliorer : il faut utiliser feux de croisement ou antibrouillard, ralentir et augmenter les distances de sécurité. Les feux de position seuls sont insuffisants, et coller le véhicule qui précède est dangereux."
   },
   {
-    id: "priority-right", theme: "circulation", level: 3, icon: "🔀",
+    id: "priority-right", scene: "inter_droite_large", theme: "circulation", level: 3, icon: "🔀",
     title: "Carrefour sans aucun panneau",
     question: "Aucun panneau ne règle ce carrefour. Un autre véhicule arrive sur ta droite au même moment que toi, sur une route qui semble plus large que la tienne. Que fais-tu ?",
     options: [
@@ -567,7 +572,7 @@ const simulations = [
     explanation: "En l'absence de toute signalisation, la priorité à droite s'applique strictement, quelle que soit la largeur apparente des routes ou l'ordre d'arrivée : c'est un des pièges les plus fréquents de l'examen théorique."
   },
   {
-    id: "merge", theme: "circulation", level: 3, icon: "🛣️",
+    id: "merge", scene: "insertion", theme: "circulation", level: 3, icon: "🛣️",
     title: "Insertion sur voie rapide",
     question: "Tu arrives par la voie d'accélération et la voiture M circule déjà sur la voie principale. Comment t'insères-tu ?",
     options: [
@@ -580,7 +585,7 @@ const simulations = [
     explanation: "Il faut utiliser la voie d'accélération pour adapter sa vitesse à celle du trafic et s'insérer dès qu'un espace suffisant apparaît. S'y arrêter est dangereux (les véhicules derrière ne s'y attendent pas), et ce sont les véhicules qui s'insèrent qui doivent s'adapter au trafic déjà engagé, pas l'inverse."
   },
   {
-    id: "blindspot", theme: "conducteur", level: 3, icon: "🏍️",
+    id: "blindspot", scene: "angle_mort", theme: "conducteur", level: 3, icon: "🏍️",
     title: "Angle mort avant un changement de voie",
     question: "Tu veux changer de voie. Tes rétroviseurs ne montrent rien mais un deux-roues peut se trouver dans ton angle mort. Que fais-tu avant de tourner le volant ?",
     options: [
@@ -593,7 +598,7 @@ const simulations = [
     explanation: "Aucun rétroviseur ne couvre entièrement l'angle mort : un rapide coup d'œil par-dessus l'épaule reste indispensable avant tout changement de voie, en plus des rétroviseurs, surtout pour repérer un deux-roues plus petit et plus rapide qu'une voiture."
   },
   {
-    id: "bus-stop", theme: "usagers", level: 2, icon: "🚌",
+    id: "bus-stop", scene: "bus", theme: "usagers", level: 2, icon: "🚌",
     title: "Un bus quitte son arrêt",
     question: "En agglomération, un autobus signale son intention de quitter un arrêt marqué juste devant toi. Que dois-tu faire ?",
     options: [
@@ -606,7 +611,7 @@ const simulations = [
     explanation: "En agglomération, tout conducteur doit céder le passage à un autobus (ou autocar) qui a signalé, depuis un arrêt marqué, son intention de repartir, en ralentissant ou en s'arrêtant si nécessaire pour le laisser se réinsérer. C'est une règle précise et souvent méconnue, valable pour tous les bus, pas seulement les cars scolaires."
   },
   {
-    id: "emergency", theme: "secours", level: 2, icon: "🚨",
+    id: "emergency", scene: "prioritaire", theme: "secours", level: 2, icon: "🚨",
     title: "Véhicule prioritaire en approche",
     question: "Un véhicule prioritaire (pompiers, SAMU, police) approche d'une intersection tous avertisseurs sonores et lumineux activés. Le feu est vert pour toi. Que fais-tu ?",
     options: [
@@ -619,7 +624,7 @@ const simulations = [
     explanation: "Un véhicule d'intervention en urgence (deux dispositifs actifs : sonore ET lumineux) prime sur toute autre règle de circulation, y compris un feu vert en ta faveur : il faut faciliter son passage en se rangeant dès que possible, sans jamais accélérer pour le devancer."
   },
   {
-    id: "twosec", theme: "circulation", level: 1, icon: "⏱️",
+    id: "twosec", scene: "distance", theme: "circulation", level: 1, icon: "⏱️",
     title: "Distance de sécurité sur autoroute",
     question: "Sur autoroute, à vitesse élevée, quelle distance de sécurité minimale dois-tu conserver avec le véhicule qui te précède ?",
     options: [
@@ -632,7 +637,7 @@ const simulations = [
     explanation: "La règle des 2 secondes (le temps qui doit s'écouler entre le passage du véhicule qui précède et le tien à un même point fixe) donne une distance de sécurité qui s'adapte automatiquement à la vitesse, contrairement à une distance fixe en mètres ou en nombre de véhicules."
   },
   {
-    id: "cyclelane", theme: "usagers", level: 2, icon: "🚴",
+    id: "cyclelane", scene: "cycliste", theme: "usagers", level: 2, icon: "🚴",
     title: "Cycliste sur bande cyclable au carrefour",
     question: "Un cycliste circule sur une bande cyclable qui continue tout droit à un carrefour où tu veux tourner à droite. Qui doit céder le passage ?",
     options: [
@@ -645,7 +650,7 @@ const simulations = [
     explanation: "Un conducteur qui tourne doit céder le passage aux usagers qui continuent tout droit sur une bande ou piste cyclable qu'il traverse, exactement comme il le ferait pour un piéton sur un passage protégé : c'est une cause fréquente d'accidents par angle mort au moment du virage."
   },
   {
-    id: "secours", theme: "secours", level: 1, icon: "🚑",
+    id: "secours", scene: "accident", theme: "secours", level: 1, icon: "🚑",
     title: "Témoin d'un accident",
     question: "Tu es le premier témoin d'un accident de la route. Dans quel ordre agis-tu ?",
     options: [
@@ -658,7 +663,7 @@ const simulations = [
     explanation: "La méthode PAS (Protéger, Alerter, Secourir) impose de sécuriser d'abord les lieux pour éviter un sur-accident, avant d'alerter les secours puis d'intervenir dans la limite de ses compétences. Déplacer une victime sans nécessité absolue peut aggraver des blessures, notamment au dos ou au cou."
   },
   {
-    id: "police-feu", theme: "route", level: 3, icon: "👮",
+    id: "police-feu", scene: "agent", theme: "route", level: 3, icon: "👮",
     title: "Agent qui règle la circulation",
     question: "À un carrefour, un agent fait signe d'avancer alors que le feu tricolore est rouge dans ta direction. Que fais-tu ?",
     options: [
@@ -671,7 +676,7 @@ const simulations = [
     explanation: "L'ordre de priorité des signalisations en France place les gestes d'un agent réglant la circulation au-dessus des feux tricolores, eux-mêmes au-dessus des panneaux, eux-mêmes au-dessus de la priorité à droite. Les indications de l'agent doivent donc toujours être suivies en premier."
   },
   {
-    id: "crosswalk", theme: "usagers", level: 2, icon: "🚶",
+    id: "crosswalk", scene: "pieton_trottoir", theme: "usagers", level: 2, icon: "🚶",
     title: "Piéton qui s'apprête à traverser",
     question: "Tu approches d'un passage piéton sans feu. Un piéton sur le trottoir regarde la route et s'avance clairement vers la chaussée pour traverser, sans avoir encore posé un pied dessus. Que fais-tu ?",
     options: [
@@ -684,7 +689,7 @@ const simulations = [
     explanation: "La priorité piéton s'applique dès qu'un piéton engagé ou s'apprêtant clairement à s'engager sur un passage protégé est visible, y compris sur un passage non équipé de feux, et sans attendre qu'il ait posé un pied sur la chaussée : il faut ralentir suffisamment tôt pour pouvoir s'arrêter si besoin."
   },
   {
-    id: "parking-exit", theme: "circulation", level: 3, icon: "🚙",
+    id: "parking-exit", scene: "sortie_parking", theme: "circulation", level: 3, icon: "🚙",
     title: "Sortie d'un parking privé",
     question: "Tu sors d'un parking privé pour t'engager sur une route ouverte à la circulation. Comment gères-tu la priorité ?",
     options: [
@@ -697,7 +702,7 @@ const simulations = [
     explanation: "Un véhicule qui débouche d'un accès privé, d'un parking ou d'un chemin doit toujours céder le passage à tous les usagers déjà engagés sur la route, y compris piétons et cyclistes sur le trottoir ou la piste qu'il traverse. La priorité à droite ne s'applique pas dans cette configuration."
   },
   {
-    id: "zfe", theme: "environnement", level: 1, icon: "🏙️",
+    id: "zfe", scene: "zfe", theme: "environnement", level: 1, icon: "🏙️",
     title: "Entrer dans une zone à faibles émissions",
     question: "Tu dois traverser le centre d'une grande ville équipée d'une Zone à Faibles Émissions (ZFE) avec ta voiture. Que dois-tu vérifier avant d'y circuler ?",
     options: [
@@ -710,7 +715,7 @@ const simulations = [
     explanation: "Les ZFE restreignent l'accès en fonction de la vignette Crit'Air et de la classe d'émission du véhicule, pour tous les types de véhicules motorisés (pas seulement les poids lourds), aux horaires et jours définis localement. Le contrôle technique est une obligation distincte, sans lien avec l'accès aux ZFE."
   },
   {
-    id: "alternat", theme: "notions", level: 3, icon: "🚧",
+    id: "alternat", scene: "chantier_feux", theme: "notions", level: 3, icon: "🚧",
     title: "Chantier avec feux temporaires",
     question: "Un chantier réduit la route à une seule voie, régulée par des feux tricolores temporaires. Plus loin, un panneau permanent de priorité (par exemple un cédez-le-passage ou un STOP) semble contredire les indications des feux. Que fais-tu ?",
     options: [
@@ -723,7 +728,7 @@ const simulations = [
     explanation: "La signalisation temporaire de chantier (feux, panneaux à fond jaune) prévaut toujours sur la signalisation permanente tant que le danger ou les travaux qu'elle signale sont en place, précisément pour gérer ce type de configuration inhabituelle en toute sécurité."
   },
   {
-    id: "equipement", theme: "equipements", level: 2, icon: "⚠️",
+    id: "equipement", scene: "panne_autoroute", theme: "equipements", level: 2, icon: "⚠️",
     title: "Panne sur l'autoroute",
     question: "Ta voiture tombe en panne sur l'autoroute et tu parviens à t'arrêter sur la bande d'arrêt d'urgence. Que fais-tu avant d'attendre les secours ?",
     options: [
@@ -736,7 +741,7 @@ const simulations = [
     explanation: "Sur autoroute, la bande d'arrêt d'urgence reste dangereuse : il faut allumer les feux de détresse, enfiler un gilet rétro-réfléchissant avant de sortir, sortir du côté opposé à la circulation, ne pas chercher à poser le triangle (trop dangereux sur autoroute), puis se mettre à l'abri derrière les glissières et appeler les secours — rester dans ou à côté du véhicule expose à un risque de collision par l'arrière."
   },
   {
-    id: "siege-auto", theme: "securite_passagers", level: 1, icon: "🧒",
+    id: "siege-auto", scene: "siege_enfant", theme: "securite_passagers", level: 1, icon: "🧒",
     title: "Transporter un enfant de 8 ans",
     question: "Tu dois transporter un enfant de 8 ans dans ta voiture. Quelle installation est réglementaire ?",
     options: [
@@ -759,7 +764,7 @@ function renderSimulations() {
         <span class="sim-level-badge">${t("sim_level" + sim.level + "_badge")}</span>
         <span class="sim-theme-badge">${t("theme_" + sim.theme)}</span>
       </div>
-      <div class="street-scene generic-scene"><span class="generic-emoji" aria-hidden="true">${sim.icon}</span></div>
+      ${sim.scene && typeof sceneSvg === "function" ? `<div class="sim-scene">${sceneSvg(sim.scene)}</div>` : `<div class="street-scene generic-scene"><span class="generic-emoji" aria-hidden="true">${sim.icon}</span></div>`}
       <h3>${sim.title}</h3>
       <p>${sim.question}</p>
       <div class="sim-actions" role="group" aria-label="${sim.title}">

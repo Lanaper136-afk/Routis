@@ -23,7 +23,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Fiches de révision du Code de la route gratuites par thème" />
     <meta property="og:description" content="Fiches de révision gratuites du code de la route par thème : priorités, panneaux, distances d'arrêt, vitesse, alcool... Idéal pour réviser avant l'examen." />
-    <meta property="og:url" content="https://votresite.netlify.app/fiches.html" />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/fiches.html" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Routis" />
     <meta name="twitter:card" content="summary" />
@@ -41,6 +41,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   text-align: inherit;
   cursor: pointer;
 }
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
 
 .fiche-card {
   padding: clamp(18px, 4vw, 28px);
@@ -418,6 +426,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </tbody>
           </table>
           <p class="fiche-note" data-i18n="fiche_braking_p3">Distance d'arrêt totale = distance de réaction + distance de freinage.</p>
+          <figure class="fiche-figure"><div data-scene="fig_arret"></div><figcaption data-i18n="figcap_fig_arret">Plus on roule vite, plus la distance d'arrêt s'allonge très vite : à 130 km/h, elle est environ 5 fois celle à 50 km/h.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
@@ -520,6 +529,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </tbody>
           </table>
           <p data-i18n="fiche2_alcool_p3">L'alcool allonge le temps de réaction, réduit le champ de vision et donne une fausse confiance en soi. Pour les stupéfiants (cannabis, cocaïne...), la règle est différente : c'est une <span class="fiche-highlight">tolérance zéro</span> — toute trace détectée est sanctionnée, quel que soit le taux.</p>
+          <figure class="fiche-figure"><div data-scene="fig_alcool"></div><figcaption data-i18n="figcap_fig_alcool">Taux d'alcoolémie : la limite est de 0,5 g/L pour un conducteur confirmé, mais de seulement 0,2 g/L en permis probatoire. À partir de 0,8 g/L, c'est un délit.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
@@ -603,6 +613,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p data-i18n="fiche3_urgence_p1">Police, gendarmerie, pompiers et SAMU sont prioritaires uniquement lorsqu'ils sont <span class="fiche-highlight">en intervention</span> : feux spéciaux bleus tournants ou à éclats <span class="fiche-highlight">et</span> avertisseur sonore deux tons activés en même temps.</p>
           <p data-i18n="fiche3_urgence_p2">Piège classique : un gyrophare allumé seul, sans sirène (dépanneuse, véhicule de chantier), ne rend pas le véhicule prioritaire — il signale juste sa présence ou un danger.</p>
           <p class="fiche-note" data-i18n="fiche3_urgence_p3">Bon réflexe : dès que tu vois ou entends un véhicule prioritaire en intervention, dégage la voie dès que possible, sans freiner brusquement ni paniquer — même si tu es normalement prioritaire à cet endroit.</p>
+          <figure class="fiche-figure"><div data-scene="prioritaire"></div><figcaption data-i18n="figcap_prioritaire">Un véhicule prioritaire en intervention (feux bleus et deux-tons) : on le laisse passer, même si le feu est vert pour nous.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
@@ -610,6 +621,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p data-i18n="fiche3_pieton_p1">Sur un passage piéton, dès qu'un piéton est engagé ou s'apprête clairement à traverser, il est prioritaire : le conducteur doit s'arrêter pour le laisser passer (si le passage est équipé de feux, le piéton doit traverser au feu piéton vert ; en tournant, on cède aussi aux piétons qui traversent régulièrement).</p>
           <p data-i18n="fiche3_pieton_p2">Hors passage piéton, le piéton n'a pas de priorité légale, mais la prudence reste toujours de mise, en particulier envers les enfants et les personnes âgées.</p>
           <p class="fiche-note" data-i18n="fiche3_pieton_p3">À retenir : un piéton muni d'une canne blanche est un usager particulièrement vulnérable. Ralentis, arrête-toi si nécessaire et laisse-lui le temps de traverser, sans klaxonner.</p>
+          <figure class="fiche-figure"><div data-scene="pieton"></div><figcaption data-i18n="figcap_pieton">Un piéton engagé sur le passage : le conducteur ralentit et s'arrête pour le laisser traverser.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
@@ -617,6 +629,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p data-i18n="fiche3_pieges_p1">Un panneau STOP impose de s'arrêter même si tu serais normalement prioritaire à droite à cette intersection : le panneau prend toujours le dessus sur la règle générale.</p>
           <p data-i18n="fiche3_pieges_p2">Pour tourner à gauche à une intersection, tu dois céder le passage aux véhicules qui arrivent en face et vont tout droit — même si tu es arrivé le premier au carrefour.</p>
           <p data-i18n="fiche3_pieges_p3">Un bus qui quitte son arrêt en agglomération, clignotant activé, est prioritaire pour se réinsérer dans la circulation : c'est un piège très fréquent à l'examen.</p>
+          <figure class="fiche-figure"><div data-scene="inter_droite"></div><figcaption data-i18n="figcap_inter_droite">Sans panneau, la priorité à droite s'applique : A cède le passage à B, qui arrive de sa droite.</figcaption></figure>
         </div>
 
         <div class="section-shell" id="fiche3-quiz">
@@ -704,18 +717,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <tr><td>Octogone rouge</td><td>STOP (forme unique)</td></tr>
             </tbody>
           </table>
+          <figure class="fiche-figure"><div data-scene="fam_panneaux"></div><figcaption data-i18n="figcap_fam_panneaux">Un exemple pour chaque famille : danger, interdiction, obligation.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
           <h3>2. Les marquages au sol</h3>
           <p>Une ligne <span class="fiche-highlight">continue</span> interdit tout franchissement, y compris pour dépasser. Une ligne <span class="fiche-highlight">discontinue</span> autorise le franchissement si la manœuvre est sûre. Lorsqu'une ligne continue est accolée à une discontinue, c'est la ligne située de son propre côté qui fait foi.</p>
-          <p>La signalisation temporaire de chantier, en jaune-orange, prévaut toujours sur la signalisation permanente le temps que dure le chantier.</p>
+          <p>La signalisation temporaire de chantier, sur fond jaune, prévaut toujours sur la signalisation permanente le temps que dure le chantier.</p>
+          <figure class="fiche-figure"><div data-scene="fig_lignes"></div><figcaption data-i18n="figcap_fig_lignes">Les trois lignes à connaître : continue, discontinue, et la ligne à traits rapprochés qui annonce une ligne continue.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
           <h3>3. Les types de voies</h3>
           <p>Bande cyclable (simple marquage sur la chaussée), piste cyclable (physiquement séparée), voie de bus, voie verte (réservée aux déplacements non motorisés) : chaque aménagement a ses propres règles d'accès, et s'y stationner est souvent verbalisé plus sévèrement qu'un stationnement classique.</p>
           <p class="fiche-note">Astuce d'examen : sur autoroute, les panneaux de direction sont bleus ; sur route nationale, ils sont généralement verts.</p>
+          <figure class="fiche-figure"><div data-scene="cycliste"></div><figcaption data-i18n="figcap_cycliste">Une bande cyclable à droite de la chaussée : en tournant à droite, on laisse passer le cycliste qui continue tout droit.</figcaption></figure>
         </div>
 
         <div class="section-shell" id="fiche4-quiz">
@@ -787,18 +803,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h3>1. Piétons et personnes à mobilité réduite</h3>
           <p>Dès qu'un piéton est engagé ou s'apprête clairement à traverser sur un passage protégé, il est prioritaire : il faut s'arrêter pour le laisser passer. Face à un piéton muni d'une canne blanche ou accompagné d'un chien guide, usager particulièrement vulnérable, il faut ralentir, s'arrêter si nécessaire et lui laisser le temps de traverser, même hors passage piéton.</p>
           <p>Les personnes à mobilité réduite bénéficient de places de stationnement réservées avec une carte dédiée ; il faut toujours leur laisser le temps nécessaire pour traverser ou monter dans un véhicule, sans manifester d'impatience.</p>
+          <figure class="fiche-figure"><div data-scene="pieton_trottoir"></div><figcaption data-i18n="figcap_pieton_trottoir">Un piéton qui s'avance vers la chaussée pour traverser : on ralentit et on se prépare à s'arrêter.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
           <h3>2. Cyclistes et deux-roues motorisés</h3>
           <p>Au moment de dépasser un cycliste, la loi impose une distance latérale d'au moins <span class="fiche-highlight">1 mètre en agglomération</span> et <span class="fiche-highlight">1,5 mètre hors agglomération</span>. De nuit, hors agglomération, le cycliste doit porter un gilet de haute visibilité certifié (de nuit ou par visibilité insuffisante).</p>
           <p>Les deux-roues motorisés sont plus vulnérables et moins visibles : il faut leur laisser une distance de sécurité au moins équivalente à celle d'une voiture. Le port du casque homologué est obligatoire pour le conducteur <span class="fiche-highlight">et</span> pour tout passager.</p>
+          <figure class="fiche-figure"><div data-scene="fig_depasse_cycliste"></div><figcaption data-i18n="figcap_fig_depasse_cycliste">Pour dépasser un cycliste, on laisse au moins 1 m en agglomération et 1,5 m hors agglomération.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
           <h3>3. Poids lourds et angles morts</h3>
           <p>Les poids lourds ont des angles morts très étendus, en particulier côté passager : ne jamais stationner longtemps à leur droite quand ils s'apprêtent à tourner. Ils sont aussi limités à une vitesse inférieure à celle des voitures sur autoroute (environ 90 km/h), et les dépasser demande davantage de distance et d'anticipation en raison de leur longueur.</p>
           <p class="fiche-note">Bon réflexe : « si tu ne vois pas le rétroviseur du camion, le camionneur ne te voit pas non plus ».</p>
+          <figure class="fiche-figure"><div data-scene="fig_angle_mort_pl"></div><figcaption data-i18n="figcap_fig_angle_mort_pl">Autour d'un poids lourd, les zones rouges sont des angles morts : le chauffeur ne voit pas un cycliste ou une moto qui s'y trouve.</figcaption></figure>
         </div>
 
         <div class="section-shell" id="fiche5-quiz">
@@ -880,6 +899,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <tr><td>Excès de vitesse &lt; 20 km/h</td><td>1 point</td></tr>
             </tbody>
           </table>
+          <figure class="fiche-figure"><div data-scene="fig_points"></div><figcaption data-i18n="figcap_fig_points">Quelques infractions courantes et le nombre de points qu'elles font perdre sur un capital de 12.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
@@ -962,6 +982,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="fiche-card">
           <h3>1. Zones à faibles émissions et vignette Crit'Air</h3>
           <p>Une <span class="fiche-highlight">zone à faibles émissions (ZFE)</span> restreint ou interdit la circulation des véhicules les plus polluants dans certaines zones urbaines. La vignette Crit'Air classe les véhicules selon leur niveau de pollution et conditionne l'accès à ces zones.</p>
+          <figure class="fiche-figure"><div data-scene="zfe"></div><figcaption data-i18n="figcap_zfe">À l'entrée d'une zone à faibles émissions, la vignette Crit'Air sur le pare-brise est nécessaire pour savoir si le véhicule a le droit d'y circuler.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
@@ -1043,12 +1064,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="fiche-card">
           <h3>1. Le transport d'enfants</h3>
           <p>Tout enfant de moins de <span class="fiche-highlight">10 ans</span> doit voyager dans un dispositif de retenue homologué adapté à sa morphologie et à son poids (siège auto, réhausseur). Il est recommandé de garder un réhausseur jusqu'à environ <span class="fiche-highlight">135 cm</span>. Un siège installé dos à la route à l'avant impose de désactiver l'airbag frontal passager.</p>
+          <figure class="fiche-figure"><div data-scene="siege_enfant"></div><figcaption data-i18n="figcap_siege_enfant">Un enfant de moins de 10 ans doit voyager dans un siège ou sur un réhausseur adapté, attaché par la ceinture.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
           <h3>2. Chargement et remorque</h3>
           <p>Un chargement qui dépasse l'aplomb du véhicule doit être signalé par un dispositif visible, y compris la nuit. Le poids total en charge doit respecter le PTAC indiqué sur la carte grise. Le permis B permet de tracter une remorque dans certaines limites de poids ; au-delà, une catégorie supplémentaire est nécessaire.</p>
           <p>Avec une remorque ou une caravane, la vitesse maximale sur autoroute reste 130 km/h si le PTRA de l'ensemble ne dépasse pas 3,5 t ; au-delà de 3,5 t, elle est limitée à 90 km/h.</p>
+          <figure class="fiche-figure"><div data-scene="fig_chargement"></div><figcaption data-i18n="figcap_fig_chargement">Une charge qui dépasse à l'arrière doit être signalée dès qu'elle dépasse d'1 m.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
@@ -1135,6 +1158,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="fiche-card">
           <h3>3. Casque et gilet</h3>
           <p class="fiche-note">Le casque homologué, correctement attaché (jugulaire fermée), est obligatoire pour le conducteur et tout passager d'un deux-roues motorisé. En cas de panne ou d'arrêt d'urgence, le gilet haute visibilité doit être enfilé avant de sortir du véhicule.</p>
+          <figure class="fiche-figure"><div data-scene="panne_autoroute"></div><figcaption data-i18n="figcap_panne_autoroute">En panne sur autoroute : feux de détresse, gilet enfilé avant de sortir, puis on se met à l'abri derrière la glissière.</figcaption></figure>
         </div>
 
         <div class="section-shell" id="fiche9-quiz">
@@ -1205,6 +1229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="fiche-card">
           <h3>1. Le kit de sécurité obligatoire</h3>
           <p>Tout véhicule doit disposer à bord d'un <span class="fiche-highlight">triangle de présignalisation</span> et, depuis 2008, d'un <span class="fiche-highlight">gilet de haute visibilité</span>. L'extincteur, contrairement à une idée reçue, n'est pas obligatoire dans une voiture particulière, mais reste recommandé.</p>
+          <figure class="fiche-figure"><div data-scene="fig_triangle"></div><figcaption data-i18n="figcap_fig_triangle">Le triangle de présignalisation se place à au moins 30 m derrière le véhicule, sur route normale (pas sur autoroute si c'est dangereux).</figcaption></figure>
         </div>
 
         <div class="fiche-card">
@@ -1286,6 +1311,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="fiche-card">
           <h3>1. Le réflexe PAS</h3>
           <p>Face à un accident, la conduite à tenir se résume par le sigle <span class="fiche-highlight">PAS</span> : Protéger la zone (signalisation, gilet, triangle), Alerter les secours (15 SAMU, 17 Police, 18 Pompiers, 112 numéro d'urgence européen), puis Secourir si l'on en a la capacité.</p>
+          <figure class="fiche-figure"><div data-scene="fig_pas"></div><figcaption data-i18n="figcap_fig_pas">Le réflexe PAS : on protège d'abord, puis on alerte les secours, puis on secourt la victime.</figcaption></figure>
         </div>
 
         <div class="fiche-card">
@@ -1364,6 +1390,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="assets/common.js"></script>
     <script src="assets/stats.js"></script>
     <script type="module" src="assets/supabase-client.js"></script>
+
+    <script src="assets/scenes.js"></script>
+    <script>
+function renderFiguresOnPage() {
+  document.querySelectorAll("[data-scene]").forEach((el) => {
+    const id = el.dataset.scene;
+    if (id === "fam_panneaux") {
+      el.innerHTML = ["danger", "interdiction", "obligation"].map((f) => {
+        const sg = signs.find((x) => x.family === f);
+        return sg ? signSvg(sg) : "";
+      }).join("");
+    } else if (typeof sceneSvg === "function") {
+      el.innerHTML = sceneSvg(id);
+    }
+  });
+}
+renderFiguresOnPage();
+document.querySelectorAll(".lang-option").forEach((b) => b.addEventListener("click", () => setTimeout(renderFiguresOnPage, 0)));
+    </script>
     <script src="assets/auth-ui.js" defer></script>
     <script src="assets/sync.js" defer></script>
     <script>
