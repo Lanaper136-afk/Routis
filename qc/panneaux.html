@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>Panneaux de signalisation du Québec | Routis Québec</title>
+    <meta name="description" content="Les formes et couleurs des panneaux de signalisation du Québec : arrêt, sens interdit, danger, travaux, zone scolaire." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/qc/panneaux.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+      h1 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); line-height: 1.15; margin: 8px 0 12px; }
+      .uk-wrap { width: min(820px, calc(100% - 32px)); margin: 0 auto; }
+      .uk-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+      .uk-top a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
+      .uk-top nav { display: flex; gap: 16px; flex-wrap: wrap; }
+      .uk-badge { background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 800; font-size: .85rem; }
+      .intro { color: var(--muted); max-width: 62ch; }
+      .uk-note { margin: 24px 0; font-size: .85rem; color: var(--muted); }
+      .cards { display: grid; gap: 12px; margin: 20px 0; }
+      .card { display: block; background: #fff; border: 2px solid var(--line); border-radius: 16px; padding: 18px; color: var(--ink); text-decoration: none; }
+      .card:hover, .card:focus-visible { border-color: var(--blue); outline: none; box-shadow: var(--shadow); }
+      .card strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+      .card span { color: var(--muted); }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+      details.fiche { background: #fff; border: 1px solid var(--line); border-radius: 14px; margin-bottom: 12px; position: relative; scroll-margin-top: 12px; }
+      details.fiche summary { cursor: pointer; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; list-style: none; }
+      details.fiche summary::-webkit-details-marker { display: none; }
+      details.fiche summary::after { content: "+"; position: absolute; right: 18px; top: 12px; font-size: 1.4rem; color: var(--blue); }
+      details.fiche[open] summary::after { content: "–"; }
+      .ft { font-weight: 800; font-size: 1.08rem; padding-right: 30px; }
+      .fr { color: var(--muted); font-size: .85rem; }
+      .fb { padding: 0 16px 16px; line-height: 1.55; }
+      .fb ul { margin: 0 0 12px; padding-left: 20px; } .fb li { margin-bottom: 8px; }
+      .src { font-size: .82rem; color: var(--muted); } .src a { color: var(--blue-dark); }
+      .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; }
+      .toc a { border: 2px solid var(--line); background: #fff; color: var(--ink); text-decoration: none; border-radius: 999px; padding: 6px 12px; font-size: .85rem; font-weight: 700; }
+      .signs { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+      .sg { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; text-align: center; }
+      .sg svg { width: 110px; height: 110px; }
+      .sg h3 { margin: 8px 0 4px; font-size: 1.05rem; } .sg p { margin: 0; color: var(--muted); font-size: .9rem; text-align: left; }
+    </style>
+  </head>
+  <body>
+    <div class="uk-wrap">
+      <div class="uk-top">
+        <a href="index.html">← Accueil Québec</a>
+        <nav><a href="panneaux.html">Panneaux</a><a href="fiches.html">Fiches</a><a href="quiz.html">Quiz</a><a href="../reglages.html">Réglages</a></nav>
+        <span class="uk-badge">Canada · Québec</span>
+      </div>
+<h1>Panneaux du Québec : formes et couleurs</h1>
+<p class="intro">La forme et la couleur d'un panneau en disent déjà long. Voici les familles les plus importantes, en illustrations simplifiées.</p>
+<div class="signs"><div class="sg"><svg viewBox="0 0 100 100" role="img" aria-label="Panneau d'arrêt"><polygon points="30,4 70,4 96,30 96,70 70,96 30,96 4,70 4,30" fill="#fff"/><polygon points="32,9 68,9 91,32 91,68 68,91 32,91 9,68 9,32" fill="#c8102e"/><text x="50" y="58" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="19" fill="#fff">ARRÊT</text></svg><h3>Arrêt</h3><p>Octogone rouge : arrêt complet obligatoire avant la ligne d'arrêt, puis cédez le passage aux autres usagers.</p></div><div class="sg"><svg viewBox="0 0 100 100" role="img" aria-label="Sens interdit"><circle cx="50" cy="50" r="46" fill="#c8102e"/><rect x="18" y="41" width="64" height="18" fill="#fff"/></svg><h3>Sens interdit</h3><p>Cercle rouge avec une barre blanche : vous ne pouvez pas entrer dans cette voie.</p></div><div class="sg"><svg viewBox="0 0 100 100" role="img" aria-label="Losange jaune"><polygon points="50,4 96,50 50,96 4,50" fill="#111"/><polygon points="50,10 90,50 50,90 10,50" fill="#fdc82f"/><rect x="46" y="28" width="8" height="30" rx="3" fill="#111"/><circle cx="50" cy="68" r="5" fill="#111"/></svg><h3>Danger</h3><p>Losange jaune : un danger est annoncé plus loin sur la route. Ralentissez et soyez prudent.</p></div><div class="sg"><svg viewBox="0 0 100 100" role="img" aria-label="Losange orange"><polygon points="50,4 96,50 50,96 4,50" fill="#111"/><polygon points="50,10 90,50 50,90 10,50" fill="#ff7a00"/><rect x="46" y="28" width="8" height="30" rx="3" fill="#111"/><circle cx="50" cy="68" r="5" fill="#111"/></svg><h3>Travaux</h3><p>Losange orange : des travaux sont en cours. Les amendes de vitesse sont doublées dans une zone de travaux.</p></div><div class="sg"><svg viewBox="0 0 100 100" role="img" aria-label="Panneau jaune-vert"><polygon points="50,4 96,50 50,96 4,50" fill="#111"/><polygon points="50,10 90,50 50,90 10,50" fill="#c6e000"/><circle cx="50" cy="34" r="6" fill="#111"/><path d="M50 42 L50 62 M50 48 L40 58 M50 48 L60 56 M50 62 L42 76 M50 62 L58 76" stroke="#111" stroke-width="5" stroke-linecap="round" fill="none"/></svg><h3>Zone d'écoliers ou de piétons</h3><p>Jaune-vert fluorescent : zone d'écoliers ou de piétons. Ralentissez et cédez le passage aux piétons qui traversent.</p></div><div class="sg"><svg viewBox="0 0 100 100" role="img" aria-label="Rectangle blanc"><rect x="22" y="6" width="56" height="88" rx="6" fill="#fff" stroke="#111" stroke-width="3"/><rect x="29" y="14" width="42" height="12" fill="#111"/><rect x="29" y="34" width="42" height="6" fill="#ccc"/><rect x="29" y="46" width="42" height="6" fill="#ccc"/></svg><h3>Règle à respecter</h3><p>Rectangle blanc : un panneau de règlement (par exemple une limite ou une interdiction de stationner).</p></div></div><p class="uk-note">Routis est un site indépendant : il n'est ni affilié à la Société de l'assurance automobile du Québec (SAAQ) ni approuvé par elle ou par un organisme gouvernemental. Ce contenu est un outil de révision rédigé par Routis à partir des publications officielles ; ce ne sont pas les questions de l'examen officiel. Les règles peuvent changer : vérifiez toujours sur saaq.gouv.qc.ca. Les panneaux sont des illustrations simplifiées. Ce module n'utilise ni témoins ni outils d'analyse.</p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>Hazard perception practice | Routis UK</title>
+    <meta name="description" content="Practise spotting developing hazards with short animated clips, scored like the hazard perception part of the UK theory test." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/uk/hazards.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+      .uk-wrap { width: min(860px, calc(100% - 32px)); margin: 0 auto; }
+      .uk-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+      .uk-top a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
+      .uk-top nav { display: flex; gap: 16px; flex-wrap: wrap; }
+      .uk-badge { background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 800; font-size: .85rem; }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; line-height: 1.55; }
+      .btn { margin-top: 12px; padding: 12px 20px; border: 0; border-radius: 10px; background: var(--blue); color: #fff; font: inherit; font-weight: 800; cursor: pointer; }
+      .btn.sec { background: var(--ink); }
+      .btn.ghost { background: #fff; color: var(--blue-dark); border: 2px solid var(--blue); }
+      .stage { position: relative; border-radius: 14px; overflow: hidden; background: #000; touch-action: manipulation; }
+      .stage canvas { display: block; width: 100%; height: auto; cursor: pointer; }
+      .hud { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; font-weight: 700; color: var(--muted); flex-wrap: wrap; }
+      .tap { position: absolute; left: 0; right: 0; bottom: 0; padding: 8px 12px; background: rgba(0,0,0,.55); color: #fff; font-size: .85rem; text-align: center; pointer-events: none; }
+      .flash { position: absolute; width: 38px; height: 38px; border: 3px solid #ffd23c; border-radius: 50%; pointer-events: none; transform: translate(-50%, -50%); animation: fl .5s ease-out forwards; }
+      @keyframes fl { from { opacity: 1; transform: translate(-50%, -50%) scale(.6); } to { opacity: 0; transform: translate(-50%, -50%) scale(1.8); } }
+      .tl { position: relative; height: 26px; background: #e8edf5; border-radius: 8px; margin: 12px 0 6px; overflow: hidden; }
+      .tl .win { position: absolute; top: 0; bottom: 0; background: #bfe6cf; }
+      .tl .clk { position: absolute; top: 3px; bottom: 3px; width: 4px; background: #d62430; border-radius: 2px; }
+      .tl-cap { font-size: .8rem; color: var(--muted); }
+      .pts { font-size: 1.6rem; font-weight: 900; }
+      .good { color: var(--green); } .bad { color: var(--red); }
+      .uk-note { margin: 24px 0; font-size: .85rem; color: var(--muted); }
+      ol.how { padding-left: 20px; }
+    </style>
+  </head>
+  <body>
+    <div class="uk-wrap">
+      <div class="uk-top">
+        <a href="index.html">← UK home</a>
+        <nav><a href="signs.html">Signs</a><a href="fiches.html">Study sheets</a><a href="quiz.html">Practice test</a><a href="hazards.html">Hazard practice</a><a href="other-quiz.html">Moped, bike &amp; trailer</a><a href="../reglages.html">Settings</a></nav>
+        <span class="uk-badge">United Kingdom</span>
+      </div>
+      <h1>Hazard perception practice</h1>
+      <div id="app"></div>
+      <p class="uk-note">This is a practice exercise made by Routis with animated drawings. It is inspired by, but is not, the official hazard perception test, which uses real video clips and its own scoring. Routis is an independent site, not affiliated with or endorsed by the DVSA, the Department for Transport or any UK government body. Rule references are to the Highway Code on GOV.UK (Open Government Licence v3.0).</p>
+    </div>
+
+    <script>
+    // ======================= tiny pseudo-3D engine =======================
+    const W = 960, H = 540, CAM_H = 1.25, CAM_X = -1.75;           // driver sits in the left lane (driving on the left)
+    const F = W * 1.25, HY = H * 0.45;                               // focal length, horizon line
+    const lerp = (a, b, k) => a + (b - a) * k;
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+    // object position from waypoints [{t,x,z}] (linear between them, held outside)
+    function posAt(o, t) {
+      const w = o.path;
+      if (t <= w[0].t) return { x: w[0].x, z: w[0].z, walk: false };
+      for (let i = 1; i < w.length; i++) {
+        if (t <= w[i].t) { const k = (t - w[i - 1].t) / (w[i].t - w[i - 1].t || 1); return { x: lerp(w[i - 1].x, w[i].x, k), z: lerp(w[i - 1].z, w[i].z, k), walk: w[i].x !== w[i - 1].x || w[i].z !== w[i - 1].z }; }
+      }
+      const l = w[w.length - 1]; return { x: l.x, z: l.z, walk: false };
+    }
+    const sx = (x, dz) => W / 2 + (x - CAM_X) * F / dz;
+    const sy = (h, dz) => HY + (CAM_H - h) * F / dz;
+
+    function poly(c, pts, fill, stroke) { c.beginPath(); pts.forEach((p, i) => i ? c.lineTo(p[0], p[1]) : c.moveTo(p[0], p[1])); c.closePath(); c.fillStyle = fill; c.fill(); if (stroke) { c.strokeStyle = stroke; c.stroke(); } }
+    // vertical wall between two depths on a plane x, from height h0 to h1
+    function wall(c, x, z1, z2, h0, h1, fill, camZ) {
+      const d1 = z1 - camZ, d2 = z2 - camZ; if (d2 < 1.5) return; const a = Math.max(d1, 1.5);
+      poly(c, [[sx(x, a), sy(h0, a)], [sx(x, d2), sy(h0, d2)], [sx(x, d2), sy(h1, d2)], [sx(x, a), sy(h1, a)]], fill);
+    }
+    // flat strip on the ground between x0..x1, depths z1..z2
+    function strip(c, x0, x1, z1, z2, fill, camZ) {
+      const a = Math.max(z1 - camZ, 1.2), b = z2 - camZ; if (b < 1.2) return;
+      poly(c, [[sx(x0, a), sy(0, a)], [sx(x1, a), sy(0, a)], [sx(x1, b), sy(0, b)], [sx(x0, b), sy(0, b)]], fill);
+    }
+
+    // ---- sprites (drawn at ground point; s = pixels per metre) ----
+    function shadow(c, x, y, w) { c.fillStyle = "rgba(0,0,0,.28)"; c.beginPath(); c.ellipse(x, y, w * 0.55, w * 0.1, 0, 0, 7); c.fill(); }
+    function carRear(c, x, y, s, col, blink, front) {
+      const w = 1.8 * s, h = 1.45 * s; shadow(c, x, y, w);
+      c.fillStyle = col; c.fillRect(x - w / 2, y - 0.95 * s, w, 0.7 * s);
+      poly(c, [[x - w * 0.4, y - 0.95 * s], [x - w * 0.3, y - h], [x + w * 0.3, y - h], [x + w * 0.4, y - 0.95 * s]], col);
+      c.fillStyle = "#1c2733"; poly(c, [[x - w * 0.34, y - 0.97 * s], [x - w * 0.26, y - h * 0.97], [x + w * 0.26, y - h * 0.97], [x + w * 0.34, y - 0.97 * s]], "#1c2733");
+      c.fillStyle = "#111"; c.fillRect(x - w / 2 + 0.05 * s, y - 0.3 * s, 0.34 * s, 0.34 * s); c.fillRect(x + w / 2 - 0.39 * s, y - 0.3 * s, 0.34 * s, 0.34 * s);
+      lights(c, x, y, s, w, front, blink);
+    }
+    function lights(c, x, y, s, w, front, blink) {
+      const on = blink && blink.on, br = blink && blink.brake;
+      const base = front ? "#fff6c8" : (br ? "#ff2a2a" : "#a41818");
+      c.fillStyle = base; c.fillRect(x - w / 2 + 0.04 * s, y - 0.72 * s, 0.3 * s, 0.14 * s); c.fillRect(x + w / 2 - 0.34 * s, y - 0.72 * s, 0.3 * s, 0.14 * s);
+      if (br) { c.fillStyle = "rgba(255,40,40,.35)"; c.beginPath(); c.arc(x - w / 2 + 0.2 * s, y - 0.65 * s, 0.35 * s, 0, 7); c.arc(x + w / 2 - 0.2 * s, y - 0.65 * s, 0.35 * s, 0, 7); c.fill(); }
+      if (on) { c.fillStyle = "#ffb000"; const ox = blink.side === "L" ? x - w / 2 - 0.05 * s : x + w / 2 - 0.15 * s; c.fillRect(ox, y - 0.58 * s, 0.2 * s, 0.14 * s); }
+    }
+    function vanRear(c, x, y, s, col, blink, front) {
+      const w = 2.0 * s, h = 2.3 * s; shadow(c, x, y, w);
+      c.fillStyle = col; c.fillRect(x - w / 2, y - h, w, h - 0.25 * s);
+      c.fillStyle = "#2a3b4d"; c.fillRect(x - w * 0.36, y - h * 0.9, w * 0.72, h * 0.36);
+      c.fillStyle = "#111"; c.fillRect(x - w / 2 + 0.05 * s, y - 0.3 * s, 0.4 * s, 0.34 * s); c.fillRect(x + w / 2 - 0.45 * s, y - 0.3 * s, 0.4 * s, 0.34 * s);
+      c.fillStyle = "rgba(255,255,255,.12)"; c.fillRect(x - w / 2, y - h, w, 0.12 * s);
+      lights(c, x, y - 0.1 * s, s, w, front, blink);
+    }
+    function busFront(c, x, y, s) {
+      const w = 2.5 * s, h = 3.2 * s; shadow(c, x, y, w);
+      c.fillStyle = "#c8202b"; c.fillRect(x - w / 2, y - h, w, h - 0.3 * s);
+      c.fillStyle = "#273a4d"; c.fillRect(x - w * 0.44, y - h * 0.93, w * 0.88, h * 0.4);
+      c.fillStyle = "#f5e9a0"; c.fillRect(x - w * 0.4, y - h * 0.4, w * 0.16, w * 0.1); c.fillRect(x + w * 0.24, y - h * 0.4, w * 0.16, w * 0.1);
+      c.fillStyle = "#111"; c.fillRect(x - w * 0.46, y - 0.35 * s, 0.4 * s, 0.35 * s); c.fillRect(x + w * 0.46 - 0.4 * s, y - 0.35 * s, 0.4 * s, 0.35 * s);
+      c.fillStyle = "#ffd23c"; c.fillRect(x - w * 0.3, y - h * 0.97, w * 0.6, h * 0.05);
+    }
+    function person(c, x, y, s, t, col, hgt, walk) {
+      const k = hgt || 1.7, sw = walk ? Math.sin(t * 8) : 0;
+      shadow(c, x, y, 0.7 * s);
+      c.fillStyle = "#2b2f3a"; c.fillRect(x - 0.13 * k * s + sw * 0.05 * s, y - 0.5 * k * s, 0.12 * k * s, 0.5 * k * s); c.fillRect(x + 0.01 * k * s - sw * 0.05 * s, y - 0.5 * k * s, 0.12 * k * s, 0.5 * k * s);
+      c.fillStyle = col; c.fillRect(x - 0.17 * k * s, y - 0.85 * k * s, 0.34 * k * s, 0.38 * k * s);
+      c.fillRect(x - 0.24 * k * s - sw * 0.04 * s, y - 0.83 * k * s, 0.07 * k * s, 0.32 * k * s); c.fillRect(x + 0.17 * k * s + sw * 0.04 * s, y - 0.83 * k * s, 0.07 * k * s, 0.32 * k * s);
+      c.fillStyle = "#e9b98f"; c.beginPath(); c.arc(x, y - 0.93 * k * s, 0.085 * k * s, 0, 7); c.fill();
+    }
+    function cyclistRear(c, x, y, s, t) {
+      shadow(c, x, y, 0.8 * s);
+      c.strokeStyle = "#111"; c.lineWidth = Math.max(1, 0.05 * s); c.beginPath(); c.ellipse(x, y - 0.33 * s, 0.05 * s, 0.33 * s, 0, 0, 7); c.stroke();
+      c.fillStyle = "#2b2f3a"; c.fillRect(x - 0.15 * s + Math.sin(t * 7) * 0.05 * s, y - 0.8 * s, 0.1 * s, 0.5 * s); c.fillRect(x + 0.05 * s - Math.sin(t * 7) * 0.05 * s, y - 0.8 * s, 0.1 * s, 0.5 * s);
+      c.fillStyle = "#e8c800"; c.fillRect(x - 0.22 * s, y - 1.35 * s, 0.44 * s, 0.6 * s);
+      c.fillStyle = "#e9b98f"; c.beginPath(); c.arc(x, y - 1.5 * s, 0.12 * s, 0, 7); c.fill();
+      c.fillStyle = "#1769e0"; c.beginPath(); c.arc(x, y - 1.55 * s, 0.13 * s, Math.PI, 0); c.fill();
+      c.fillStyle = "#d62430"; c.fillRect(x - 0.03 * s, y - 0.55 * s, 0.06 * s, 0.08 * s);
+    }
+    function horseRear(c, x, y, s, t) {
+      shadow(c, x, y, 1.0 * s);
+      c.fillStyle = "#6b3f1f"; c.fillRect(x - 0.28 * s, y - 0.9 * s, 0.12 * s, 0.9 * s); c.fillRect(x + 0.16 * s, y - 0.9 * s, 0.12 * s, 0.9 * s);
+      c.beginPath(); c.ellipse(x, y - 1.15 * s, 0.42 * s, 0.4 * s, 0, 0, 7); c.fill();
+      c.fillStyle = "#2b1a0d"; c.fillRect(x - 0.04 * s, y - 1.1 * s, 0.08 * s, 0.7 * s);
+      c.fillStyle = "#7a1d2b"; c.fillRect(x - 0.2 * s, y - 1.95 * s, 0.4 * s, 0.7 * s);
+      c.fillStyle = "#e9b98f"; c.beginPath(); c.arc(x, y - 2.05 * s, 0.13 * s, 0, 7); c.fill();
+      c.fillStyle = "#111"; c.beginPath(); c.arc(x, y - 2.1 * s, 0.15 * s, Math.PI, 0); c.fill();
+      c.fillStyle = "#ffd23c"; c.fillRect(x - 0.16 * s, y - 1.6 * s, 0.32 * s, 0.1 * s);
+    }
+    function ball(c, x, y, s) { const r = 0.2 * s; c.fillStyle = "#e23b3b"; c.beginPath(); c.arc(x, y - r, r, 0, 7); c.fill(); c.fillStyle = "#fff"; c.fillRect(x - r, y - r - 0.015 * s, 2 * r, 0.05 * s); shadow(c, x, y, 0.5 * s); }
+
+    function drawObj(c, o, p, camZ, t) {
+      const dz = p.z - camZ; if (dz < 2.2) return; const s = F / dz, X = sx(p.x, dz), Y = sy(0, dz);
+      let blink = null;
+      if (o.signal && t >= o.signal[0] && t <= o.signal[1]) blink = { on: Math.floor(t * 2.5) % 2 === 0, side: o.signal[2] };
+      if (o.brake && t >= o.brake) blink = Object.assign(blink || {}, { brake: true });
+      switch (o.type) {
+        case "car": carRear(c, X, Y, s, o.color || "#2c5aa0", blink, !!o.front); break;
+        case "van": vanRear(c, X, Y, s, o.color || "#e8e8e8", blink, !!o.front); break;
+        case "bus": busFront(c, X, Y, s); break;
+        case "ped": person(c, X, Y, s, t, o.color || "#d94f30", 1.7, p.walk); break;
+        case "child": person(c, X, Y, s, t, o.color || "#2e9e5b", 1.1, p.walk); break;
+        case "cyclist": cyclistRear(c, X, Y, s, t); break;
+        case "horse": horseRear(c, X, Y, s, t); break;
+        case "ball": ball(c, X, Y, s); break;
+      }
+    }
+
+    // ---- scenery: houses, lamps, trees along both sides ----
+    const HOUSES = []; { const cols = ["#b5654a", "#c9b27c", "#8e9bb0", "#a8b58f", "#c98a7a", "#9aa7a1"]; for (let i = 0; i < 60; i++) { const side = i % 2 ? 1 : -1, z = Math.floor(i / 2) * 15 + 10; HOUSES.push({ x: side * 7.5, z1: z, z2: z + 11, h: 5.2 + (i * 7 % 4) * 0.7, col: cols[(i * 5) % cols.length] }); } }
+    function scenery(c, camZ, scene) {
+      // sky + ground
+      const g = c.createLinearGradient(0, 0, 0, HY); g.addColorStop(0, scene.sky || "#8fc4ee"); g.addColorStop(1, "#e8f2fb"); c.fillStyle = g; c.fillRect(0, 0, W, HY + 1);
+      c.fillStyle = "#79a86a"; c.fillRect(0, HY, W, H - HY);
+      c.fillStyle = "#5f8f56"; c.fillRect(0, HY - 14, W, 14);
+      // pavements and road
+      strip(c, -5.6, -3.5, camZ, camZ + 260, "#b9b9b4", camZ); strip(c, 3.5, 5.6, camZ, camZ + 260, "#b9b9b4", camZ);
+      strip(c, -3.5, 3.5, camZ, camZ + 260, "#4a4d54", camZ);
+      strip(c, -3.62, -3.5, camZ, camZ + 260, "#e5e5e0", camZ); strip(c, 3.5, 3.62, camZ, camZ + 260, "#e5e5e0", camZ);
+      const k0 = Math.floor(camZ / 9) * 9;
+      for (let z = k0; z < camZ + 230; z += 9) strip(c, -0.07, 0.07, z, z + 3.2, "#f2f2f2", camZ);
+      if (scene.sideRoad) { const sr = scene.sideRoad; strip(c, -3.5, -16, sr.z1 - (scene.zOff || 0), sr.z2 - (scene.zOff || 0), "#4a4d54", camZ); }
+      // houses (far to near)
+      HOUSES.slice().sort((a, b) => b.z1 - a.z1).forEach((hs) => {
+        if (hs.z2 - camZ < 2 || hs.z1 - camZ > 240) return;
+        if (scene.sideRoad && hs.x < 0 && hs.z2 > scene.sideRoad.z1 - (scene.zOff || 0) - 1 && hs.z1 < scene.sideRoad.z2 - (scene.zOff || 0) + 1) return;
+        wall(c, hs.x, hs.z1, hs.z2, 0, hs.h, hs.col, camZ);
+        wall(c, hs.x, hs.z1 + 2, hs.z1 + 4, 1.0, 2.4, "#dfe9f2", camZ); wall(c, hs.x, hs.z1 + 7, hs.z1 + 9, 1.0, 2.4, "#dfe9f2", camZ);
+        wall(c, hs.x, hs.z1 + 2, hs.z1 + 4, 3.6, 4.8, "#dfe9f2", camZ); wall(c, hs.x, hs.z1 + 7, hs.z1 + 9, 3.6, 4.8, "#dfe9f2", camZ);
+      });
+      // lamp posts for a sense of speed
+      for (let z = Math.floor(camZ / 25) * 25; z < camZ + 200; z += 25) for (const x of [-5.3, 5.3]) {
+        const dz = z - camZ; if (dz < 2) continue; const X = sx(x, dz);
+        c.fillStyle = "#555"; c.fillRect(X - 0.05 * F / dz, sy(5.2, dz), Math.max(1, 0.1 * F / dz), sy(0, dz) - sy(5.2, dz));
+      }
+    }
+
+    // ======================= scenes =======================
+    // Each scene: speed (m/s of our car), duration, objects with waypoints, hazard window (developing hazard), explanation.
+    const SCENES = [
+      { id: "ped-cars", title: "Residential street", speed: 6, dur: 7.8, zOff: 22,
+        objects: [
+          { type: "van", color: "#dfe3ea", path: [{ t: 0, x: -3.0, z: 70 }], },
+          { type: "car", color: "#c0392b", path: [{ t: 0, x: -3.0, z: 82 }] },
+          { type: "car", color: "#2c5aa0", path: [{ t: 0, x: -3.0, z: 110 }] },
+          { type: "ped", color: "#d94f30", hz: true, path: [{ t: 0, x: -4.6, z: 78 }, { t: 3.6, x: -4.6, z: 78 }, { t: 5.2, x: -3.6, z: 78 }, { t: 6.4, x: -1.3, z: 78 }, { t: 9.5, x: 0.2, z: 78 }] },
+        ],
+        hazard: { start: 4.0, end: 6.1, what: "a pedestrian walking out from between parked vehicles" },
+        explain: "A pedestrian is about to step out from between parked vehicles. Parked cars hide people, especially children. The hazard starts developing as soon as the person moves towards the kerb edge: take your foot off the accelerator, cover the brake and be ready to stop.",
+        rule: "Rules 205–206 and H2 (take care near parked vehicles and give way to pedestrians)." },
+      { id: "ball", title: "Quiet road", speed: 6, dur: 7.7, zOff: 39.6,
+        objects: [
+          { type: "car", color: "#7b8794", path: [{ t: 0, x: -3.0, z: 85 }] },
+          { type: "ball", hz: true, path: [{ t: 0, x: -5.0, z: 95 }, { t: 3.6, x: -5.0, z: 95 }, { t: 4.4, x: -3.5, z: 95 }, { t: 5.6, x: 1.5, z: 95 }, { t: 7, x: 3.2, z: 95 }] },
+          { type: "child", color: "#2e9e5b", path: [{ t: 0, x: -6.2, z: 96 }, { t: 4.6, x: -6.2, z: 96 }, { t: 5.6, x: -4.8, z: 96 }, { t: 6.8, x: -2.0, z: 96 }, { t: 9.3, x: -0.5, z: 96 }] },
+        ],
+        hazard: { start: 3.9, end: 6.0, what: "a ball rolling into the road, with a child likely to run after it" },
+        explain: "A ball rolling into the road is a warning sign: a child is very likely to run after it. The hazard begins when the ball appears, before the child is visible in the road. Slow down at once and be ready to stop.",
+        rule: "Rule 205 (children may step unexpectedly into the road) and Rule 207." },
+      { id: "side-road", title: "Side road junction", speed: 5.5, dur: 8.2, zOff: 38.7,
+        objects: [
+          { type: "car", color: "#e0a800", front: true, hz: true, signal: [3.6, 7.0, "R"], path: [{ t: 0, x: -8.8, z: 96 }, { t: 4.8, x: -8.8, z: 96 }, { t: 6.2, x: -6.4, z: 96 }, { t: 7.4, x: -3.6, z: 94 }, { t: 9.5, x: -1.8, z: 92 }] },
+          { type: "car", color: "#2c5aa0", path: [{ t: 0, x: 1.8, z: 130 }, { t: 9.5, x: 1.8, z: 90 }], front: true },
+        ],
+        sideRoad: { z1: 88, z2: 104, side: -1 },
+        hazard: { start: 4.6, end: 7.0, what: "a car at the side road starting to pull out" },
+        explain: "A car waiting at a side road on your left starts to move. Drivers emerging from junctions often misjudge speed or fail to see you. As soon as the car begins to creep forward, slow down, cover the brake and be ready to stop. Never assume they have seen you.",
+        rule: "Rule 170 (take extra care at junctions) and Rule 211 (watch for emerging vehicles)." },
+      { id: "cyclist", title: "Cyclist and a parked van", speed: 8, dur: 9.8, zOff: 12.6,
+        objects: [
+          { type: "van", color: "#f2f2f2", path: [{ t: 0, x: -3.0, z: 100 }] },
+          { type: "cyclist", hz: true, path: [{ t: 0, x: -2.9, z: 62 }, { t: 5.2, x: -2.9, z: 83 }, { t: 6.4, x: -2.0, z: 87.5 }, { t: 7.6, x: -1.2, z: 92 }, { t: 9.5, x: -1.2, z: 100 }] },
+        ],
+        hazard: { start: 4.4, end: 6.8, what: "a cyclist moving out to pass a parked van" },
+        explain: "The cyclist is about to pull out to go around the parked van, which puts them into your lane. Look at where the cyclist is heading, not only at where they are. Slow down, do not overtake until it is safe, and leave at least 1.5 metres when you pass.",
+        rule: "Rule 212, Rule 163 (at least 1.5 m when overtaking cyclists up to 30 mph) and H3." },
+      { id: "bus", title: "Bus stop opposite", speed: 5.5, dur: 9, zOff: 64.2,
+        objects: [
+          { type: "bus", path: [{ t: 0, x: 2.6, z: 125 }] },
+          { type: "ped", color: "#3b6fd1", hz: true, path: [{ t: 0, x: 3.2, z: 127 }, { t: 4.2, x: 3.2, z: 127 }, { t: 5.9, x: 4.6, z: 125.5 }, { t: 7.4, x: 4.6, z: 122.5 }, { t: 7.9, x: 3.4, z: 122.3 }, { t: 10.8, x: -1.75, z: 122 }] },
+        ],
+        hazard: { start: 5.4, end: 7.8, what: "a pedestrian appearing from beside a stopped bus" },
+        explain: "A bus is stopped at the stop on the opposite side. People often hurry across the road from in front of or behind a bus, and the bus hides them until the last moment. As soon as someone appears from in front of the bus, slow down and be ready to stop.",
+        rule: "Rule 206 (drive carefully near bus and tram stops, pedestrians may step out) and H2." },
+      { id: "brake", title: "Following traffic", speed: 9, dur: 8.8, zOff: 23,
+        objects: [
+          { type: "car", color: "#8a2be2", hz: true, brake: 4.8, path: [{ t: 0, x: -1.75, z: 55 }, { t: 4.8, x: -1.75, z: 55 + 9 * 4.8 }, { t: 7.8, x: -1.75, z: 55 + 9 * 4.8 + 13.5 }, { t: 9.7, x: -1.75, z: 55 + 9 * 4.8 + 13.5 }] },
+          { type: "car", color: "#c0392b", brake: 5.4, path: [{ t: 0, x: -1.75, z: 85 }, { t: 5.4, x: -1.75, z: 85 + 9 * 5.4 }, { t: 8.4, x: -1.75, z: 85 + 9 * 5.4 + 13.5 }, { t: 9.7, x: -1.75, z: 85 + 9 * 5.4 + 13.5 }] },
+        ],
+        hazard: { start: 4.8, end: 7.2, what: "the vehicle ahead braking, with traffic stopping in front of it" },
+        explain: "The brake lights of the car ahead come on, and there are more brake lights further on. That means traffic is stopping. Reacting when the lights first appear gives you time to slow smoothly. Keep a safe gap so that you can stop within the distance you can see to be clear.",
+        rule: "Rule 126 (stopping distances and following gaps)." },
+      { id: "horse", title: "Country lane", speed: 6.5, dur: 8.5, zOff: 38.1,
+        objects: [
+          { type: "horse", hz: true, path: [{ t: 0, x: -5.4, z: 100 }, { t: 4.6, x: -5.4, z: 100 }, { t: 6.0, x: -3.6, z: 100 }, { t: 7.0, x: -2.4, z: 100.5 }, { t: 9.5, x: -2.3, z: 104 }] },
+          { type: "car", color: "#2e7d4f", front: true, path: [{ t: 0, x: 1.75, z: 150 }, { t: 9.5, x: 1.75, z: 120 }] },
+        ],
+        hazard: { start: 4.6, end: 6.9, what: "a horse rider coming onto the road ahead" },
+        explain: "A horse and rider are coming out onto the road. Horses can be easily frightened. As soon as you see them, slow down, do not sound your horn or rev the engine, and pass wide and slowly (a maximum of 10 mph, leaving at least 2 metres) when it is safe.",
+        rule: "Rule 215 (horse riders and horse-drawn vehicles)." },
+      { id: "overtaker", title: "Oncoming traffic", speed: 9, dur: 7.9, zOff: 15.2,
+        objects: [
+          { type: "van", color: "#f2f2f2", front: true, path: [{ t: 0, x: 1.75, z: 150 }, { t: 9, x: 1.75, z: 150 - 5 * 9 }] },
+          { type: "car", color: "#d62430", front: true, hz: true, signal: [4.2, 5.8, "R"], path: [{ t: 0, x: 1.75, z: 168 }, { t: 5.0, x: 1.75, z: 168 - 9 * 5 }, { t: 6.5, x: -1.2, z: 168 - 9 * 5 - 9 * 1.5 }, { t: 9, x: -1.75, z: 168 - 9 * 5 - 9 * 1.5 - 9 * 2.5 }] },
+        ],
+        hazard: { start: 4.6, end: 6.5, what: "a car pulling out from behind a slow van to overtake" },
+        explain: "A slow vehicle is coming towards you, and the car behind it is about to pull out to overtake, which would put it in your lane. Spot the car as soon as it moves out or signals, then slow down, keep left and be ready to stop. Overtaking drivers often misjudge the distance.",
+        rule: "Rules 163 and 166 (overtake only when it is safe and legal) and Rule 126." },
+    ];
+
+    // ---- render a frame of a scene at time t ----
+    function render(c, scene, t, hint) {
+      const camZ = scene.speed * t;
+      scenery(c, camZ, scene);
+      const off = scene.zOff || 0;
+      const list = scene.objects.map((o) => { const p = posAt(o, t); p.z -= off; return { o, p }; }).sort((a, b) => b.p.z - a.p.z);
+      list.forEach(({ o, p }) => drawObj(c, o, p, camZ, t));
+      if (hint) {
+        const hzObj = list.find((e) => e.o.hz); if (hzObj) {
+          const dz = hzObj.p.z - camZ; if (dz > 2.2) {
+            const s = F / dz, X = sx(hzObj.p.x, dz), Y = sy(0, dz), pulse = 1 + 0.08 * Math.sin(t * 8);
+            const inWin = t >= scene.hazard.start && t <= scene.hazard.end;
+            c.strokeStyle = inWin ? "#27d17f" : "#ffd23c"; c.lineWidth = 4; c.beginPath(); c.ellipse(X, Y - 0.9 * s, Math.max(24, 1.4 * s) * pulse, Math.max(30, 1.5 * s) * pulse, 0, 0, 7); c.stroke();
+          }
+        }
+      }
+      // windscreen frame / bonnet for realism
+      c.fillStyle = "#1a1d23"; c.fillRect(0, H - 34, W, 34);
+      c.fillStyle = "#2a2f38"; c.beginPath(); c.moveTo(W * 0.26, H); c.quadraticCurveTo(W * 0.5, H - 62, W * 0.74, H); c.fill();
+      c.fillStyle = "#0e1014"; c.fillRect(0, 0, W, 6);
+    }
+
+    // ======================= app =======================
+    const app = document.getElementById("app");
+    const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+    let run = null, raf = null;
+
+    function intro() {
+      cancelAnimationFrame(raf); run = null;
+      const best = store.get("ukBestHazard");
+      app.innerHTML = '<div class="panel"><p><strong>How it works</strong></p><ol class="how"><li>Watch each short clip from the driver’s seat. There are ' + SCENES.length + ' clips and each contains one developing hazard.</li><li>A <strong>developing hazard</strong> is something that would make you slow down or change direction.</li><li><strong>Click or tap</strong> (or press Space) as soon as you see it start to develop. The earlier you react, the more points you get, from 5 down to 1.</li><li>Do not click all the time: repeated clicking scores nothing.</li></ol><p>Real tests use real video and a pass mark of 44 out of 75. Here you will get feedback on each clip and the Highway Code rule behind it.' + (best ? " Your best score: " + best + " / " + SCENES.length * 5 + "." : "") + '</p><button class="btn" id="go">Start the practice</button></div>';
+      document.getElementById("go").onclick = () => startRun();
+    }
+    function startRun() { run = { i: 0, pts: [] }; playScene(); }
+
+    function playScene(hint) {
+      cancelAnimationFrame(raf);
+      const sc = SCENES[run.i];
+      app.innerHTML = '<div class="hud"><span>Clip ' + (run.i + 1) + ' / ' + SCENES.length + ' · ' + sc.title + '</span><span id="st">' + (hint ? "Watch again: the ring follows the hazard" : "Click when you see a developing hazard") + '</span></div><div class="stage" id="stage"><canvas id="cv" width="' + W + '" height="' + H + '" role="img" aria-label="Driver’s view animated clip. Click or press Space when you see a developing hazard."></canvas><div class="tap" id="tapnote">' + (hint ? "" : "Click, tap or press Space when you spot a developing hazard") + '</div></div><div id="below"></div>';
+      const cv = document.getElementById("cv"), c = cv.getContext("2d"), stage = document.getElementById("stage");
+      const clicks = []; let t0 = performance.now(), done = false, paused = false;
+      const TS = parseFloat(new URLSearchParams(location.search).get("ts") || "1") || 1;
+      const nowT = () => Math.min(sc.dur, ((performance.now() - t0) / 1000) * TS);
+      function mark(ev) {
+        if (done || hint) return; const t = nowT(); clicks.push(t);
+        const r = stage.getBoundingClientRect(); const f = document.createElement("div"); f.className = "flash";
+        f.style.left = ((ev && ev.clientX != null ? ev.clientX - r.left : r.width / 2)) + "px"; f.style.top = ((ev && ev.clientY != null ? ev.clientY - r.top : r.height / 2)) + "px"; stage.appendChild(f); setTimeout(() => f.remove(), 520);
+      }
+      stage.addEventListener("pointerdown", mark);
+      const key = (e) => { if (e.code === "Space" || e.key === "Enter") { e.preventDefault(); mark(null); } };
+      document.addEventListener("keydown", key);
+      function frame() {
+        const t = nowT(); render(c, sc, t, hint);
+        if (t >= sc.dur) { finishScene(); return; }
+        raf = requestAnimationFrame(frame);
+      }
+      function finishScene() {
+        if (done) return; done = true; document.removeEventListener("keydown", key);
+        stage.removeEventListener("pointerdown", mark);
+        const tapn = document.getElementById("tapnote"); if (tapn) tapn.remove();
+        let pts = 0, note = "";
+        if (!hint) {
+          const hz = sc.hazard, dur = hz.end - hz.start;
+          if (clicks.length > 5) { pts = 0; note = "Too many clicks: repeated clicking scores nothing."; }
+          else {
+            const inside = clicks.filter((t) => t >= hz.start && t <= hz.end);
+            if (inside.length) { pts = 5 - Math.min(4, Math.floor(5 * (inside[0] - hz.start) / dur)); note = "You reacted " + (inside[0] - hz.start).toFixed(1) + " s after the hazard started to develop."; }
+            else if (clicks.some((t) => t < hz.start)) note = "You clicked before the hazard started to develop, so there is no score. Wait until it becomes a real hazard.";
+            else if (clicks.length) note = "You clicked after the hazard window had closed, which is too late.";
+            else note = "You did not click.";
+          }
+          run.pts[run.i] = pts;
+        }
+        const pc = run.pts[run.i] || 0, hz = sc.hazard;
+        const tl = '<div class="tl" aria-hidden="true"><div class="win" style="left:' + (100 * hz.start / sc.dur) + '%;width:' + (100 * (hz.end - hz.start) / sc.dur) + '%"></div>' + (hint ? "" : clicks.map((t) => '<div class="clk" style="left:' + (100 * t / sc.dur) + '%"></div>').join("")) + '</div><div class="tl-cap">Green: when to react to the hazard. Red marks: your clicks.</div>';
+        document.getElementById("below").innerHTML = '<div class="panel"><div class="pts ' + (pc >= 3 ? "good" : pc >= 1 ? "" : "bad") + '">' + pc + ' / 5</div><p>' + (hint ? "" : note) + '</p>' + tl + '<p><strong>The hazard:</strong> ' + hz.what + '.</p><p>' + sc.explain + '</p><p><small>Highway Code: ' + sc.rule + '</small></p><button class="btn ghost" id="again">Watch again with the hint</button> <button class="btn" id="next">' + (run.i === SCENES.length - 1 ? "See results" : "Next clip") + '</button></div>';
+        document.getElementById("again").onclick = () => playScene(true);
+        document.getElementById("next").onclick = () => { run.i++; if (run.i >= SCENES.length) results(); else playScene(); };
+      }
+      raf = requestAnimationFrame(frame);
+    }
+
+    function results() {
+      cancelAnimationFrame(raf);
+      const total = run.pts.reduce((a, b) => a + (b || 0), 0), max = SCENES.length * 5;
+      const b = parseInt(store.get("ukBestHazard") || "0", 10); if (total > b) store.set("ukBestHazard", String(total));
+      app.innerHTML = '<div class="panel"><h2 style="margin-top:0">Score: ' + total + ' / ' + max + '</h2><p>In the real test you need 44 out of 75 (about 59%). Here that would be roughly ' + Math.ceil(max * 44 / 75) + ' out of ' + max + ', but this is a practice exercise and not the official test.</p><ul>' + SCENES.map((s, i) => "<li>" + s.title + ": " + (run.pts[i] || 0) + " / 5</li>").join("") + '</ul><button class="btn" id="redo">Try again</button> <a class="btn sec" style="display:inline-block;text-decoration:none" href="index.html">UK home</a></div>';
+      document.getElementById("redo").onclick = () => startRun();
+    }
+
+    // debug hook for tests: ?scene=N&t=SECONDS draws one frame
+    (function () {
+      const q = new URLSearchParams(location.search); if (!q.has("scene")) { intro(); return; }
+      const sc = SCENES[parseInt(q.get("scene"), 10)], t = parseFloat(q.get("t") || "0");
+      app.innerHTML = '<div class="stage"><canvas id="cv" width="' + W + '" height="' + H + '"></canvas></div>';
+      render(document.getElementById("cv").getContext("2d"), sc, t, q.get("hint") === "1");
+    })();
+    </script>
+  </body>
+</html>

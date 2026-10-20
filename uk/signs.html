@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>UK road signs: learn and test yourself | Routis UK</title>
+    <meta name="description" content="Learn the main UK road signs from the Highway Code and test yourself with a quick quiz." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/uk/signs.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+      .uk-wrap { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
+      .uk-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+      .uk-top a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
+      .uk-badge { background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 800; font-size: .85rem; }
+      .uk-intro { margin: 6px 0 16px; color: var(--muted); max-width: 70ch; }
+      .uk-tools { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 16px; }
+      .uk-chip { border: 2px solid var(--line); background: #fff; color: var(--ink); border-radius: 999px; padding: 8px 14px; font: inherit; font-weight: 700; cursor: pointer; }
+      .uk-chip[aria-pressed="true"] { background: var(--blue); border-color: var(--blue); color: #fff; }
+      .uk-search { flex: 1 1 200px; min-width: 160px; padding: 9px 12px; border: 2px solid var(--line); border-radius: 10px; font: inherit; }
+      .uk-quiz-btn { margin-left: auto; background: var(--ink); color: #fff; border: 0; border-radius: 10px; padding: 10px 16px; font: inherit; font-weight: 800; cursor: pointer; }
+      .uk-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+      .uk-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 12px; text-align: center; cursor: pointer; font: inherit; color: inherit; }
+      .uk-card:hover, .uk-card:focus-visible { border-color: var(--blue); box-shadow: var(--shadow); outline: none; }
+      .uk-card svg { width: 100%; max-width: 110px; height: auto; }
+      .uk-card .nm { display: block; margin-top: 6px; font-size: .88rem; font-weight: 700; line-height: 1.25; }
+      dialog.uk-dialog { border: 0; border-radius: 16px; padding: 22px; max-width: 460px; width: calc(100% - 32px); box-shadow: var(--shadow); }
+      dialog.uk-dialog::backdrop { background: rgba(10, 20, 40, .5); }
+      .uk-dialog svg { width: 140px; height: 140px; display: block; margin: 0 auto 10px; }
+      .uk-dialog h2 { margin: 0 0 8px; font-size: 1.2rem; text-align: center; }
+      .uk-dialog .tip { background: #eef4ff; border-radius: 10px; padding: 10px 12px; margin: 12px 0; }
+      .uk-dialog button.close { width: 100%; padding: 11px; border: 0; border-radius: 10px; background: var(--blue); color: #fff; font: inherit; font-weight: 800; cursor: pointer; }
+      #quiz { display: none; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 20px; }
+      #quiz .qsign svg { width: 150px; height: 150px; display: block; margin: 0 auto 10px; }
+      #quiz .opts { display: grid; gap: 10px; margin-top: 12px; }
+      #quiz .opt { text-align: left; padding: 12px 14px; border: 2px solid var(--line); background: #fff; border-radius: 12px; font: inherit; font-weight: 700; cursor: pointer; }
+      #quiz .opt.ok { border-color: var(--green); background: #e6f6ee; }
+      #quiz .opt.bad { border-color: var(--red); background: #fdeaec; }
+      #quiz .meta { display: flex; justify-content: space-between; color: var(--muted); font-weight: 700; margin-bottom: 8px; }
+      #quiz .explain { margin-top: 12px; padding: 10px 12px; background: #f1f5fb; border-radius: 10px; }
+      #quiz .next { margin-top: 12px; padding: 11px 18px; border: 0; border-radius: 10px; background: var(--blue); color: #fff; font: inherit; font-weight: 800; cursor: pointer; }
+      .uk-note { margin: 28px 0 8px; font-size: .85rem; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div class="uk-wrap">
+      <div class="uk-top">
+        <a href="index.html">← UK home</a>
+        <nav style="display:flex;gap:16px"><a href="signs.html">Signs</a><a href="fiches.html">Study sheets</a><a href="quiz.html">Practice test</a><a href="hazards.html">Hazard practice</a><a href="other-quiz.html">Moped, bike &amp; trailer</a><a href="../reglages.html">Settings</a></nav>
+        <span class="uk-badge">United Kingdom</span>
+      </div>
+      <h1>UK road signs</h1>
+      <p class="uk-intro">The main road signs used in Great Britain, with their meaning and a tip for each. Tap a sign to learn it, or start a quiz to test yourself.</p>
+
+      <section id="quiz" aria-live="polite"></section>
+
+      <div class="uk-tools" id="chips" role="group" aria-label="Sign type"></div>
+      <div class="uk-tools"><input class="uk-search" id="search" type="search" placeholder="Search a sign…" aria-label="Search a sign" /><button type="button" class="uk-quiz-btn" id="quiz-start">Start a 10-question quiz</button></div>
+      <div class="uk-grid" id="grid"></div>
+
+      <p class="uk-note">Signs are simplified drawings made for learning, based on the designs in the official Highway Code. The official versions are the reference. Traffic sign designs are © Crown copyright. The Highway Code is published under the Open Government Licence v3.0. Routis is an independent site, not affiliated with or endorsed by the DVSA, the Department for Transport or any UK government body, and is not the official theory test.</p>
+    </div>
+
+    <dialog class="uk-dialog" id="dlg"><div id="dlg-body"></div><button type="button" class="close" id="dlg-close">Close</button></dialog>
+
+    <script src="uk-signs-data.js"></script>
+    <script>
+      const CATS = [["all", "All"], ["orders", "Prohibitions"], ["mandatory", "Mandatory"], ["warning", "Warning"], ["information", "Information"]];
+      let cat = "all", q = "";
+      const $ = (s) => document.querySelector(s);
+      const chips = $("#chips");
+      CATS.forEach(([k, label]) => {
+        const b = document.createElement("button");
+        b.type = "button"; b.className = "uk-chip"; b.textContent = label; b.setAttribute("aria-pressed", k === cat);
+        b.addEventListener("click", () => { cat = k; chips.querySelectorAll(".uk-chip").forEach((c, i) => c.setAttribute("aria-pressed", CATS[i][0] === k)); render(); });
+        chips.appendChild(b);
+      });
+      $("#search").addEventListener("input", (e) => { q = e.target.value.trim().toLowerCase(); render(); });
+
+      function render() {
+        const grid = $("#grid"); grid.innerHTML = "";
+        ukSigns.filter((s) => (cat === "all" || s.cat === cat) && (!q || s.name.toLowerCase().includes(q) || s.text.toLowerCase().includes(q))).forEach((s) => {
+          const b = document.createElement("button");
+          b.type = "button"; b.className = "uk-card"; b.innerHTML = s.svg + '<span class="nm"></span>';
+          b.querySelector(".nm").textContent = s.name;
+          b.querySelector("svg").setAttribute("aria-label", s.name);
+          b.addEventListener("click", () => openSign(s));
+          grid.appendChild(b);
+        });
+        if (!grid.children.length) grid.innerHTML = '<p>No sign found.</p>';
+      }
+      function openSign(s) {
+        $("#dlg-body").innerHTML = s.svg + '<h2></h2><p class="m"></p><p class="tip"><strong>Tip:</strong> <span class="t"></span></p>';
+        $("#dlg-body h2").textContent = s.name; $("#dlg-body .m").textContent = s.text; $("#dlg-body .t").textContent = s.tip;
+        $("#dlg").showModal();
+      }
+      $("#dlg-close").addEventListener("click", () => $("#dlg").close());
+
+      // ---- quiz ----
+      const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+      let run = null;
+      $("#quiz-start").addEventListener("click", () => {
+        run = { qs: shuffle(ukSigns).slice(0, 10), i: 0, score: 0 };
+        $("#quiz").style.display = "block"; window.scrollTo({ top: 0, behavior: "smooth" }); showQ();
+      });
+      function showQ() {
+        const box = $("#quiz");
+        if (run.i >= run.qs.length) {
+          box.innerHTML = '<h2>Score: ' + run.score + ' / ' + run.qs.length + '</h2><p>' + (run.score >= 9 ? "Excellent!" : run.score >= 7 ? "Good, keep practising." : "Keep going: review the signs and try again.") + '</p><button class="next" id="again">Try again</button> <button class="next" id="stop" style="background:var(--ink)">Close quiz</button>';
+          $("#again").onclick = () => $("#quiz-start").click(); $("#stop").onclick = () => { box.style.display = "none"; run = null; };
+          return;
+        }
+        const s = run.qs[run.i];
+        const same = shuffle(ukSigns.filter((x) => x.id !== s.id && x.cat === s.cat));
+        const others = shuffle(ukSigns.filter((x) => x.id !== s.id && x.cat !== s.cat));
+        const wrong = same.concat(others).slice(0, 3);
+        const opts = shuffle([s].concat(wrong));
+        box.innerHTML = '<div class="meta"><span>Question ' + (run.i + 1) + ' / ' + run.qs.length + '</span><span>Score ' + run.score + '</span></div><div class="qsign">' + s.svg + '</div><strong>What does this sign mean?</strong><div class="opts"></div><div id="fb"></div>';
+        const wrap = box.querySelector(".opts");
+        opts.forEach((o) => {
+          const b = document.createElement("button"); b.type = "button"; b.className = "opt"; b.textContent = o.name;
+          b.addEventListener("click", () => {
+            wrap.querySelectorAll(".opt").forEach((x) => { x.disabled = true; if (x.textContent === s.name) x.classList.add("ok"); });
+            if (o.id === s.id) run.score++; else b.classList.add("bad");
+            $("#fb").innerHTML = '<div class="explain"></div><button class="next" id="nx">' + (run.i === run.qs.length - 1 ? "See score" : "Next") + '</button>';
+            $("#fb .explain").textContent = s.text;
+            $("#nx").onclick = () => { run.i++; showQ(); };
+          });
+          wrap.appendChild(b);
+        });
+      }
+      render();
+    </script>
+  </body>
+</html>

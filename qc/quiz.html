@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>Quiz du code de la route du Québec | Routis Québec</title>
+    <meta name="description" content="Quiz gratuit pour réviser le code de la route du Québec (permis de classe 5) : questions avec explication, par thème ou en série." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/qc/quiz.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+      h1 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); line-height: 1.15; margin: 8px 0 12px; }
+      .uk-wrap { width: min(820px, calc(100% - 32px)); margin: 0 auto; }
+      .uk-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+      .uk-top a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
+      .uk-top nav { display: flex; gap: 16px; flex-wrap: wrap; }
+      .uk-badge { background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 800; font-size: .85rem; }
+      .intro { color: var(--muted); max-width: 62ch; }
+      .uk-note { margin: 24px 0; font-size: .85rem; color: var(--muted); }
+      .cards { display: grid; gap: 12px; margin: 20px 0; }
+      .card { display: block; background: #fff; border: 2px solid var(--line); border-radius: 16px; padding: 18px; color: var(--ink); text-decoration: none; }
+      .card:hover, .card:focus-visible { border-color: var(--blue); outline: none; box-shadow: var(--shadow); }
+      .card strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+      .card span { color: var(--muted); }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+      details.fiche { background: #fff; border: 1px solid var(--line); border-radius: 14px; margin-bottom: 12px; position: relative; scroll-margin-top: 12px; }
+      details.fiche summary { cursor: pointer; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; list-style: none; }
+      details.fiche summary::-webkit-details-marker { display: none; }
+      details.fiche summary::after { content: "+"; position: absolute; right: 18px; top: 12px; font-size: 1.4rem; color: var(--blue); }
+      details.fiche[open] summary::after { content: "–"; }
+      .ft { font-weight: 800; font-size: 1.08rem; padding-right: 30px; }
+      .fr { color: var(--muted); font-size: .85rem; }
+      .fb { padding: 0 16px 16px; line-height: 1.55; }
+      .fb ul { margin: 0 0 12px; padding-left: 20px; } .fb li { margin-bottom: 8px; }
+      .src { font-size: .82rem; color: var(--muted); } .src a { color: var(--blue-dark); }
+      .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; }
+      .toc a { border: 2px solid var(--line); background: #fff; color: var(--ink); text-decoration: none; border-radius: 999px; padding: 6px 12px; font-size: .85rem; font-weight: 700; }
+      .signs { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+      .sg { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; text-align: center; }
+      .sg svg { width: 110px; height: 110px; }
+      .sg h3 { margin: 8px 0 4px; font-size: 1.05rem; } .sg p { margin: 0; color: var(--muted); font-size: .9rem; text-align: left; }
+    </style>
+  </head>
+  <body>
+    <div class="uk-wrap">
+      <div class="uk-top">
+        <a href="index.html">← Accueil Québec</a>
+        <nav><a href="panneaux.html">Panneaux</a><a href="fiches.html">Fiches</a><a href="quiz.html">Quiz</a><a href="../reglages.html">Réglages</a></nav>
+        <span class="uk-badge">Canada · Québec</span>
+      </div>
+
+<style>
+ .modes{display:grid;gap:12px}.big{text-align:left;border:2px solid var(--line);background:#fff;border-radius:14px;padding:16px;font:inherit;cursor:pointer;color:var(--ink)}
+ .big:hover,.big:focus-visible{border-color:var(--blue);outline:none}.big strong{display:block;font-size:1.05rem}.big span{color:var(--muted);font-size:.9rem}
+ .topics{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.topics button{border:2px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+ .meta{display:flex;justify-content:space-between;color:var(--muted);font-weight:700;margin-bottom:10px}.bar{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:14px}.bar i{display:block;height:100%;background:var(--blue)}
+ .qsign svg{width:130px;height:130px;display:block;margin:0 auto 10px}.qtext{font-size:1.1rem;font-weight:800;margin:4px 0 12px}.opts{display:grid;gap:10px}
+ .opt{text-align:left;padding:12px 14px;border:2px solid var(--line);background:#fff;border-radius:12px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+ .opt.ok{border-color:var(--green);background:#e6f6ee}.opt.bad{border-color:var(--red);background:#fdeaec}
+ .explain{margin-top:12px;padding:10px 12px;background:#f1f5fb;border-radius:10px;line-height:1.5}
+ .btn{margin-top:14px;padding:12px 20px;border:0;border-radius:10px;background:var(--blue);color:#fff;font:inherit;font-weight:800;cursor:pointer}.btn.sec{background:var(--ink);margin-top:0}
+</style>
+<h1>Quiz du code de la route du Québec</h1>
+<div id="app"></div>
+<script src="qc-questions-data.js"></script>
+<script>
+const $app=document.getElementById("app");
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let run=null;
+function signQ(s){const others=shuffle(qcSigns.filter(x=>x.id!==s.id)).slice(0,3);const opts=shuffle([s].concat(others));return{svg:s.svg,question:"Que signale ce panneau ?",options:opts.map(o=>o.name),correctIndex:opts.indexOf(s),explanation:s.text}}
+function home(){run=null;$app.innerHTML='<div class="panel"><p>Entraînez-vous avec des questions rédigées à partir des publications de la SAAQ. Chaque réponse est expliquée.</p><div class="modes"><button class="big" id="m10"><strong>Série de 10 questions</strong><span>Questions variées avec explication immédiate.</span></button><button class="big" id="m30"><strong>Série de 30 questions</strong><span>Score à la fin et révision de vos erreurs.</span></button></div></div><div class="panel"><strong>Réviser un thème</strong><div class="topics" id="topics"></div></div>';
+document.getElementById("m10").onclick=()=>start(10);document.getElementById("m30").onclick=()=>start(30);
+const t=document.getElementById("topics");Object.keys(qcThemes).forEach(k=>{const n=qcQuestions.filter(q=>q.theme===k).length;if(!n)return;const b=document.createElement("button");b.type="button";b.textContent=qcThemes[k]+" ("+n+")";b.onclick=()=>start(0,k);t.appendChild(b)})}
+function start(n,theme){let qs;if(theme){qs=shuffle(qcQuestions.filter(q=>q.theme===theme))}else{qs=shuffle(qcQuestions).slice(0,n)}
+qs=qs.map(q=>q.theme==="panneaux"?signQ(shuffle(qcSigns)[0]):q);run={qs,i:0,score:0,wrong:[]};show()}
+function show(){if(run.i>=run.qs.length)return finish();const q=run.qs[run.i];
+$app.innerHTML='<div class="panel"><div class="meta"><span>Question '+(run.i+1)+' / '+run.qs.length+'</span></div><div class="bar"><i style="width:'+(100*run.i/run.qs.length)+'%"></i></div>'+(q.svg?'<div class="qsign">'+q.svg+'</div>':'')+'<div class="qtext"></div><div class="opts"></div><div id="fb"></div></div><button class="btn sec" id="quit">Quitter</button>';
+$app.querySelector(".qtext").textContent=q.question;const wrap=$app.querySelector(".opts");
+q.options.forEach((o,idx)=>{const b=document.createElement("button");b.type="button";b.className="opt";b.textContent=o;b.onclick=()=>{
+wrap.querySelectorAll(".opt").forEach((x,k)=>{x.disabled=true;if(k===q.correctIndex)x.classList.add("ok")});
+const ok=idx===q.correctIndex;if(ok)run.score++;else{b.classList.add("bad");run.wrong.push(q)}
+document.getElementById("fb").innerHTML='<div class="explain"></div><button class="btn" id="nx"></button>';
+$app.querySelector(".explain").textContent=(ok?"Bonne réponse. ":"Pas tout à fait. ")+q.explanation;
+const nx=document.getElementById("nx");nx.textContent=run.i===run.qs.length-1?"Voir le résultat":"Suivante";nx.onclick=()=>{run.i++;show()}};wrap.appendChild(b)});
+document.getElementById("quit").onclick=()=>{if(confirm("Quitter ce quiz ?"))home()}}
+function finish(){let h='<div class="panel"><h2>Score : '+run.score+' / '+run.qs.length+'</h2>';
+if(run.wrong.length){h+='<p>À revoir :</p><ul>';run.wrong.forEach(()=>{h+='<li></li>'});h+='</ul>'}else h+='<p>Sans faute, bravo !</p>';
+h+='<button class="btn" id="again">Recommencer</button></div>';$app.innerHTML=h;
+$app.querySelectorAll("li").forEach((li,i)=>{li.textContent=run.wrong[i].question+" → "+run.wrong[i].options[run.wrong[i].correctIndex]});
+document.getElementById("again").onclick=home}
+home();
+</script>
+<p class="uk-note">Routis est un site indépendant : il n'est ni affilié à la Société de l'assurance automobile du Québec (SAAQ) ni approuvé par elle ou par un organisme gouvernemental. Ce contenu est un outil de révision rédigé par Routis à partir des publications officielles ; ce ne sont pas les questions de l'examen officiel. Les règles peuvent changer : vérifiez toujours sur saaq.gouv.qc.ca. Les panneaux sont des illustrations simplifiées. Ce module n'utilise ni témoins ni outils d'analyse.</p>
+    </div>
+  </body>
+</html>

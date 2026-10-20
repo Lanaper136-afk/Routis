@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>UK theory test practice | Routis UK</title>
+    <meta name="description" content="Free practice questions for the UK driving theory test: mock tests of 50 questions and practice by topic, with the Highway Code rule for each answer." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/uk/quiz.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+      .uk-wrap { width: min(760px, calc(100% - 32px)); margin: 0 auto; }
+      .uk-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+      .uk-top a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
+      .uk-top nav { display: flex; gap: 16px; }
+      .uk-badge { background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 800; font-size: .85rem; }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+      .modes { display: grid; gap: 12px; }
+      .big { text-align: left; border: 2px solid var(--line); background: #fff; border-radius: 14px; padding: 16px; font: inherit; cursor: pointer; color: var(--ink); }
+      .big:hover, .big:focus-visible { border-color: var(--blue); outline: none; }
+      .big strong { display: block; font-size: 1.05rem; }
+      .big span { color: var(--muted); font-size: .9rem; }
+      .topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .topics button { border: 2px solid var(--line); background: #fff; border-radius: 999px; padding: 8px 14px; font: inherit; font-weight: 700; cursor: pointer; color: var(--ink); }
+      .topics button:hover { border-color: var(--blue); }
+      .meta { display: flex; justify-content: space-between; color: var(--muted); font-weight: 700; margin-bottom: 10px; gap: 8px; flex-wrap: wrap; }
+      .bar { height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+      .bar i { display: block; height: 100%; background: var(--blue); }
+      .qsign svg { width: 150px; height: 150px; display: block; margin: 0 auto 10px; }
+      .qtext { font-size: 1.1rem; font-weight: 800; margin: 4px 0 12px; }
+      .opts { display: grid; gap: 10px; }
+      .opt { text-align: left; padding: 12px 14px; border: 2px solid var(--line); background: #fff; border-radius: 12px; font: inherit; font-weight: 700; cursor: pointer; color: var(--ink); }
+      .opt:hover:not(:disabled) { border-color: var(--blue); }
+      .opt.sel { border-color: var(--blue); background: #eef4ff; }
+      .opt.ok { border-color: var(--green); background: #e6f6ee; }
+      .opt.bad { border-color: var(--red); background: #fdeaec; }
+      .explain { margin-top: 12px; padding: 10px 12px; background: #f1f5fb; border-radius: 10px; line-height: 1.5; }
+      .explain small { color: var(--muted); display: block; margin-top: 4px; }
+      .btn { margin-top: 14px; padding: 12px 20px; border: 0; border-radius: 10px; background: var(--blue); color: #fff; font: inherit; font-weight: 800; cursor: pointer; }
+      .btn.sec { background: var(--ink); }
+      .btn:disabled { opacity: .45; cursor: default; }
+      .result h2 { margin-top: 0; }
+      .pass { color: var(--green); } .fail { color: var(--red); }
+      .rev { border-top: 1px solid var(--line); padding: 12px 0; }
+      .rev .qsign svg { width: 70px; height: 70px; margin: 0 0 6px; }
+      .uk-note { margin: 24px 0 24px; font-size: .85rem; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div class="uk-wrap">
+      <div class="uk-top">
+        <a href="index.html">← UK home</a>
+        <nav><a href="signs.html">Signs</a><a href="fiches.html">Study sheets</a><a href="quiz.html">Practice test</a><a href="hazards.html">Hazard practice</a><a href="other-quiz.html">Moped, bike &amp; trailer</a><a href="../reglages.html">Settings</a></nav>
+        <span class="uk-badge">United Kingdom</span>
+      </div>
+      <h1>UK theory test practice</h1>
+      <div id="app"></div>
+      <p class="uk-note">Practice questions written by Routis from the Highway Code (GOV.UK). They are not the official theory test questions and the real test also includes a hazard perception part. Routis is an independent site, not affiliated with or endorsed by the DVSA, the Department for Transport or any UK government body. Contains public sector information licensed under the Open Government Licence v3.0. Traffic sign designs are © Crown copyright.</p>
+    </div>
+    <script src="uk-signs-data.js"></script>
+    <script src="uk-questions-data.js"></script>
+    <script>
+      const $app = document.getElementById("app");
+      const THEMES = { basics: "The basics", speed: "Speed limits", stopping: "Stopping distances", lanes: "Lanes and overtaking", junctions: "Junctions", roundabouts: "Roundabouts", lights: "Traffic lights", crossings: "Pedestrian crossings", alcohol: "Alcohol, drugs, tiredness", belts: "Seat belts and phones", parking: "Parking", motorways: "Motorways", weather: "Weather", vulnerable: "Vulnerable road users", breakdowns: "Breakdowns and crashes", penalties: "Penalty points", signs: "Sign basics" };
+      const MOCK_N = 50, PASS = 43, MOCK_SECONDS = 57 * 60;
+      const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+      const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+      let run = null, timer = null;
+
+      // A sign question: shows the sign, asks its meaning.
+      function signQuestion(s) {
+        const same = shuffle(ukSigns.filter((x) => x.id !== s.id && x.cat === s.cat));
+        const others = shuffle(ukSigns.filter((x) => x.id !== s.id && x.cat !== s.cat));
+        const opts = shuffle([s].concat(same.concat(others).slice(0, 3)));
+        return { svg: s.svg, question: "What does this sign mean?", options: opts.map((o) => o.name), correctIndex: opts.indexOf(s), explanation: s.text, rule: "Traffic signs" };
+      }
+      const knowledge = (q) => ({ svg: null, question: q.question, options: q.options, correctIndex: q.correctIndex, explanation: q.explanation, rule: q.rule });
+
+      function home() {
+        clearInterval(timer); run = null;
+        const best = store.get("ukBestMock");
+        $app.innerHTML = '<div class="panel"><p>Practise for the UK car theory test. The real test has 50 questions in 57 minutes and you need 43 correct to pass.</p><div class="modes"><button class="big" id="m-mock"><strong>Mock test: 50 questions</strong><span>Timed like the real thing, answers shown at the end.' + (best ? " Best score: " + best + " / 50." : "") + '</span></button><button class="big" id="m-quick"><strong>Quick practice: 10 questions</strong><span>Mixed questions with the answer and the Highway Code rule after each one.</span></button></div></div><div class="panel"><strong>Practise one topic</strong><div class="topics" id="topics"></div></div>';
+        document.getElementById("m-mock").onclick = () => start("mock");
+        document.getElementById("m-quick").onclick = () => start("quick");
+        const t = document.getElementById("topics");
+        Object.keys(THEMES).forEach((k) => { const n = ukQuestions.filter((q) => q.theme === k).length; if (!n) return; const b = document.createElement("button"); b.type = "button"; b.textContent = THEMES[k] + " (" + n + ")"; b.onclick = () => start("topic", k); t.appendChild(b); });
+      }
+
+      function start(mode, theme) {
+        let qs;
+        if (mode === "mock") {
+          const signQs = shuffle(ukSigns).slice(0, 10).map(signQuestion);
+          qs = shuffle(shuffle(ukQuestions).slice(0, MOCK_N - 10).map(knowledge).concat(signQs));
+        } else if (mode === "quick") {
+          qs = shuffle(shuffle(ukQuestions).slice(0, 8).map(knowledge).concat(shuffle(ukSigns).slice(0, 2).map(signQuestion)));
+        } else {
+          qs = shuffle(ukQuestions.filter((q) => q.theme === theme)).map(knowledge);
+        }
+        run = { mode, qs, i: 0, answers: [], deadline: mode === "mock" ? Date.now() + MOCK_SECONDS * 1000 : null };
+        if (run.deadline) timer = setInterval(tick, 1000);
+        show();
+      }
+      function tick() {
+        const el = document.getElementById("clock"); if (!el || !run) return;
+        const left = Math.max(0, Math.round((run.deadline - Date.now()) / 1000));
+        el.textContent = String(Math.floor(left / 60)).padStart(2, "0") + ":" + String(left % 60).padStart(2, "0");
+        if (left === 0) finish();
+      }
+      function show() {
+        if (run.i >= run.qs.length) return finish();
+        const q = run.qs[run.i]; const instant = run.mode !== "mock";
+        $app.innerHTML = '<div class="panel"><div class="meta"><span>Question ' + (run.i + 1) + ' / ' + run.qs.length + '</span>' + (run.deadline ? '<span id="clock"></span>' : "") + '</div><div class="bar"><i style="width:' + (100 * run.i / run.qs.length) + '%"></i></div>' + (q.svg ? '<div class="qsign">' + q.svg + '</div>' : "") + '<div class="qtext"></div><div class="opts"></div><div id="fb"></div></div><button class="btn sec" id="quit" style="margin-top:0">Quit</button>';
+        $app.querySelector(".qtext").textContent = q.question;
+        const wrap = $app.querySelector(".opts");
+        q.options.forEach((o, idx) => {
+          const b = document.createElement("button"); b.type = "button"; b.className = "opt"; b.textContent = o;
+          b.onclick = () => {
+            run.answers[run.i] = idx;
+            if (instant) {
+              wrap.querySelectorAll(".opt").forEach((x, k) => { x.disabled = true; if (k === q.correctIndex) x.classList.add("ok"); });
+              if (idx !== q.correctIndex) b.classList.add("bad");
+              document.getElementById("fb").innerHTML = '<div class="explain"></div><button class="btn" id="nx"></button>';
+              $app.querySelector(".explain").innerHTML = "<span></span><small></small>";
+              $app.querySelector(".explain span").textContent = (idx === q.correctIndex ? "Correct. " : "Not quite. ") + q.explanation;
+              $app.querySelector(".explain small").textContent = q.rule === "Traffic signs" ? "" : "Highway Code: " + q.rule;
+              const nx = document.getElementById("nx"); nx.textContent = run.i === run.qs.length - 1 ? "See results" : "Next";
+              nx.onclick = () => { run.i++; show(); };
+            } else {
+              wrap.querySelectorAll(".opt").forEach((x, k) => x.classList.toggle("sel", k === idx));
+              document.getElementById("fb").innerHTML = '<button class="btn" id="nx"></button>';
+              const nx = document.getElementById("nx"); nx.textContent = run.i === run.qs.length - 1 ? "Finish test" : "Next";
+              nx.onclick = () => { run.i++; show(); };
+            }
+          };
+          wrap.appendChild(b);
+        });
+        document.getElementById("quit").onclick = () => { if (confirm("Quit this test?")) home(); };
+        tick();
+      }
+      function finish() {
+        clearInterval(timer);
+        const total = run.qs.length; let score = 0; const wrong = [];
+        run.qs.forEach((q, i) => { if (run.answers[i] === q.correctIndex) score++; else wrong.push(i); });
+        const mock = run.mode === "mock";
+        if (mock) { const b = parseInt(store.get("ukBestMock") || "0", 10); if (score > b) store.set("ukBestMock", String(score)); }
+        const passed = mock && score >= PASS;
+        let h = '<div class="panel result"><h2>Score: ' + score + ' / ' + total + '</h2>';
+        if (mock) h += '<p class="' + (passed ? "pass" : "fail") + '"><strong>' + (passed ? "Pass mark reached (" + PASS + " needed)." : "Below the pass mark of " + PASS + ".") + '</strong> The real test also has a hazard perception part.</p>';
+        h += '<button class="btn" id="again">Back to start</button></div>';
+        if (wrong.length) {
+          h += '<div class="panel"><strong>Review your mistakes (' + wrong.length + ')</strong><div id="rev"></div></div>';
+        }
+        $app.innerHTML = h;
+        document.getElementById("again").onclick = home;
+        const rev = document.getElementById("rev");
+        wrong.forEach((i) => {
+          const q = run.qs[i]; const d = document.createElement("div"); d.className = "rev";
+          d.innerHTML = (q.svg ? '<div class="qsign">' + q.svg + "</div>" : "") + "<strong></strong><p class='y'></p><p class='c'></p><small></small>";
+          d.querySelector("strong").textContent = q.question;
+          d.querySelector(".y").textContent = "Your answer: " + (run.answers[i] === undefined ? "(no answer)" : q.options[run.answers[i]]);
+          d.querySelector(".c").textContent = "Correct answer: " + q.options[q.correctIndex] + ". " + q.explanation;
+          d.querySelector("small").textContent = q.rule === "Traffic signs" ? "" : "Highway Code: " + q.rule;
+          rev.appendChild(d);
+        });
+        run = null;
+      }
+      home();
+    </script>
+  </body>
+</html>

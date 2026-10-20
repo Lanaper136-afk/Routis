@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>Moped, motorcycle and trailer quiz | Routis UK</title>
+    <meta name="description" content="Free UK practice questions on CBT and mopeds, motorcycle licences (A1, A2, A) and towing trailers (B, B+E), with an explanation for every answer." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/uk/other-quiz.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <style>
+      .uk-wrap { width: min(760px, calc(100% - 32px)); margin: 0 auto; }
+      .uk-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+      .uk-top a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
+      .uk-top nav { display: flex; gap: 16px; }
+      .uk-badge { background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 800; font-size: .85rem; }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+      .modes { display: grid; gap: 12px; }
+      .big { text-align: left; border: 2px solid var(--line); background: #fff; border-radius: 14px; padding: 16px; font: inherit; cursor: pointer; color: var(--ink); }
+      .big:hover, .big:focus-visible { border-color: var(--blue); outline: none; }
+      .big strong { display: block; font-size: 1.05rem; }
+      .big span { color: var(--muted); font-size: .9rem; }
+      .topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .topics button { border: 2px solid var(--line); background: #fff; border-radius: 999px; padding: 8px 14px; font: inherit; font-weight: 700; cursor: pointer; color: var(--ink); }
+      .topics button:hover { border-color: var(--blue); }
+      .meta { display: flex; justify-content: space-between; color: var(--muted); font-weight: 700; margin-bottom: 10px; gap: 8px; flex-wrap: wrap; }
+      .bar { height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+      .bar i { display: block; height: 100%; background: var(--blue); }
+      .qsign svg { width: 150px; height: 150px; display: block; margin: 0 auto 10px; }
+      .qtext { font-size: 1.1rem; font-weight: 800; margin: 4px 0 12px; }
+      .opts { display: grid; gap: 10px; }
+      .opt { text-align: left; padding: 12px 14px; border: 2px solid var(--line); background: #fff; border-radius: 12px; font: inherit; font-weight: 700; cursor: pointer; color: var(--ink); }
+      .opt:hover:not(:disabled) { border-color: var(--blue); }
+      .opt.sel { border-color: var(--blue); background: #eef4ff; }
+      .opt.ok { border-color: var(--green); background: #e6f6ee; }
+      .opt.bad { border-color: var(--red); background: #fdeaec; }
+      .explain { margin-top: 12px; padding: 10px 12px; background: #f1f5fb; border-radius: 10px; line-height: 1.5; }
+      .explain small { color: var(--muted); display: block; margin-top: 4px; }
+      .btn { margin-top: 14px; padding: 12px 20px; border: 0; border-radius: 10px; background: var(--blue); color: #fff; font: inherit; font-weight: 800; cursor: pointer; }
+      .btn.sec { background: var(--ink); }
+      .btn:disabled { opacity: .45; cursor: default; }
+      .result h2 { margin-top: 0; }
+      .pass { color: var(--green); } .fail { color: var(--red); }
+      .rev { border-top: 1px solid var(--line); padding: 12px 0; }
+      .rev .qsign svg { width: 70px; height: 70px; margin: 0 0 6px; }
+      .uk-note { margin: 24px 0 24px; font-size: .85rem; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <div class="uk-wrap">
+      <div class="uk-top">
+        <a href="index.html">← UK home</a>
+        <nav><a href="signs.html">Signs</a><a href="fiches.html">Study sheets</a><a href="quiz.html">Practice test</a><a href="hazards.html">Hazard practice</a><a href="other-quiz.html">Moped, bike &amp; trailer</a><a href="../reglages.html">Settings</a></nav>
+        <span class="uk-badge">United Kingdom</span>
+      </div>
+      <h1>Moped, motorcycle and trailer quiz</h1>
+      <p>Choose a topic and answer 10 random questions. Every answer is explained.</p>
+      <div id="quiz-app"></div>
+      <p class="uk-note">Practice questions written by Routis from GOV.UK guidance. They are not official DVSA questions. Always check the latest rules on GOV.UK.</p>
+    </div>
+    <script src="other-data.js"></script>
+    <script>
+function startQuiz(data, cat, labels, L) {
+  const pool = data[cat].slice();
+  for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+  const qs = pool.slice(0, 10);
+  let i = 0, score = 0;
+  const app = document.getElementById("quiz-app");
+  function show() {
+    const raw = qs[i]; const q = L(raw);
+    app.innerHTML = '<div class="panel"><div class="meta"><span>' + labels.q + ' ' + (i + 1) + ' / ' + qs.length + '</span><span>' + labels.score + ' ' + score + '</span></div><div class="bar"><i style="width:' + (i / qs.length * 100) + '%"></i></div><p class="qtext"></p><div class="opts"></div><div class="explain" hidden></div><button class="btn" id="next" hidden></button></div>';
+    app.querySelector(".qtext").textContent = q.q;
+    const opts = app.querySelector(".opts");
+    q.o.forEach((txt, n) => {
+      const b = document.createElement("button"); b.className = "opt"; b.textContent = txt;
+      b.addEventListener("click", () => {
+        opts.querySelectorAll("button").forEach((x, m) => { x.disabled = true; if (m === raw.a) x.classList.add("ok"); });
+        if (n === raw.a) score++; else b.classList.add("bad");
+        const ex = app.querySelector(".explain"); ex.hidden = false; ex.textContent = (n === raw.a ? labels.right : labels.wrong) + " " + q.e;
+        const nx = app.querySelector("#next"); nx.hidden = false; nx.textContent = i + 1 < qs.length ? labels.next : labels.finish;
+        nx.addEventListener("click", () => { i++; if (i < qs.length) show(); else end(); });
+      });
+      opts.appendChild(b);
+    });
+  }
+  function end() {
+    app.innerHTML = '<div class="panel result"><h2></h2><p></p><button class="btn" id="again"></button> <button class="btn sec" id="menu"></button></div>';
+    app.querySelector("h2").textContent = labels.result + " " + score + " / " + qs.length;
+    app.querySelector("p").textContent = score >= qs.length * 0.8 ? labels.great : labels.again_msg;
+    app.querySelector("#again").textContent = labels.again;
+    app.querySelector("#again").addEventListener("click", () => startQuiz(data, cat, labels, L));
+    app.querySelector("#menu").textContent = labels.menu;
+    app.querySelector("#menu").addEventListener("click", () => { window.menu && window.menu(); });
+  }
+  show();
+}
+
+const LAB = {q:"Question", score:"Score:", right:"Correct.", wrong:"Not quite.", next:"Next question", finish:"See result", result:"Result:", great:"Great! You know this topic well.", again_msg:"Review the Highway Code and try again.", again:"Try again", menu:"Change topic"};
+const CATS = {moped:["Moped and CBT","Age 16, CBT, L plates, speed"], moto:["Motorcycle licences (A1, A2, A)","Ages, power, equipment, riding"], trailer:["Towing a trailer (B, B+E)","Weights, speeds, loading"]};
+function L(raw) { return {q: raw.q, o: raw.o, e: raw.e}; }
+window.menu = function () {
+  const app = document.getElementById("quiz-app");
+  app.innerHTML = '<div class="panel modes"></div>';
+  Object.keys(CATS).forEach((c) => {
+    const b = document.createElement("button"); b.className = "big"; b.innerHTML = "<strong></strong><span></span>";
+    b.querySelector("strong").textContent = CATS[c][0]; b.querySelector("span").textContent = CATS[c][1];
+    b.addEventListener("click", () => startQuiz(OTHER_QUIZ_UK, c, LAB, L));
+    app.firstChild.appendChild(b);
+  });
+};
+window.menu();
+    </script>
+  </body>
+</html>
