@@ -2,44 +2,341 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://code-route-gratuit-routis.netlify.app/</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://code-route-gratuit-routis.netlify.app/fiches.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://code-route-gratuit-routis.netlify.app/examens.html</loc>
-    <lastmod>2026-09-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://code-route-gratuit-routis.netlify.app/progression.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://code-route-gratuit-routis.netlify.app/panneaux.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://code-route-gratuit-routis.netlify.app/simulations.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://code-route-gratuit-routis.netlify.app/jeux.html</loc>
-    <lastmod>2026-09-23</lastmod>
+    <lastmod>2026-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/mentions-legales.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/confidentialite.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/uk/index.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/uk/signs.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/uk/fiches.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/uk/quiz.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/uk/hazards.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/cours.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/autoroute.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/depassement.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/intersections-ronds-points.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/conduite-nuit-mauvais-temps.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/stationnement.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/vitesse.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/permis-a-points.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/alcool-stupefiants.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/premiers-secours.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/securite-enfants.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/equipements-obligatoires.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/demarches-permis.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/examen-du-code.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/permis-am.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/permis-moto.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/remorque-b96-be.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/distances-d-arret.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/quiz-permis.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/uk/other-quiz.html</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/jeu-vrai-faux.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/jeu-memoire.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/jeu-dangers.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/conduite-montagne.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/poids-lourds.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/eco-conduite.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/assurance-accident.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/installer.html</loc>
+    <lastmod>2026-10-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/marquages-au-sol.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/types-de-routes.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/feux-tricolores.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/manoeuvres.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/voyants-tableau-de-bord.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/trottinettes-edpm.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/prendre-quitter-son-vehicule.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/vehicules-prioritaires.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/partager-la-route.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/controle-du-vehicule.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/fiches-memo.html</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/qc/index.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/qc/fiches.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/qc/quiz.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://code-route-gratuit-routis.netlify.app/qc/panneaux.html</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz moto, AM et remorque : entraînement gratuit | Routis</title>
+    <meta name="description" content="Des questions d&#x27;entraînement gratuites pour le permis AM (cyclomoteur), la moto (A1, A2, A) et les remorques (B, B96, BE), avec une explication à chaque réponse." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/quiz-permis.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Quiz moto, AM et remorque : entraînement gratuit | Routis" />
+    <meta property="og:description" content="Des questions d&#x27;entraînement gratuites pour le permis AM (cyclomoteur), la moto (A1, A2, A) et les remorques (B, B96, BE), avec une explication à chaque réponse." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/quiz-permis.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+      .modes { display: grid; gap: 12px; }
+      .big { text-align: left; border: 2px solid var(--line); background: #fff; border-radius: 14px; padding: 16px; font: inherit; cursor: pointer; color: var(--ink); }
+      .big:hover, .big:focus-visible { border-color: var(--blue); outline: none; }
+      .big strong { display: block; font-size: 1.05rem; }
+      .big span { color: var(--muted); font-size: .9rem; }
+      .topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .topics button { border: 2px solid var(--line); background: #fff; border-radius: 999px; padding: 8px 14px; font: inherit; font-weight: 700; cursor: pointer; color: var(--ink); }
+      .topics button:hover { border-color: var(--blue); }
+      .meta { display: flex; justify-content: space-between; color: var(--muted); font-weight: 700; margin-bottom: 10px; gap: 8px; flex-wrap: wrap; }
+      .bar { height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+      .bar i { display: block; height: 100%; background: var(--blue); }
+      .qsign svg { width: 150px; height: 150px; display: block; margin: 0 auto 10px; }
+      .qtext { font-size: 1.1rem; font-weight: 800; margin: 4px 0 12px; }
+      .opts { display: grid; gap: 10px; }
+      .opt { text-align: left; padding: 12px 14px; border: 2px solid var(--line); background: #fff; border-radius: 12px; font: inherit; font-weight: 700; cursor: pointer; color: var(--ink); }
+      .opt:hover:not(:disabled) { border-color: var(--blue); }
+      .opt.sel { border-color: var(--blue); background: #eef4ff; }
+      .opt.ok { border-color: var(--green); background: #e6f6ee; }
+      .opt.bad { border-color: var(--red); background: #fdeaec; }
+      .explain { margin-top: 12px; padding: 10px 12px; background: #f1f5fb; border-radius: 10px; line-height: 1.5; }
+      .explain small { color: var(--muted); display: block; margin-top: 4px; }
+      .btn { margin-top: 14px; padding: 12px 20px; border: 0; border-radius: 10px; background: var(--blue); color: #fff; font: inherit; font-weight: 800; cursor: pointer; }
+      .btn.sec { background: var(--ink); }
+      .btn:disabled { opacity: .45; cursor: default; }
+      .result h2 { margin-top: 0; }
+      .pass { color: var(--green); } .fail { color: var(--red); }
+      .rev { border-top: 1px solid var(--line); padding: 12px 0; }
+      .rev .qsign svg { width: 70px; height: 70px; margin: 0 0 6px; }
+      .uk-note { margin: 24px 0 24px; font-size: .85rem; color: var(--muted); }
+    
+</style>
+  </head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow"><a href="cours.html">Cours</a></p>
+        <h1 id="h1">Quiz moto, AM et remorque</h1>
+        <p id="intro">Choisis un permis et réponds à 10 questions tirées au hasard. Chaque réponse est expliquée.</p>
+      </section>
+      <section class="section-shell"><div id="quiz-app"></div></section>
+      <section class="section-shell"><p id="note" style="color:var(--muted);font-size:.9rem">Questions d'entraînement écrites par Routis, d'après la réglementation française. Ce ne sont pas les questions officielles des examens. Seuls les textes officiels font foi.</p></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script src="assets/badges.js" defer></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/other-data.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+function startQuiz(data, cat, labels, L) {
+  const pool = data[cat].slice();
+  for (let i = pool.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [pool[i], pool[j]] = [pool[j], pool[i]]; }
+  const qs = pool.slice(0, 10);
+  let i = 0, score = 0;
+  const app = document.getElementById("quiz-app");
+  function show() {
+    const raw = qs[i]; const q = L(raw);
+    app.innerHTML = '<div class="panel"><div class="meta"><span>' + labels.q + ' ' + (i + 1) + ' / ' + qs.length + '</span><span>' + labels.score + ' ' + score + '</span></div><div class="bar"><i style="width:' + (i / qs.length * 100) + '%"></i></div><p class="qtext"></p><div class="opts"></div><div class="explain" hidden></div><button class="btn" id="next" hidden></button></div>';
+    app.querySelector(".qtext").textContent = q.q;
+    const opts = app.querySelector(".opts");
+    q.o.forEach((txt, n) => {
+      const b = document.createElement("button"); b.className = "opt"; b.textContent = txt;
+      b.addEventListener("click", () => {
+        opts.querySelectorAll("button").forEach((x, m) => { x.disabled = true; if (m === raw.a) x.classList.add("ok"); });
+        if (n === raw.a) score++; else b.classList.add("bad");
+        const ex = app.querySelector(".explain"); ex.hidden = false; ex.textContent = (n === raw.a ? labels.right : labels.wrong) + " " + q.e;
+        const nx = app.querySelector("#next"); nx.hidden = false; nx.textContent = i + 1 < qs.length ? labels.next : labels.finish;
+        nx.addEventListener("click", () => { i++; if (i < qs.length) show(); else end(); });
+      });
+      opts.appendChild(b);
+    });
+  }
+  function end() {
+    app.innerHTML = '<div class="panel result"><h2></h2><p></p><button class="btn" id="again"></button> <button class="btn sec" id="menu"></button></div>';
+    app.querySelector("h2").textContent = labels.result + " " + score + " / " + qs.length;
+    app.querySelector("p").textContent = score >= qs.length * 0.8 ? labels.great : labels.again_msg;
+    app.querySelector("#again").textContent = labels.again;
+    app.querySelector("#again").addEventListener("click", () => startQuiz(data, cat, labels, L));
+    app.querySelector("#menu").textContent = labels.menu;
+    app.querySelector("#menu").addEventListener("click", () => { window.menu && window.menu(); });
+  }
+  show();
+}
+
+const TXT = {
+  fr: {q:"Question", score:"Score :", right:"Bonne réponse.", wrong:"Pas tout à fait.", next:"Question suivante", finish:"Voir le résultat", result:"Résultat :", great:"Très bien ! Tu maîtrises ce permis.", again_msg:"Relis les cours puis réessaie.", again:"Refaire", menu:"Changer de permis",
+    h1:"Quiz moto, AM et remorque", intro:"Choisis un permis et réponds à 10 questions tirées au hasard. Chaque réponse est expliquée.", note:"Questions d'entraînement écrites par Routis, d'après la réglementation française. Ce ne sont pas les questions officielles des examens. Seuls les textes officiels font foi.",
+    cats:{am:["Permis AM (cyclomoteur)","Scooter 50 cm³ dès 14 ans"], moto:["Moto (A1, A2, A)","Âges, puissances, équipement, conduite"], remorque:["Remorque (B, B96, BE)","Poids, freinage, chargement"]}},
+  en: {q:"Question", score:"Score:", right:"Correct.", wrong:"Not quite.", next:"Next question", finish:"See result", result:"Result:", great:"Great! You know this licence well.", again_msg:"Re-read the courses and try again.", again:"Try again", menu:"Change licence",
+    h1:"Moped, motorcycle and trailer quiz", intro:"Choose a licence and answer 10 random questions. Every answer is explained.", note:"Practice questions written by Routis from French regulations. They are not the official exam questions. Only official texts are authoritative.",
+    cats:{am:["AM licence (moped)","50 cc scooter from age 14"], moto:["Motorcycle (A1, A2, A)","Ages, power, equipment, riding"], remorque:["Trailer (B, B96, BE)","Weight, braking, loading"]}}
+};
+function L(raw) { return getLang() === "en" ? {q: raw.en.q, o: raw.en.o, e: raw.en.e} : {q: raw.q, o: raw.o, e: raw.e}; }
+function tx() { return TXT[getLang() === "en" ? "en" : "fr"]; }
+function menu() {
+  const T = tx();
+  document.getElementById("h1").textContent = T.h1; document.getElementById("intro").textContent = T.intro; document.getElementById("note").textContent = T.note;
+  const app = document.getElementById("quiz-app");
+  app.innerHTML = '<div class="panel modes"></div>';
+  Object.keys(T.cats).forEach((c) => {
+    const b = document.createElement("button"); b.className = "big"; b.innerHTML = "<strong></strong><span></span>";
+    b.querySelector("strong").textContent = T.cats[c][0]; b.querySelector("span").textContent = T.cats[c][1];
+    b.addEventListener("click", () => { history.replaceState(null, "", "#" + c); startQuiz(OTHER_QUIZ, c, tx(), L); });
+    app.firstChild.appendChild(b);
+  });
+}
+document.querySelectorAll(".lang-option").forEach((btn) => btn.addEventListener("click", () => { if (btn.dataset.lang === getLang()) return; setLang(btn.dataset.lang); applyStaticTranslations(); menu(); }));
+applyStaticTranslations();
+menu();
+const h = location.hash.replace("#", "");
+if (OTHER_QUIZ[h]) startQuiz(OTHER_QUIZ, h, tx(), L);
+    </script>
+  </body>
+</html>

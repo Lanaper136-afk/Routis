@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Les marquages au sol : lignes, flèches et passages piétons | Routis</title>
+    <meta name="description" content="Lignes continues et discontinues, flèches, zébras, passages piétons, lignes jaunes : le sens de chaque marquage au sol pour réussir le code." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/marquages-au-sol.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Les marquages au sol : lignes, flèches et passages piétons | Routis" />
+    <meta property="og:description" content="Lignes continues et discontinues, flèches, zébras, passages piétons, lignes jaunes : le sens de chaque marquage au sol pour réussir le code." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/marquages-au-sol.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    </style>
+  <style>
+.cm-hero-img{max-width:560px;margin:0 auto 22px}
+.cm-hero-img img{width:100%;height:auto;display:block;border-radius:22px;box-shadow:0 14px 34px rgba(22,33,47,.14)}
+.cm-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:6px 0 14px}
+.cm-figs figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.cm-figs img{width:100%;height:auto;display:block}
+.cm-figs figcaption{padding:8px 12px 10px;font-weight:800;font-size:.9rem;text-align:center}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Routis", "item": "https://code-route-gratuit-routis.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Cours", "item": "https://code-route-gratuit-routis.netlify.app/cours.html"}, {"@type": "ListItem", "position": 3, "name": "Les marquages au sol : lignes, flèches et passages piétons", "item": "https://code-route-gratuit-routis.netlify.app/marquages-au-sol.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Peut-on franchir une ligne continue ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, en principe, ni la franchir ni la chevaucher. Les seules exceptions concernent des cas précis et sans danger, comme contourner un obstacle ou dépasser un cycliste."}}, {"@type": "Question", "name": "Peut-on s'arrêter sur un passage piéton ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. Il est interdit de s'arrêter ou de stationner sur le passage et à moins de 5 mètres avant et après."}}, {"@type": "Question", "name": "Que veut dire une ligne jaune sur le bord de la route ?", "acceptedAnswer": {"@type": "Answer", "text": "Une ligne jaune continue interdit l'arrêt et le stationnement ; une ligne jaune discontinue interdit le stationnement."}}]}</script>
+</head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow"><a href="cours.html" data-i18n-html="ui.0">Cours</a> · <span data-i18n-html="ui.24">Route</span></p>
+        <h1 data-i18n-html="marquages-au-sol.h1">Les marquages au sol : lignes, flèches et passages piétons</h1>
+        <p data-i18n-html="marquages-au-sol.intro">Les marquages sont les lignes et les dessins peints sur la chaussée. Ils valent un panneau : on les lit, on les respecte, et ils disent où on peut rouler, dépasser ou s'arrêter.</p>
+      </section>
+<div class="cm-hero-img"><img src="assets/img/cours-marquages.svg" alt="Marquages au sol : lignes, flèches et passage piéton" width="400" height="300" data-i18n-alt="marquages-au-sol.alt"></div>
+      <section class="fiche-chapter" data-theme="route">
+        <div class="fiche-card">
+          <h3 data-i18n-html="marquages-au-sol.c0.h">1. Les couleurs à connaître</h3>
+          <div data-i18n-html="marquages-au-sol.c0.b"><ul><li><strong>Blanc</strong> : les marquages permanents (lignes, flèches, passages piétons).</li><li><strong>Jaune</strong> : les marquages temporaires de travaux, les lignes de bord de chaussée qui interdisent de s'arrêter ou de stationner, et le zigzag des arrêts de bus.</li><li><strong>Bleu</strong> : les zones de stationnement à durée limitée (zones bleues) et les places réservées aux personnes handicapées.</li><li><strong>Vert</strong> : certaines pistes cyclables.</li><li><strong>Damier rouge et blanc</strong> : la voie de détresse, réservée aux véhicules dont les freins ont lâché.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="marquages-au-sol.c1.h">2. Les lignes qui séparent les sens de circulation</h3>
+          <div data-i18n-html="marquages-au-sol.c1.b"><p>La ligne au milieu de la route décide de ce que tu peux faire :</p><div class="cm-figs"><figure><img src="assets/img/cours-ligne-continue.svg" alt="Ligne continue" loading="lazy" width="300" height="225"><figcaption>Continue</figcaption></figure><figure><img src="assets/img/cours-ligne-discontinue.svg" alt="Ligne discontinue" loading="lazy" width="300" height="225"><figcaption>Discontinue</figcaption></figure><figure><img src="assets/img/cours-ligne-mixte.svg" alt="Ligne mixte" loading="lazy" width="300" height="225"><figcaption>Mixte</figcaption></figure></div><ul><li><strong>Ligne continue</strong> : interdit de la franchir ou de la chevaucher. On ne dépasse pas et on ne tourne pas à gauche en la coupant.</li><li><strong>Ligne discontinue</strong> : on peut la franchir pour dépasser ou tourner à gauche, si c'est sans danger.</li><li><strong>Ligne mixte</strong> : chacun suit la règle de la ligne qui est <em>de son côté</em>. Si la ligne continue est de ton côté, tu ne dépasses pas ; si c'est la discontinue, c'est autorisé.</li><li><strong>Ligne d'annonce</strong> (traits longs et espaces courts) : elle prévient qu'une ligne continue arrive bientôt. Prépare-toi à te rabattre.</li><li><strong>Lignes de rive</strong> : elles bordent la chaussée et la séparent de l'accotement. On roule sur la chaussée, pas dessus.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="marquages-au-sol.c2.h">3. Flèches et voies</h3>
+          <div data-i18n-html="marquages-au-sol.c2.b"><div class="cm-figs"><figure><img src="assets/img/cours-fleches.svg" alt="Flèches de sélection" loading="lazy" width="300" height="225"><figcaption>Flèches de sélection</figcaption></figure></div><ul><li><strong>Flèche de sélection</strong> : peinte sur une voie, elle indique les directions permises. Sur une voie « tout droit », on ne tourne pas. Quand plusieurs voies conviennent, on prend la plus à droite.</li><li><strong>Flèche de rabattement</strong> : la voie va se terminer. On se rabat à temps, en laissant passer ceux qui sont déjà sur la voie qui continue.</li><li><strong>Voie de bus</strong> : large bande continue, interdite aux autres véhicules, sauf aux carrefours où elle devient discontinue.</li><li><strong>Bande ou piste cyclable</strong> : un pictogramme de vélo la reconnaît. On ne s'y arrête pas et on n'y stationne pas.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="marquages-au-sol.c3.h">4. Passages piétons, stop et cédez-le-passage</h3>
+          <div data-i18n-html="marquages-au-sol.c3.b"><div class="cm-figs"><figure><img src="assets/img/cours-passage-pieton.svg" alt="Passage piéton et ligne d'arrêt" loading="lazy" width="300" height="225"><figcaption>Passage piéton et ligne d'arrêt</figcaption></figure></div><ul><li><strong>Passage piéton</strong> : de larges bandes blanches. Le piéton engagé est prioritaire, et on ralentit dès qu'on en voit un sur le point de traverser. Il est interdit de s'arrêter ou de stationner <em>sur</em> le passage et à <span class="fiche-highlight">moins de 5 m</span> avant et après.</li><li><strong>Ligne d'arrêt</strong> : une ligne continue large, toujours accompagnée d'un panneau STOP. On s'arrête derrière elle.</li><li><strong>Ligne de cédez-le-passage</strong> : une ligne discontinue (parfois avec des triangles). Pas d'arrêt obligatoire, mais on ralentit et on cède.</li><li><strong>Feu tricolore</strong> : on s'arrête derrière la ligne transversale, avant le passage piéton.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="marquages-au-sol.c4.h">5. Marquages particuliers : zébras, lignes jaunes, zigzag</h3>
+          <div data-i18n-html="marquages-au-sol.c4.b"><div class="cm-figs"><figure><img src="assets/img/cours-zebras.svg" alt="Zébras" loading="lazy" width="300" height="225"><figcaption>Zébras (hachures)</figcaption></figure><figure><img src="assets/img/cours-ligne-jaune.svg" alt="Ligne jaune au bord de la chaussée" loading="lazy" width="300" height="225"><figcaption>Ligne jaune de bord</figcaption></figure></div><ul><li><strong>Zébras</strong> (hachures blanches bordées de lignes continues) : c'est comme un îlot. Interdit d'y rouler, de s'y arrêter ou d'y stationner.</li><li><strong>Ligne jaune continue au bord de la chaussée</strong> : arrêt et stationnement interdits.</li><li><strong>Ligne jaune discontinue</strong> : stationnement interdit.</li><li><strong>Zigzag jaune</strong> : arrêt de bus. On peut rouler, mais pas s'arrêter ni stationner.</li><li><strong>Marquages jaunes de chantier</strong> : ils remplacent temporairement les marquages blancs. On suit les jaunes.</li><li><strong>Place bleue entière</strong> : réservée aux personnes handicapées.</li></ul></div>
+        </div>
+        <div class="section-shell" id="quiz">
+          <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3 data-i18n-html="marquages-au-sol.q1.t">Ligne continue</h3>
+              <p data-i18n-html="marquages-au-sol.q1.q">Face à une ligne continue au milieu de la route, il est :</p>
+              <div class="sim-actions">
+                <button data-sim="marquage_1" data-answer="right" data-i18n-html="marquages-au-sol.q1.r">Interdit de la franchir ou de la chevaucher pour dépasser</button>
+                <button data-sim="marquage_1" data-answer="wrong" data-i18n-html="marquages-au-sol.q1.w">Permis de la franchir si la route est dégagée</button>
+              </div>
+              <p class="sim-result" id="sim-marquage_1"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="marquages-au-sol.q2.t">Ligne discontinue</h3>
+              <p data-i18n-html="marquages-au-sol.q2.q">Une ligne discontinue au milieu de la route permet :</p>
+              <div class="sim-actions">
+                <button data-sim="marquage_2" data-answer="wrong" data-i18n-html="marquages-au-sol.q2.w">D'accélérer sans regarder</button>
+                <button data-sim="marquage_2" data-answer="right" data-i18n-html="marquages-au-sol.q2.r">De la franchir pour dépasser, si c'est sans danger</button>
+              </div>
+              <p class="sim-result" id="sim-marquage_2"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="marquages-au-sol.q3.t">Zébras</h3>
+              <p data-i18n-html="marquages-au-sol.q3.q">Sur des hachures blanches bordées de lignes continues (zébras), on peut :</p>
+              <div class="sim-actions">
+                <button data-sim="marquage_3" data-answer="right" data-i18n-html="marquages-au-sol.q3.r">Ne pas y rouler, ni s'y arrêter</button>
+                <button data-sim="marquage_3" data-answer="wrong" data-i18n-html="marquages-au-sol.q3.w">Les emprunter pour dépasser</button>
+              </div>
+              <p class="sim-result" id="sim-marquage_3"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="marquages-au-sol.q4.t">Ligne jaune</h3>
+              <p data-i18n-html="marquages-au-sol.q4.q">Une ligne jaune continue au bord de la chaussée signifie :</p>
+              <div class="sim-actions">
+                <button data-sim="marquage_4" data-answer="wrong" data-i18n-html="marquages-au-sol.q4.w">Stationnement autorisé 2 heures</button>
+                <button data-sim="marquage_4" data-answer="right" data-i18n-html="marquages-au-sol.q4.r">Arrêt et stationnement interdits</button>
+              </div>
+              <p class="sim-result" id="sim-marquage_4"></p>
+            </article>
+          </div>
+        </div>
+        <section class="fiche-card"><h3 data-i18n-html="ui.3">Questions fréquentes</h3><p><strong data-i18n-html="marquages-au-sol.f0.q">Peut-on franchir une ligne continue ?</strong><br><span data-i18n-html="marquages-au-sol.f0.a">Non, en principe, ni la franchir ni la chevaucher. Les seules exceptions concernent des cas précis et sans danger, comme contourner un obstacle ou dépasser un cycliste.</span></p><p><strong data-i18n-html="marquages-au-sol.f1.q">Peut-on s'arrêter sur un passage piéton ?</strong><br><span data-i18n-html="marquages-au-sol.f1.a">Non. Il est interdit de s'arrêter ou de stationner sur le passage et à moins de 5 mètres avant et après.</span></p><p><strong data-i18n-html="marquages-au-sol.f2.q">Que veut dire une ligne jaune sur le bord de la route ?</strong><br><span data-i18n-html="marquages-au-sol.f2.a">Une ligne jaune continue interdit l'arrêt et le stationnement ; une ligne jaune discontinue interdit le stationnement.</span></p></section>
+        <section class="fiche-card"><h3 data-i18n-html="ui.4">À lire aussi</h3><ul><li><a href="panneaux.html" data-i18n-html="panneaux.h1">Tous les grands types de panneaux</a></li><li><a href="depassement.html" data-i18n-html="depassement.h1">Le dépassement : quand et comment dépasser</a></li><li><a href="stationnement.html" data-i18n-html="stationnement.h1">Arrêt et stationnement : ce qui est autorisé et interdit</a></li><li><a href="intersections-ronds-points.html" data-i18n-html="intersections-ronds-points.h1">Intersections, priorités et ronds-points</a></li></ul></section>
+      </section>
+      <section class="section-shell"><p><a class="button primary" href="examens.html" data-i18n-html="ui.5">S'entraîner avec un examen blanc</a> <a class="button secondary" href="fiches.html" data-i18n-html="ui.6">Toutes les fiches</a></p></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/i18n-pages.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/scenes.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector("#sim-" + button.dataset.sim);
+    const right = button.dataset.answer === "right";
+    const chapter = button.closest(".fiche-chapter");
+    if (target) {
+      target.textContent = right ? t("fiche_feedback_right") : t("fiche_feedback_wrong");
+      target.style.color = right ? "var(--green)" : "var(--red)";
+    }
+    if (chapter && typeof recordQuestionAnswer === "function") recordQuestionAnswer("fiche-" + button.dataset.sim, chapter.dataset.theme, right);
+  });
+});
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+  });
+});
+applyStaticTranslations();
+document.querySelectorAll("[data-scene]").forEach((el) => { if (typeof sceneSvg === "function") el.innerHTML = sceneSvg(el.dataset.scene); });
+</script>
+  </body>
+</html>

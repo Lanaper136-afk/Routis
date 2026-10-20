@@ -1,18 +1,20 @@
 <!doctype html>
 <html lang="fr">
   <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-59PS7V3L');</script>
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
 <!-- End Google Tag Manager -->
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Code de la route : examens blancs gratuits en ligne (40 questions)</title>
-    <meta name="description" content="Passe un examen blanc du code de la route gratuit en ligne : 40 questions, minuteur officiel, correction détaillée par thème, comme le vrai examen ETG." />
+    <title>Examen blanc du code de la route gratuit | Routis</title>
+    <meta name="description" content="Passe un examen blanc du code de la route : 40 questions comme à l&#x27;ETG, chronomètre, correction détaillée par thème et suivi de ton score. Gratuit." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/examens.html" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
@@ -21,14 +23,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Routis" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Code de la route : examens blancs gratuits en ligne" />
-    <meta property="og:description" content="Passe un examen blanc du code de la route gratuit en ligne : 40 questions, minuteur officiel, correction détaillée par thème, comme le vrai examen ETG." />
+    <meta property="og:title" content="Examen blanc du code de la route gratuit | Routis" />
+    <meta property="og:description" content="Passe un examen blanc du code de la route : 40 questions comme à l&#x27;ETG, chronomètre, correction détaillée par thème et suivi de ton score. Gratuit." />
     <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/examens.html" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Routis" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
     <link rel="stylesheet" href="assets/style.css" />
     <style>
+.exam-timer[hidden] { display: none !important; }
+.errors-box { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(0,0,0,.12); }
+.errors-box h3 { margin: 0 0 6px; }
 .quiz-knowledge-badge {
   display: flex;
   flex-direction: column;
@@ -137,6 +147,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .exam-history-item.fail .exam-history-status {
   color: var(--red);
 }
+
+/* --- Plein écran pendant l'examen --- */
+body.exam-live { overflow: hidden; }
+body.exam-live .topbar, body.exam-live .page-hero, body.exam-live .site-footer,
+body.exam-live .section-heading { display: none !important; }
+body.exam-live #exam-running {
+  position: fixed; inset: 0; z-index: 1000; overflow-y: auto;
+  background: var(--paper); margin: 0; padding: 20px 16px 40px;
+  align-content: start; justify-items: center;
+}
+body.exam-live #exam-running { display: block; }
+body.exam-live #exam-running .quiz-board { width: 100%; max-width: 760px; margin: 0 auto; }
+body.exam-live #exam-running .exam-note { display: none; }
+.exam-quit { background: none; border: 0; color: var(--muted, #667); text-decoration: underline; cursor: pointer; font: inherit; padding: 6px 0; }
 
 /* --- Running exam screen --- */
 .exam-timer {
@@ -370,10 +394,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </style>
   </head>
   <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59PS7V3L"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
     <header class="topbar">
       <div class="topbar-start">
@@ -383,11 +403,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <a class="brand" href="index.html" aria-label="Accueil Routis">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 48 48" focusable="false">
-            <circle class="tire-outer" cx="24" cy="24" r="16" />
-            <circle class="tire-inner" cx="24" cy="24" r="7" />
-            <path class="tire-tread" d="M24 8v7M24 33v7M8 24h7M33 24h7M12.7 12.7l5 5M30.3 30.3l5 5M35.3 12.7l-5 5M17.7 30.3l-5 5" />
-          </svg>
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
         <span>Routis</span>
         </a>
@@ -451,7 +467,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <section class="page-hero">
         <p class="eyebrow" data-i18n="examens_eyebrow_hero">Examens blancs</p>
         <h1 data-i18n="examens_title">Teste-toi comme à l'auto-école</h1>
-        <p data-i18n="examens_desc">40 questions, 30 minutes chrono, 35 bonnes réponses pour être admis(e) : un examen blanc fidèle au vrai examen théorique général (ETG).</p>
+        <p data-i18n="examens_desc">40 questions, 20 secondes par question, 35 bonnes réponses pour être admis(e) : un examen blanc fidèle au vrai examen théorique général (ETG).</p>
       </section>
 
       <section class="section-shell" id="examen">
@@ -468,11 +484,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <h3 data-i18n="exam_note_title">Mode examen</h3>
             <ul class="exam-rules">
               <li><strong>📝</strong><span data-i18n="exam_rule_count">40 questions tirées au hasard : reconnaissance de panneaux et connaissances générales, sur plusieurs thèmes officiels.</span></li>
-              <li><strong>⏱️</strong><span data-i18n="exam_rule_time">30 minutes chronométrées pour l'ensemble de l'examen. Le temps écoulé passe automatiquement au résultat.</span></li>
+              <li><strong>⏱️</strong><span data-i18n="exam_rule_time">20 secondes par question, comme à l'examen officiel. Quand le temps est écoulé, on passe à la question suivante (sans réponse = faute), et on ne peut pas revenir en arrière.</span></li>
               <li><strong>✅</strong><span data-i18n="exam_rule_threshold">Admis(e) à partir de 35 bonnes réponses sur 40 (5 fautes maximum tolérées).</span></li>
               <li><strong>🙈</strong><span data-i18n="exam_rule_no_feedback">Pas de correction pendant l'examen, comme dans le vrai centre d'examen : tu découvres ton résultat à la fin.</span></li>
             </ul>
             <button class="button primary" id="exam-start-btn" type="button" data-i18n="exam_start_btn">Commencer l'examen blanc</button>
+            <div class="errors-box" id="errors-box">
+              <h3 data-i18n="errors_title">Mes erreurs</h3>
+              <p class="muted" data-i18n="errors_desc">Refais seulement les questions que tu as ratées la dernière fois.</p>
+              <button class="button secondary" id="errors-start-btn" type="button"></button>
+              <p class="muted" id="errors-none" hidden data-i18n="errors_none">Aucune erreur à retravailler pour l'instant. Bravo !</p>
+            </div>
           </div>
           <div class="exam-history-card">
             <h3 data-i18n="exam_history_title">Tes derniers examens</h3>
@@ -485,7 +507,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="quiz-board">
             <div class="quiz-topline">
               <span id="exam-progress-label">Question 1/40</span>
-              <span class="exam-timer" id="exam-timer"><span aria-hidden="true">⏱️</span><span id="exam-timer-value">30:00</span></span>
+              <span class="exam-timer" id="exam-timer"><span aria-hidden="true">⏱️</span><span id="exam-timer-value">0:20</span></span>
             </div>
             <div class="exam-progressbar"><div class="exam-progressbar-fill" id="exam-progressbar-fill"></div></div>
             <div class="quiz-sign" id="exam-visual"></div>
@@ -495,6 +517,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <span class="muted" id="exam-skip-hint" data-i18n="exam_skip_hint">Une question laissée sans réponse compte comme une erreur.</span>
               <button class="button primary" id="exam-next-btn" type="button" data-i18n="exam_next_btn">Question suivante</button>
             </div>
+            <div style="text-align:center;margin-top:10px"><button type="button" class="exam-quit" id="exam-quit-btn" data-i18n="exam_quit_btn">Quitter l'examen</button></div>
           </div>
           <aside class="exam-note">
             <h3 data-i18n="exam_note_title">Mode examen</h3>
@@ -539,6 +562,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </section>
     </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
 
     <script src="assets/signs-data.js"></script>
     <script src="assets/questions-data.js"></script>
@@ -546,15 +579,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="assets/i18n.js"></script>
     <script src="assets/common.js"></script>
     <script src="assets/stats.js"></script>
+    <script src="assets/badges.js" defer></script>
     <script type="module" src="assets/supabase-client.js"></script>
     <script src="assets/auth-ui.js" defer></script>
     <script src="assets/sync.js" defer></script>
     <script>
 const EXAM_TOTAL_QUESTIONS = 40;
 const EXAM_SIGN_QUESTIONS = 8;
-const EXAM_DURATION_SECONDS = 30 * 60;
+const EXAM_DURATION_SECONDS = 20; // secondes par question, comme à l'examen officiel
 const EXAM_PASS_THRESHOLD = 35;
 const EXAM_HISTORY_LIMIT = 10;
+const ERRORS_SESSION_SIZE = 20;
 
 const examState = {
   screen: "start",
@@ -563,7 +598,8 @@ const examState = {
   index: 0,
   secondsLeft: EXAM_DURATION_SECONDS,
   timerId: null,
-  lastResults: null
+  lastResults: null,
+  mode: "exam"
 };
 
 function shuffle(items) {
@@ -605,20 +641,44 @@ function buildKnowledgeQuestion(source) {
     options: shuffledOptions.map((option) => option.text),
     correctIndex,
     explanation: signField(source, "explanation"),
-    scene: source.scene || null
+    scene: source.scene || null,
+    signRef: source.sign ? (signs.find((item) => item.id === source.sign) || null) : null
   };
 }
+
+const EXAM_THEME_QUOTAS = {
+  conducteur: 8, usagers: 4, circulation: 3, route: 3, equipements: 3,
+  reglementation: 2, securite_passagers: 2, notions: 2, prendre_quitter: 2,
+  environnement: 2, secours: 1
+};
 
 function buildExamQuestions() {
   const signCount = Math.min(EXAM_SIGN_QUESTIONS, signs.length);
   const knowledgeCount = Math.min(EXAM_TOTAL_QUESTIONS - signCount, knowledgeQuestions.length);
   const chosenSigns = shuffle(signs).slice(0, signCount).map(buildSignQuestion);
-  const chosenKnowledge = shuffle(knowledgeQuestions).slice(0, knowledgeCount).map(buildKnowledgeQuestion);
+  // Répartition proche de l'examen officiel : quotas par thème, complétés au hasard si un thème manque de questions
+  const pool = shuffle(knowledgeQuestions);
+  const picked = [];
+  const used = new Set();
+  Object.keys(EXAM_THEME_QUOTAS).forEach((theme) => {
+    let n = 0;
+    for (const item of pool) {
+      if (n >= EXAM_THEME_QUOTAS[theme]) break;
+      if (item.theme === theme && !used.has(item.id)) { picked.push(item); used.add(item.id); n++; }
+    }
+  });
+  for (const item of pool) {
+    if (picked.length >= knowledgeCount) break;
+    if (!used.has(item.id)) { picked.push(item); used.add(item.id); }
+  }
+  const chosenKnowledge = picked.slice(0, knowledgeCount).map(buildKnowledgeQuestion);
   return shuffle([...chosenSigns, ...chosenKnowledge]);
 }
 
 function setScreen(name) {
   examState.screen = name;
+  document.body.classList.toggle("exam-live", name === "running");
+  window.scrollTo(0, 0);
   const start = document.querySelector("#exam-start");
   const running = document.querySelector("#exam-running");
   const results = document.querySelector("#exam-results");
@@ -628,6 +688,9 @@ function setScreen(name) {
 }
 
 function startExam() {
+  examState.mode = "exam";
+  const timerBox = document.querySelector("#exam-timer");
+  if (timerBox) timerBox.hidden = false;
   if (examState.timerId) window.clearInterval(examState.timerId);
   examState.questions = buildExamQuestions();
   examState.answers = examState.questions.map(() => null);
@@ -639,12 +702,48 @@ function startExam() {
   examState.timerId = window.setInterval(tickTimer, 1000);
 }
 
+function startErrorsSession() {
+  const missed = getMissedItems();
+  const items = shuffle([
+    ...missed.questions.map((id) => ({ kind: "q", id })),
+    ...missed.signs.map((id) => ({ kind: "s", id }))
+  ]).slice(0, ERRORS_SESSION_SIZE);
+  const built = items.map((it) => {
+    if (it.kind === "q") {
+      const src = knowledgeQuestions.find((q) => q.id === it.id);
+      return src ? buildKnowledgeQuestion(src) : null;
+    }
+    const sign = signs.find((x) => x.id === it.id);
+    return sign ? buildSignQuestion(sign) : null;
+  }).filter(Boolean);
+  if (!built.length) { renderErrorsBox(); return; }
+  if (examState.timerId) window.clearInterval(examState.timerId);
+  examState.timerId = null;
+  examState.mode = "errors";
+  examState.questions = built;
+  examState.answers = built.map(() => null);
+  examState.index = 0;
+  examState.secondsLeft = EXAM_DURATION_SECONDS;
+  examState.lastResults = null;
+  const timerBox = document.querySelector("#exam-timer");
+  if (timerBox) timerBox.hidden = true;
+  setScreen("running");
+  renderRunning();
+}
+
+function renderErrorsBox() {
+  const n = countMissedItems();
+  const btn = document.querySelector("#errors-start-btn");
+  const none = document.querySelector("#errors-none");
+  if (btn) { btn.hidden = n === 0; btn.textContent = t("errors_btn", { n }); }
+  if (none) none.hidden = n !== 0;
+}
+
 function tickTimer() {
   examState.secondsLeft -= 1;
   if (examState.secondsLeft <= 0) {
-    examState.secondsLeft = 0;
-    updateTimerDisplay();
-    finishExam();
+    // Temps écoulé pour cette question : on passe à la suivante (sans réponse = faux)
+    goNext();
     return;
   }
   updateTimerDisplay();
@@ -654,7 +753,7 @@ function updateTimerDisplay() {
   const timerValue = document.querySelector("#exam-timer-value");
   const timer = document.querySelector("#exam-timer");
   if (timerValue) timerValue.textContent = formatClock(examState.secondsLeft);
-  if (timer) timer.classList.toggle("urgent", examState.secondsLeft <= 60);
+  if (timer) timer.classList.toggle("urgent", examState.secondsLeft <= 5);
 }
 
 function renderRunning() {
@@ -673,7 +772,7 @@ function renderRunning() {
   updateTimerDisplay();
 
   if (visual) {
-    visual.innerHTML = current.type === "sign"
+    visual.innerHTML = (current.type === "sign" || current.signRef)
       ? signSvg(current.signRef)
       : current.scene
       ? sceneSvg(current.scene)
@@ -708,6 +807,7 @@ function goNext() {
     return;
   }
   examState.index += 1;
+  examState.secondsLeft = EXAM_DURATION_SECONDS;
   renderRunning();
 }
 
@@ -755,7 +855,11 @@ function finishExam() {
   }
   const results = computeResults();
   examState.lastResults = results;
-  saveHistory(results);
+  if (examState.mode === "errors") {
+    safeSetNumber("errorsSessions", safeGetNumber("errorsSessions", 0) + 1);
+  } else {
+    saveHistory(results);
+  }
   setScreen("results");
   renderResults();
 }
@@ -773,9 +877,13 @@ function renderResults() {
   const banner = document.querySelector("#exam-status-banner");
   const statusLabel = document.querySelector("#exam-status-label");
   const scoreLine = document.querySelector("#exam-score-line");
-  if (banner) banner.classList.toggle("pass", results.passed);
-  if (banner) banner.classList.toggle("fail", !results.passed);
-  if (statusLabel) statusLabel.textContent = results.passed ? t("exam_status_admis") : t("exam_status_ajourne");
+  const errorsMode = examState.mode === "errors";
+  const okState = errorsMode ? results.score === results.total : results.passed;
+  if (banner) banner.classList.toggle("pass", okState);
+  if (banner) banner.classList.toggle("fail", !okState);
+  if (statusLabel) statusLabel.textContent = errorsMode ? (okState ? t("errors_status_good") : t("errors_status_done")) : (results.passed ? t("exam_status_admis") : t("exam_status_ajourne"));
+  const thrNote = document.querySelector("#exam-threshold-note");
+  if (thrNote) thrNote.textContent = errorsMode ? t("errors_remaining", { n: countMissedItems() }) : t("exam_threshold_note");
   if (scoreLine) scoreLine.textContent = t("exam_score_line", { score: results.score, total: results.total });
 
   const themeRecap = document.querySelector("#exam-theme-recap");
@@ -801,7 +909,7 @@ function renderResults() {
       const q = item.question;
       const yourAnswerText = item.selected === null || item.selected === undefined ? t("exam_unanswered") : q.options[item.selected];
       const yourAnswerClass = item.isCorrect ? "right-answer" : "wrong-answer";
-      const visual = q.type === "sign"
+      const visual = (q.type === "sign" || q.signRef)
         ? `<div class="correction-visual">${signSvg(q.signRef)}</div>`
         : q.scene ? `<div class="correction-scene">${sceneSvg(q.scene)}</div>` : "";
       return `
@@ -823,6 +931,8 @@ function renderResults() {
   }
 
   renderHistoryList("#exam-history-list-results");
+  const histBox = document.querySelector("#exam-history-list-results");
+  if (histBox && histBox.parentElement) histBox.parentElement.hidden = errorsMode;
 }
 
 function renderHistoryList(selector) {
@@ -852,6 +962,7 @@ function renderHistoryList(selector) {
 function renderCurrentScreen() {
   if (examState.screen === "start") {
     renderHistoryList("#exam-history-list");
+    renderErrorsBox();
   } else if (examState.screen === "running") {
     renderRunning();
   } else if (examState.screen === "results") {
@@ -862,6 +973,9 @@ function renderCurrentScreen() {
 const startBtn = document.querySelector("#exam-start-btn");
 if (startBtn) startBtn.addEventListener("click", startExam);
 
+const errorsBtn = document.querySelector("#errors-start-btn");
+if (errorsBtn) errorsBtn.addEventListener("click", startErrorsSession);
+
 const restartBtn = document.querySelector("#exam-restart-btn");
 if (restartBtn) restartBtn.addEventListener("click", startExam);
 
@@ -870,6 +984,13 @@ if (restartBtnBottom) restartBtnBottom.addEventListener("click", startExam);
 
 const nextBtn = document.querySelector("#exam-next-btn");
 if (nextBtn) nextBtn.addEventListener("click", goNext);
+
+const quitBtn = document.querySelector("#exam-quit-btn");
+if (quitBtn) quitBtn.addEventListener("click", () => {
+  if (!window.confirm(t("exam_quit_confirm"))) return;
+  if (examState.timerId) { window.clearInterval(examState.timerId); examState.timerId = null; }
+  setScreen("start");
+});
 
 const examAnswers = document.querySelector("#exam-answers");
 if (examAnswers) {
@@ -892,6 +1013,8 @@ document.querySelectorAll(".lang-option").forEach((btn) => {
 applyStaticTranslations();
 setScreen("start");
 renderHistoryList("#exam-history-list");
+renderErrorsBox();
+if (new URLSearchParams(location.search).get("mode") === "errors" && countMissedItems() > 0) startErrorsSession();
 
     </script>
   </body>

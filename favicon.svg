@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Panneau stop">
-  <polygon points="20,4 44,4 60,20 60,44 44,60 20,60 4,44 4,20"
-    fill="#d62430" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
-  <text x="32" y="40" text-anchor="middle" font-family="Arial, Helvetica, sans-serif"
-    font-size="17" font-weight="900" fill="#ffffff" letter-spacing="1">STOP</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Routis"><rect width="200" height="200" rx="44" fill="#1769e0"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>

@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Poids lourds : angle mort, dépassement, distance de sécurité | Routis</title>
+    <meta name="description" content="Comment circuler en sécurité à côté des camions : angle mort, virage à droite, distance d&#x27;arrêt, dépassement d&#x27;un poids lourd et réflexes à avoir." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/poids-lourds.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Poids lourds : angle mort, dépassement, distance de sécurité | Routis" />
+    <meta property="og:description" content="Comment circuler en sécurité à côté des camions : angle mort, virage à droite, distance d&#x27;arrêt, dépassement d&#x27;un poids lourd et réflexes à avoir." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/poids-lourds.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Routis", "item": "https://code-route-gratuit-routis.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Cours", "item": "https://code-route-gratuit-routis.netlify.app/cours.html"}, {"@type": "ListItem", "position": 3, "name": "Partager la route avec les poids lourds : angle mort, distances et dépassement", "item": "https://code-route-gratuit-routis.netlify.app/poids-lourds.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Où sont les angles morts d'un camion ?", "acceptedAnswer": {"@type": "Answer", "text": "Devant, derrière, et surtout sur les côtés près de la cabine, notamment à droite."}}, {"@type": "Question", "name": "Pourquoi un camion se déporte-t-il avant de tourner ?", "acceptedAnswer": {"@type": "Answer", "text": "Parce qu'un long véhicule a besoin de place pour prendre son virage."}}, {"@type": "Question", "name": "Comment dépasser un poids lourd en sécurité ?", "acceptedAnswer": {"@type": "Answer", "text": "Avec une bonne visibilité, plus de distance et de temps, puis en se rabattant quand on le voit dans le rétroviseur."}}]}</script>
+</head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow"><a href="cours.html" data-i18n-html="ui.0">Cours</a> · <span data-i18n-html="ui.24">Route</span></p>
+        <h1 data-i18n-html="poids-lourds.h1">Partager la route avec les poids lourds : angle mort, distances et dépassement</h1>
+        <p data-i18n-html="poids-lourds.intro">Un poids lourd est long, lourd et difficile à arrêter. Savoir où il ne vous voit pas et comment le dépasser évite beaucoup d&#x27;accidents graves.</p>
+      </section>
+      <section class="fiche-chapter" data-theme="usagers">
+        <div class="fiche-card">
+          <h3 data-i18n-html="poids-lourds.c0.h">1. Les angles morts</h3>
+          <div data-i18n-html="poids-lourds.c0.b"><p>Un camion a de grands <span class="fiche-highlight">angles morts</span> : devant, derrière, et surtout sur les côtés, près de la cabine. Le conducteur ne voit pas ce qui s'y trouve. Une règle simple : <span class="fiche-highlight">si vous ne voyez pas ses rétroviseurs, il ne vous voit pas</span>.</p><p>Évitez de rester à côté d'un camion plus longtemps que nécessaire, et ne vous glissez jamais entre un camion qui tourne et le trottoir.</p></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="poids-lourds.c1.h">2. Virages et distances</h3>
+          <div data-i18n-html="poids-lourds.c1.b"><p>Pour tourner à droite, un long véhicule peut <span class="fiche-highlight">se déporter d'abord à gauche</span> pour avoir la place de prendre son virage. Ne cherchez pas à le dépasser à ce moment-là.</p><p>Un poids lourd chargé peut peser jusqu'à <span class="fiche-highlight">40 tonnes</span> : sa distance d'arrêt est bien plus longue que celle d'une voiture. Si vous vous rabattez devant lui, laissez-lui de la place avant de ralentir.</p></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="poids-lourds.c2.h">3. Dépasser un camion</h3>
+          <div data-i18n-html="poids-lourds.c2.b"><p>Pour dépasser un poids lourd, prévoyez plus de distance et de temps que pour une voiture. Vérifiez la visibilité, mettez votre clignotant, dépassez sans traîner, et ne vous rabattez que lorsque vous voyez le camion dans votre rétroviseur intérieur. Les remous d'air peuvent vous déstabiliser, surtout par vent latéral : tenez bien votre volant.</p></div>
+        </div>
+        <div class="section-shell" id="quiz">
+          <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3 data-i18n-html="poids-lourds.q1.t">Angle mort</h3>
+              <p data-i18n-html="poids-lourds.q1.q">Si vous ne voyez pas les rétroviseurs d&#x27;un camion, son conducteur :</p>
+              <div class="sim-actions">
+                <button data-sim="q17_1" data-answer="right" data-i18n-html="poids-lourds.q1.r">Ne vous voit pas</button>
+                <button data-sim="q17_1" data-answer="wrong" data-i18n-html="poids-lourds.q1.w">Vous voit très bien</button>
+              </div>
+              <p class="sim-result" id="sim-q17_1"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="poids-lourds.q2.t">Virage à droite</h3>
+              <p data-i18n-html="poids-lourds.q2.q">Un long camion qui tourne à droite peut :</p>
+              <div class="sim-actions">
+                <button data-sim="q17_2" data-answer="wrong" data-i18n-html="poids-lourds.q2.w">Rouler contre le trottoir</button>
+                <button data-sim="q17_2" data-answer="right" data-i18n-html="poids-lourds.q2.r">Se déporter d&#x27;abord à gauche</button>
+              </div>
+              <p class="sim-result" id="sim-q17_2"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="poids-lourds.q3.t">Distance d&#x27;arrêt</h3>
+              <p data-i18n-html="poids-lourds.q3.q">La distance d&#x27;arrêt d&#x27;un poids lourd chargé est :</p>
+              <div class="sim-actions">
+                <button data-sim="q17_3" data-answer="right" data-i18n-html="poids-lourds.q3.r">Beaucoup plus longue que celle d&#x27;une voiture</button>
+                <button data-sim="q17_3" data-answer="wrong" data-i18n-html="poids-lourds.q3.w">Plus courte, car il est plus lourd</button>
+              </div>
+              <p class="sim-result" id="sim-q17_3"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="poids-lourds.q4.t">Dépassement</h3>
+              <p data-i18n-html="poids-lourds.q4.q">Pour dépasser un camion, il faut prévoir :</p>
+              <div class="sim-actions">
+                <button data-sim="q17_4" data-answer="wrong" data-i18n-html="poids-lourds.q4.w">Moins de distance, car il roule lentement</button>
+                <button data-sim="q17_4" data-answer="right" data-i18n-html="poids-lourds.q4.r">Plus de distance et de temps</button>
+              </div>
+              <p class="sim-result" id="sim-q17_4"></p>
+            </article>
+          </div>
+        </div>
+        <section class="fiche-card"><h3 data-i18n-html="ui.3">Questions fréquentes</h3><p><strong data-i18n-html="poids-lourds.f0.q">Où sont les angles morts d&#x27;un camion ?</strong><br><span data-i18n-html="poids-lourds.f0.a">Devant, derrière, et surtout sur les côtés près de la cabine, notamment à droite.</span></p><p><strong data-i18n-html="poids-lourds.f1.q">Pourquoi un camion se déporte-t-il avant de tourner ?</strong><br><span data-i18n-html="poids-lourds.f1.a">Parce qu&#x27;un long véhicule a besoin de place pour prendre son virage.</span></p><p><strong data-i18n-html="poids-lourds.f2.q">Comment dépasser un poids lourd en sécurité ?</strong><br><span data-i18n-html="poids-lourds.f2.a">Avec une bonne visibilité, plus de distance et de temps, puis en se rabattant quand on le voit dans le rétroviseur.</span></p></section>
+        <section class="fiche-card"><h3 data-i18n-html="ui.4">À lire aussi</h3><ul><li><a href="depassement.html" data-i18n-html="depassement.h1">Le dépassement : quand et comment dépasser</a></li><li><a href="distances-d-arret.html" data-i18n-html="distances-d-arret.h1">Distance d&#x27;arrêt : temps de réaction et distance de freinage</a></li><li><a href="autoroute.html" data-i18n-html="autoroute.h1">Conduire sur autoroute : règles et bons réflexes</a></li></ul></section>
+      </section>
+      <section class="section-shell"><p><a class="button primary" href="examens.html" data-i18n-html="ui.5">S'entraîner avec un examen blanc</a> <a class="button secondary" href="fiches.html" data-i18n-html="ui.6">Toutes les fiches</a></p></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/i18n-pages.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/scenes.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector("#sim-" + button.dataset.sim);
+    const right = button.dataset.answer === "right";
+    const chapter = button.closest(".fiche-chapter");
+    if (target) {
+      target.textContent = right ? t("fiche_feedback_right") : t("fiche_feedback_wrong");
+      target.style.color = right ? "var(--green)" : "var(--red)";
+    }
+    if (chapter && typeof recordQuestionAnswer === "function") recordQuestionAnswer("fiche-" + button.dataset.sim, chapter.dataset.theme, right);
+  });
+});
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+  });
+});
+applyStaticTranslations();
+document.querySelectorAll("[data-scene]").forEach((el) => { if (typeof sceneSvg === "function") el.innerHTML = sceneSvg(el.dataset.scene); });
+</script>
+  </body>
+</html>

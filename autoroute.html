@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Autoroute : vitesse, voie de gauche, insertion, panne | Routis</title>
+    <meta name="description" content="Tout savoir sur la conduite sur autoroute pour le code de la route : vitesses, voie de gauche, insertion, distance de sécurité, panne et bande d&#x27;arrêt d&#x27;urgence." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/autoroute.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Autoroute : vitesse, voie de gauche, insertion, panne | Routis" />
+    <meta property="og:description" content="Tout savoir sur la conduite sur autoroute pour le code de la route : vitesses, voie de gauche, insertion, distance de sécurité, panne et bande d&#x27;arrêt d&#x27;urgence." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/autoroute.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Routis", "item": "https://code-route-gratuit-routis.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Cours", "item": "https://code-route-gratuit-routis.netlify.app/cours.html"}, {"@type": "ListItem", "position": 3, "name": "Conduire sur autoroute : règles et bons réflexes", "item": "https://code-route-gratuit-routis.netlify.app/autoroute.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quelle est la vitesse maximale sur autoroute en France ?", "acceptedAnswer": {"@type": "Answer", "text": "130 km/h par temps sec, 110 km/h sous la pluie, et 50 km/h si la visibilité est inférieure à 50 mètres. Les conducteurs en permis probatoire sont limités à 110 km/h."}}, {"@type": "Question", "name": "Peut-on s'arrêter sur la bande d'arrêt d'urgence ?", "acceptedAnswer": {"@type": "Answer", "text": "Seulement en cas de panne ou d'urgence. Pour se reposer, il faut utiliser une aire de repos ou de service."}}, {"@type": "Question", "name": "Que faire si on rate sa sortie d'autoroute ?", "acceptedAnswer": {"@type": "Answer", "text": "Continuer jusqu'à la sortie suivante. Le demi-tour et la marche arrière sont interdits sur autoroute."}}]}</script>
+</head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow"><a href="cours.html" data-i18n-html="ui.0">Cours</a> · <span data-i18n-html="ui.17">Circulation</span></p>
+        <h1 data-i18n-html="autoroute.h1">Conduire sur autoroute : règles et bons réflexes</h1>
+        <p data-i18n-html="autoroute.intro">L&#x27;autoroute est une route à chaussées séparées, sans croisement, réservée à certains véhicules. Les erreurs y sont rares mais graves, parce que tout va vite.</p>
+      </section>
+      <section class="fiche-chapter" data-theme="circulation">
+        <div class="fiche-card">
+          <h3 data-i18n-html="autoroute.c0.h">1. Vitesse et voies</h3>
+          <div data-i18n-html="autoroute.c0.b"><p>La vitesse maximale est de <span class="fiche-highlight">130 km/h</span> par temps sec et de <span class="fiche-highlight">110 km/h</span> quand il pleut ou que la chaussée est mouillée. Si la visibilité est inférieure à 50 mètres (brouillard, neige), la limite tombe à <span class="fiche-highlight">50 km/h</span>. Un conducteur en permis probatoire est limité à 110 km/h sur autoroute.</p><p>On roule à droite et on ne dépasse que par la gauche. Revenez sur la voie de droite dès que le dépassement est terminé. Quand la circulation est fluide et la visibilité bonne, on ne roule pas sous <span class="fiche-highlight">80 km/h</span> sur la voie de gauche.</p></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="autoroute.c1.h">2. S'insérer, sortir, interdictions</h3>
+          <div data-i18n-html="autoroute.c1.b"><p>Pour entrer, on utilise la voie d'accélération afin d'<span class="fiche-highlight">atteindre la vitesse de la circulation</span> avant de s'insérer, et on cède le passage aux véhicules déjà sur l'autoroute. Pour sortir, on se place à droite à l'avance, puis on ralentit seulement sur la voie de décélération.</p><ul><li>Demi-tour et marche arrière sont interdits, même si l'on a manqué sa sortie.</li><li>Arrêt et stationnement sont interdits sur la chaussée et sur la bande d'arrêt d'urgence, sauf en cas de panne ou d'urgence. On se repose sur une aire de repos ou de service.</li><li>Piétons, vélos et cyclomoteurs n'ont pas le droit d'y circuler.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="autoroute.c2.h">3. Distance, fatigue et panne</h3>
+          <div data-i18n-html="autoroute.c2.b"><p>Gardez au moins <span class="fiche-highlight">2 secondes</span> derrière le véhicule qui précède : les chevrons peints sur la chaussée vous aident à évaluer cette distance. Faites une pause de 15 à 20 minutes toutes les 2 heures : la monotonie endort vite.</p><p>En cas de panne : allumez les feux de détresse, rangez-vous sur la bande d'arrêt d'urgence, mettez votre gilet avant de sortir, sortez côté droit, puis mettez-vous à l'abri <span class="fiche-highlight">derrière la glissière</span> et appelez les secours (borne orange ou 112). Le triangle ne se pose que si cela ne vous oblige pas à marcher près de la circulation.</p></div>
+        </div>
+        <div class="section-shell" id="quiz">
+          <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3 data-i18n-html="autoroute.q1.t">Pluie sur autoroute</h3>
+              <p data-i18n-html="autoroute.q1.q">Par temps de pluie, la vitesse maximale sur autoroute est de :</p>
+              <div class="sim-actions">
+                <button data-sim="q00_1" data-answer="right" data-i18n-html="autoroute.q1.r">110 km/h</button>
+                <button data-sim="q00_1" data-answer="wrong" data-i18n-html="autoroute.q1.w">130 km/h</button>
+              </div>
+              <p class="sim-result" id="sim-q00_1"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="autoroute.q2.t">Demi-tour</h3>
+              <p data-i18n-html="autoroute.q2.q">Un conducteur a raté sa sortie sur autoroute. Il peut :</p>
+              <div class="sim-actions">
+                <button data-sim="q00_2" data-answer="wrong" data-i18n-html="autoroute.q2.w">Faire demi-tour ou reculer sur la bande d&#x27;arrêt d&#x27;urgence</button>
+                <button data-sim="q00_2" data-answer="right" data-i18n-html="autoroute.q2.r">Continuer jusqu&#x27;à la sortie suivante</button>
+              </div>
+              <p class="sim-result" id="sim-q00_2"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="autoroute.q3.t">Voie d&#x27;accélération</h3>
+              <p data-i18n-html="autoroute.q3.q">La voie d&#x27;accélération sert à :</p>
+              <div class="sim-actions">
+                <button data-sim="q00_3" data-answer="right" data-i18n-html="autoroute.q3.r">Atteindre la vitesse de la circulation avant de s&#x27;insérer</button>
+                <button data-sim="q00_3" data-answer="wrong" data-i18n-html="autoroute.q3.w">S&#x27;arrêter pour attendre un trou</button>
+              </div>
+              <p class="sim-result" id="sim-q00_3"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="autoroute.q4.t">Panne</h3>
+              <p data-i18n-html="autoroute.q4.q">Après une panne sur autoroute, où vous placez-vous ?</p>
+              <div class="sim-actions">
+                <button data-sim="q00_4" data-answer="wrong" data-i18n-html="autoroute.q4.w">Dans la voie de gauche, près du véhicule</button>
+                <button data-sim="q00_4" data-answer="right" data-i18n-html="autoroute.q4.r">Derrière la glissière de sécurité</button>
+              </div>
+              <p class="sim-result" id="sim-q00_4"></p>
+            </article>
+          </div>
+        </div>
+        <section class="fiche-card"><h3 data-i18n-html="ui.3">Questions fréquentes</h3><p><strong data-i18n-html="autoroute.f0.q">Quelle est la vitesse maximale sur autoroute en France ?</strong><br><span data-i18n-html="autoroute.f0.a">130 km/h par temps sec, 110 km/h sous la pluie, et 50 km/h si la visibilité est inférieure à 50 mètres. Les conducteurs en permis probatoire sont limités à 110 km/h.</span></p><p><strong data-i18n-html="autoroute.f1.q">Peut-on s&#x27;arrêter sur la bande d&#x27;arrêt d&#x27;urgence ?</strong><br><span data-i18n-html="autoroute.f1.a">Seulement en cas de panne ou d&#x27;urgence. Pour se reposer, il faut utiliser une aire de repos ou de service.</span></p><p><strong data-i18n-html="autoroute.f2.q">Que faire si on rate sa sortie d&#x27;autoroute ?</strong><br><span data-i18n-html="autoroute.f2.a">Continuer jusqu&#x27;à la sortie suivante. Le demi-tour et la marche arrière sont interdits sur autoroute.</span></p></section>
+        <section class="fiche-card"><h3 data-i18n-html="ui.4">À lire aussi</h3><ul><li><a href="depassement.html" data-i18n-html="depassement.h1">Le dépassement : quand et comment dépasser</a></li><li><a href="distances-d-arret.html" data-i18n-html="distances-d-arret.h1">Distance d&#x27;arrêt : temps de réaction et distance de freinage</a></li><li><a href="vitesse.html" data-i18n-html="vitesse.h1">Les limitations de vitesse en France</a></li></ul></section>
+      </section>
+      <section class="section-shell"><p><a class="button primary" href="examens.html" data-i18n-html="ui.5">S'entraîner avec un examen blanc</a> <a class="button secondary" href="fiches.html" data-i18n-html="ui.6">Toutes les fiches</a></p></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/i18n-pages.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/scenes.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector("#sim-" + button.dataset.sim);
+    const right = button.dataset.answer === "right";
+    const chapter = button.closest(".fiche-chapter");
+    if (target) {
+      target.textContent = right ? t("fiche_feedback_right") : t("fiche_feedback_wrong");
+      target.style.color = right ? "var(--green)" : "var(--red)";
+    }
+    if (chapter && typeof recordQuestionAnswer === "function") recordQuestionAnswer("fiche-" + button.dataset.sim, chapter.dataset.theme, right);
+  });
+});
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+  });
+});
+applyStaticTranslations();
+document.querySelectorAll("[data-scene]").forEach((el) => { if (typeof sceneSvg === "function") el.innerHTML = sceneSvg(el.dataset.scene); });
+</script>
+  </body>
+</html>

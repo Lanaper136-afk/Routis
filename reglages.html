@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, follow" />
+    <title>Réglages | Routis</title>
+    <meta name="description" content="Réglages de Routis : choix du pays et des cookies." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+      .opts-country { display: grid; gap: 10px; margin: 12px 0 6px; }
+      .copt { display: flex; align-items: center; gap: 12px; border: 2px solid var(--line); border-radius: 12px; padding: 14px; cursor: pointer; font-weight: 800; background: #fff; }
+      .copt:has(input:checked) { border-color: var(--blue); background: #eef4ff; }
+      .copt small { display: block; color: var(--muted); font-weight: 600; }
+      .copt input { width: 20px; height: 20px; }
+      .rbtn { margin-top: 10px; padding: 11px 18px; border: 2px solid var(--blue); background: #fff; color: var(--blue-dark); border-radius: 10px; font: inherit; font-weight: 800; cursor: pointer; }
+      #saved { color: var(--green); font-weight: 800; min-height: 1.4em; margin: 8px 0 0; }
+    </style>
+  </head>
+  <body>
+    <div class="legal-top"><a href="index.html?stay=1">← Retour à Routis</a></div>
+    <main class="legal-page">
+      <h1>Réglages <span style="color:var(--muted);font-weight:600">· Settings</span></h1>
+
+      <h2>Pays · Country</h2>
+      <p>Le code de la route est différent dans chaque pays. Choisissez celui que vous voulez réviser. <span style="color:var(--muted)">Driving rules are different in each country. Choose the one you want to learn.</span></p>
+      <div class="opts-country" id="country-opts">
+        <label class="copt"><input type="radio" name="country" value="fr" /><span>France<small>Code de la route français</small></span></label>
+        <label class="copt"><input type="radio" name="country" value="qc" /><span>Canada · Québec<small>Code de la route du Québec (SAAQ, classe 5)</small></span></label>
+        <label class="copt"><input type="radio" name="country" value="uk" id="opt-uk" /><span>United Kingdom<small>UK theory test · Highway Code</small></span></label>
+      </div>
+      <p id="saved" role="status"></p>
+
+      <h2>Installer Routis · Install</h2>
+    <p>Ajoutez Routis à l'écran d'accueil de votre téléphone pour réviser comme avec une appli. <a href="installer.html">Comment faire ? · How to?</a></p>
+    <h2>Cookies</h2>
+      <p>Vous pouvez à tout moment accepter ou refuser la mesure d'audience.</p>
+      <button type="button" class="rbtn" id="cookie-manage2">Gérer les cookies</button>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/country.js"></script>
+    <script src="assets/common.js"></script>
+    <script>
+      (function () {
+        var cur = (window.routisCountry && window.routisCountry.get()) || "fr";
+        var radios = document.querySelectorAll('input[name="country"]');
+        radios.forEach(function (r) { r.checked = r.value === cur; });
+        if (window.routisCountry && !window.routisCountry.ukLive) { var o = document.getElementById("opt-uk"); if (o) o.closest("label").style.display = "none"; }
+        radios.forEach(function (r) {
+          r.addEventListener("change", function () {
+            window.routisCountry.set(r.value);
+            document.getElementById("saved").textContent = r.value === "uk" ? "Saved. Taking you to the UK section…" : r.value === "qc" ? "Enregistré. Direction le module Québec…" : "Enregistré. Retour à l'accueil…";
+            setTimeout(function () { location.href = r.value === "uk" ? "uk/index.html" : r.value === "qc" ? "qc/index.html" : "index.html?stay=1"; }, 700);
+          });
+        });
+        var m2 = document.getElementById("cookie-manage2");
+        if (m2) m2.addEventListener("click", function () { if (window.routisShowConsentBanner) routisShowConsentBanner(); });
+      })();
+    </script>
+  </body>
+</html>

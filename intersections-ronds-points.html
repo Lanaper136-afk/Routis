@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Intersections, priorité à droite et ronds-points : les règles | Routis</title>
+    <meta name="description" content="Priorité à droite, cédez le passage, stop, feux et ronds-points : l&#x27;essentiel des règles de priorité du code de la route, avec les pièges classiques de l&#x27;examen." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/intersections-ronds-points.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Intersections, priorité à droite et ronds-points : les règles | Routis" />
+    <meta property="og:description" content="Priorité à droite, cédez le passage, stop, feux et ronds-points : l&#x27;essentiel des règles de priorité du code de la route, avec les pièges classiques de l&#x27;examen." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/intersections-ronds-points.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Routis", "item": "https://code-route-gratuit-routis.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Cours", "item": "https://code-route-gratuit-routis.netlify.app/cours.html"}, {"@type": "ListItem", "position": 3, "name": "Intersections, priorités et ronds-points", "item": "https://code-route-gratuit-routis.netlify.app/intersections-ronds-points.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Qui est prioritaire dans un rond-point ?", "acceptedAnswer": {"@type": "Answer", "text": "Quand un panneau « cédez le passage » est placé à l'entrée, ce sont les véhicules déjà engagés dans l'anneau."}}, {"@type": "Question", "name": "Que veut dire la priorité à droite ?", "acceptedAnswer": {"@type": "Answer", "text": "En l'absence de panneau ou de feu, on cède le passage aux véhicules qui arrivent par la droite."}}, {"@type": "Question", "name": "Que faire à un feu orange clignotant ?", "acceptedAnswer": {"@type": "Answer", "text": "Il n'impose pas l'arrêt : on ralentit et on respecte les règles de priorité habituelles."}}]}</script>
+</head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow"><a href="cours.html" data-i18n-html="ui.0">Cours</a> · <span data-i18n-html="ui.17">Circulation</span></p>
+        <h1 data-i18n-html="intersections-ronds-points.h1">Intersections, priorités et ronds-points</h1>
+        <p data-i18n-html="intersections-ronds-points.intro">Une grande partie des questions de l&#x27;examen tourne autour de la même question : qui passe en premier ? Voici l&#x27;ordre à retenir.</p>
+      </section>
+      <section class="fiche-chapter" data-theme="circulation">
+        <div class="fiche-card">
+          <h3 data-i18n-html="intersections-ronds-points.c0.h">1. Qui décide : l'ordre de priorité</h3>
+          <div data-i18n-html="intersections-ronds-points.c0.b"><p>Quand plusieurs règles se contredisent, on suit dans cet ordre : <span class="fiche-highlight">1) les ordres d'un agent de la circulation</span>, <span class="fiche-highlight">2) les feux</span>, <span class="fiche-highlight">3) les panneaux</span> et enfin <span class="fiche-highlight">4) la règle de la priorité à droite</span>.</p><p>Sans panneau ni feu, la priorité à droite s'applique : on cède le passage aux véhicules qui arrivent par la droite. Un panneau en losange jaune signale que l'on est sur une route prioritaire ; un triangle pointe en bas (« cédez le passage ») ou un octogone rouge (« stop ») oblige à laisser passer.</p></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="intersections-ronds-points.c1.h">2. Stop, feux et virage</h3>
+          <div data-i18n-html="intersections-ronds-points.c1.b"><p>Au <span class="fiche-highlight">stop</span>, on s'arrête complètement derrière la ligne, même si la voie est libre. Au feu rouge, on s'arrête avant la ligne d'arrêt ; au feu orange fixe, on s'arrête sauf si l'on est trop près pour le faire en sécurité. Un feu orange clignotant n'impose pas l'arrêt : les règles de priorité normales s'appliquent.</p><p>Quand on tourne, on cède le passage aux piétons qui traversent la rue où l'on s'engage. Pour tourner à gauche, on laisse passer les véhicules qui arrivent en face.</p></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="intersections-ronds-points.c2.h">3. Les ronds-points</h3>
+          <div data-i18n-html="intersections-ronds-points.c2.b"><p>Dans un rond-point signalé par un panneau « cédez le passage » à l'entrée, <span class="fiche-highlight">les véhicules déjà engagés dans l'anneau sont prioritaires</span>. On ralentit à l'approche, on regarde à gauche, puis on s'engage quand la voie est libre.</p><ul><li>On met le clignotant droit juste avant de quitter le rond-point, au moment de prendre sa sortie.</li><li>Pour sortir à la première sortie, on reste plutôt à droite ; pour aller plus loin, on prend plutôt la voie de gauche, puis on se rabat en vérifiant son rétroviseur.</li><li>À l'intérieur, on ne s'arrête pas et on ne fait pas demi-tour.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="intersections-ronds-points.c3.h">4. Les ronds-points à plusieurs voies</h3>
+          <div data-i18n-html="intersections-ronds-points.c3.b"><ul><li>À l'entrée, on <strong>cède le passage</strong> aux véhicules qui circulent dans l'anneau, et on choisit sa voie dès l'approche en lisant les panneaux et les flèches au sol.</li><li>Sans indication contraire : <strong>voie de droite</strong> pour la première sortie (tourner à droite), <strong>voie de gauche</strong> pour tourner à gauche ou faire demi-tour. Pour aller tout droit, les deux voies sont possibles.</li><li>Dans l'anneau, on garde sa voie. Pour sortir depuis la voie de gauche, on met le <strong>clignotant droit</strong> juste avant la sortie, on regarde le rétroviseur et l'angle mort, puis on se rabat.</li><li>C'est celui qui <span class="fiche-highlight">change de voie</span> qui doit céder le passage.</li><li>On ne s'arrête jamais dans l'anneau, et on cède aux piétons sur les passages à la sortie.</li></ul></div>
+        </div>
+        <div class="section-shell" id="quiz">
+          <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3 data-i18n-html="intersections-ronds-points.q1.t">Ordre de priorité</h3>
+              <p data-i18n-html="intersections-ronds-points.q1.q">Un agent de la circulation vous fait signe de passer alors que le feu est rouge. Vous :</p>
+              <div class="sim-actions">
+                <button data-sim="q02_1" data-answer="right" data-i18n-html="intersections-ronds-points.q1.r">Obéissez à l&#x27;agent</button>
+                <button data-sim="q02_1" data-answer="wrong" data-i18n-html="intersections-ronds-points.q1.w">Obéissez au feu</button>
+              </div>
+              <p class="sim-result" id="sim-q02_1"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="intersections-ronds-points.q2.t">Stop</h3>
+              <p data-i18n-html="intersections-ronds-points.q2.q">Au stop, vous devez :</p>
+              <div class="sim-actions">
+                <button data-sim="q02_2" data-answer="wrong" data-i18n-html="intersections-ronds-points.q2.w">Ralentir si la voie est libre</button>
+                <button data-sim="q02_2" data-answer="right" data-i18n-html="intersections-ronds-points.q2.r">Vous arrêter complètement derrière la ligne</button>
+              </div>
+              <p class="sim-result" id="sim-q02_2"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="intersections-ronds-points.q3.t">Rond-point</h3>
+              <p data-i18n-html="intersections-ronds-points.q3.q">À l&#x27;entrée d&#x27;un rond-point avec « cédez le passage », qui est prioritaire ?</p>
+              <div class="sim-actions">
+                <button data-sim="q02_3" data-answer="right" data-i18n-html="intersections-ronds-points.q3.r">Les véhicules déjà dans l&#x27;anneau</button>
+                <button data-sim="q02_3" data-answer="wrong" data-i18n-html="intersections-ronds-points.q3.w">Les véhicules qui entrent</button>
+              </div>
+              <p class="sim-result" id="sim-q02_3"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="intersections-ronds-points.q4.t">Clignotant</h3>
+              <p data-i18n-html="intersections-ronds-points.q4.q">Dans un rond-point, le clignotant droit se met :</p>
+              <div class="sim-actions">
+                <button data-sim="q02_4" data-answer="wrong" data-i18n-html="intersections-ronds-points.q4.w">Dès l&#x27;entrée dans le rond-point</button>
+                <button data-sim="q02_4" data-answer="right" data-i18n-html="intersections-ronds-points.q4.r">Avant de quitter l&#x27;anneau</button>
+              </div>
+              <p class="sim-result" id="sim-q02_4"></p>
+            </article>
+          </div>
+        </div>
+        <section class="fiche-card"><h3 data-i18n-html="ui.3">Questions fréquentes</h3><p><strong data-i18n-html="intersections-ronds-points.f0.q">Qui est prioritaire dans un rond-point ?</strong><br><span data-i18n-html="intersections-ronds-points.f0.a">Quand un panneau « cédez le passage » est placé à l&#x27;entrée, ce sont les véhicules déjà engagés dans l&#x27;anneau.</span></p><p><strong data-i18n-html="intersections-ronds-points.f1.q">Que veut dire la priorité à droite ?</strong><br><span data-i18n-html="intersections-ronds-points.f1.a">En l&#x27;absence de panneau ou de feu, on cède le passage aux véhicules qui arrivent par la droite.</span></p><p><strong data-i18n-html="intersections-ronds-points.f2.q">Que faire à un feu orange clignotant ?</strong><br><span data-i18n-html="intersections-ronds-points.f2.a">Il n&#x27;impose pas l&#x27;arrêt : on ralentit et on respecte les règles de priorité habituelles.</span></p></section>
+        <section class="fiche-card"><h3 data-i18n-html="ui.4">À lire aussi</h3><ul><li><a href="depassement.html" data-i18n-html="depassement.h1">Le dépassement : quand et comment dépasser</a></li><li><a href="stationnement.html" data-i18n-html="stationnement.h1">Arrêt et stationnement : ce qui est autorisé et interdit</a></li><li><a href="vitesse.html" data-i18n-html="vitesse.h1">Les limitations de vitesse en France</a></li></ul></section>
+      </section>
+      <section class="section-shell"><p><a class="button primary" href="examens.html" data-i18n-html="ui.5">S'entraîner avec un examen blanc</a> <a class="button secondary" href="fiches.html" data-i18n-html="ui.6">Toutes les fiches</a></p></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/i18n-pages.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/scenes.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector("#sim-" + button.dataset.sim);
+    const right = button.dataset.answer === "right";
+    const chapter = button.closest(".fiche-chapter");
+    if (target) {
+      target.textContent = right ? t("fiche_feedback_right") : t("fiche_feedback_wrong");
+      target.style.color = right ? "var(--green)" : "var(--red)";
+    }
+    if (chapter && typeof recordQuestionAnswer === "function") recordQuestionAnswer("fiche-" + button.dataset.sim, chapter.dataset.theme, right);
+  });
+});
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+  });
+});
+applyStaticTranslations();
+document.querySelectorAll("[data-scene]").forEach((el) => { if (typeof sceneSvg === "function") el.innerHTML = sceneSvg(el.dataset.scene); });
+</script>
+  </body>
+</html>

@@ -1,18 +1,20 @@
 <!doctype html>
 <html lang="fr">
   <head>
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-59PS7V3L');</script>
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
 <!-- End Google Tag Manager -->
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Code de la route 2026 : fiches, quiz et examens blancs gratuits</title>
-    <meta name="description" content="Apprends le code de la route gratuitement en ligne : panneaux illustrés, fiches de révision, quiz, mises en situation et examens blancs pour réussir ton ETG." />
+    <title>Code de la route gratuit : quiz et examens blancs | Routis</title>
+    <meta name="description" content="Révise le code de la route gratuitement : 148 panneaux illustrés, fiches de cours, simulations et examens blancs de 40 questions pour réussir l&#x27;ETG." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.svg" />
     <link rel="manifest" href="/manifest.json" />
@@ -21,13 +23,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Routis" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Code de la route 2026 : fiches, quiz et examens blancs gratuits" />
-    <meta property="og:description" content="Apprends le code de la route gratuitement en ligne : panneaux illustrés, fiches de révision, quiz, mises en situation et examens blancs pour réussir ton ETG." />
+    <meta property="og:title" content="Code de la route gratuit : quiz et examens blancs | Routis" />
+    <meta property="og:description" content="Révise le code de la route gratuitement : 148 panneaux illustrés, fiches de cours, simulations et examens blancs de 40 questions pour réussir l&#x27;ETG." />
     <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Routis" />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "@id": "https://code-route-gratuit-routis.netlify.app/#website", "url": "https://code-route-gratuit-routis.netlify.app/", "name": "Routis", "description": "Révision gratuite du code de la route : panneaux, fiches, quiz, simulations et examens blancs.", "inLanguage": "fr-FR", "publisher": {"@id": "https://code-route-gratuit-routis.netlify.app/#org"}}, {"@type": "Organization", "@id": "https://code-route-gratuit-routis.netlify.app/#org", "name": "Routis", "url": "https://code-route-gratuit-routis.netlify.app/", "logo": {"@type": "ImageObject", "url": "https://code-route-gratuit-routis.netlify.app/icons/icon-512.png", "width": 512, "height": 512}}]}</script>
     <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/country.js"></script>
     <style>
 .hero .hero-content .hero-slogan { margin: 4px 0 14px; font-size: clamp(1.25rem, 3vw, 1.7rem); font-weight: 900; color: var(--yellow); max-width: none; }
 .hm-wrap { width: min(1100px, calc(100% - 32px)); margin: 0 auto; }
@@ -38,6 +47,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .hm-stat { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px; text-align: center; box-shadow: var(--shadow); }
 .hm-stat strong { display: block; font-size: 1.9rem; line-height: 1.1; color: var(--blue); }
 .hm-stat span { color: var(--muted); font-size: 0.9rem; font-weight: 700; }
+.hm-start { display: grid; grid-template-columns: 1fr 1.1fr; gap: 24px; align-items: center; background: #fff; border: 1px solid var(--line); border-radius: 26px; padding: 16px; color: var(--ink); text-decoration: none; box-shadow: 0 12px 30px rgba(22,33,47,.08); }
+.hm-start:hover { box-shadow: 0 16px 38px rgba(23,105,224,.18); }
+.hm-start img { width: 100%; height: auto; border-radius: 18px; display: block; }
+.hm-start-text { display: grid; gap: 10px; justify-items: start; padding: 6px 10px; }
+.hm-start-text strong { font-size: clamp(1.4rem, 3.2vw, 2rem); line-height: 1.12; }
+.hm-start-text > span:not(.eyebrow):not(.button) { color: var(--muted); line-height: 1.5; }
+@media (max-width: 760px) { .hm-start { grid-template-columns: 1fr; } }
 .hm-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
 .hm-step { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
 .hm-step h3 { margin: 10px 0 6px; font-size: 1.1rem; }
@@ -66,10 +82,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     </style>
   </head>
   <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-59PS7V3L"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
     <header class="topbar">
       <div class="topbar-start">
@@ -79,11 +91,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <a class="brand" href="index.html" aria-label="Accueil Routis">
         <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 48 48" focusable="false">
-            <circle class="tire-outer" cx="24" cy="24" r="16" />
-            <circle class="tire-inner" cx="24" cy="24" r="7" />
-            <path class="tire-tread" d="M24 8v7M24 33v7M8 24h7M33 24h7M12.7 12.7l5 5M30.3 30.3l5 5M35.3 12.7l-5 5M17.7 30.3l-5 5" />
-          </svg>
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
         <span>Routis</span>
         </a>
@@ -169,11 +177,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <section class="hm-wrap" aria-label="Chiffres clés">
         <div class="hm-stats">
-          <div class="hm-stat"><strong data-count="signs">180</strong><span data-i18n="hm_stat_signs">panneaux illustrés</span></div>
-          <div class="hm-stat"><strong data-count="questions">480</strong><span data-i18n="hm_stat_questions">questions de code</span></div>
+          <div class="hm-stat"><strong data-count="signs">148</strong><span data-i18n="hm_stat_signs">panneaux illustrés</span></div>
+          <div class="hm-stat"><strong data-count="questions">1108</strong><span data-i18n="hm_stat_questions">questions de code</span></div>
           <div class="hm-stat"><strong>22</strong><span data-i18n="hm_stat_sims">mises en situation</span></div>
           <div class="hm-stat"><strong>100&nbsp;%</strong><span data-i18n="hm_stat_free">gratuit</span></div>
         </div>
+      </section>
+
+      <section class="hm-wrap hm-section" aria-labelledby="hm-start-title">
+        <a class="hm-start" href="demarches-permis.html">
+          <img src="assets/img/permis-hero.jpg" alt="" width="747" height="494" loading="lazy" aria-hidden="true">
+          <span class="hm-start-text">
+            <span class="eyebrow" data-i18n="hm_start_eyebrow">Tu débutes ?</span>
+            <strong id="hm-start-title" data-i18n="hm_start_t">Passer son permis : par où commencer ?</strong>
+            <span data-i18n="hm_start_p">Papiers, NEPH, auto-école, code, conduite, examen, prix et aides : toutes les démarches expliquées pas à pas.</span>
+            <span class="button primary" data-i18n="hm_start_btn">Lire le guide</span>
+          </span>
+        </a>
       </section>
 
       <section class="hm-wrap hm-section" aria-labelledby="hm-how-title">
@@ -182,7 +202,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <ol class="hm-steps">
           <li class="hm-step"><span class="hm-step-num" aria-hidden="true">1</span><h3 data-i18n="hm_step1_t">Apprends</h3><p data-i18n="hm_step1_p">Parcours les fiches de cours et le catalogue de panneaux : chaque règle est expliquée simplement, avec des exemples.</p></li>
           <li class="hm-step"><span class="hm-step-num" aria-hidden="true">2</span><h3 data-i18n="hm_step2_t">Entraîne-toi</h3><p data-i18n="hm_step2_p">Fais des quiz, des mises en situation et des jeux pour fixer les règles, à ton rythme et sans pression.</p></li>
-          <li class="hm-step"><span class="hm-step-num" aria-hidden="true">3</span><h3 data-i18n="hm_step3_t">Passe un examen blanc</h3><p data-i18n="hm_step3_p">40 questions en 30 minutes, comme à l'examen officiel : il faut 35 bonnes réponses pour réussir. À la fin, tu vois la correction de chaque question.</p></li>
+          <li class="hm-step"><span class="hm-step-num" aria-hidden="true">3</span><h3 data-i18n="hm_step3_t">Passe un examen blanc</h3><p data-i18n="hm_step3_p">40 questions, 20 secondes par question, comme à l'examen officiel : il faut 35 bonnes réponses pour réussir. À la fin, tu vois la correction de chaque question.</p></li>
           <li class="hm-step"><span class="hm-step-num" aria-hidden="true">4</span><h3 data-i18n="hm_step4_t">Révise tes points faibles</h3><p data-i18n="hm_step4_p">Routis retient les questions que tu rates et te les repropose, pour que les règles difficiles finissent par rester en tête.</p></li>
         </ol>
       </section>
@@ -199,6 +219,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a class="hm-card" href="fiches.html">
             <div class="hm-card-visual " aria-hidden="true"></div>
             <h3 data-i18n="hm_card_fiches_t">Fiches de cours</h3><p data-i18n="hm_card_fiches_p">Les règles essentielles résumées par thème : priorités, vitesse, alcool, permis à points, sécurité des passagers, secours…</p>
+            <span class="hm-card-go" data-i18n="hm_card_open">Ouvrir</span>
+          </a>
+          <a class="hm-card" href="cours.html">
+            <div class="hm-card-visual " aria-hidden="true"></div>
+            <h3>Cours du code</h3><p>Vitesse, permis à points, alcool, secours, stationnement, moto, AM, remorque : chaque règle expliquée avec un mini-quiz.</p>
             <span class="hm-card-go" data-i18n="hm_card_open">Ouvrir</span>
           </a>
           <a class="hm-card" href="simulations.html">
@@ -235,6 +260,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </section>
 
+      <section class="hm-wrap" aria-labelledby="hm-app-title">
+        <div class="hm-cta">
+          <h2 id="hm-app-title" data-i18n="hm_app_title">Routis sur ton téléphone</h2>
+          <p data-i18n="hm_app_p">Ajoute Routis à l'écran d'accueil pour réviser comme avec une appli, même sans réseau. C'est gratuit et ça prend 30 secondes.</p>
+          <div class="hero-actions"><a class="button secondary" href="installer.html" data-i18n="hm_app_btn">Comment l'installer</a></div>
+        </div>
+      </section>
+
       <section class="hm-wrap" aria-labelledby="hm-cta-title">
         <div class="hm-cta">
           <h2 id="hm-cta-title" data-i18n="hm_cta_title">Prêt à t'entraîner ?</h2>
@@ -247,6 +280,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </section>
 
     </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <a href="qc/index.html">Canada · Québec</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
     <script src="assets/signs-data.js"></script>
     <script src="assets/questions-data.js"></script>
     <script src="assets/scenes.js"></script>
@@ -317,7 +361,7 @@ function renderGrid() {
       ${signSvg(sign)}
       <span>
         <span class="sign-name">${signField(sign, "name")}</span>
-        <span class="sign-family">${sign.code} - ${famLabel(sign.family)}</span>
+        <span class="sign-family">${sign.code ? sign.code + " - " : ""}${famLabel(sign.family)}</span>
       </span>
     </button>
   `;
@@ -328,7 +372,7 @@ function selectSign(sign) {
   if (!preview || !previewFamily || !previewTitle || !previewText || !previewTips) return;
   state.selected = sign;
   preview.innerHTML = signSvg(sign);
-  previewFamily.textContent = `${sign.code} - ${famLabel(sign.family)}`;
+  previewFamily.textContent = `${sign.code ? sign.code + " - " : ""}${famLabel(sign.family)}`;
   previewTitle.textContent = signField(sign, "name");
   previewText.textContent = signField(sign, "text");
   previewTips.innerHTML = signField(sign, "tips").map((tip) => `<li>${tip}</li>`).join("");
@@ -362,7 +406,7 @@ function renderLearnedReveal() {
         ${signSvg(sign)}
         <span>
           <span class="sign-name">${signField(sign, "name")}</span>
-          <span class="sign-family">${sign.code} - ${famLabel(sign.family)}</span>
+          <span class="sign-family">${sign.code ? sign.code + " - " : ""}${famLabel(sign.family)}</span>
         </span>
       </div>
     `).join("")
@@ -600,7 +644,7 @@ function initSliceGame() {
     node.type = "button";
     node.className = "falling-sign";
     node.dataset.id = sign.id;
-    node.innerHTML = `${signSvg(sign)}<small>${sign.code}</small>`;
+    node.innerHTML = `${signSvg(sign)}<small>${sign.code || ""}</small>`;
     const rect = root.getBoundingClientRect();
     const width = rect.width;
     const x = Math.max(10, Math.random() * Math.max(20, width - 140));

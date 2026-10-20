@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stationnement : règles, lignes jaunes, amendes gênant et très gênant | Routis</title>
+    <meta name="description" content="Les règles d&#x27;arrêt et de stationnement du code de la route : différence arrêt/stationnement, lignes jaunes, emplacements interdits et amendes." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/stationnement.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Stationnement : règles, lignes jaunes, amendes gênant et très gênant | Routis" />
+    <meta property="og:description" content="Les règles d&#x27;arrêt et de stationnement du code de la route : différence arrêt/stationnement, lignes jaunes, emplacements interdits et amendes." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/stationnement.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Routis", "item": "https://code-route-gratuit-routis.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Cours", "item": "https://code-route-gratuit-routis.netlify.app/cours.html"}, {"@type": "ListItem", "position": 3, "name": "Arrêt et stationnement : ce qui est autorisé et interdit", "item": "https://code-route-gratuit-routis.netlify.app/stationnement.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quelle est la différence entre arrêt et stationnement ?", "acceptedAnswer": {"@type": "Answer", "text": "L'arrêt est de courte durée, le conducteur restant près de son véhicule. Le stationnement est une immobilisation prolongée."}}, {"@type": "Question", "name": "Que veut dire une ligne jaune continue ?", "acceptedAnswer": {"@type": "Answer", "text": "Que l'arrêt et le stationnement sont interdits le long de cette ligne."}}, {"@type": "Question", "name": "Combien coûte un stationnement très gênant ?", "acceptedAnswer": {"@type": "Answer", "text": "135 € d'amende, avec possibilité de fourrière."}}]}</script>
+</head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow"><a href="cours.html" data-i18n-html="ui.0">Cours</a> · <span data-i18n-html="ui.16">Réglementation</span></p>
+        <h1 data-i18n-html="stationnement.h1">Arrêt et stationnement : ce qui est autorisé et interdit</h1>
+        <p data-i18n-html="stationnement.intro">Mal se garer peut coûter cher et mettre les autres en danger. Au code, on distingue bien l&#x27;arrêt du stationnement.</p>
+      </section>
+      <section class="fiche-chapter" data-theme="reglementation">
+        <div class="fiche-card">
+          <h3 data-i18n-html="stationnement.c0.h">1. Arrêt ou stationnement ?</h3>
+          <div data-i18n-html="stationnement.c0.b"><p>L'<span class="fiche-highlight">arrêt</span> est une immobilisation de courte durée, le conducteur restant près de son véhicule ou à bord (pour déposer quelqu'un, par exemple). Le <span class="fiche-highlight">stationnement</span> est une immobilisation prolongée, avec ou sans conducteur.</p><p>Une ligne jaune <span class="fiche-highlight">continue</span> au bord de la chaussée interdit l'arrêt et le stationnement ; une ligne jaune <span class="fiche-highlight">discontinue</span> interdit seulement le stationnement (l'arrêt reste possible).</p></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="stationnement.c1.h">2. Les emplacements interdits</h3>
+          <div data-i18n-html="stationnement.c1.b"><p>Il est interdit de s'arrêter ou de stationner, entre autres :</p><ul><li>sur un passage piéton, et le stationnement est interdit sur les 5 mètres qui le précèdent ;</li><li>sur un trottoir, une piste cyclable, une voie de bus ;</li><li>à un arrêt de bus ou devant une sortie de garage ;</li><li>sur une place réservée aux personnes handicapées sans la carte ;</li><li>dans un virage ou en haut d'une côte, là où l'on voit mal, ou en double file.</li></ul><p>Le stationnement d'un véhicule au même endroit ne peut pas dépasser <span class="fiche-highlight">7 jours consécutifs</span> sur la voie publique (stationnement abusif).</p></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="stationnement.c2.h">3. Sanctions et bons réflexes</h3>
+          <div data-i18n-html="stationnement.c2.b"><p>Un stationnement « gênant » est puni d'une amende de <span class="fiche-highlight">35 €</span> ; « très gênant » (trottoir, passage piéton, piste cyclable, place handicapé…), de <span class="fiche-highlight">135 €</span>, et le véhicule peut être mis en fourrière. Dans les villes qui l'ont mis en place, le stationnement payant remplace l'amende par un « forfait de post-stationnement ».</p><p>Avant de descendre, regardez derrière vous pour ne pas ouvrir la portière devant un cycliste ou un scooter. Quand une rue est à stationnement alterné, on se gare côté impair du 1er au 15 du mois et côté pair du 16 à la fin du mois.</p></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="stationnement.c3.h">4. Les zones bleues et le disque de stationnement</h3>
+          <div data-i18n-html="stationnement.c3.b"><p>Une <strong>zone bleue</strong> est une zone où le stationnement est <span class="fiche-highlight">gratuit mais limité dans le temps</span>. Elle est signalée par un panneau (un P blanc sur fond bleu avec un disque), et un panonceau indique la durée, les jours et les horaires.</p><ul><li>Place le <strong>disque de stationnement européen</strong> derrière le pare-brise, côté trottoir, bien lisible de l'extérieur.</li><li>Règle-le sur ton <strong>heure d'arrivée</strong>, arrondie à la demi-heure supérieure, et ne le modifie pas tant que tu restes garé.</li><li>La durée maximale est fixée par la commune (souvent 1 h 30 ou 2 h). Changer de place dans la même zone pour prolonger est interdit.</li><li>En dehors des jours et horaires indiqués, on se gare en général librement, sans disque.</li><li>Sans disque, avec un disque mal réglé ou en dépassant la durée : <span class="fiche-highlight">35 € d'amende</span>.</li><li>Les personnes handicapées titulaires de la carte de stationnement peuvent en général se garer sans disque, selon les règles locales.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="stationnement.c4.h">5. Arrêt ou stationnement : quelle différence ?</h3>
+          <div data-i18n-html="stationnement.c4.b"><ul><li><strong>L'arrêt</strong> est une immobilisation <span class="fiche-highlight">de courte durée</span> : monter ou descendre des personnes, charger ou décharger. Le conducteur reste à bord ou à proximité immédiate et peut repartir aussitôt.</li><li><strong>Le stationnement</strong> est toute autre immobilisation, notamment quand le conducteur quitte son véhicule ou s'éloigne.</li><li>Un <em>arrêt interdit</em> (par exemple le long d'une ligne jaune continue) est plus strict qu'un <em>stationnement interdit</em> : on ne peut alors même pas s'arrêter un instant.</li><li>Plus de <strong>7 jours</strong> au même endroit : c'est du stationnement abusif (35 €, fourrière possible).</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="stationnement.c5.h">6. Les places réservées aux personnes handicapées</h3>
+          <div data-i18n-html="stationnement.c5.b"><ul><li>Elles sont signalées par le <strong>pictogramme du fauteuil roulant</strong> (panneau et marquage au sol).</li><li>Seuls peuvent s'y garer les titulaires de la <span class="fiche-highlight">carte mobilité inclusion (CMI) avec mention « stationnement »</span>, bien visible derrière le pare-brise.</li><li>Elles sont plus larges pour permettre d'ouvrir complètement les portières et de sortir un fauteuil.</li><li>S'y garer sans droit : <strong>135 €</strong> d'amende et risque de mise en fourrière (stationnement très gênant).</li></ul></div>
+        </div>
+        <div class="section-shell" id="quiz">
+          <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3 data-i18n-html="stationnement.q1.t">Ligne jaune discontinue</h3>
+              <p data-i18n-html="stationnement.q1.q">Une ligne jaune discontinue le long de la chaussée interdit :</p>
+              <div class="sim-actions">
+                <button data-sim="q04_1" data-answer="right" data-i18n-html="stationnement.q1.r">Le stationnement, pas l&#x27;arrêt</button>
+                <button data-sim="q04_1" data-answer="wrong" data-i18n-html="stationnement.q1.w">L&#x27;arrêt et le stationnement</button>
+              </div>
+              <p class="sim-result" id="sim-q04_1"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="stationnement.q2.t">Trottoir</h3>
+              <p data-i18n-html="stationnement.q2.q">Stationner sur le trottoir est :</p>
+              <div class="sim-actions">
+                <button data-sim="q04_2" data-answer="wrong" data-i18n-html="stationnement.q2.w">Autorisé si on laisse passer les piétons</button>
+                <button data-sim="q04_2" data-answer="right" data-i18n-html="stationnement.q2.r">Interdit et très gênant</button>
+              </div>
+              <p class="sim-result" id="sim-q04_2"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="stationnement.q3.t">Stationnement abusif</h3>
+              <p data-i18n-html="stationnement.q3.q">Au même endroit de la voie publique, le stationnement est limité à :</p>
+              <div class="sim-actions">
+                <button data-sim="q04_3" data-answer="right" data-i18n-html="stationnement.q3.r">7 jours consécutifs</button>
+                <button data-sim="q04_3" data-answer="wrong" data-i18n-html="stationnement.q3.w">30 jours</button>
+              </div>
+              <p class="sim-result" id="sim-q04_3"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="stationnement.q4.t">Portière</h3>
+              <p data-i18n-html="stationnement.q4.q">Avant d&#x27;ouvrir la portière, il faut :</p>
+              <div class="sim-actions">
+                <button data-sim="q04_4" data-answer="wrong" data-i18n-html="stationnement.q4.w">Klaxonner</button>
+                <button data-sim="q04_4" data-answer="right" data-i18n-html="stationnement.q4.r">Regarder derrière soi</button>
+              </div>
+              <p class="sim-result" id="sim-q04_4"></p>
+            </article>
+          </div>
+        </div>
+        <section class="fiche-card"><h3 data-i18n-html="ui.3">Questions fréquentes</h3><p><strong data-i18n-html="stationnement.f0.q">Quelle est la différence entre arrêt et stationnement ?</strong><br><span data-i18n-html="stationnement.f0.a">L&#x27;arrêt est de courte durée, le conducteur restant près de son véhicule. Le stationnement est une immobilisation prolongée.</span></p><p><strong data-i18n-html="stationnement.f1.q">Que veut dire une ligne jaune continue ?</strong><br><span data-i18n-html="stationnement.f1.a">Que l&#x27;arrêt et le stationnement sont interdits le long de cette ligne.</span></p><p><strong data-i18n-html="stationnement.f2.q">Combien coûte un stationnement très gênant ?</strong><br><span data-i18n-html="stationnement.f2.a">135 € d&#x27;amende, avec possibilité de fourrière.</span></p></section>
+        <section class="fiche-card"><h3 data-i18n-html="ui.4">À lire aussi</h3><ul><li><a href="intersections-ronds-points.html" data-i18n-html="intersections-ronds-points.h1">Intersections, priorités et ronds-points</a></li><li><a href="permis-a-points.html" data-i18n-html="permis-a-points.h1">Le permis à points : fonctionnement, retrait et récupération</a></li><li><a href="equipements-obligatoires.html" data-i18n-html="equipements-obligatoires.h1">Équipements obligatoires et contrôle technique</a></li></ul></section>
+      </section>
+      <section class="section-shell"><p><a class="button primary" href="examens.html" data-i18n-html="ui.5">S'entraîner avec un examen blanc</a> <a class="button secondary" href="fiches.html" data-i18n-html="ui.6">Toutes les fiches</a></p></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/i18n-pages.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/scenes.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector("#sim-" + button.dataset.sim);
+    const right = button.dataset.answer === "right";
+    const chapter = button.closest(".fiche-chapter");
+    if (target) {
+      target.textContent = right ? t("fiche_feedback_right") : t("fiche_feedback_wrong");
+      target.style.color = right ? "var(--green)" : "var(--red)";
+    }
+    if (chapter && typeof recordQuestionAnswer === "function") recordQuestionAnswer("fiche-" + button.dataset.sim, chapter.dataset.theme, right);
+  });
+});
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+  });
+});
+applyStaticTranslations();
+document.querySelectorAll("[data-scene]").forEach((el) => { if (typeof sceneSvg === "function") el.innerHTML = sceneSvg(el.dataset.scene); });
+</script>
+  </body>
+</html>

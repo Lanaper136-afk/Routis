@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fiches mémo : 90 résumés pour réviser le code de la route | Routis</title>
+    <meta name="description" content="90 fiches mémo courtes pour réviser le code de la route : points clés, à retenir et vrai/faux, classées par thème de l&#x27;examen. Gratuit, en français et en anglais." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/fiches-memo.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Fiches mémo : 90 résumés pour réviser le code de la route | Routis" />
+    <meta property="og:description" content="90 fiches mémo courtes pour réviser le code de la route : points clés, à retenir et vrai/faux, classées par thème de l&#x27;examen. Gratuit, en français et en anglais." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/fiches-memo.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Routis", "item": "https://code-route-gratuit-routis.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Fiches", "item": "https://code-route-gratuit-routis.netlify.app/fiches.html"}, {"@type": "ListItem", "position": 3, "name": "Fiches mémo", "item": "https://code-route-gratuit-routis.netlify.app/fiches-memo.html"}]}</script>
+<style>
+.memo-tools{display:flex;flex-direction:column;gap:12px;margin:0 0 18px}
+.memo-search{width:100%;max-width:520px;padding:12px 14px;border:2px solid var(--line);border-radius:14px;font:inherit;background:#fff}
+.memo-chips{display:flex;flex-wrap:wrap;gap:8px}
+.memo-chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font:inherit;font-weight:800;font-size:.85rem;cursor:pointer}
+.memo-chip[aria-pressed="true"]{background:var(--blue,#1a6ae0);border-color:var(--blue,#1a6ae0);color:#fff}
+.memo-count{font-weight:800;color:var(--muted,#5b6b7e);margin:0 0 10px}
+.memo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px;align-items:start}
+.memo-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;min-width:0}
+.memo-card.is-read{border-color:#2fa866}
+.memo-top{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:8px}
+.memo-theme{font-size:.75rem;font-weight:900;text-transform:uppercase;letter-spacing:.04em;color:var(--muted,#5b6b7e)}
+.memo-num{font-size:.75rem;font-weight:900;background:#eef3fb;border-radius:8px;padding:2px 8px}
+.memo-title{margin:0 0 6px;font-size:1.05rem;line-height:1.25}
+.memo-toggle{width:100%;text-align:left;background:none;border:0;padding:0;font:inherit;cursor:pointer;color:inherit}
+.memo-body{margin-top:10px}
+.memo-body ul{margin:0 0 10px;padding-left:20px}
+.memo-body li{margin-bottom:5px}
+.memo-retenir{background:#fff7da;border-left:5px solid #f6c443;border-radius:10px;padding:10px 12px;font-weight:700;margin:10px 0}
+.memo-quiz{border-top:1px dashed var(--line);padding-top:10px;margin-top:10px}
+.memo-quiz p{margin:0 0 8px;font-weight:700}
+.memo-actions{display:flex;gap:8px}
+.memo-actions button{flex:1;padding:9px 10px;border-radius:12px;border:2px solid var(--line);background:#fff;font:inherit;font-weight:800;cursor:pointer}
+.memo-res{margin:8px 0 0;font-weight:800}
+.memo-read{margin-top:10px;font-size:.85rem;background:none;border:0;color:var(--blue,#1a6ae0);font-weight:800;cursor:pointer;padding:0}
+.memo-empty{padding:24px;text-align:center;font-weight:800}
+</style>
+</head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow"><a href="fiches.html" data-i18n-html="memo.eyebrow">Fiches</a></p>
+        <h1 data-i18n-html="memo.h1">Fiches mémo : 90 résumés pour réviser le code</h1>
+        <p data-i18n-html="memo.intro">Chaque fiche tient en quelques lignes : les points clés, l'essentiel à retenir et un vrai/faux pour vérifier. Classées par thème de l'examen.</p>
+      </section>
+      <section class="section-shell">
+        <div class="memo-tools">
+          <input type="search" id="memo-search" class="memo-search" autocomplete="off">
+          <div class="memo-chips" id="memo-chips" role="group"></div>
+        </div>
+        <p class="memo-count" id="memo-count" aria-live="polite"></p>
+        <div class="memo-grid" id="memo-grid"></div>
+      </section>
+      <section class="section-shell"><p><a class="button primary" href="examens.html" data-i18n-html="ui.5">S'entraîner avec un examen blanc</a> <a class="button secondary" href="fiches.html" data-i18n-html="ui.6">Toutes les fiches</a></p></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/i18n-pages.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/scenes.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector("#sim-" + button.dataset.sim);
+    const right = button.dataset.answer === "right";
+    const chapter = button.closest(".fiche-chapter");
+    if (target) {
+      target.textContent = right ? t("fiche_feedback_right") : t("fiche_feedback_wrong");
+      target.style.color = right ? "var(--green)" : "var(--red)";
+    }
+    if (chapter && typeof recordQuestionAnswer === "function") recordQuestionAnswer("fiche-" + button.dataset.sim, chapter.dataset.theme, right);
+  });
+});
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+  });
+});
+applyStaticTranslations();
+document.querySelectorAll("[data-scene]").forEach((el) => { if (typeof sceneSvg === "function") el.innerHTML = sceneSvg(el.dataset.scene); });
+</script>
+  <script src="assets/memos-data.js"></script>
+<script>
+(function(){
+  var UI={fr:{search:"Rechercher une fiche (ex. : alcool, STOP, airbag)…",all:"Toutes",count:"{n} fiche(s)",retenir:"À retenir",right:"Vrai",wrong:"Faux",ok:"Bonne réponse !",ko:"Pas tout à fait.",read:"Marquer comme lue",unread:"Lue ✓ (retirer)",empty:"Aucune fiche ne correspond.",num:"Fiche"},
+          en:{search:"Search a sheet (e.g. alcohol, STOP, airbag)…",all:"All",count:"{n} sheet(s)",retenir:"Remember",right:"True",wrong:"False",ok:"Correct!",ko:"Not quite.",read:"Mark as read",unread:"Read ✓ (undo)",empty:"No sheet matches.",num:"Sheet"}};
+  var THEMES=["conducteur","circulation","route","usagers","reglementation","environnement","notions","securite_passagers","prendre_quitter","equipements","secours"];
+  var state={theme:"all",q:"",open:{}};
+  function L(){return getLang()==="en"?1:0;}
+  function U(){return UI[getLang()==="en"?"en":"fr"];}
+  function readSet(){try{return JSON.parse(localStorage.getItem("memoRead")||"{}");}catch(e){return {};}}
+  function saveRead(o){try{localStorage.setItem("memoRead",JSON.stringify(o));}catch(e){}}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function norm(s){return String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");}
+  function themeLabel(th){return t("theme_"+th);}
+  function chips(){
+    var box=document.getElementById("memo-chips"); var u=U();
+    var h='<button type="button" class="memo-chip" data-th="all" aria-pressed="'+(state.theme==="all")+'">'+esc(u.all)+'</button>';
+    THEMES.forEach(function(th){h+='<button type="button" class="memo-chip" data-th="'+th+'" aria-pressed="'+(state.theme===th)+'">'+esc(themeLabel(th))+'</button>';});
+    box.innerHTML=h;
+    box.querySelectorAll(".memo-chip").forEach(function(b){b.addEventListener("click",function(){state.theme=b.dataset.th;chips();render();});});
+  }
+  function card(f,idx,read){
+    var l=L(),u=U(),open=!!state.open[f.id];
+    var h='<article class="memo-card'+(read[f.id]?' is-read':'')+'" id="'+f.id+'" data-id="'+f.id+'">';
+    h+='<div class="memo-top"><span class="memo-theme">'+esc(themeLabel(f.th))+'</span><span class="memo-num">'+esc(u.num)+' '+(idx)+'</span></div>';
+    h+='<button type="button" class="memo-toggle" aria-expanded="'+open+'" data-toggle="'+f.id+'"><h3 class="memo-title">'+esc(f.t[l])+(read[f.id]?' ✓':'')+'</h3></button>';
+    if(open){
+      h+='<div class="memo-body"><ul>'+f.p[l].map(function(x){return '<li>'+esc(x)+'</li>';}).join('')+'</ul>';
+      h+='<div class="memo-retenir"><strong>'+esc(u.retenir)+' :</strong> '+esc(f.r[l])+'</div>';
+      h+='<div class="memo-quiz"><p>'+esc(f.q[l])+'</p><div class="memo-actions"><button type="button" data-ans="true" data-id="'+f.id+'">'+esc(u.right)+'</button><button type="button" data-ans="false" data-id="'+f.id+'">'+esc(u.wrong)+'</button></div><p class="memo-res" id="res-'+f.id+'" aria-live="polite"></p></div>';
+      h+='<button type="button" class="memo-read" data-read="'+f.id+'">'+esc(read[f.id]?u.unread:u.read)+'</button></div>';
+    }
+    return h+'</article>';
+  }
+  function render(){
+    var u=U(), read=readSet(), q=norm(state.q), l=L();
+    var list=memoFiches.map(function(f,i){return {f:f,n:i+1};}).filter(function(o){
+      if(state.theme!=="all"&&o.f.th!==state.theme)return false;
+      if(!q)return true;
+      var hay=norm(o.f.t[l]+" "+o.f.p[l].join(" ")+" "+o.f.r[l]);
+      return hay.indexOf(q)!==-1;
+    });
+    document.getElementById("memo-count").textContent=u.count.replace("{n}",list.length);
+    var grid=document.getElementById("memo-grid");
+    grid.innerHTML=list.length?list.map(function(o){return card(o.f,o.n,read);}).join(''):'<p class="memo-empty">'+esc(u.empty)+'</p>';
+    document.getElementById("memo-search").placeholder=u.search;
+    grid.querySelectorAll("[data-toggle]").forEach(function(b){b.addEventListener("click",function(){var id=b.dataset.toggle;state.open[id]=!state.open[id];render();var el=document.getElementById(id);if(el&&state.open[id]&&el.scrollIntoView)el.scrollIntoView({block:"nearest"});});});
+    grid.querySelectorAll("[data-ans]").forEach(function(b){b.addEventListener("click",function(){
+      var f=memoFiches.filter(function(x){return x.id===b.dataset.id;})[0]; var right=(b.dataset.ans==="true")===f.a; var uu=U();
+      var res=document.getElementById("res-"+f.id);
+      res.textContent=(right?uu.ok:uu.ko)+" "+f.e[L()]; res.style.color=right?"var(--green)":"var(--red)";
+      if(typeof recordQuestionAnswer==="function")recordQuestionAnswer("memo-"+f.id,f.th,right);
+    });});
+    grid.querySelectorAll("[data-read]").forEach(function(b){b.addEventListener("click",function(){var r=readSet();var id=b.dataset.read;if(r[id])delete r[id];else r[id]=1;saveRead(r);render();});});
+  }
+  document.getElementById("memo-search").addEventListener("input",function(e){state.q=e.target.value;render();});
+  document.querySelectorAll(".lang-option").forEach(function(btn){btn.addEventListener("click",function(){setTimeout(function(){chips();render();},0);});});
+  if(location.hash){var id=location.hash.slice(1);if(/^m\d\d$/.test(id))state.open[id]=true;}
+  chips();render();
+  if(location.hash){var el=document.getElementById(location.hash.slice(1));if(el&&el.scrollIntoView)el.scrollIntoView();}
+})();
+</script>
+</body>
+</html>
