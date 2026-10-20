@@ -1,53 +1,43 @@
 const signs = [
   {
-    id: "a1",
-    family: "danger",
-    code: "A1",
-    name: "Virage dangereux",
-    icon: "curve",
-    text: "Annonce un virage ou une succession de virages ou la trajectoire peut surprendre.",
-    tips: ["Ralentis avant le virage.", "Garde ta voie et evite de freiner fort en plein virage."],
-    en: { name: "Dangerous bend", text: "Warns of a bend or a series of bends where the road may catch you off guard.", tips: ["Slow down before the bend.", "Hold your line and avoid braking hard mid-bend."] }
-  },
-  {
     id: "a2",
     family: "danger",
-    code: "A2",
-    name: "Cassis ou dos-d'ane",
+    code: "A2a",
+    name: "Cassis ou dos-d'âne",
     icon: "bump",
-    text: "Previent d'une deformation importante de la chaussee.",
-    tips: ["Reduis l'allure.", "Tiens compte des deux-roues et des pietons proches."],
-    en: { name: "Speed bump", text: "Warns of a significant dip or bump in the road surface.", tips: ["Slow down.", "Watch for nearby cyclists and pedestrians."] }
+    text: "Prévient d'une déformation importante de la chaussée.",
+    tips: ["Réduis l'allure.","Tiens compte des deux-roues et des piétons proches."],
+    en: {"name":"Speed bump","text":"Warns of a significant dip or bump in the road surface.","tips":["Slow down.","Watch for nearby cyclists and pedestrians."]}
   },
   {
     id: "a3",
     family: "danger",
     code: "A3",
-    name: "Chaussee retrecie",
+    name: "Chaussée rétrécie",
     icon: "narrow",
-    text: "La route devient moins large. Les croisements peuvent etre plus delicats.",
-    tips: ["Anticipe le placement.", "Cede si un obstacle est de ton cote."],
-    en: { name: "Road narrows", text: "The road becomes narrower. Passing oncoming traffic may be tighter.", tips: ["Plan your positioning ahead.", "Give way if there's an obstacle on your side."] }
+    text: "La route devient moins large. Les croisements peuvent être plus délicats.",
+    tips: ["Anticipe le placement.","Cède si un obstacle est de ton côté."],
+    en: {"name":"Road narrows","text":"The road becomes narrower. Passing oncoming traffic may be tighter.","tips":["Plan your positioning ahead.","Give way if there's an obstacle on your side."]}
   },
   {
     id: "a4",
     family: "danger",
     code: "A4",
-    name: "Chaussee glissante",
+    name: "Chaussée glissante",
     icon: "skid",
-    text: "Risque de perte d'adherence, notamment par pluie, verglas, feuilles ou gravillons.",
-    tips: ["Augmente les distances.", "Freine doucement et evite les gestes brusques."],
-    en: { name: "Slippery road", text: "Risk of losing grip, especially in rain, ice, leaves or gravel.", tips: ["Increase following distances.", "Brake gently and avoid sudden moves."] }
+    text: "Risque de perte d'adhérence, notamment par pluie, verglas, feuilles ou gravillons.",
+    tips: ["Augmente les distances.","Freine doucement et évite les gestes brusques."],
+    en: {"name":"Slippery road","text":"Risk of losing grip, especially in rain, ice, leaves or gravel.","tips":["Increase following distances.","Brake gently and avoid sudden moves."]}
   },
   {
     id: "a13",
     family: "danger",
-    code: "A13",
-    name: "Passage pour pietons",
+    code: "A13b",
+    name: "Passage pour piétons",
     icon: "pedestrian",
-    text: "Annonce un passage pour pietons ou une zone ou ils peuvent traverser.",
-    tips: ["Sois pret a t'arreter.", "Ne double pas a l'approche du passage."],
-    en: { name: "Pedestrian crossing", text: "Warns of a pedestrian crossing or an area where people may cross.", tips: ["Be ready to stop.", "Don't overtake when approaching the crossing."] }
+    text: "Annonce un passage pour piétons ou une zone où ils peuvent traverser.",
+    tips: ["Sois prêt à t'arrêter.","Ne double pas à l'approche du passage."],
+    en: {"name":"Pedestrian crossing","text":"Warns of a pedestrian crossing or an area where people may cross.","tips":["Be ready to stop.","Don't overtake when approaching the crossing."]}
   },
   {
     id: "a14",
@@ -55,19 +45,19 @@ const signs = [
     code: "A14",
     name: "Autres dangers",
     icon: "bang",
-    text: "Signale un danger particulier precise par un panonceau ou par le contexte.",
-    tips: ["Ralentis et cherche l'indice.", "Lis le panonceau quand il existe."],
-    en: { name: "Other dangers", text: "Signals a specific hazard, detailed by a supplementary panel or context.", tips: ["Slow down and look for the clue.", "Read the supplementary panel if there is one."] }
+    text: "Signale un danger particulier précisé par un panonceau ou par le contexte.",
+    tips: ["Ralentis et cherche l'indice.","Lis le panonceau quand il existe."],
+    en: {"name":"Other dangers","text":"Signals a specific hazard, detailed by a supplementary panel or context.","tips":["Slow down and look for the clue.","Read the supplementary panel if there is one."]}
   },
   {
     id: "a15",
     family: "danger",
-    code: "A15",
+    code: "A15b",
     name: "Animaux sauvages",
     icon: "animal",
-    text: "Risque de traversees d'animaux, surtout la nuit ou pres des bois.",
-    tips: ["Reduis l'allure.", "Ne donne pas de coup de volant brutal."],
-    en: { name: "Wild animals", text: "Risk of animals crossing, especially at night or near woodland.", tips: ["Slow down.", "Avoid sudden steering movements."] }
+    text: "Risque de traversées d'animaux, surtout la nuit ou près des bois.",
+    tips: ["Réduis l'allure.","Ne donne pas de coup de volant brutal."],
+    en: {"name":"Wild animals","text":"Risk of animals crossing, especially at night or near woodland.","tips":["Slow down.","Avoid sudden steering movements."]}
   },
   {
     id: "a16",
@@ -75,19 +65,19 @@ const signs = [
     code: "A16",
     name: "Descente dangereuse",
     icon: "slope",
-    text: "La pente impose de maitriser la vitesse et les distances.",
-    tips: ["Utilise le frein moteur.", "Evite de maintenir le pied sur le frein trop longtemps."],
-    en: { name: "Steep descent", text: "The slope requires controlling your speed and following distance.", tips: ["Use engine braking.", "Avoid keeping your foot on the brake too long."] }
+    text: "La pente impose de maîtriser la vitesse et les distances.",
+    tips: ["Utilise le frein moteur.","Évite de maintenir le pied sur le frein trop longtemps."],
+    en: {"name":"Steep descent","text":"The slope requires controlling your speed and following distance.","tips":["Use engine braking.","Avoid keeping your foot on the brake too long."]}
   },
   {
     id: "ab3a",
     family: "priorite",
     code: "AB3a",
-    name: "Cedez le passage",
+    name: "Cédez le passage",
     icon: "yield",
-    text: "Tu dois laisser passer les usagers de la route rencontree, sans arret obligatoire si la voie est libre.",
-    tips: ["Regarde loin a gauche et a droite.", "Arrete-toi si la visibilite ou le trafic l'exige."],
-    en: { name: "Yield", text: "You must let traffic on the road ahead pass; no full stop required if the way is clear.", tips: ["Look well to the left and right.", "Stop if visibility or traffic requires it."] }
+    text: "Tu dois laisser passer les usagers de la route rencontrée, sans arrêt obligatoire si la voie est libre.",
+    tips: ["Regarde loin à gauche et à droite.","Arrête-toi si la visibilité ou le trafic l'exige."],
+    en: {"name":"Yield","text":"You must let traffic on the road ahead pass; no full stop required if the way is clear.","tips":["Look well to the left and right.","Stop if visibility or traffic requires it."]}
   },
   {
     id: "ab4",
@@ -95,9 +85,9 @@ const signs = [
     code: "AB4",
     name: "Stop",
     icon: "stop",
-    text: "Arret complet obligatoire a la ligne, puis tu cedes le passage.",
-    tips: ["Les roues doivent s'immobiliser.", "Repars seulement quand la voie est libre."],
-    en: { name: "Stop", text: "Full stop required at the line, then yield the right of way.", tips: ["Your wheels must come to a complete stop.", "Only move off once the way is clear."] }
+    text: "Arrêt complet obligatoire à la ligne, puis tu cèdes le passage.",
+    tips: ["Les roues doivent s'immobiliser.","Repars seulement quand la voie est libre."],
+    en: {"name":"Stop","text":"Full stop required at the line, then yield the right of way.","tips":["Your wheels must come to a complete stop.","Only move off once the way is clear."]}
   },
   {
     id: "ab6",
@@ -105,9 +95,9 @@ const signs = [
     code: "AB6",
     name: "Route prioritaire",
     icon: "priority",
-    text: "Tu circules sur une route a caractere prioritaire jusqu'au panneau de fin.",
-    tips: ["Reste vigilant aux erreurs des autres.", "La priorite ne dispense pas d'adapter l'allure."],
-    en: { name: "Priority road", text: "You are on a priority road until the end-of-priority sign.", tips: ["Stay alert to other drivers' mistakes.", "Priority doesn't excuse not adapting your speed."] }
+    text: "Tu circules sur une route à caractère prioritaire jusqu'au panneau de fin.",
+    tips: ["Reste vigilant aux erreurs des autres.","La priorité ne dispense pas d'adapter l'allure."],
+    en: {"name":"Priority road","text":"You are on a priority road until the end-of-priority sign.","tips":["Stay alert to other drivers' mistakes.","Priority doesn't excuse not adapting your speed."]}
   },
   {
     id: "ab7",
@@ -115,19 +105,19 @@ const signs = [
     code: "AB7",
     name: "Fin de route prioritaire",
     icon: "priority-end",
-    text: "La route perd son caractere prioritaire. Les regles locales reprennent.",
-    tips: ["Cherche les panneaux suivants.", "Prepare-toi a une priorite a droite."],
-    en: { name: "End of priority road", text: "The road loses its priority status. Local right-of-way rules resume.", tips: ["Watch for the next signs.", "Be ready for priority-to-the-right rules."] }
+    text: "La route perd son caractère prioritaire. Les règles locales reprennent.",
+    tips: ["Cherche les panneaux suivants.","Prépare-toi à une priorité à droite."],
+    en: {"name":"End of priority road","text":"The road loses its priority status. Local right-of-way rules resume.","tips":["Watch for the next signs.","Be ready for priority-to-the-right rules."]}
   },
   {
     id: "ab25",
     family: "priorite",
     code: "AB25",
-    name: "Carrefour a sens giratoire",
+    name: "Carrefour à sens giratoire",
     icon: "roundabout",
-    text: "Annonce un giratoire ou les usagers deja engages sont prioritaires.",
-    tips: ["Cede aux vehicules dans l'anneau.", "Indique ta sortie avec le clignotant."],
-    en: { name: "Roundabout ahead", text: "Warns of a roundabout where traffic already inside has priority.", tips: ["Yield to vehicles already in the roundabout.", "Signal your exit with your indicator."] }
+    text: "Annonce un carrefour à sens giratoire. À l'entrée, tu cèdes le passage aux usagers déjà engagés dans l'anneau.",
+    tips: ["Cède aux véhicules dans l'anneau.","Indique ta sortie avec le clignotant."],
+    en: {"name":"Roundabout ahead","text":"Announces a roundabout. At the entrance, you yield to traffic already inside the roundabout.","tips":["Yield to vehicles already in the roundabout.","Signal your exit with your indicator."]}
   },
   {
     id: "b0",
@@ -135,9 +125,9 @@ const signs = [
     code: "B0",
     name: "Circulation interdite",
     icon: "no-entry-all",
-    text: "Aucun vehicule ne peut s'engager dans cette voie, sauf exception indiquee.",
-    tips: ["Ne confonds pas avec sens interdit.", "Verifie les panonceaux d'exemption."],
-    en: { name: "No vehicles", text: "No vehicle may enter this road, except where an exemption is indicated.", tips: ["Don't confuse with a simple no-entry sign.", "Check for exemption plates."] }
+    text: "Aucun véhicule ne peut s'engager dans cette voie, sauf exception indiquée.",
+    tips: ["Ne confonds pas avec sens interdit.","Vérifie les panonceaux d'exemption."],
+    en: {"name":"No vehicles","text":"No vehicle may enter this road, except where an exemption is indicated.","tips":["Don't confuse with a simple no-entry sign.","Check for exemption plates."]}
   },
   {
     id: "b1",
@@ -146,38 +136,38 @@ const signs = [
     name: "Sens interdit",
     icon: "no-entry",
     text: "Interdit de prendre cette voie dans ce sens.",
-    tips: ["Demi-tour ou autre itineraire.", "Attention aux rues a double-sens cyclable indiquees."],
-    en: { name: "No entry", text: "Forbidden to enter this road in this direction.", tips: ["Turn around or take another route.", "Watch for streets with a marked two-way cycle lane."] }
+    tips: ["Demi-tour ou autre itinéraire.","Attention aux rues à double-sens cyclable indiquées."],
+    en: {"name":"No entry","text":"Forbidden to enter this road in this direction.","tips":["Turn around or take another route.","Watch for streets with a marked two-way cycle lane."]}
   },
   {
     id: "b3",
     family: "interdiction",
     code: "B3",
-    name: "Interdiction de depasser",
+    name: "Interdiction de dépasser",
     icon: "no-overtake",
-    text: "Il est interdit de depasser les vehicules a moteur autres que deux-roues sans side-car.",
-    tips: ["Attends la fin d'interdiction.", "Garde une distance suffisante avec le vehicule lent."],
-    en: { name: "No overtaking", text: "Forbidden to overtake motor vehicles other than two-wheelers without a sidecar.", tips: ["Wait for the end-of-restriction sign.", "Keep a safe distance from the slow vehicle."] }
+    text: "Il est interdit de dépasser les véhicules à moteur autres que deux-roues sans side-car.",
+    tips: ["Attends la fin d'interdiction.","Garde une distance suffisante avec le véhicule lent."],
+    en: {"name":"No overtaking","text":"Forbidden to overtake motor vehicles other than two-wheelers without a sidecar.","tips":["Wait for the end-of-restriction sign.","Keep a safe distance from the slow vehicle."]}
   },
   {
     id: "b7b",
     family: "interdiction",
     code: "B7b",
-    name: "Acces interdit aux vehicules a moteur",
+    name: "Accès interdit aux véhicules à moteur",
     icon: "no-car",
-    text: "Les vehicules motorises ne peuvent pas entrer dans cette zone.",
-    tips: ["Les cycles peuvent parfois etre autorises.", "Lis les panonceaux."],
-    en: { name: "No motor vehicles", text: "Motor vehicles may not enter this area.", tips: ["Cycles may sometimes be allowed.", "Read any supplementary panels."] }
+    text: "Les véhicules motorisés ne peuvent pas entrer dans cette zone.",
+    tips: ["Les cycles peuvent parfois être autorisés.","Lis les panonceaux."],
+    en: {"name":"No motor vehicles","text":"Motor vehicles may not enter this area.","tips":["Cycles may sometimes be allowed.","Read any supplementary panels."]}
   },
   {
     id: "b9a",
     family: "interdiction",
     code: "B9a",
-    name: "Acces interdit aux pietons",
+    name: "Accès interdit aux piétons",
     icon: "no-pedestrian",
-    text: "Les pietons ne doivent pas emprunter cet acces.",
-    tips: ["Cherche un trottoir ou passage autorise.", "Frequent sur voies rapides et ouvrages dangereux."],
-    en: { name: "No pedestrians", text: "Pedestrians must not use this access.", tips: ["Look for an authorised pavement or crossing.", "Common on expressways and hazardous structures."] }
+    text: "Les piétons ne doivent pas emprunter cet accès.",
+    tips: ["Cherche un trottoir ou passage autorisé.","Fréquent sur voies rapides et ouvrages dangereux."],
+    en: {"name":"No pedestrians","text":"Pedestrians must not use this access.","tips":["Look for an authorised pavement or crossing.","Common on expressways and hazardous structures."]}
   },
   {
     id: "b14",
@@ -185,19 +175,19 @@ const signs = [
     code: "B14",
     name: "Limitation de vitesse",
     icon: "speed50",
-    text: "Vitesse maximale autorisee a partir du panneau, sauf fin ou nouvelle limite.",
-    tips: ["Adapte aussi aux conditions meteo.", "Une limite n'est pas une vitesse conseillee."],
-    en: { name: "Speed limit", text: "Maximum speed allowed from this point, until cancelled or a new limit appears.", tips: ["Also adapt to weather conditions.", "A limit is not a recommended speed."] }
+    text: "Vitesse maximale autorisée à partir du panneau, sauf fin ou nouvelle limite.",
+    tips: ["Adapte aussi aux conditions météo.","Une limite n'est pas une vitesse conseillée."],
+    en: {"name":"Speed limit","text":"Maximum speed allowed from this point, until cancelled or a new limit appears.","tips":["Also adapt to weather conditions.","A limit is not a recommended speed."]}
   },
   {
     id: "b15",
     family: "interdiction",
     code: "B15",
-    name: "Cedez le passage a la circulation venant en sens inverse",
+    name: "Cédez le passage à la circulation venant en sens inverse",
     icon: "priority-opposite",
-    text: "Dans un passage etroit, les vehicules venant d'en face passent avant toi.",
-    tips: ["Ralentis avant l'etranglement.", "Engage-toi seulement si le passage est libre."],
-    en: { name: "Give way to oncoming traffic", text: "In a narrow passage, oncoming vehicles go through before you.", tips: ["Slow down before the narrow section.", "Only proceed once the passage is clear."] }
+    text: "Dans un passage étroit, les véhicules venant d'en face passent avant toi.",
+    tips: ["Ralentis avant l'étranglement.","Engage-toi seulement si le passage est libre."],
+    en: {"name":"Give way to oncoming traffic","text":"In a narrow passage, oncoming vehicles go through before you.","tips":["Slow down before the narrow section.","Only proceed once the passage is clear."]}
   },
   {
     id: "b30",
@@ -205,9 +195,9 @@ const signs = [
     code: "B30",
     name: "Zone 30",
     icon: "zone30",
-    text: "Debut d'une zone ou la vitesse est limitee a 30 km/h.",
-    tips: ["Attends-toi a des pietons et cyclistes.", "La zone continue jusqu'au panneau de fin."],
-    en: { name: "30 zone", text: "Start of an area where speed is limited to 30 km/h.", tips: ["Expect pedestrians and cyclists.", "The zone continues until the end-of-zone sign."] }
+    text: "Début d'une zone où la vitesse est limitée à 30 km/h.",
+    tips: ["Attends-toi à des piétons et cyclistes.","La zone continue jusqu'au panneau de fin."],
+    en: {"name":"30 zone","text":"Start of an area where speed is limited to 30 km/h.","tips":["Expect pedestrians and cyclists.","The zone continues until the end-of-zone sign."]}
   },
   {
     id: "b6a1",
@@ -215,9 +205,9 @@ const signs = [
     code: "B6a1",
     name: "Stationnement interdit",
     icon: "no-parking",
-    text: "Interdit de stationner, mais l'arret bref peut rester possible selon le contexte.",
-    tips: ["Regarde les dates et horaires.", "Ne gene jamais la circulation ou la visibilite."],
-    en: { name: "No parking", text: "Parking is forbidden, though a brief stop may still be allowed depending on context.", tips: ["Check dates and times.", "Never block traffic or visibility."] }
+    text: "Interdit de stationner, mais l'arrêt bref peut rester possible selon le contexte.",
+    tips: ["Regarde les dates et horaires.","Ne gêne jamais la circulation ou la visibilité."],
+    en: {"name":"No parking","text":"Parking is forbidden, though a brief stop may still be allowed depending on context.","tips":["Check dates and times.","Never block traffic or visibility."]}
   },
   {
     id: "b22a",
@@ -225,49 +215,39 @@ const signs = [
     code: "B22a",
     name: "Piste cyclable obligatoire",
     icon: "bike",
-    text: "Les cyclistes doivent utiliser l'amenagement signale.",
-    tips: ["Respecte la separation des usagers.", "En voiture, ne stationne pas sur la piste."],
-    en: { name: "Mandatory cycle path", text: "Cyclists must use the marked facility.", tips: ["Respect the separation between users.", "If driving, never park on the cycle path."] }
-  },
-  {
-    id: "b21",
-    family: "obligation",
-    code: "B21",
-    name: "Direction obligatoire",
-    icon: "arrow",
-    text: "Tu dois suivre la direction indiquee par la fleche.",
-    tips: ["Anticipe ton placement.", "Ne change pas de direction au dernier moment."],
-    en: { name: "Mandatory direction", text: "You must follow the direction shown by the arrow.", tips: ["Plan your positioning ahead.", "Don't change direction at the last moment."] }
+    text: "Les cyclistes doivent utiliser l'aménagement signalé.",
+    tips: ["Respecte la séparation des usagers.","En voiture, ne stationne pas sur la piste."],
+    en: {"name":"Mandatory cycle path","text":"Cyclists must use the marked facility.","tips":["Respect the separation between users.","If driving, never park on the cycle path."]}
   },
   {
     id: "b26",
     family: "obligation",
     code: "B26",
-    name: "Chaines a neige obligatoires",
-    icon: "snow",
-    text: "Les equipements specifiques sont obligatoires sur la section signalee.",
-    tips: ["Equipe-toi avant d'etre bloque.", "Respecte la signalisation temporaire en montagne."],
-    en: { name: "Snow chains required", text: "Specific equipment is mandatory on the signed section.", tips: ["Fit your equipment before you get stuck.", "Follow temporary signage in mountain areas."] }
+    name: "Chaînes à neige obligatoires",
+    icon: "chains",
+    text: "Les équipements spécifiques sont obligatoires sur la section signalée.",
+    tips: ["Équipe-toi avant d'être bloqué.","Respecte la signalisation temporaire en montagne."],
+    en: {"name":"Snow chains required","text":"Specific equipment is mandatory on the signed section.","tips":["Fit your equipment before you get stuck.","Follow temporary signage in mountain areas."]}
   },
   {
     id: "b27",
     family: "obligation",
-    code: "B27",
+    code: "B25",
     name: "Vitesse minimale obligatoire",
     icon: "min-speed",
-    text: "Tu dois circuler au moins a la vitesse indiquee si les conditions le permettent.",
-    tips: ["Ne force pas si la securite impose moins.", "Frequent sur certaines voies rapides."],
-    en: { name: "Minimum speed required", text: "You must drive at least at the indicated speed if conditions allow.", tips: ["Don't force it if safety requires less.", "Common on certain expressways."] }
+    text: "Tu dois circuler au moins à la vitesse indiquée si les conditions le permettent.",
+    tips: ["Ne force pas si la sécurité impose moins.","Fréquent sur certaines voies rapides."],
+    en: {"name":"Minimum speed required","text":"You must drive at least at the indicated speed if conditions allow.","tips":["Don't force it if safety requires less.","Common on certain expressways."]}
   },
   {
     id: "c1",
     family: "indication",
-    code: "C1",
+    code: "C1a",
     name: "Parking",
     icon: "parking",
-    text: "Indique un lieu amenage pour le stationnement.",
-    tips: ["Verifie gratuit, payant ou disque.", "Respecte les emplacements reserves."],
-    en: { name: "Parking", text: "Indicates a place set up for parking.", tips: ["Check if it's free, paid, or disc parking.", "Respect reserved spaces."] }
+    text: "Indique un lieu aménagé pour le stationnement.",
+    tips: ["Vérifie gratuit, payant ou disque.","Respecte les emplacements réservés."],
+    en: {"name":"Parking","text":"Indicates a place set up for parking.","tips":["Check if it's free, paid, or disc parking.","Respect reserved spaces."]}
   },
   {
     id: "c5",
@@ -275,49 +255,49 @@ const signs = [
     code: "C5",
     name: "Station de taxis",
     icon: "taxi",
-    text: "Signale un emplacement reserve aux taxis.",
-    tips: ["Ne t'y arretes pas en stationnement.", "Laisse l'acces libre."],
-    en: { name: "Taxi rank", text: "Signals a spot reserved for taxis.", tips: ["Don't park there yourself.", "Keep the access clear."] }
+    text: "Signale un emplacement réservé aux taxis.",
+    tips: ["Ne t'y arrêtes pas en stationnement.","Laisse l'accès libre."],
+    en: {"name":"Taxi rank","text":"Signals a spot reserved for taxis.","tips":["Don't park there yourself.","Keep the access clear."]}
   },
   {
     id: "c12",
     family: "indication",
     code: "C12",
-    name: "Circulation a sens unique",
+    name: "Circulation à sens unique",
     icon: "one-way",
-    text: "La circulation se fait dans un seul sens sur la voie indiquee.",
-    tips: ["Controle les cyclistes si un panonceau les autorise en sens inverse.", "Place-toi selon ta direction."],
-    en: { name: "One-way traffic", text: "Traffic flows in a single direction on the indicated road.", tips: ["Watch for cyclists if a panel allows contraflow.", "Position yourself according to your direction."] }
+    text: "La circulation se fait dans un seul sens sur la voie indiquée.",
+    tips: ["Contrôle les cyclistes si un panonceau les autorisé en sens inverse.","Place-toi selon ta direction."],
+    en: {"name":"One-way traffic","text":"Traffic flows in a single direction on the indicated road.","tips":["Watch for cyclists if a panel allows contraflow.","Position yourself according to your direction."]}
   },
   {
     id: "c20a",
     family: "indication",
     code: "C20a",
-    name: "Passage pour pietons",
+    name: "Passage pour piétons",
     icon: "crosswalk",
-    text: "Indique la position d'un passage pour pietons.",
-    tips: ["Ralentis a l'approche.", "Cede le passage aux pietons engages ou manifestant l'intention."],
-    en: { name: "Pedestrian crossing", text: "Indicates the location of a pedestrian crossing.", tips: ["Slow down on approach.", "Give way to pedestrians crossing or about to cross."] }
+    text: "Indique la position d'un passage pour piétons.",
+    tips: ["Ralentis à l'approche.","Cède le passage aux piétons engagés ou manifestant l'intention."],
+    en: {"name":"Pedestrian crossing","text":"Indicates the location of a pedestrian crossing.","tips":["Slow down on approach.","Give way to pedestrians crossing or about to cross."]}
   },
   {
     id: "c24a",
     family: "indication",
     code: "C24a",
-    name: "Voie reservee",
+    name: "Voie réservée",
     icon: "bus",
-    text: "Indique une voie reservee a certains vehicules, souvent bus ou taxis.",
-    tips: ["Lis le pictogramme.", "Ne l'emprunte pas si tu n'es pas autorise."],
-    en: { name: "Reserved lane", text: "Indicates a lane reserved for certain vehicles, often buses or taxis.", tips: ["Read the pictogram.", "Don't use it unless you're authorised."] }
+    text: "Indique une voie réservée à certains véhicules, souvent bus ou taxis.",
+    tips: ["Lis le pictogramme.","Ne l'emprunte pas si tu n'es pas autorisé."],
+    en: {"name":"Reserved lane","text":"Indicates a lane reserved for certain vehicles, often buses or taxis.","tips":["Read the pictogram.","Don't use it unless you're authorised."]}
   },
   {
     id: "c27",
     family: "indication",
     code: "C27",
-    name: "Surelevation de chaussee",
+    name: "Surélévation de chaussée",
     icon: "platform",
-    text: "Indique un ralentisseur, plateau ou surelevation.",
-    tips: ["Ralentis franchement.", "Sois attentif aux pietons a proximite."],
-    en: { name: "Raised road surface", text: "Indicates a speed bump, raised table, or platform.", tips: ["Slow down significantly.", "Watch for nearby pedestrians."] }
+    text: "Indique un ralentisseur, plateau ou surélévation.",
+    tips: ["Ralentis franchement.","Sois attentif aux piétons à proximité."],
+    en: {"name":"Raised road surface","text":"Indicates a speed bump, raised table, or platform.","tips":["Slow down significantly.","Watch for nearby pedestrians."]}
   },
   {
     id: "ce1",
@@ -326,8 +306,8 @@ const signs = [
     name: "Poste de secours",
     icon: "first-aid",
     text: "Indique un service de secours ou de premiers soins.",
-    tips: ["Utile sur autoroute et lieux isoles.", "Ne confonds pas avec hopital."],
-    en: { name: "First aid post", text: "Indicates an emergency or first-aid service.", tips: ["Useful on motorways and remote areas.", "Don't confuse with a hospital."] }
+    tips: ["Utile sur autoroute et lieux isolés.","Ne confonds pas avec hôpital."],
+    en: {"name":"First aid post","text":"Indicates an emergency or first-aid service.","tips":["Useful on motorways and remote areas.","Don't confuse with a hospital."]}
   },
   {
     id: "ce15a",
@@ -336,8 +316,8 @@ const signs = [
     name: "Station-service",
     icon: "fuel",
     text: "Annonce une station-service ou une aire avec carburant.",
-    tips: ["Sur autoroute, anticipe l'autonomie.", "Certains panneaux precisent les energies disponibles."],
-    en: { name: "Service station", text: "Announces a service station or fuel stop.", tips: ["On motorways, plan your fuel range ahead.", "Some signs specify available fuel types."] }
+    tips: ["Sur autoroute, anticipe l'autonomie.","Certains panneaux précisent les énergies disponibles."],
+    en: {"name":"Service station","text":"Announces a service station or fuel stop.","tips":["On motorways, plan your fuel range ahead.","Some signs specify available fuel types."]}
   },
   {
     id: "ce16",
@@ -346,18 +326,18 @@ const signs = [
     name: "Restaurant",
     icon: "food",
     text: "Signale un restaurant ou un point de restauration.",
-    tips: ["Souvent accompagne de distances.", "Sur aire, regarde aussi les services associes."],
-    en: { name: "Restaurant", text: "Signals a restaurant or food service.", tips: ["Often shown with distances.", "At a rest area, check for other services too."] }
+    tips: ["Souvent accompagné de distances.","Sur aire, regarde aussi les services associés."],
+    en: {"name":"Restaurant","text":"Signals a restaurant or food service.","tips":["Often shown with distances.","At a rest area, check for other services too."]}
   },
   {
     id: "ce30",
     family: "services",
-    code: "CE30",
-    name: "Recharge vehicule electrique",
+    code: "CE15",
+    name: "Recharge véhicule électrique",
     icon: "charge",
-    text: "Indique un point de recharge pour vehicules electriques.",
-    tips: ["Verifie la puissance et la disponibilite.", "Planifie les arrets sur long trajet."],
-    en: { name: "EV charging point", text: "Indicates an electric vehicle charging point.", tips: ["Check power output and availability.", "Plan stops ahead on long journeys."] }
+    text: "Indique un point de recharge pour véhicules électriques.",
+    tips: ["Vérifie la puissance et la disponibilité.","Planifie les arrêts sur long trajet."],
+    en: {"name":"EV charging point","text":"Indicates an electric vehicle charging point.","tips":["Check power output and availability.","Plan stops ahead on long journeys."]}
   },
   {
     id: "a17",
@@ -365,329 +345,259 @@ const signs = [
     code: "A17",
     name: "Feux tricolores",
     icon: "traffic-light",
-    text: "Annonce des feux tricolores qui peuvent etre caches par un virage ou la circulation.",
-    tips: ["Leve le pied des le panneau.", "Sois pret a t'arreter meme sans voir encore le feu."],
-    en: { name: "Traffic lights", text: "Warns of traffic lights that may be hidden by a bend or traffic.", tips: ["Ease off the accelerator at the sign.", "Be ready to stop even before you can see the light."] }
+    text: "Annonce des feux tricolores qui peuvent être cachés par un virage ou la circulation.",
+    tips: ["Lève le pied dès le panneau.","Sois prêt à t'arrêter même sans voir encore le feu."],
+    en: {"name":"Traffic lights","text":"Warns of traffic lights that may be hidden by a bend or traffic.","tips":["Ease off the accelerator at the sign.","Be ready to stop even before you can see the light."]}
   },
   {
     id: "a8",
     family: "danger",
     code: "A8",
-    name: "Passage a niveau sans barriere",
+    name: "Passage à niveau sans barrière",
     icon: "level-crossing",
-    text: "Signale une voie ferree qui traverse la route sans barriere ni demi-barriere.",
-    tips: ["Ralentis et regarde des deux cotes.", "Ne t'engage jamais si un train approche."],
-    en: { name: "Level crossing without barrier", text: "Warns of a railway crossing the road without a barrier or half-barrier.", tips: ["Slow down and look both ways.", "Never proceed if a train is approaching."] }
+    text: "Signale une voie ferrée qui traverse la route sans barrière ni demi-barrière.",
+    tips: ["Ralentis et regarde des deux côtés.","Ne t'engage jamais si un train approche."],
+    en: {"name":"Level crossing without barrier","text":"Warns of a railway crossing the road without a barrier or half-barrier.","tips":["Slow down and look both ways.","Never proceed if a train is approaching."]}
   },
   {
     id: "a24",
     family: "danger",
-    code: "A24",
-    name: "Debouche de cyclistes",
+    code: "A21",
+    name: "Débouche de cyclistes",
     icon: "bike-warning",
-    text: "Previent que des cyclistes peuvent deboucher sur la chaussee, souvent pres d'une piste cyclable.",
-    tips: ["Verifie retroviseurs et angles morts.", "Laisse une distance laterale suffisante."],
-    en: { name: "Cyclists joining the road", text: "Warns that cyclists may join the road, often near a cycle path.", tips: ["Check mirrors and blind spots.", "Leave enough lateral distance."] }
+    text: "Prévient que des cyclistes peuvent déboucher sur la chaussée, souvent près d'une piste cyclable.",
+    tips: ["Vérifie rétroviseurs et angles morts.","Laisse une distance latérale suffisante."],
+    en: {"name":"Cyclists joining the road","text":"Warns that cyclists may join the road, often near a cycle path.","tips":["Check mirrors and blind spots.","Leave enough lateral distance."]}
   },
   {
     id: "ab1",
     family: "priorite",
     code: "AB1",
-    name: "Priorite a droite (rappel)",
+    name: "Priorité à droite (rappel)",
     icon: "priority-right",
-    text: "Rappelle qu'en l'absence d'autre signalisation, tu dois ceder le passage aux vehicules venant de ta droite.",
-    tips: ["Ralentis a chaque intersection non signalee.", "Regarde systematiquement a droite avant de t'engager."],
-    en: { name: "Priority to the right (reminder)", text: "Reminds you that, absent other signs, you must yield to traffic coming from your right.", tips: ["Slow down at every unmarked intersection.", "Always check to the right before proceeding."] }
+    text: "Annonce une intersection où s'applique la priorité à droite : tu dois céder le passage aux véhicules venant de ta droite.",
+    tips: ["Ralentis à chaque intersection non signalée.","Regarde systématiquement à droite avant de t'engager."],
+    en: {"name":"Priority to the right (reminder)","text":"Announces an intersection where priority to the right applies: you must yield to traffic coming from your right.","tips":["Slow down at every unmarked intersection.","Always check to the right before proceeding."]}
   },
   {
     id: "b5",
     family: "interdiction",
-    code: "B5",
-    name: "Interdiction de tourner a droite",
+    code: "B2b",
+    name: "Interdiction de tourner à droite",
     icon: "no-right-turn",
-    text: "Interdit de tourner a droite a la prochaine intersection.",
-    tips: ["Anticipe un autre itineraire.", "Reste sur la voie appropriee a l'approche."],
-    en: { name: "No right turn", text: "Forbidden to turn right at the next intersection.", tips: ["Plan an alternate route ahead.", "Stay in the appropriate lane on approach."] }
+    text: "Interdit de tourner à droite à la prochaine intersection.",
+    tips: ["Anticipe un autre itinéraire.","Reste sur la voie appropriée à l'approche."],
+    en: {"name":"No right turn","text":"Forbidden to turn right at the next intersection.","tips":["Plan an alternate route ahead.","Stay in the appropriate lane on approach."]}
   },
   {
     id: "b6a2",
     family: "interdiction",
-    code: "B6a2",
-    name: "Arret et stationnement interdits",
+    code: "B6d",
+    name: "Arrêt et stationnement interdits",
     icon: "no-stop",
-    text: "Interdit de s'arreter et de stationner, meme brievement.",
-    tips: ["Ne t'arrete pas, meme pour deposer un passager.", "Cherche un emplacement autorise a proximite."],
-    en: { name: "No stopping or parking", text: "Forbidden to stop or park, even briefly.", tips: ["Don't stop, even to drop off a passenger.", "Look for an authorised spot nearby."] }
+    text: "Interdit de s'arrêter et de stationner, même brièvement.",
+    tips: ["Ne t'arrête pas, même pour déposer un passager.","Cherche un emplacement autorisé à proximité."],
+    en: {"name":"No stopping or parking","text":"Forbidden to stop or park, even briefly.","tips":["Don't stop, even to drop off a passenger.","Look for an authorised spot nearby."]}
   },
   {
     id: "b31",
     family: "interdiction",
-    code: "B31",
-    name: "Fin d'interdiction de depasser",
+    code: "B34",
+    name: "Fin d'interdiction de dépasser",
     icon: "no-overtake-end",
-    text: "Leve l'interdiction de depasser imposee plus tot sur la section.",
-    tips: ["Verifie quand meme la visibilite avant de depasser.", "Les autres regles de securite restent valables."],
-    en: { name: "End of no-overtaking zone", text: "Lifts the overtaking ban imposed earlier on this section.", tips: ["Still check visibility before overtaking.", "Other safety rules still apply."] }
-  },
-  {
-    id: "b23",
-    family: "obligation",
-    code: "B23",
-    name: "Contournement obligatoire",
-    icon: "roundabout",
-    text: "Oblige a contourner l'obstacle ou le terre-plein par le cote indique.",
-    tips: ["Suis le sens indique par la fleche.", "Ne coupe pas la trajectoire des autres usagers."],
-    en: { name: "Mandatory detour", text: "Forces you to go around the obstacle or central reservation on the indicated side.", tips: ["Follow the direction shown by the arrow.", "Don't cut across other road users' path."] }
+    text: "Lève l'interdiction de dépasser imposée plus tôt sur la section.",
+    tips: ["Vérifie quand même la visibilité avant de dépasser.","Les autres règles de sécurité restent valables."],
+    en: {"name":"End of no-overtaking zone","text":"Lifts the overtaking ban imposed earlier on this section.","tips":["Still check visibility before overtaking.","Other safety rules still apply."]}
   },
   {
     id: "b21a2",
     family: "obligation",
-    code: "B21a2",
-    name: "Direction obligatoire a droite",
+    code: "B21c1",
+    name: "Direction obligatoire à droite",
     icon: "arrow-right",
-    text: "Oblige a tourner a droite a la prochaine intersection.",
-    tips: ["Prepare ton clignotant a l'avance.", "Respecte la trajectoire indiquee."],
-    en: { name: "Mandatory direction: right", text: "Forces you to turn right at the next intersection.", tips: ["Prepare your indicator in advance.", "Follow the indicated path."] }
+    text: "Oblige à tourner à droite à la prochaine intersection.",
+    tips: ["Prépare ton clignotant à l'avance.","Respecte la trajectoire indiquée."],
+    en: {"name":"Mandatory direction: right","text":"Forces you to turn right at the next intersection.","tips":["Prepare your indicator in advance.","Follow the indicated path."]}
   },
   {
     id: "c9",
     family: "indication",
-    code: "C9",
+    code: "C107",
     name: "Autoroute",
     icon: "motorway",
-    text: "Indique le debut d'une autoroute et ses regles specifiques.",
-    tips: ["Adapte ta vitesse au trafic malgre la vitesse max plus elevee.", "Respecte les distances de securite a haute vitesse."],
-    en: { name: "Motorway", text: "Indicates the start of a motorway and its specific rules.", tips: ["Adapt your speed to traffic despite the higher limit.", "Keep safe following distances at high speed."] }
+    text: "Indique le début d'une autoroute et ses règles spécifiques.",
+    tips: ["Adapte ta vitesse au trafic malgré la vitesse max plus élevée.","Respecte les distances de sécurité à haute vitesse."],
+    en: {"name":"Motorway","text":"Indicates the start of a motorway and its specific rules.","tips":["Adapt your speed to traffic despite the higher limit.","Keep safe following distances at high speed."]}
   },
   {
     id: "c107",
     family: "indication",
-    code: "C107",
+    code: "C108",
     name: "Fin d'autoroute",
     icon: "motorway-end",
-    text: "Signale la fin de la section autoroutiere et le retour a une route normale.",
-    tips: ["Reduis progressivement ta vitesse.", "Redouble d'attention: le trafic redevient mixte."],
-    en: { name: "End of motorway", text: "Signals the end of the motorway section and return to a normal road.", tips: ["Gradually reduce your speed.", "Stay extra alert: traffic becomes mixed again."] }
+    text: "Signale la fin de la section autoroutière et le retour à une route normale.",
+    tips: ["Réduis progressivement ta vitesse.","Redouble d'attention: le trafic redevient mixte."],
+    en: {"name":"End of motorway","text":"Signals the end of the motorway section and return to a normal road.","tips":["Gradually reduce your speed.","Stay extra alert: traffic becomes mixed again."]}
   },
   {
     id: "ce4",
     family: "services",
-    code: "CE4",
-    name: "Hotel",
+    code: "CE17",
+    name: "Hôtel",
     icon: "hotel",
-    text: "Indique un hotel ou un hebergement a proximite.",
-    tips: ["Utile pour planifier une pause longue.", "Regarde les distances associees sur autoroute."],
-    en: { name: "Hotel", text: "Indicates a hotel or accommodation nearby.", tips: ["Useful for planning a longer break.", "Check the distances shown on motorway signs."] }
+    text: "Indique un hôtel ou un hébergement à proximité.",
+    tips: ["Utile pour planifier une pause longue.","Regarde les distances associées sur autoroute."],
+    en: {"name":"Hotel","text":"Indicates a hotel or accommodation nearby.","tips":["Useful for planning a longer break.","Check the distances shown on motorway signs."]}
   },
   {
     id: "a6",
     family: "danger",
-    code: "A6",
+    code: "A18",
     name: "Deux sens de circulation",
     icon: "two-way",
-    text: "Previent que la route redevient a double sens apres une section a sens unique.",
-    tips: ["Reste bien sur ta voie de droite.", "Sois attentif aux vehicules venant en face."],
-    en: { name: "Two-way traffic", text: "Warns that the road becomes two-way again after a one-way section.", tips: ["Stay firmly in your right-hand lane.", "Watch for vehicles coming the other way."] }
+    text: "Prévient que la route redevient à double sens après une section à sens unique.",
+    tips: ["Reste bien sur ta voie de droite.","Sois attentif aux véhicules venant en face."],
+    en: {"name":"Two-way traffic","text":"Warns that the road becomes two-way again after a one-way section.","tips":["Stay firmly in your right-hand lane.","Watch for vehicles coming the other way."]}
   },
   {
     id: "a9",
     family: "danger",
-    code: "A9",
+    code: "A15a1",
     name: "Passage d'animaux domestiques",
     icon: "livestock",
-    text: "Signale une zone ou des troupeaux peuvent traverser ou longer la route.",
-    tips: ["Ralentis fortement si tu vois des animaux.", "Ne klaxonne pas, cela peut les affoler."],
-    en: { name: "Domestic animal crossing", text: "Signals an area where herds may cross or walk along the road.", tips: ["Slow down significantly if you see animals.", "Don't sound your horn, it may startle them."] }
+    text: "Signale une zone où des troupeaux peuvent traverser ou longer la route.",
+    tips: ["Ralentis fortement si tu vois des animaux.","Ne klaxonne pas, cela peut les affoler."],
+    en: {"name":"Domestic animal crossing","text":"Signals an area where herds may cross or walk along the road.","tips":["Slow down significantly if you see animals.","Don't sound your horn, it may startle them."]}
   },
   {
     id: "a10",
     family: "danger",
-    code: "A10",
+    code: "A15c",
     name: "Passage de cavaliers",
     icon: "horse",
-    text: "Signale une zone frequentee par des cavaliers qui peuvent traverser la route.",
-    tips: ["Ralentis et laisse de la distance.", "Evite les bruits soudains pres des chevaux."],
-    en: { name: "Horse riders crossing", text: "Signals an area used by riders who may cross the road.", tips: ["Slow down and leave distance.", "Avoid sudden noises near horses."] }
+    text: "Signale une zone fréquentée par des cavaliers qui peuvent traverser la route.",
+    tips: ["Ralentis et laisse de la distance.","Évite les bruits soudains près des chevaux."],
+    en: {"name":"Horse riders crossing","text":"Signals an area used by riders who may cross the road.","tips":["Slow down and leave distance.","Avoid sudden noises near horses."]}
   },
   {
     id: "a11",
     family: "danger",
-    code: "A11",
+    code: "A19",
     name: "Chute de pierres",
     icon: "rockfall",
-    text: "Signale un risque de chute de pierres ou d'eboulement pres de la route.",
-    tips: ["Ne t'arrete pas sous une paroi rocheuse.", "Reste attentif meme par beau temps."],
-    en: { name: "Falling rocks", text: "Signals a risk of falling rocks or landslides near the road.", tips: ["Don't stop under a rock face.", "Stay alert even in good weather."] }
-  },
-  {
-    id: "a18",
-    family: "danger",
-    code: "A18",
-    name: "Chaussee deformee",
-    icon: "bumpy-road",
-    text: "Previent d'irregularites du revetement pouvant deséquilibrer le vehicule.",
-    tips: ["Ralentis pour garder le controle.", "Tiens fermement le volant sur les bosses."],
-    en: { name: "Uneven road", text: "Warns of surface irregularities that could unbalance the vehicle.", tips: ["Slow down to keep control.", "Hold the wheel firmly over bumps."] }
-  },
-  {
-    id: "a19",
-    family: "danger",
-    code: "A19",
-    name: "Feu clignotant annoncant un danger",
-    icon: "warning-flash",
-    text: "Un feu orange clignotant signale un danger ponctuel a l'approche.",
-    tips: ["Ralentis des que le feu clignote.", "Redouble d'attention meme si la voie semble libre."],
-    en: { name: "Flashing warning light", text: "A flashing amber light signals a specific hazard ahead.", tips: ["Slow down as soon as the light flashes.", "Stay alert even if the road looks clear."] }
-  },
-  {
-    id: "a20",
-    family: "danger",
-    code: "A20",
-    name: "Pont etroit",
-    icon: "narrow-bridge",
-    text: "Signale un pont ou une structure etroite qui reduit la largeur de la chaussee.",
-    tips: ["Ralentis avant de t'engager.", "Cede le passage si le croisement n'est pas possible."],
-    en: { name: "Narrow bridge", text: "Warns of a bridge or narrow structure that reduces the road width.", tips: ["Slow down before entering.", "Give way if crossing isn't possible."] }
+    text: "Signale un risque de chute de pierres ou d'éboulement près de la route.",
+    tips: ["Ne t'arrête pas sous une paroi rocheuse.","Reste attentif même par beau temps."],
+    en: {"name":"Falling rocks","text":"Signals a risk of falling rocks or landslides near the road.","tips":["Don't stop under a rock face.","Stay alert even in good weather."]}
   },
   {
     id: "a22",
     family: "danger",
-    code: "A22",
-    name: "Debouche sur un quai ou une berge",
+    code: "A20",
+    name: "Débouche sur un quai ou une berge",
     icon: "quay",
-    text: "Previent d'un risque de chute dans l'eau en bout de route, pres d'un quai ou d'une berge.",
-    tips: ["Ralentis fortement a l'approche.", "Verifie la signalisation au sol avant d'avancer."],
-    en: { name: "Quay or riverbank ahead", text: "Warns of a risk of driving into water at a dead end, near a quay or riverbank.", tips: ["Slow down significantly on approach.", "Check ground markings before moving forward."] }
+    text: "Prévient d'un risque de chute dans l'eau en bout de route, près d'un quai ou d'une berge.",
+    tips: ["Ralentis fortement à l'approche.","Vérifie la signalisation au sol avant d'avancer."],
+    en: {"name":"Quay or riverbank ahead","text":"Warns of a risk of driving into water at a dead end, near a quay or riverbank.","tips":["Slow down significantly on approach.","Check ground markings before moving forward."]}
   },
   {
     id: "a23",
     family: "danger",
-    code: "A23",
-    name: "Vent lateral",
+    code: "A24",
+    name: "Vent latéral",
     icon: "windsock",
-    text: "Signale une zone exposee a des rafales de vent lateral, frequente sur ponts et viaducs.",
-    tips: ["Tiens fermement le volant.", "Reduis ta vitesse, surtout avec une remorque."],
-    en: { name: "Side wind", text: "Signals an area exposed to side-wind gusts, common on bridges and viaducts.", tips: ["Hold the wheel firmly.", "Reduce speed, especially with a trailer."] }
-  },
-  {
-    id: "a25",
-    family: "danger",
-    code: "A25",
-    name: "Risque de verglas",
-    icon: "ice",
-    text: "Signale une portion de route ou le risque de verglas est plus eleve, souvent a l'ombre ou en altitude.",
-    tips: ["Ralentis et evite les freinages brusques.", "Augmente les distances de securite."],
-    en: { name: "Risk of ice", text: "Signals a road section with higher ice risk, often shaded or at altitude.", tips: ["Slow down and avoid sudden braking.", "Increase your safety distances."] }
+    text: "Signale une zone exposée à des rafales de vent latéral, fréquente sur ponts et viaducs.",
+    tips: ["Tiens fermement le volant.","Réduis ta vitesse, surtout avec une remorque."],
+    en: {"name":"Side wind","text":"Signals an area exposed to side-wind gusts, common on bridges and viaducts.","tips":["Hold the wheel firmly.","Reduce speed, especially with a trailer."]}
   },
   {
     id: "ab3b",
     family: "priorite",
     code: "AB3b",
-    name: "Cedez le passage a 150 m",
+    name: "Cédez le passage à 150 m",
     icon: "yield-150",
-    text: "Panonceau annoncant un cedez-le-passage a 150 metres.",
-    tips: ["Anticipe ton freinage.", "Prepare-toi a ceder le passage a l'intersection."],
-    en: { name: "Yield in 150 m", text: "Supplementary panel announcing a yield sign in 150 metres.", tips: ["Start braking in advance.", "Get ready to yield at the intersection."] }
-  },
-  {
-    id: "ab6a",
-    family: "priorite",
-    code: "AB6a",
-    name: "Annonce de route prioritaire a 150 m",
-    icon: "priority-150",
-    text: "Panonceau annoncant l'entree sur une route prioritaire dans 150 metres.",
-    tips: ["Prepare-toi a beneficier de la priorite.", "Reste tout de meme vigilant aux autres usagers."],
-    en: { name: "Priority road in 150 m", text: "Supplementary panel announcing entry onto a priority road in 150 metres.", tips: ["Get ready to benefit from priority.", "Still stay alert to other road users."] }
-  },
-  {
-    id: "ab1a",
-    family: "priorite",
-    code: "AB1a",
-    name: "Fin de priorite a droite",
-    icon: "priority-right-end",
-    text: "Signale la fin de la regle de priorite a droite sur cette portion de route.",
-    tips: ["Repere la nouvelle signalisation de priorite.", "Ne presume plus etre prioritaire a droite."],
-    en: { name: "End of priority to the right", text: "Signals the end of the priority-to-the-right rule on this section.", tips: ["Look out for new priority signs.", "No longer assume you have priority on the right."] }
+    text: "Panneau annonçant un cédez-le-passage situé à environ 150 mètres.",
+    tips: ["Anticipe ton freinage.","Prépare-toi à céder le passage à l'intersection."],
+    en: {"name":"Yield in 150 m","text":"Sign announcing a yield sign roughly 150 metres ahead.","tips":["Start braking in advance.","Get ready to yield at the intersection."]}
   },
   {
     id: "b4",
     family: "interdiction",
-    code: "B4",
+    code: "B2c",
     name: "Interdiction de faire demi-tour",
     icon: "no-u-turn",
-    text: "Interdit de faire demi-tour a cet endroit de la route.",
-    tips: ["Cherche un autre endroit autorise.", "Continue jusqu'au prochain carrefour."],
-    en: { name: "No U-turn", text: "Forbidden to make a U-turn at this point of the road.", tips: ["Look for another authorised spot.", "Continue to the next junction."] }
+    text: "Interdit de faire demi-tour à cet endroit de la route.",
+    tips: ["Cherche un autre endroit autorisé.","Continue jusqu'au prochain carrefour."],
+    en: {"name":"No U-turn","text":"Forbidden to make a U-turn at this point of the road.","tips":["Look for another authorised spot.","Continue to the next junction."]}
   },
   {
     id: "b8",
     family: "interdiction",
-    code: "B8",
-    name: "Acces interdit aux cycles",
+    code: "B9b",
+    name: "Accès interdit aux cycles",
     icon: "no-bike",
     text: "Interdit la circulation des cycles sur cette portion de route.",
-    tips: ["Cherche un itineraire cyclable alternatif.", "Respecte la signalisation meme si la voie semble libre."],
-    en: { name: "No cycles", text: "Forbids cycle traffic on this section of road.", tips: ["Look for an alternative cycle route.", "Follow the sign even if the road looks clear."] }
+    tips: ["Cherche un itinéraire cyclable alternatif.","Respecte la signalisation même si la voie semble libre."],
+    en: {"name":"No cycles","text":"Forbids cycle traffic on this section of road.","tips":["Look for an alternative cycle route.","Follow the sign even if the road looks clear."]}
   },
   {
     id: "b10",
     family: "interdiction",
-    code: "B10",
-    name: "Acces interdit aux poids lourds",
+    code: "B8",
+    name: "Accès interdit aux véhicules de transport de marchandises",
     icon: "no-truck",
-    text: "Interdit la circulation des poids lourds au-dela du tonnage indique.",
-    tips: ["Verifie le tonnage de ton vehicule.", "Cherche un itineraire adapte aux poids lourds."],
-    en: { name: "No heavy goods vehicles", text: "Forbids heavy goods vehicles beyond the indicated tonnage.", tips: ["Check your vehicle's tonnage.", "Look for a route suited to heavy vehicles."] }
+    text: "Interdit l'accès aux véhicules affectés au transport de marchandises ; une limite de poids peut être indiquée sur le panneau.",
+    tips: ["Vérifie le tonnage de ton véhicule.","Cherche un itinéraire adapté aux poids lourds."],
+    en: {"name":"No goods vehicles","text":"Forbids access to vehicles used to carry goods; a weight limit may be shown on the sign.","tips":["Check your vehicle's tonnage.","Look for a route suited to heavy vehicles."]}
   },
   {
     id: "b13",
     family: "interdiction",
-    code: "B13",
-    name: "Interdit aux vehicules larges",
+    code: "B11",
+    name: "Interdit aux véhicules larges",
     icon: "no-wide",
-    text: "Interdit les vehicules dont la largeur depasse celle indiquee sur le panneau.",
-    tips: ["Mesure la largeur de ton vehicule avec chargement.", "Cherche un itineraire alternatif si besoin."],
-    en: { name: "No wide vehicles", text: "Forbids vehicles wider than the width shown on the sign.", tips: ["Measure your vehicle's width including any load.", "Look for an alternate route if needed."] }
+    text: "Interdit les véhicules dont la largeur dépasse celle indiquée sur le panneau.",
+    tips: ["Mesure la largeur de ton véhicule avec chargement.","Cherche un itinéraire alternatif si besoin."],
+    en: {"name":"No wide vehicles","text":"Forbids vehicles wider than the width shown on the sign.","tips":["Measure your vehicle's width including any load.","Look for an alternate route if needed."]}
   },
   {
     id: "b16",
     family: "interdiction",
-    code: "B16",
-    name: "Interdit aux vehicules hauts",
+    code: "B12",
+    name: "Interdit aux véhicules hauts",
     icon: "no-tall",
-    text: "Interdit les vehicules dont la hauteur depasse celle indiquee, souvent pres d'un pont ou tunnel.",
-    tips: ["Verifie toujours la hauteur avant un tunnel.", "Un vehicule charge peut etre plus haut que prevu."],
-    en: { name: "No tall vehicles", text: "Forbids vehicles taller than the height shown, often near a bridge or tunnel.", tips: ["Always check height before a tunnel.", "A loaded vehicle can be taller than expected."] }
+    text: "Interdit les véhicules dont la hauteur dépasse celle indiquée, souvent près d'un pont ou tunnel.",
+    tips: ["Vérifie toujours la hauteur avant un tunnel.","Un véhicule chargé peut être plus haut que prévu."],
+    en: {"name":"No tall vehicles","text":"Forbids vehicles taller than the height shown, often near a bridge or tunnel.","tips":["Always check height before a tunnel.","A loaded vehicle can be taller than expected."]}
   },
   {
     id: "b18",
     family: "interdiction",
-    code: "B18",
-    name: "Interdit aux vehicules lourds",
+    code: "B13",
+    name: "Interdit aux véhicules lourds",
     icon: "no-heavy",
-    text: "Interdit les vehicules dont le poids total depasse celui indique sur le panneau.",
-    tips: ["Verifie le poids total en charge.", "Cherche un itineraire adapte si tu es concerne."],
-    en: { name: "No heavy vehicles", text: "Forbids vehicles whose total weight exceeds the amount shown on the sign.", tips: ["Check your total laden weight.", "Look for a suitable route if this applies to you."] }
+    text: "Interdit les véhicules dont le poids total dépasse celui indiqué sur le panneau.",
+    tips: ["Vérifie le poids total en charge.","Cherche un itinéraire adapté si tu es concerné."],
+    en: {"name":"No heavy vehicles","text":"Forbids vehicles whose total weight exceeds the amount shown on the sign.","tips":["Check your total laden weight.","Look for a suitable route if this applies to you."]}
   },
   {
     id: "b19",
     family: "interdiction",
-    code: "B19",
-    name: "Distance minimale entre vehicules",
+    code: "B17",
+    name: "Distance minimale entre véhicules",
     icon: "min-distance",
-    text: "Impose une distance minimale a respecter avec le vehicule qui precede.",
-    tips: ["Augmente ta distance de securite.", "Cela concerne surtout les poids lourds sur autoroute."],
-    en: { name: "Minimum distance between vehicles", text: "Requires a minimum distance from the vehicle ahead.", tips: ["Increase your safety distance.", "Mainly concerns heavy vehicles on motorways."] }
+    text: "Impose une distance minimale à respecter avec le véhicule qui précède.",
+    tips: ["Augmente ta distance de sécurité.","Cela concerne surtout les poids lourds sur autoroute."],
+    en: {"name":"Minimum distance between vehicles","text":"Requires a minimum distance from the vehicle ahead.","tips":["Increase your safety distance.","Mainly concerns heavy vehicles on motorways."]}
   },
   {
     id: "b29",
     family: "interdiction",
-    code: "B29",
-    name: "Interdit aux matieres dangereuses",
+    code: "B18c",
+    name: "Interdit aux matières dangereuses",
     icon: "no-hazmat",
-    text: "Interdit la circulation des vehicules transportant des matieres dangereuses.",
-    tips: ["Concerne surtout les poids lourds specialises.", "Cherche un itineraire de contournement adapte."],
-    en: { name: "No hazardous materials", text: "Forbids vehicles carrying hazardous materials.", tips: ["Mainly concerns specialised heavy vehicles.", "Look for a suitable bypass route."] }
+    text: "Interdit la circulation des véhicules transportant des matières dangereuses.",
+    tips: ["Concerne surtout les poids lourds spécialisés.","Cherche un itinéraire de contournement adapté."],
+    en: {"name":"No hazardous materials","text":"Forbids vehicles carrying hazardous materials.","tips":["Mainly concerns specialised heavy vehicles.","Look for a suitable bypass route."]}
   },
   {
     id: "b33",
@@ -695,289 +605,279 @@ const signs = [
     code: "B33",
     name: "Fin de limitation de vitesse",
     icon: "speed-end",
-    text: "Signale la fin d'une limitation de vitesse imposee plus tot.",
-    tips: ["La vitesse redevient celle du reseau general.", "Reste prudent et adapte ta vitesse au contexte."],
-    en: { name: "End of speed limit", text: "Signals the end of a speed limit imposed earlier.", tips: ["Speed reverts to the general network limit.", "Stay cautious and adapt your speed to conditions."] }
+    text: "Signale la fin d'une limitation de vitesse imposée plus tôt.",
+    tips: ["La vitesse redevient celle du réseau général.","Reste prudent et adapte ta vitesse au contexte."],
+    en: {"name":"End of speed limit","text":"Signals the end of a speed limit imposed earlier.","tips":["Speed reverts to the general network limit.","Stay cautious and adapt your speed to conditions."]}
   },
   {
     id: "b34",
     family: "interdiction",
-    code: "B34",
+    code: "B16",
     name: "Interdiction de klaxonner",
     icon: "no-horn",
-    text: "Interdit d'utiliser l'avertisseur sonore, souvent en zone habitee ou de nuit.",
-    tips: ["Utilise tes feux pour avertir si besoin.", "Reste patient plutot que de klaxonner."],
-    en: { name: "No horn", text: "Forbids using the horn, often in residential areas or at night.", tips: ["Use your lights to warn if needed.", "Stay patient rather than sounding your horn."] }
+    text: "Interdit d'utiliser l'avertisseur sonore, souvent en zone habitée ou de nuit.",
+    tips: ["Utilise tes feux pour avertir si besoin.","Reste patient plutôt que de klaxonner."],
+    en: {"name":"No horn","text":"Forbids using the horn, often in residential areas or at night.","tips":["Use your lights to warn if needed.","Stay patient rather than sounding your horn."]}
   },
   {
     id: "b35",
     family: "interdiction",
-    code: "B35",
+    code: "B51",
     name: "Fin de zone 30",
     icon: "zone30-end",
-    text: "Signale la sortie d'une zone 30 et le retour a la vitesse normale.",
-    tips: ["Reste vigilant en sortant de la zone.", "N'accelere pas brutalement des la sortie."],
-    en: { name: "End of 30 zone", text: "Signals the exit of a 30 zone and return to normal speed.", tips: ["Stay alert as you leave the zone.", "Don't accelerate abruptly on exit."] }
+    text: "Signale la sortie d'une zone 30 et le retour à la vitesse normale.",
+    tips: ["Reste vigilant en sortant de la zone.","N'accélère pas brutalement dès la sortie."],
+    en: {"name":"End of 30 zone","text":"Signals the exit of a 30 zone and return to normal speed.","tips":["Stay alert as you leave the zone.","Don't accelerate abruptly on exit."]}
   },
   {
     id: "b2",
     family: "interdiction",
-    code: "B2",
-    name: "Interdiction de tourner a gauche",
+    code: "B2a",
+    name: "Interdiction de tourner à gauche",
     icon: "no-left-turn",
-    text: "Interdit de tourner a gauche a la prochaine intersection.",
-    tips: ["Anticipe un autre itineraire.", "Reste sur la voie appropriee a l'approche."],
-    en: { name: "No left turn", text: "Forbidden to turn left at the next intersection.", tips: ["Plan an alternate route ahead.", "Stay in the appropriate lane on approach."] }
+    text: "Interdit de tourner à gauche à la prochaine intersection.",
+    tips: ["Anticipe un autre itinéraire.","Reste sur la voie appropriée à l'approche."],
+    en: {"name":"No left turn","text":"Forbidden to turn left at the next intersection.","tips":["Plan an alternate route ahead.","Stay in the appropriate lane on approach."]}
   },
   {
     id: "b45",
-    family: "obligation",
-    code: "B45",
-    name: "Vitesse conseillee",
+    family: "indication",
+    code: "C4a",
+    name: "Vitesse conseillée",
     icon: "speed-advised",
-    text: "Indique une vitesse conseillee, non obligatoire, adaptee a la configuration de la route.",
-    tips: ["Adapte ta vitesse aux conditions reelles.", "Cette vitesse n'est qu'une recommandation."],
-    en: { name: "Advisory speed", text: "Shows a recommended, non-mandatory speed suited to the road layout.", tips: ["Adapt your speed to actual conditions.", "This speed is only a recommendation."] }
+    text: "Indique une vitesse conseillée, non obligatoire, adaptée à la configuration de la route.",
+    tips: ["Adapte ta vitesse aux conditions réelles.","Cette vitesse n'est qu'une recommandation."],
+    en: {"name":"Advisory speed","text":"Shows a recommended, non-mandatory speed suited to the road layout.","tips":["Adapt your speed to actual conditions.","This speed is only a recommendation."]}
   },
   {
     id: "b21a3",
     family: "obligation",
-    code: "B21a3",
-    name: "Direction obligatoire a gauche",
+    code: "B21c2",
+    name: "Direction obligatoire à gauche",
     icon: "arrow-left",
-    text: "Oblige a tourner a gauche a la prochaine intersection.",
-    tips: ["Prepare ton clignotant a l'avance.", "Respecte la trajectoire indiquee."],
-    en: { name: "Mandatory direction: left", text: "Forces you to turn left at the next intersection.", tips: ["Prepare your indicator in advance.", "Follow the indicated path."] }
+    text: "Oblige à tourner à gauche à la prochaine intersection.",
+    tips: ["Prépare ton clignotant à l'avance.","Respecte la trajectoire indiquée."],
+    en: {"name":"Mandatory direction: left","text":"Forces you to turn left at the next intersection.","tips":["Prepare your indicator in advance.","Follow the indicated path."]}
   },
   {
     id: "b22b",
-    family: "obligation",
-    code: "B22b",
-    name: "Piste ou bande cyclable conseillee",
+    family: "indication",
+    code: "C113",
+    name: "Piste ou bande cyclable conseillée",
     icon: "bike",
-    text: "Indique une piste ou bande cyclable conseillee, sans etre obligatoire pour tous les cycles.",
-    tips: ["Reste attentif aux cyclistes qui l'utilisent.", "Ne stationne jamais sur cette voie."],
-    en: { name: "Recommended cycle path", text: "Indicates a recommended cycle path or lane, not mandatory for all cycles.", tips: ["Stay alert to cyclists using it.", "Never park on this lane."] }
+    text: "Indique une piste ou bande cyclable conseillée, sans être obligatoire pour tous les cycles.",
+    tips: ["Reste attentif aux cyclistes qui l'utilisent.","Ne stationne jamais sur cette voie."],
+    en: {"name":"Recommended cycle path","text":"Indicates a recommended cycle path or lane, not mandatory for all cycles.","tips":["Stay alert to cyclists using it.","Never park on this lane."]}
   },
   {
     id: "b24",
     family: "obligation",
-    code: "B24",
+    code: "",
     name: "Double sens cyclable",
     icon: "bike-two-way",
-    text: "Signale une voie ou les cyclistes peuvent circuler dans les deux sens.",
-    tips: ["Sois attentif aux cyclistes venant en face.", "Laisse une distance laterale suffisante."],
-    en: { name: "Two-way cycle lane", text: "Signals a lane where cyclists may travel in both directions.", tips: ["Watch for cyclists coming towards you.", "Leave enough lateral distance."] }
+    text: "Signale une voie où les cyclistes peuvent circuler dans les deux sens.",
+    tips: ["Sois attentif aux cyclistes venant en face.","Laisse une distance latérale suffisante."],
+    en: {"name":"Two-way cycle lane","text":"Signals a lane where cyclists may travel in both directions.","tips":["Watch for cyclists coming towards you.","Leave enough lateral distance."]}
   },
   {
     id: "b36",
     family: "obligation",
-    code: "B36",
-    name: "Piste cyclable et voie pietonne separees",
+    code: "",
+    name: "Piste cyclable et voie piétonne séparées",
     icon: "bike-pedestrian-split",
-    text: "Indique une voie mixte ou cyclistes et pietons circulent sur des espaces separes.",
-    tips: ["Respecte la partie qui te concerne.", "Reste attentif aux traversees."],
-    en: { name: "Separate cycle and pedestrian paths", text: "Indicates a shared route where cyclists and pedestrians use separate spaces.", tips: ["Stay on the part that applies to you.", "Stay alert at crossing points."] }
+    text: "Indique une voie mixte où cyclistes et piétons circulent sur des espaces séparés.",
+    tips: ["Respecte la partie qui te concerne.","Reste attentif aux traversées."],
+    en: {"name":"Separate cycle and pedestrian paths","text":"Indicates a shared route where cyclists and pedestrians use separate spaces.","tips":["Stay on the part that applies to you.","Stay alert at crossing points."]}
   },
   {
     id: "b37",
     family: "obligation",
-    code: "B37",
-    name: "Piste cyclable et voie pietonne non separees",
+    code: "",
+    name: "Piste cyclable et voie piétonne non séparées",
     icon: "bike-pedestrian-shared",
-    text: "Indique une voie mixte partagee entre cyclistes et pietons, sans separation.",
-    tips: ["Adapte ta vitesse a vélo pres des pietons.", "Reste vigilant, l'espace est partage."],
-    en: { name: "Shared cycle and pedestrian path", text: "Indicates a shared route used by both cyclists and pedestrians without separation.", tips: ["Adjust your cycling speed near pedestrians.", "Stay alert, the space is shared."] }
+    text: "Indique une voie mixte partagée entre cyclistes et piétons, sans séparation.",
+    tips: ["Adapte ta vitesse à vélo près des piétons.","Reste vigilant, l'espace est partagé."],
+    en: {"name":"Shared cycle and pedestrian path","text":"Indicates a shared route used by both cyclists and pedestrians without separation.","tips":["Adjust your cycling speed near pedestrians.","Stay alert, the space is shared."]}
   },
   {
     id: "b22c",
     family: "obligation",
-    code: "B22c",
-    name: "Chemin obligatoire pour pietons",
+    code: "B22b",
+    name: "Chemin obligatoire pour piétons",
     icon: "walker-only",
-    text: "Oblige les pietons a emprunter ce chemin plutot que la chaussee.",
-    tips: ["Utile pres des routes sans trottoir.", "Reste sur le chemin balise autant que possible."],
-    en: { name: "Mandatory path for pedestrians", text: "Forces pedestrians to use this path rather than the road.", tips: ["Useful near roads without a pavement.", "Stay on the marked path where possible."] }
+    text: "Oblige les piétons à emprunter ce chemin plutôt que la chaussée.",
+    tips: ["Utile près des routes sans trottoir.","Reste sur le chemin balisé autant que possible."],
+    en: {"name":"Mandatory path for pedestrians","text":"Forces pedestrians to use this path rather than the road.","tips":["Useful near roads without a pavement.","Stay on the marked path where possible."]}
   },
   {
     id: "b41",
     family: "obligation",
-    code: "B41",
-    name: "Voie reservee aux transports en commun",
+    code: "B27a",
+    name: "Voie réservée aux transports en commun",
     icon: "bus",
-    text: "Oblige les transports en commun a utiliser cette voie dediee.",
-    tips: ["Ne t'engage pas sur cette voie en voiture.", "Laisse la priorite aux bus qui en sortent."],
-    en: { name: "Lane reserved for public transport", text: "Forces public transport to use this dedicated lane.", tips: ["Don't drive into this lane by car.", "Give way to buses pulling out."] }
-  },
-  {
-    id: "b42",
-    family: "obligation",
-    code: "B42",
-    name: "Circulation reservee aux vehicules a moteur",
-    icon: "car-only",
-    text: "Reserve la voie ou la route aux vehicules a moteur, souvent en section rapide.",
-    tips: ["Verifie que ton vehicule est autorise.", "Cycles et pietons doivent emprunter un autre chemin."],
-    en: { name: "Motor vehicles only", text: "Reserves the lane or road for motor vehicles, often on a fast section.", tips: ["Check that your vehicle is allowed.", "Cyclists and pedestrians must use another route."] }
+    text: "Oblige les transports en commun à utiliser cette voie dédiée.",
+    tips: ["Ne t'engage pas sur cette voie en voiture.","Laisse la priorité aux bus qui en sortent."],
+    en: {"name":"Lane reserved for public transport","text":"Forces public transport to use this dedicated lane.","tips":["Don't drive into this lane by car.","Give way to buses pulling out."]}
   },
   {
     id: "b21d",
     family: "obligation",
-    code: "B21d",
+    code: "B21a2",
     name: "Contournement obligatoire par la gauche",
-    icon: "detour-left",
-    text: "Oblige a contourner l'obstacle ou le terre-plein par la gauche.",
-    tips: ["Suis le sens indique par la fleche.", "Ne coupe pas la trajectoire des autres usagers."],
-    en: { name: "Mandatory detour to the left", text: "Forces you to go around the obstacle or central reservation on the left.", tips: ["Follow the direction shown by the arrow.", "Don't cut across other road users' path."] }
+    icon: "detour-left-arrow",
+    text: "Oblige à contourner l'obstacle ou le terre-plein par la gauche.",
+    tips: ["Suis le sens indiqué par la flèche.","Ne coupe pas la trajectoire des autres usagers."],
+    en: {"name":"Mandatory detour to the left","text":"Forces you to go around the obstacle or central reservation on the left.","tips":["Follow the direction shown by the arrow.","Don't cut across other road users' path."]}
   },
   {
     id: "c13a",
     family: "indication",
-    code: "C13a",
-    name: "Entree d'agglomeration",
+    code: "EB10",
+    name: "Entrée d'agglomération",
     icon: "town-enter",
-    text: "Marque l'entree dans une agglomeration, ou la vitesse est generalement limitee a 50 km/h.",
-    tips: ["Reduis ta vitesse des ce panneau.", "Redouble d'attention pour les pietons et cyclistes."],
-    en: { name: "Town entrance", text: "Marks the entrance to a built-up area, where speed is usually limited to 50 km/h.", tips: ["Reduce your speed from this sign.", "Stay extra alert for pedestrians and cyclists."] }
+    text: "Marque l'entrée dans une agglomération, où la vitesse est généralement limitée à 50 km/h.",
+    tips: ["Réduis ta vitesse dès ce panneau.","Redouble d'attention pour les piétons et cyclistes."],
+    en: {"name":"Town entrance","text":"Marks the entrance to a built-up area, where speed is usually limited to 50 km/h.","tips":["Reduce your speed from this sign.","Stay extra alert for pedestrians and cyclists."]}
   },
   {
     id: "c13b",
     family: "indication",
-    code: "C13b",
-    name: "Sortie d'agglomeration",
+    code: "EB20",
+    name: "Sortie d'agglomération",
     icon: "town-exit",
-    text: "Marque la sortie d'une agglomeration et la fin des regles associees.",
-    tips: ["La vitesse maximale peut augmenter.", "Verifie les panneaux de vitesse specifiques."],
-    en: { name: "Town exit", text: "Marks the exit of a built-up area and the end of its associated rules.", tips: ["The maximum speed may increase.", "Check for specific speed signs."] }
+    text: "Marque la sortie d'une agglomération et la fin des règles associées.",
+    tips: ["La vitesse maximale peut augmenter.","Vérifie les panneaux de vitesse spécifiques."],
+    en: {"name":"Town exit","text":"Marks the exit of a built-up area and the end of its associated rules.","tips":["The maximum speed may increase.","Check for specific speed signs."]}
   },
   {
     id: "c18",
     family: "indication",
-    code: "C18",
+    code: "C13a",
     name: "Impasse",
     icon: "dead-end",
-    text: "Indique que la voie ne mene a aucune autre route, sans issue.",
-    tips: ["Prevois de faire demi-tour.", "Utile pour eviter un detour inutile."],
-    en: { name: "Dead end", text: "Indicates that the road leads nowhere else, with no through route.", tips: ["Plan to turn around.", "Useful to avoid an unnecessary detour."] }
+    text: "Indique que la voie ne mène à aucune autre route, sans issue.",
+    tips: ["Prévois de faire demi-tour.","Utile pour éviter un détour inutile."],
+    en: {"name":"Dead end","text":"Indicates that the road leads nowhere else, with no through route.","tips":["Plan to turn around.","Useful to avoid an unnecessary detour."]}
   },
   {
     id: "c50",
     family: "indication",
-    code: "C50",
+    code: "",
     name: "Aire de repos",
     icon: "rest-area",
-    text: "Indique une aire de repos amenagee pour faire une pause sur la route.",
-    tips: ["Utile pour lutter contre la fatigue.", "Verifie les equipements disponibles sur l'aire."],
-    en: { name: "Rest area", text: "Indicates a rest area set up for a break on your journey.", tips: ["Useful to fight fatigue.", "Check what facilities are available."] }
+    text: "Indique une aire de repos aménagée pour faire une pause sur la route.",
+    tips: ["Utile pour lutter contre la fatigue.","Vérifie les équipements disponibles sur l'aire."],
+    en: {"name":"Rest area","text":"Indicates a rest area set up for a break on your journey.","tips":["Useful to fight fatigue.","Check what facilities are available."]}
   },
   {
     id: "c112",
     family: "indication",
-    code: "C112",
-    name: "Debut de voie express",
+    code: "C107",
+    name: "Début de voie express",
     icon: "expressway",
-    text: "Indique le debut d'une voie express avec des regles de circulation specifiques.",
-    tips: ["Verifie la vitesse maximale autorisee.", "Certains usagers lents peuvent etre interdits."],
-    en: { name: "Start of expressway", text: "Indicates the start of an expressway with specific traffic rules.", tips: ["Check the maximum speed allowed.", "Some slow users may be banned."] }
+    text: "Indique le début d'une voie express avec des règles de circulation spécifiques.",
+    tips: ["Vérifie la vitesse maximale autorisée.","Certains usagers lents peuvent être interdits."],
+    en: {"name":"Start of expressway","text":"Indicates the start of an expressway with specific traffic rules.","tips":["Check the maximum speed allowed.","Some slow users may be banned."]}
   },
   {
     id: "c113",
     family: "indication",
-    code: "C113",
+    code: "C108",
     name: "Fin de voie express",
     icon: "expressway-end",
     text: "Indique la fin de la section de voie express.",
-    tips: ["Adapte ta vitesse au nouveau contexte.", "Redouble d'attention: le trafic redevient mixte."],
-    en: { name: "End of expressway", text: "Indicates the end of the expressway section.", tips: ["Adapt your speed to the new context.", "Stay extra alert: traffic becomes mixed again."] }
+    tips: ["Adapte ta vitesse au nouveau contexte.","Redouble d'attention: le trafic redevient mixte."],
+    en: {"name":"End of expressway","text":"Indicates the end of the expressway section.","tips":["Adapt your speed to the new context.","Stay extra alert: traffic becomes mixed again."]}
   },
   {
     id: "c115",
     family: "indication",
-    code: "C115",
-    name: "Numero de route",
+    code: "M10a",
+    name: "Numéro de route",
     icon: "route-number",
-    text: "Indique le numero officiel de la route empruntee, utile pour se reperer.",
-    tips: ["Utile pour suivre un itineraire precis.", "Compare avec ta carte ou ton GPS."],
-    en: { name: "Route number", text: "Shows the official number of the road you're on, useful for navigation.", tips: ["Useful for following a precise route.", "Compare with your map or GPS."] }
+    text: "Indique le numéro officiel de la route empruntée, utile pour se repérer.",
+    tips: ["Utile pour suivre un itinéraire précis.","Compare avec ta carte ou ton GPS."],
+    en: {"name":"Route number","text":"Shows the official number of the road you're on, useful for navigation.","tips":["Useful for following a precise route.","Compare with your map or GPS."]}
   },
   {
     id: "c116",
     family: "indication",
-    code: "C116",
+    code: "CE2a",
     name: "Poste d'appel d'urgence",
     icon: "sos-phone",
-    text: "Indique la presence d'une borne d'appel d'urgence a proximite.",
-    tips: ["Utile en cas de panne ou d'accident.", "Note la distance jusqu'a la borne la plus proche."],
-    en: { name: "Emergency call point", text: "Indicates the presence of an emergency call box nearby.", tips: ["Useful in case of breakdown or accident.", "Note the distance to the nearest call point."] }
+    text: "Indique la présence d'une borne d'appel d'urgence à proximité.",
+    tips: ["Utile en cas de panne ou d'accident.","Note la distance jusqu'à la borne la plus proche."],
+    en: {"name":"Emergency call point","text":"Indicates the presence of an emergency call box nearby.","tips":["Useful in case of breakdown or accident.","Note the distance to the nearest call point."]}
   },
   {
     id: "c117",
     family: "indication",
-    code: "C117",
+    code: "",
     name: "Direction d'une gare",
     icon: "train-station",
-    text: "Indique la direction a suivre pour rejoindre une gare.",
-    tips: ["Utile pour un depose-minute rapide.", "Anticipe le stationnement a proximite."],
-    en: { name: "Direction to a train station", text: "Shows the direction to follow to reach a train station.", tips: ["Useful for a quick drop-off.", "Plan for nearby parking."] }
+    text: "Indique la direction à suivre pour rejoindre une gare.",
+    tips: ["Utile pour un dépose-minute rapide.","Anticipe le stationnement à proximité."],
+    en: {"name":"Direction to a train station","text":"Shows the direction to follow to reach a train station.","tips":["Useful for a quick drop-off.","Plan for nearby parking."]}
   },
   {
     id: "c118",
     family: "indication",
-    code: "C118",
-    name: "Direction d'un aeroport",
+    code: "",
+    name: "Direction d'un aéroport",
     icon: "airport",
-    text: "Indique la direction a suivre pour rejoindre un aeroport.",
-    tips: ["Prevois large en cas de trafic dense.", "Verifie le terminal avant de partir."],
-    en: { name: "Direction to an airport", text: "Shows the direction to follow to reach an airport.", tips: ["Allow extra time in heavy traffic.", "Check your terminal before you leave."] }
+    text: "Indique la direction à suivre pour rejoindre un aéroport.",
+    tips: ["Prévois large en cas de trafic dense.","Vérifie le terminal avant de partir."],
+    en: {"name":"Direction to an airport","text":"Shows the direction to follow to reach an airport.","tips":["Allow extra time in heavy traffic.","Check your terminal before you leave."]}
   },
   {
     id: "ce7",
     family: "services",
-    code: "CE7",
+    code: "",
     name: "Aire de camping-car",
     icon: "camper",
-    text: "Indique une aire amenagee pour l'accueil des camping-cars.",
-    tips: ["Verifie les services disponibles (eau, vidange).", "Certaines aires sont payantes."],
-    en: { name: "Motorhome area", text: "Indicates an area set up to welcome motorhomes.", tips: ["Check available services (water, waste disposal).", "Some areas charge a fee."] }
+    text: "Indique une aire aménagée pour l'accueil des camping-cars.",
+    tips: ["Vérifie les services disponibles (eau, vidange).","Certaines aires sont payantes."],
+    en: {"name":"Motorhome area","text":"Indicates an area set up to welcome motorhomes.","tips":["Check available services (water, waste disposal).","Some areas charge a fee."]}
   },
   {
     id: "ce14",
     family: "services",
-    code: "CE14",
-    name: "Hopital",
+    code: "",
+    name: "Hôpital",
     icon: "hospital",
-    text: "Indique la presence d'un hopital ou d'un centre de soins a proximite.",
-    tips: ["Utile en cas d'urgence medicale.", "Respecte le calme autour des etablissements de sante."],
-    en: { name: "Hospital", text: "Indicates a hospital or care centre nearby.", tips: ["Useful in a medical emergency.", "Respect the quiet around healthcare facilities."] }
+    text: "Indique la présence d'un hôpital ou d'un centre de soins à proximité.",
+    tips: ["Utile en cas d'urgence médicale.","Respecte le calme autour des établissements de santé."],
+    en: {"name":"Hospital","text":"Indicates a hospital or care centre nearby.","tips":["Useful in a medical emergency.","Respect the quiet around healthcare facilities."]}
   },
   {
     id: "ce20",
     family: "services",
-    code: "CE20",
+    code: "C1c",
     name: "Parking payant",
     icon: "parking-paid",
-    text: "Indique un parking dont l'utilisation est soumise a paiement.",
-    tips: ["Verifie les horaires et tarifs affiches.", "Garde ton ticket bien visible si demande."],
-    en: { name: "Paid parking", text: "Indicates a parking area subject to a fee.", tips: ["Check the posted hours and rates.", "Keep your ticket visible if required."] }
+    text: "Indique un parking dont l'utilisation est soumise à paiement.",
+    tips: ["Vérifie les horaires et tarifs affichés.","Garde ton ticket bien visible si demandé."],
+    en: {"name":"Paid parking","text":"Indicates a parking area subject to a fee.","tips":["Check the posted hours and rates.","Keep your ticket visible if required."]}
   },
   {
     id: "ce22",
     family: "services",
-    code: "CE22",
+    code: "CE3a",
     name: "Information touristique",
     icon: "info",
-    text: "Indique un point d'information touristique a proximite.",
-    tips: ["Utile pour obtenir une carte locale.", "Souvent situe pres des centres-villes."],
-    en: { name: "Tourist information", text: "Indicates a tourist information point nearby.", tips: ["Useful for getting a local map.", "Often located near town centres."] }
+    text: "Indique un point d'information touristique à proximité.",
+    tips: ["Utile pour obtenir une carte locale.","Souvent situé près des centres-villes."],
+    en: {"name":"Tourist information","text":"Indicates a tourist information point nearby.","tips":["Useful for getting a local map.","Often located near town centres."]}
   },
   {
     id: "ce31",
     family: "services",
-    code: "CE31",
+    code: "CE7",
     name: "Aire de pique-nique",
     icon: "picnic",
-    text: "Indique un espace amenage pour pique-niquer en bord de route.",
-    tips: ["Bon endroit pour une pause repas.", "Pense a repartir sans laisser de dechets."],
-    en: { name: "Picnic area", text: "Indicates an area set up for a roadside picnic.", tips: ["A good spot for a meal break.", "Remember to leave no litter behind."] }
+    text: "Indique un espace aménagé pour pique-niquer en bord de route.",
+    tips: ["Bon endroit pour une pause repas.","Pense à repartir sans laisser de déchets."],
+    en: {"name":"Picnic area","text":"Indicates an area set up for a roadside picnic.","tips":["A good spot for a meal break.","Remember to leave no litter behind."]}
   },
   {
     id: "m1",
@@ -985,59 +885,49 @@ const signs = [
     code: "M1",
     name: "Panonceau de distance",
     icon: "panel-distance",
-    text: "Indique la distance entre le panneau et le debut du danger ou de la prescription qu'il annonce.",
-    tips: ["Anticipe le danger annonce des la lecture du panonceau.", "Le decompte commence a cet endroit precis."],
-    en: { name: "Distance panel", text: "Indicates the distance between the sign and the start of the hazard or rule it announces.", tips: ["Anticipate the hazard as soon as you read the panel.", "The countdown starts at this exact point."] }
+    text: "Indique la distance entre le panneau et le début du danger ou de la prescription qu'il annonce.",
+    tips: ["Anticipe le danger annoncé dès la lecture du panonceau.","Le décompte commence à cet endroit précis."],
+    en: {"name":"Distance panel","text":"Indicates the distance between the sign and the start of the hazard or rule it announces.","tips":["Anticipate the hazard as soon as you read the panel.","The countdown starts at this exact point."]}
   },
   {
     id: "m2",
     family: "panonceau",
     code: "M2",
-    name: "Panonceau d'etendue",
+    name: "Panonceau d'étendue",
     icon: "panel-extent",
-    text: "Indique la longueur de la zone concernee par le danger ou la prescription, par exemple 3 km.",
-    tips: ["La prescription s'applique sur toute la distance indiquee.", "Reste attentif jusqu'a la fin de la zone."],
-    en: { name: "Length panel", text: "Indicates the length of the zone affected by the hazard or rule, for example 3 km.", tips: ["The rule applies for the whole distance shown.", "Stay alert until the end of the zone."] }
+    text: "Indique la longueur de la zone concernée par le danger ou la prescription, par exemple 3 km.",
+    tips: ["La prescription s'applique sur toute la distance indiquée.","Reste attentif jusqu'à la fin de la zone."],
+    en: {"name":"Length panel","text":"Indicates the length of the zone affected by the hazard or rule, for example 3 km.","tips":["The rule applies for the whole distance shown.","Stay alert until the end of the zone."]}
   },
   {
     id: "m3",
     family: "panonceau",
-    code: "M3",
-    name: "Panonceau de direction",
+    code: "M3a",
+    name: "Panonceau de position (voies concernées)",
     icon: "panel-direction",
-    text: "Precise que la prescription du panneau ne concerne qu'une direction ou qu'une voie particuliere.",
-    tips: ["Regarde bien la fleche du panonceau.", "La regle ne s'applique pas forcement a toutes les voies."],
-    en: { name: "Direction panel", text: "Specifies that the sign's rule only applies to a particular direction or lane.", tips: ["Look carefully at the panel's arrow.", "The rule may not apply to every lane."] }
+    text: "Indique la voie ou les voies sur lesquelles s'applique la prescription du panneau, grâce à des flèches.",
+    tips: ["Regarde bien la flèche du panonceau.","La règle ne s'applique pas forcément à toutes les voies."],
+    en: {"name":"Position panel (lanes concerned)","text":"Shows the lane or lanes to which the sign's rule applies, using arrows.","tips":["Look carefully at the panel's arrow.","The rule may not apply to every lane."]}
   },
   {
     id: "m4c",
     family: "panonceau",
-    code: "M4c",
+    code: "M4d1",
     name: "Panonceau cycles",
     icon: "panel-bike",
-    text: "Indique que la prescription du panneau principal s'applique aussi aux cyclistes.",
-    tips: ["Verifie si les cycles sont concernes par la regle.", "Cela peut ajouter ou retirer une exception."],
-    en: { name: "Cyclists panel", text: "Indicates that the main sign's rule also applies to cyclists.", tips: ["Check whether cyclists are affected by the rule.", "It can add or remove an exception."] }
+    text: "Indique que la prescription du panneau principal concerne les cycles (vélos).",
+    tips: ["Vérifie si les cycles sont concernés par la règle.","Cela peut ajouter ou retirer une exception."],
+    en: {"name":"Cycles panel","text":"Indicates that the main sign's rule concerns cycles (bicycles).","tips":["Check whether cyclists are affected by the rule.","It can add or remove an exception."]}
   },
   {
     id: "m6a",
     family: "panonceau",
-    code: "M6a",
+    code: "M9z",
     name: "Panonceau sauf riverains",
     icon: "panel-except",
-    text: "Exempte les riverains de l'interdiction indiquee par le panneau principal.",
-    tips: ["Ne s'applique pas si tu n'es pas riverain.", "C'est une exception locale, pas une regle generale."],
-    en: { name: "Except residents panel", text: "Exempts residents from the ban shown on the main sign.", tips: ["Doesn't apply to you if you're not a resident.", "It's a local exception, not a general rule."] }
-  },
-  {
-    id: "m9",
-    family: "panonceau",
-    code: "M9",
-    name: "Panonceau de zone",
-    icon: "panel-zone",
-    text: "Indique que la prescription du panneau s'applique a toute une zone, jusqu'au panneau de fin de zone.",
-    tips: ["La regle reste valable meme sans repeter le panneau.", "Cherche le panneau de fin de zone pour savoir ou elle s'arrete."],
-    en: { name: "Zone panel", text: "Indicates that the sign's rule applies throughout a zone, until the end-of-zone sign.", tips: ["The rule stays valid even without repeating the sign.", "Look for the end-of-zone sign to know where it stops."] }
+    text: "Exempte les riverains de l'interdiction indiquée par le panneau principal.",
+    tips: ["Ne s'applique pas si tu n'es pas riverain.","C'est une exception locale, pas une règle générale."],
+    en: {"name":"Except residents panel","text":"Exempts residents from the ban shown on the main sign.","tips":["Doesn't apply to you if you're not a resident.","It's a local exception, not a general rule."]}
   },
   {
     id: "a1a",
@@ -1046,8 +936,8 @@ const signs = [
     name: "Virage à droite",
     icon: "curve-right",
     text: "Annonce un virage isolé vers la droite.",
-    tips: ["Ralentis avant d'amorcer le virage.", "Reste sur ta voie, ne coupe pas la trajectoire."],
-    en: { name: "Right bend", text: "Warns of a single bend to the right.", tips: ["Slow down before entering the bend.", "Stay in your lane, don't cut the corner."] }
+    tips: ["Ralentis avant d'amorcer le virage.","Reste sur ta voie, ne coupe pas la trajectoire."],
+    en: {"name":"Right bend","text":"Warns of a single bend to the right.","tips":["Slow down before entering the bend.","Stay in your lane, don't cut the corner."]}
   },
   {
     id: "a1b",
@@ -1056,8 +946,8 @@ const signs = [
     name: "Virage à gauche",
     icon: "curve-left",
     text: "Annonce un virage isolé vers la gauche.",
-    tips: ["Ralentis avant d'amorcer le virage.", "Reste sur ta voie, ne coupe pas la trajectoire."],
-    en: { name: "Left bend", text: "Warns of a single bend to the left.", tips: ["Slow down before entering the bend.", "Stay in your lane, don't cut the corner."] }
+    tips: ["Ralentis avant d'amorcer le virage.","Reste sur ta voie, ne coupe pas la trajectoire."],
+    en: {"name":"Left bend","text":"Warns of a single bend to the left.","tips":["Slow down before entering the bend.","Stay in your lane, don't cut the corner."]}
   },
   {
     id: "a1c",
@@ -1066,8 +956,8 @@ const signs = [
     name: "Succession de virages, le premier à droite",
     icon: "curve-s-right",
     text: "Annonce plusieurs virages qui se suivent, le premier partant vers la droite.",
-    tips: ["Adapte ta vitesse pour toute la série de virages.", "Ne redonne de l'allure qu'a la sortie du dernier virage."],
-    en: { name: "Series of bends, first right", text: "Warns of several bends in a row, the first one turning right.", tips: ["Adapt your speed for the whole series of bends.", "Only speed up again after the last bend."] }
+    tips: ["Adapte ta vitesse pour toute la série de virages.","Ne redonne de l'allure qu'à la sortie du dernier virage."],
+    en: {"name":"Series of bends, first right","text":"Warns of several bends in a row, the first one turning right.","tips":["Adapt your speed for the whole series of bends.","Only speed up again after the last bend."]}
   },
   {
     id: "a1d",
@@ -1076,18 +966,18 @@ const signs = [
     name: "Succession de virages, le premier à gauche",
     icon: "curve-s-left",
     text: "Annonce plusieurs virages qui se suivent, le premier partant vers la gauche.",
-    tips: ["Adapte ta vitesse pour toute la série de virages.", "Ne redonne de l'allure qu'a la sortie du dernier virage."],
-    en: { name: "Series of bends, first left", text: "Warns of several bends in a row, the first one turning left.", tips: ["Adapt your speed for the whole series of bends.", "Only speed up again after the last bend."] }
+    tips: ["Adapte ta vitesse pour toute la série de virages.","Ne redonne de l'allure qu'à la sortie du dernier virage."],
+    en: {"name":"Series of bends, first left","text":"Warns of several bends in a row, the first one turning left.","tips":["Adapt your speed for the whole series of bends.","Only speed up again after the last bend."]}
   },
   {
     id: "a2b",
     family: "danger",
     code: "A2b",
-    name: "Ralentisseur (dos-d'âne, plateau, coussin)",
+    name: "Ralentisseur de type dos-d'âne",
     icon: "bump",
-    text: "Signale un ralentisseur amenage sur la chaussee, distinct d'un simple cassis naturel.",
-    tips: ["Franchis-le a vitesse tres reduite.", "Attention aux deux-roues qui peuvent le contourner."],
-    en: { name: "Speed reducer (hump, table, cushion)", text: "Signals a built speed-reducing feature on the road, distinct from a natural dip.", tips: ["Cross it at very low speed.", "Watch for two-wheelers who may swerve around it."] }
+    text: "Signale un ralentisseur aménagé sur la chaussée, distinct d'un simple cassis naturel.",
+    tips: ["Franchis-le à vitesse très réduite.","Attention aux deux-roues qui peuvent le contourner."],
+    en: {"name":"Speed hump","text":"Signals a built speed-reducing feature on the road, distinct from a natural dip.","tips":["Cross it at very low speed.","Watch for two-wheelers who may swerve around it."]}
   },
   {
     id: "a3a",
@@ -1095,9 +985,9 @@ const signs = [
     code: "A3a",
     name: "Chaussée rétrécie par la droite",
     icon: "narrow-right",
-    text: "La chaussee se retrecit du cote droit de la route.",
-    tips: ["Anticipe ton placement vers la gauche de ta voie.", "Cede si un obstacle vient d'en face."],
-    en: { name: "Road narrows on the right", text: "The road becomes narrower on its right-hand side.", tips: ["Plan to position yourself towards the left of your lane.", "Give way if an obstacle is coming the other way."] }
+    text: "La chaussée se rétrécit du côté droit de la route.",
+    tips: ["Anticipe ton placement vers la gauche de ta voie.","Cède si un obstacle vient d'en face."],
+    en: {"name":"Road narrows on the right","text":"The road becomes narrower on its right-hand side.","tips":["Plan to position yourself towards the left of your lane.","Give way if an obstacle is coming the other way."]}
   },
   {
     id: "a3b",
@@ -1105,9 +995,9 @@ const signs = [
     code: "A3b",
     name: "Chaussée rétrécie par la gauche",
     icon: "narrow-left",
-    text: "La chaussee se retrecit du cote gauche de la route.",
-    tips: ["Anticipe ton placement vers la droite de ta voie.", "Cede si un obstacle vient d'en face."],
-    en: { name: "Road narrows on the left", text: "The road becomes narrower on its left-hand side.", tips: ["Plan to position yourself towards the right of your lane.", "Give way if an obstacle is coming the other way."] }
+    text: "La chaussée se rétrécit du côté gauche de la route.",
+    tips: ["Anticipe ton placement vers la droite de ta voie.","Cède si un obstacle vient d'en face."],
+    en: {"name":"Road narrows on the left","text":"The road becomes narrower on its left-hand side.","tips":["Plan to position yourself towards the right of your lane.","Give way if an obstacle is coming the other way."]}
   },
   {
     id: "a7",
@@ -1115,9 +1005,9 @@ const signs = [
     code: "A7",
     name: "Passage à niveau muni de barrières ou demi-barrières",
     icon: "level-crossing-gate",
-    text: "Signale une voie ferree equipee de barrieres ou demi-barrieres qui se ferment a l'approche d'un train.",
-    tips: ["Ne t'engage jamais quand les barrieres s'abaissent.", "Attends l'ouverture complete avant de repartir."],
-    en: { name: "Level crossing with barriers", text: "Warns of a railway crossing fitted with barriers or half-barriers that close as a train approaches.", tips: ["Never proceed once the barriers start lowering.", "Wait for them to fully open before moving off."] }
+    text: "Signale une voie ferrée équipée de barrières ou demi-barrières qui se ferment à l'approche d'un train.",
+    tips: ["Ne t'engage jamais quand les barrières s'abaissent.","Attends l'ouverture complète avant de repartir."],
+    en: {"name":"Level crossing with barriers","text":"Warns of a railway crossing fitted with barriers or half-barriers that close as a train approaches.","tips":["Never proceed once the barriers start lowering.","Wait for them to fully open before moving off."]}
   },
   {
     id: "a13a",
@@ -1125,9 +1015,9 @@ const signs = [
     code: "A13a",
     name: "Endroit fréquenté par les enfants",
     icon: "children",
-    text: "Signale la proximite d'une ecole ou d'un lieu ou des enfants peuvent surgir sur la chaussee.",
-    tips: ["Ralentis nettement, surtout aux heures d'entree et de sortie des classes.", "Sois pret a t'arreter a tout moment."],
-    en: { name: "Area frequented by children", text: "Warns that a school or place where children may suddenly appear on the road is nearby.", tips: ["Slow down significantly, especially around school hours.", "Be ready to stop at any moment."] }
+    text: "Signale la proximité d'une école ou d'un lieu où des enfants peuvent surgir sur la chaussée.",
+    tips: ["Ralentis nettement, surtout aux heures d'entrée et de sortie des classes.","Sois prêt à t'arrêter à tout moment."],
+    en: {"name":"Area frequented by children","text":"Warns that a school or place where children may suddenly appear on the road is nearby.","tips":["Slow down significantly, especially around school hours.","Be ready to stop at any moment."]}
   },
   {
     id: "ak5",
@@ -1135,39 +1025,29 @@ const signs = [
     code: "AK5",
     name: "Travaux",
     icon: "roadworks",
-    text: "Signale temporairement un chantier ou des travaux en cours sur ou pres de la chaussee.",
-    tips: ["Respecte la limitation de vitesse temporaire.", "Sois attentif aux ouvriers et engins de chantier."],
-    en: { name: "Roadworks", text: "Temporarily warns of works in progress on or near the road.", tips: ["Respect the temporary speed limit.", "Watch for workers and construction machinery."] }
-  },
-  {
-    id: "a26",
-    family: "danger",
-    code: "A26",
-    name: "Chaussée enneigée",
-    icon: "snowy-road",
-    text: "Signale un risque de neige sur la chaussee, frequent en altitude ou hors periode de deneigement.",
-    tips: ["Equipe ton vehicule pour la neige.", "Augmente fortement les distances de securite."],
-    en: { name: "Snow-covered road", text: "Warns of possible snow on the road, common at altitude or outside clearing hours.", tips: ["Fit your vehicle for snow.", "Greatly increase your safety distances."] }
+    text: "Signale temporairement un chantier ou des travaux en cours sur ou près de la chaussée.",
+    tips: ["Respecte la limitation de vitesse temporaire.","Sois attentif aux ouvriers et engins de chantier."],
+    en: {"name":"Roadworks","text":"Temporarily warns of works in progress on or near the road.","tips":["Respect the temporary speed limit.","Watch for workers and construction machinery."]}
   },
   {
     id: "a27",
     family: "danger",
-    code: "A27",
-    name: "Circulation dense ou risque de bouchon",
+    code: "AK30",
+    name: "Risque de bouchon",
     icon: "traffic-jam",
-    text: "Previent d'un risque de ralentissement brutal ou de bouchon sur la section a venir.",
-    tips: ["Leve le pied et augmente ta vigilance.", "Anticipe un arret complet possible."],
-    en: { name: "Heavy traffic or risk of tailback", text: "Warns of a risk of sudden slowdowns or a tailback ahead.", tips: ["Ease off and stay extra alert.", "Be ready for a complete stop."] }
+    text: "Prévient d'un risque de bouchon sur la section à venir.",
+    tips: ["Lève le pied et augmente ta vigilance.","Anticipe un arrêt complet possible."],
+    en: {"name":"Tailback ahead","text":"Warns of a risk of a tailback on the section ahead.","tips":["Ease off and stay extra alert.","Be ready for a complete stop."]}
   },
   {
     id: "ab2",
     family: "priorite",
     code: "AB2",
-    name: "Intersection avec cédez le passage à droite ou à gauche",
+    name: "Intersection où les autres usagers doivent céder le passage",
     icon: "priority-cross",
-    text: "Annonce une intersection ou tu dois ceder le passage aux vehicules venant d'une route signalee, sans pouvoir utiliser un panneau AB6.",
-    tips: ["Ralentis a l'approche du carrefour.", "Cherche la route qui beneficie de la priorite."],
-    en: { name: "Intersection with give way to the side road", text: "Warns of an intersection where you must yield to traffic on a marked road, used where an AB6 sign cannot apply.", tips: ["Slow down on approach to the junction.", "Look for which road has priority."] }
+    text: "Annonce une intersection avec une route dont les usagers doivent céder le passage. Il est utilisé quand un panneau AB6 (route prioritaire) ne peut pas être installé.",
+    tips: ["Tu es prioritaire, mais reste vigilant : certains usagers peuvent ne pas respecter la priorité.","Ralentis à l'approche du carrefour et surveille la route qui débouche."],
+    en: {"name":"Intersection where other road users must give way","text":"Warns of an intersection with a road whose users must give way. Used where an AB6 sign cannot be installed.","tips":["You have priority, but stay alert: some road users may not respect it.","Slow down on approach and watch the joining road."]}
   },
   {
     id: "ab5",
@@ -1175,69 +1055,59 @@ const signs = [
     code: "AB5",
     name: "Annonce d'un stop à 150 m",
     icon: "stop-150",
-    text: "Panonceau annoncant un panneau stop a environ 150 metres.",
-    tips: ["Commence a ralentir des ce panonceau.", "Prepare-toi a l'arret complet a la ligne."],
-    en: { name: "Stop sign in 150 m", text: "Supplementary panel announcing a stop sign roughly 150 metres ahead.", tips: ["Start slowing down as soon as you see it.", "Get ready for a full stop at the line."] }
-  },
-  {
-    id: "ab7a",
-    family: "priorite",
-    code: "AB7a",
-    name: "Annonce de fin de route prioritaire à 150 m",
-    icon: "priority-end-150",
-    text: "Panonceau annoncant la fin du caractere prioritaire de la route dans 150 metres.",
-    tips: ["Prepare-toi a perdre la priorite.", "Repere les regles de priorite qui vont s'appliquer ensuite."],
-    en: { name: "End of priority road in 150 m", text: "Supplementary panel announcing the end of the road's priority status in 150 metres.", tips: ["Get ready to lose priority.", "Watch for which right-of-way rule applies next."] }
+    text: "Panneau annonçant un panneau STOP situé à environ 150 mètres.",
+    tips: ["Commence à ralentir dès ce panneau.","Prépare-toi à l'arrêt complet à la ligne."],
+    en: {"name":"Stop sign in 150 m","text":"Sign announcing a stop sign roughly 150 metres ahead.","tips":["Start slowing down as soon as you see it.","Get ready for a full stop at the line."]}
   },
   {
     id: "b6d",
     family: "interdiction",
-    code: "B6d",
+    code: "B6b3",
     name: "Stationnement à durée limitée (zone bleue)",
     icon: "blue-zone",
-    text: "Le stationnement est autorise pendant une duree limitee, generalement avec un disque de stationnement.",
-    tips: ["Place ton disque de stationnement bien visible.", "Respecte l'heure limite indiquee."],
-    en: { name: "Time-limited parking (blue zone)", text: "Parking is allowed for a limited time, usually with a parking disc.", tips: ["Display your parking disc clearly.", "Respect the time limit shown."] }
+    text: "Le stationnement est autorisé pendant une durée limitée, généralement avec un disque de stationnement.",
+    tips: ["Place ton disque de stationnement bien visible.","Respecte l'heure limite indiquée."],
+    en: {"name":"Time-limited parking (blue zone)","text":"Parking is allowed for a limited time, usually with a parking disc.","tips":["Display your parking disc clearly.","Respect the time limit shown."]}
   },
   {
     id: "b7a",
     family: "interdiction",
-    code: "B7a",
+    code: "B9h",
     name: "Accès interdit aux motocyclettes",
     icon: "no-motorcycle",
     text: "Interdit la circulation des motocyclettes sur cette portion de route.",
-    tips: ["Cherche un itineraire alternatif si tu es en moto.", "La regle ne concerne pas forcement les autres deux-roues."],
-    en: { name: "No motorcycles", text: "Forbids motorcycles on this section of road.", tips: ["Look for an alternative route if you're riding a motorcycle.", "The rule may not apply to other two-wheelers."] }
+    tips: ["Cherche un itinéraire alternatif si tu es en moto.","La règle ne concerne pas forcément les autres deux-roues."],
+    en: {"name":"No motorcycles","text":"Forbids motorcycles on this section of road.","tips":["Look for an alternative route if you're riding a motorcycle.","The rule may not apply to other two-wheelers."]}
   },
   {
     id: "b7c",
     family: "interdiction",
-    code: "B7c",
+    code: "B9d",
     name: "Accès interdit aux tracteurs et engins agricoles",
     icon: "no-tractor",
     text: "Interdit la circulation des tracteurs et engins agricoles sur cette portion de route.",
-    tips: ["Concerne surtout le materiel agricole lent.", "Cherche un itineraire de contournement adapte."],
-    en: { name: "No tractors or farm machinery", text: "Forbids tractors and farm machinery on this section of road.", tips: ["Mainly concerns slow-moving farm equipment.", "Look for a suitable bypass route."] }
+    tips: ["Concerne surtout le matériel agricole lent.","Cherche un itinéraire de contournement adapté."],
+    en: {"name":"No tractors or farm machinery","text":"Forbids tractors and farm machinery on this section of road.","tips":["Mainly concerns slow-moving farm equipment.","Look for a suitable bypass route."]}
   },
   {
     id: "b9d",
     family: "interdiction",
-    code: "B9d",
+    code: "",
     name: "Accès interdit aux engins de déplacement personnel motorisés",
     icon: "no-scooter",
-    text: "Interdit la circulation des trottinettes electriques et engins similaires sur cette voie.",
-    tips: ["Concerne les trottinettes et gyropodes electriques.", "Cherche une voie autorisee a proximite."],
-    en: { name: "No motorised personal mobility devices", text: "Forbids electric scooters and similar devices on this road.", tips: ["Applies to e-scooters and self-balancing devices.", "Look for an authorised route nearby."] }
+    text: "Interdit la circulation des trottinettes électriques et engins similaires sur cette voie.",
+    tips: ["Concerne les trottinettes et gyropodes électriques.","Cherche une voie autorisée à proximité."],
+    en: {"name":"No motorised personal mobility devices","text":"Forbids electric scooters and similar devices on this road.","tips":["Applies to e-scooters and self-balancing devices.","Look for an authorised route nearby."]}
   },
   {
     id: "b11",
     family: "interdiction",
-    code: "B11",
+    code: "B9c",
     name: "Accès interdit aux véhicules à traction animale",
     icon: "no-cart",
-    text: "Interdit la circulation des vehicules tires par des animaux.",
-    tips: ["Rare en ville, plus frequent en secteur rural.", "Cherche un itineraire adapte si concerne."],
-    en: { name: "No animal-drawn vehicles", text: "Forbids animal-drawn vehicles on this road.", tips: ["Rare in town, more common in rural areas.", "Look for a suitable route if this applies to you."] }
+    text: "Interdit la circulation des véhicules tirés par des animaux.",
+    tips: ["Rare en ville, plus fréquent en secteur rural.","Cherche un itinéraire adapté si concerné."],
+    en: {"name":"No animal-drawn vehicles","text":"Forbids animal-drawn vehicles on this road.","tips":["Rare in town, more common in rural areas.","Look for a suitable route if this applies to you."]}
   },
   {
     id: "b3a",
@@ -1245,559 +1115,372 @@ const signs = [
     code: "B3a",
     name: "Interdiction de dépasser pour les véhicules de plus de 3,5 t",
     icon: "no-overtake-truck",
-    text: "Interdit aux vehicules de plus de 3,5 tonnes de depasser d'autres vehicules a moteur.",
-    tips: ["Concerne surtout les poids lourds et camping-cars lourds.", "Verifie le PTAC de ton vehicule si tu doutes."],
-    en: { name: "No overtaking for vehicles over 3.5 t", text: "Forbids vehicles over 3.5 tonnes from overtaking other motor vehicles.", tips: ["Mainly concerns trucks and heavy motorhomes.", "Check your vehicle's gross weight if unsure."] }
+    text: "Interdit aux véhicules de plus de 3,5 tonnes de dépasser d'autres véhicules à moteur.",
+    tips: ["Concerne surtout les poids lourds et camping-cars lourds.","Vérifie le PTAC de ton véhicule si tu doutes."],
+    en: {"name":"No overtaking for vehicles over 3.5 t","text":"Forbids vehicles over 3.5 tonnes from overtaking other motor vehicles.","tips":["Mainly concerns trucks and heavy motorhomes.","Check your vehicle's gross weight if unsure."]}
   },
   {
     id: "b20",
     family: "interdiction",
-    code: "B20",
+    code: "B10",
     name: "Interdit aux véhicules longs",
     icon: "no-long",
-    text: "Interdit les vehicules ou ensembles dont la longueur depasse celle indiquee sur le panneau.",
-    tips: ["Concerne notamment les camions avec remorque.", "Cherche un itineraire adapte au gabarit."],
-    en: { name: "No long vehicles", text: "Forbids vehicles or combinations longer than the length shown on the sign.", tips: ["Mainly concerns trucks with a trailer.", "Look for a route suited to your vehicle's size."] }
+    text: "Interdit les véhicules ou ensembles dont la longueur dépasse celle indiquée sur le panneau.",
+    tips: ["Concerne notamment les camions avec remorque.","Cherche un itinéraire adapté au gabarit."],
+    en: {"name":"No long vehicles","text":"Forbids vehicles or combinations longer than the length shown on the sign.","tips":["Mainly concerns trucks with a trailer.","Look for a route suited to your vehicle's size."]}
   },
   {
     id: "b9c",
     family: "interdiction",
-    code: "B9c",
+    code: "B9g",
     name: "Accès interdit aux cyclomoteurs",
     icon: "no-moped",
     text: "Interdit la circulation des cyclomoteurs sur cette portion de route.",
-    tips: ["Concerne les deux-roues de faible cylindree.", "Cherche un itineraire alternatif si concerne."],
-    en: { name: "No mopeds", text: "Forbids mopeds on this section of road.", tips: ["Applies to small-displacement two-wheelers.", "Look for an alternative route if this applies to you."] }
-  },
-  {
-    id: "b40",
-    family: "interdiction",
-    code: "B40",
-    name: "Croisement interdit entre véhicules de transport en commun",
-    icon: "no-cross",
-    text: "Interdit a deux vehicules de transport en commun de se croiser sur une section etroite.",
-    tips: ["Frequent sur des routes de montagne etroites.", "Attends que la voie soit degagee."],
-    en: { name: "No crossing between public transport vehicles", text: "Forbids two public transport vehicles from passing each other on a narrow section.", tips: ["Common on narrow mountain roads.", "Wait until the road is clear."] }
+    tips: ["Concerne les deux-roues de faible cylindrée.","Cherche un itinéraire alternatif si concerné."],
+    en: {"name":"No mopeds","text":"Forbids mopeds on this section of road.","tips":["Applies to small-displacement two-wheelers.","Look for an alternative route if this applies to you."]}
   },
   {
     id: "b52",
-    family: "interdiction",
+    family: "indication",
     code: "B52",
     name: "Entrée d'une zone de rencontre",
     icon: "meeting-zone",
-    text: "Debut d'une zone de rencontre ou pietons, cyclistes et vehicules partagent le meme espace, vitesse limitee a 20 km/h et pietons prioritaires.",
-    tips: ["Roule au pas et reste tres attentif aux pietons.", "Les pietons peuvent circuler sur toute la chaussee."],
-    en: { name: "Start of a meeting zone", text: "Start of a shared space where pedestrians, cyclists and vehicles mix, speed limited to 20 km/h with pedestrians having priority.", tips: ["Drive at walking pace and stay very alert to pedestrians.", "Pedestrians may use the whole width of the road."] }
+    text: "Début d'une zone de rencontre où piétons, cyclistes et véhicules partagent le même espace, vitesse limitée à 20 km/h et piétons prioritaires.",
+    tips: ["Roule au pas et reste très attentif aux piétons.","Les piétons peuvent circuler sur toute la chaussée."],
+    en: {"name":"Start of a meeting zone","text":"Start of a shared space where pedestrians, cyclists and vehicles mix, speed limited to 20 km/h with pedestrians having priority.","tips":["Drive at walking pace and stay very alert to pedestrians.","Pedestrians may use the whole width of the road."]}
   },
   {
     id: "b53",
-    family: "interdiction",
+    family: "indication",
     code: "B53",
     name: "Sortie d'une zone de rencontre",
     icon: "meeting-zone-end",
-    text: "Signale la fin de la zone de rencontre et le retour aux regles de circulation habituelles.",
-    tips: ["Reste prudent en sortant de la zone.", "La priorite pietonne generalisee cesse a ce panneau."],
-    en: { name: "End of a meeting zone", text: "Signals the end of the meeting zone and the return to normal traffic rules.", tips: ["Stay cautious as you leave the zone.", "General pedestrian priority ends at this sign."] }
+    shape: "endsquare",
+    text: "Signale la fin de la zone de rencontre et le retour aux règles de circulation habituelles.",
+    tips: ["Reste prudent en sortant de la zone.","La priorité piétonne généralisée cesse à ce panneau."],
+    en: {"name":"End of a meeting zone","text":"Signals the end of the meeting zone and the return to normal traffic rules.","tips":["Stay cautious as you leave the zone.","General pedestrian priority ends at this sign."]}
   },
   {
     id: "b54",
-    family: "interdiction",
+    family: "indication",
     code: "B54",
     name: "Entrée d'une aire piétonne",
     icon: "pedestrian-zone",
-    text: "Debut d'une aire reservee aux pietons ou seuls certains vehicules autorises peuvent circuler, au pas.",
-    tips: ["N'y entre que si tu es autorise (riverain, livraison...).", "Roule au pas, les pietons sont partout prioritaires."],
-    en: { name: "Start of a pedestrian area", text: "Start of an area reserved for pedestrians where only authorised vehicles may enter, at walking pace.", tips: ["Only enter if authorised (resident, delivery...).", "Drive at walking pace, pedestrians have priority everywhere."] }
+    text: "Début d'une aire réservée aux piétons où seuls certains véhicules autorisés peuvent circuler, au pas.",
+    tips: ["N'y entre que si tu es autorisé (riverain, livraison...).","Roule au pas, les piétons sont partout prioritaires."],
+    en: {"name":"Start of a pedestrian area","text":"Start of an area reserved for pedestrians where only authorised vehicles may enter, at walking pace.","tips":["Only enter if authorised (resident, delivery...).","Drive at walking pace, pedestrians have priority everywhere."]}
   },
   {
     id: "b55",
-    family: "interdiction",
+    family: "indication",
     code: "B55",
     name: "Sortie d'une aire piétonne",
     icon: "pedestrian-zone-end",
-    text: "Signale la fin de l'aire pietonne et le retour a la circulation normale.",
-    tips: ["Reste attentif en sortant, des pietons peuvent trainer.", "Reprends une vitesse normale progressivement."],
-    en: { name: "End of a pedestrian area", text: "Signals the end of the pedestrian area and the return to normal traffic.", tips: ["Stay alert leaving the area, pedestrians may linger.", "Gradually resume a normal speed."] }
-  },
-  {
-    id: "b56",
-    family: "interdiction",
-    code: "B56",
-    name: "Entrée d'une zone à faibles émissions (ZFE)",
-    icon: "low-emission",
-    text: "Debut d'une zone ou l'acces est reserve aux vehicules disposant d'une vignette Crit'Air autorisee.",
-    tips: ["Verifie que ta vignette Crit'Air est autorisee.", "Les restrictions peuvent varier selon le jour."],
-    en: { name: "Start of a low-emission zone", text: "Start of a zone where access is limited to vehicles with an authorised Crit'Air sticker.", tips: ["Check that your Crit'Air sticker is allowed.", "Restrictions can vary depending on the day."] }
-  },
-  {
-    id: "b57",
-    family: "interdiction",
-    code: "B57",
-    name: "Sortie d'une zone à faibles émissions (ZFE)",
-    icon: "low-emission-end",
-    text: "Signale la fin de la zone a faibles emissions et de ses restrictions specifiques.",
-    tips: ["Les restrictions Crit'Air ne s'appliquent plus.", "Reste attentif aux autres panneaux locaux."],
-    en: { name: "End of a low-emission zone", text: "Signals the end of the low-emission zone and its specific restrictions.", tips: ["Crit'Air restrictions no longer apply.", "Stay alert for other local signs."] }
+    shape: "endsquare",
+    text: "Signale la fin de l'aire piétonne et le retour à la circulation normale.",
+    tips: ["Reste attentif en sortant, des piétons peuvent traîner.","Reprends une vitesse normale progressivement."],
+    en: {"name":"End of a pedestrian area","text":"Signals the end of the pedestrian area and the return to normal traffic.","tips":["Stay alert leaving the area, pedestrians may linger.","Gradually resume a normal speed."]}
   },
   {
     id: "b21a1",
     family: "obligation",
-    code: "B21a1",
+    code: "B21b",
     name: "Direction obligatoire tout droit",
     icon: "arrow",
-    text: "Oblige a continuer tout droit a la prochaine intersection.",
-    tips: ["Ne tourne ni a droite ni a gauche a cet endroit.", "Reste sur la voie appropriee a l'approche."],
-    en: { name: "Mandatory direction: straight ahead", text: "Forces you to continue straight ahead at the next intersection.", tips: ["Don't turn left or right at this point.", "Stay in the appropriate lane on approach."] }
+    text: "Oblige à continuer tout droit à la prochaine intersection.",
+    tips: ["Ne tourne ni à droite ni à gauche à cet endroit.","Reste sur la voie appropriée à l'approche."],
+    en: {"name":"Mandatory direction: straight ahead","text":"Forces you to continue straight ahead at the next intersection.","tips":["Don't turn left or right at this point.","Stay in the appropriate lane on approach."]}
   },
   {
     id: "b21b1",
     family: "obligation",
-    code: "B21b1",
+    code: "B21d1",
     name: "Direction obligatoire à droite ou tout droit",
     icon: "arrow-right",
-    text: "Oblige a continuer tout droit ou a tourner a droite a la prochaine intersection.",
-    tips: ["Choisis ta voie selon la direction souhaitee.", "Ne tourne jamais a gauche a cet endroit."],
-    en: { name: "Mandatory direction: right or straight ahead", text: "Forces you to go straight ahead or turn right at the next intersection.", tips: ["Choose your lane according to where you're going.", "Never turn left at this point."] }
+    text: "Oblige à continuer tout droit ou à tourner à droite à la prochaine intersection.",
+    tips: ["Choisis ta voie selon la direction souhaitée.","Ne tourne jamais à gauche à cet endroit."],
+    en: {"name":"Mandatory direction: right or straight ahead","text":"Forces you to go straight ahead or turn right at the next intersection.","tips":["Choose your lane according to where you're going.","Never turn left at this point."]}
   },
   {
     id: "b21b2",
     family: "obligation",
-    code: "B21b2",
+    code: "B21d2",
     name: "Direction obligatoire à gauche ou tout droit",
     icon: "arrow-left",
-    text: "Oblige a continuer tout droit ou a tourner a gauche a la prochaine intersection.",
-    tips: ["Choisis ta voie selon la direction souhaitee.", "Ne tourne jamais a droite a cet endroit."],
-    en: { name: "Mandatory direction: left or straight ahead", text: "Forces you to go straight ahead or turn left at the next intersection.", tips: ["Choose your lane according to where you're going.", "Never turn right at this point."] }
+    text: "Oblige à continuer tout droit ou à tourner à gauche à la prochaine intersection.",
+    tips: ["Choisis ta voie selon la direction souhaitée.","Ne tourne jamais à droite à cet endroit."],
+    en: {"name":"Mandatory direction: left or straight ahead","text":"Forces you to go straight ahead or turn left at the next intersection.","tips":["Choose your lane according to where you're going.","Never turn right at this point."]}
   },
   {
     id: "b21e",
     family: "obligation",
-    code: "B21e",
+    code: "B21a1",
     name: "Contournement obligatoire par la droite",
-    icon: "detour-right",
-    text: "Oblige a contourner l'obstacle ou le terre-plein par la droite.",
-    tips: ["Suis le sens indique par la fleche.", "Ne coupe pas la trajectoire des autres usagers."],
-    en: { name: "Mandatory detour to the right", text: "Forces you to go around the obstacle or central reservation on the right.", tips: ["Follow the direction shown by the arrow.", "Don't cut across other road users' path."] }
+    icon: "detour-right-arrow",
+    text: "Oblige à contourner l'obstacle ou le terre-plein par la droite.",
+    tips: ["Suis le sens indiqué par la flèche.","Ne coupe pas la trajectoire des autres usagers."],
+    en: {"name":"Mandatory detour to the right","text":"Forces you to go around the obstacle or central reservation on the right.","tips":["Follow the direction shown by the arrow.","Don't cut across other road users' path."]}
   },
   {
     id: "b22d",
-    family: "interdiction",
-    code: "B22a (fin)",
+    family: "obligation",
+    code: "B40",
     name: "Fin de piste cyclable obligatoire",
-    icon: "bike",
+    icon: "bike-end",
     text: "Signale la fin de l'obligation pour les cyclistes d'utiliser la piste cyclable.",
-    tips: ["Les cyclistes peuvent revenir sur la chaussee.", "Automobilistes, redouble d'attention en les croisant."],
-    en: { name: "End of mandatory cycle path", text: "Signals the end of cyclists' obligation to use the cycle path.", tips: ["Cyclists may return to the main carriageway.", "Drivers, stay extra alert when passing them."] }
+    tips: ["Les cyclistes peuvent revenir sur la chaussée.","Automobilistes, redouble d'attention en les croisant."],
+    en: {"name":"End of mandatory cycle path","text":"Signals the end of cyclists' obligation to use the cycle path.","tips":["Cyclists may return to the main carriageway.","Drivers, stay extra alert when passing them."]}
   },
   {
     id: "b41f",
-    family: "interdiction",
-    code: "B41 (fin)",
+    family: "obligation",
+    code: "B45",
     name: "Fin de voie réservée aux transports en commun",
-    icon: "bus",
-    text: "Signale la fin de la voie dediee aux transports en commun.",
-    tips: ["La voie redevient accessible a tous.", "Reste attentif aux bus qui s'y rabattent."],
-    en: { name: "End of public transport lane", text: "Signals the end of the lane dedicated to public transport.", tips: ["The lane becomes open to everyone again.", "Watch for buses merging back in."] }
+    icon: "bus-end",
+    text: "Signale la fin de la voie dédiée aux transports en commun.",
+    tips: ["La voie redevient accessible à tous.","Reste attentif aux bus qui s'y rabattent."],
+    en: {"name":"End of public transport lane","text":"Signals the end of the lane dedicated to public transport.","tips":["The lane becomes open to everyone again.","Watch for buses merging back in."]}
   },
   {
     id: "b26f",
-    family: "interdiction",
-    code: "B26 (fin)",
+    family: "obligation",
+    code: "B44",
     name: "Fin de l'obligation des chaînes à neige",
-    icon: "snow",
-    text: "Signale la fin de la section ou les chaines ou equipements neige etaient obligatoires.",
-    tips: ["Tu peux retirer tes chaines si les conditions le permettent.", "Reste prudent, la route peut rester glissante."],
-    en: { name: "End of mandatory snow chains", text: "Signals the end of the section where snow chains or equivalent equipment were required.", tips: ["You may remove your chains if conditions allow.", "Stay cautious, the road can still be slippery."] }
-  },
-  {
-    id: "b43",
-    family: "obligation",
-    code: "B43",
-    name: "Itinéraire obligatoire pour poids lourds",
-    icon: "truck-route",
-    text: "Oblige les poids lourds a suivre l'itineraire indique, souvent pour contourner un centre-ville.",
-    tips: ["Concerne les vehicules au-dela d'un certain tonnage.", "Suis la deviation meme si elle semble plus longue."],
-    en: { name: "Mandatory route for heavy goods vehicles", text: "Forces heavy goods vehicles to follow the indicated route, often to bypass a town centre.", tips: ["Applies to vehicles above a certain tonnage.", "Follow the diversion even if it looks longer."] }
-  },
-  {
-    id: "b47",
-    family: "obligation",
-    code: "B47",
-    name: "Cyclistes, mettez pied à terre",
-    icon: "walker-only",
-    text: "Oblige les cyclistes a descendre de velo et a marcher sur la portion signalee.",
-    tips: ["Descends du velo des le panneau.", "Frequent aux abords de passages etroits ou d'ecoles."],
-    en: { name: "Cyclists, dismount", text: "Requires cyclists to get off their bike and walk on the marked section.", tips: ["Get off your bike right at the sign.", "Common near narrow passages or schools."] }
+    icon: "snow-end",
+    text: "Signale la fin de la section où les chaînes ou équipements neige étaient obligatoires.",
+    tips: ["Tu peux retirer tes chaînes si les conditions le permettent.","Reste prudent, la route peut rester glissante."],
+    en: {"name":"End of mandatory snow chains","text":"Signals the end of the section where snow chains or equivalent equipment were required.","tips":["You may remove your chains if conditions allow.","Stay cautious, the road can still be slippery."]}
   },
   {
     id: "b48",
     family: "obligation",
-    code: "B48",
+    code: "B22c",
     name: "Chemin obligatoire pour cavaliers",
-    icon: "horse",
-    text: "Oblige les cavaliers a emprunter ce chemin plutot que la chaussee.",
-    tips: ["Utile pres des routes sans bas-cote adapte.", "Reste sur le chemin balise autant que possible."],
-    en: { name: "Mandatory path for horse riders", text: "Forces horse riders to use this path rather than the road.", tips: ["Useful near roads without a suitable verge.", "Stay on the marked path where possible."] }
-  },
-  {
-    id: "b49",
-    family: "obligation",
-    code: "B49",
-    name: "Voie obligatoire pour engins de déplacement personnel",
-    icon: "bike",
-    text: "Oblige les trottinettes et engins de deplacement personnel a utiliser la voie signalee.",
-    tips: ["Ne circule pas sur le trottoir si cette voie existe.", "Respecte la separation avec les pietons et cyclistes."],
-    en: { name: "Mandatory lane for personal mobility devices", text: "Requires e-scooters and similar devices to use the marked lane.", tips: ["Don't ride on the pavement if this lane exists.", "Respect the separation from pedestrians and cyclists."] }
+    icon: "horse-white",
+    text: "Oblige les cavaliers à emprunter ce chemin plutôt que la chaussée.",
+    tips: ["Utile près des routes sans bas-côté adapté.","Reste sur le chemin balisé autant que possible."],
+    en: {"name":"Mandatory path for horse riders","text":"Forces horse riders to use this path rather than the road.","tips":["Useful near roads without a suitable verge.","Stay on the marked path where possible."]}
   },
   {
     id: "c11a",
     family: "indication",
-    code: "C11a",
+    code: "",
     name: "Route à chaussées séparées",
     icon: "dual-carriageway",
-    text: "Indique le debut d'une route dont les deux sens de circulation sont separes par un terre-plein.",
-    tips: ["Ne t'attends plus a du trafic en face sur ta voie.", "La vitesse maximale peut etre plus elevee."],
-    en: { name: "Dual carriageway", text: "Indicates the start of a road where the two directions are separated by a central reservation.", tips: ["No more oncoming traffic to expect on your carriageway.", "The maximum speed may be higher."] }
+    text: "Indique le début d'une route dont les deux sens de circulation sont séparés par un terre-plein.",
+    tips: ["Ne t'attends plus à du trafic en face sur ta voie.","La vitesse maximale peut être plus élevée."],
+    en: {"name":"Dual carriageway","text":"Indicates the start of a road where the two directions are separated by a central reservation.","tips":["No more oncoming traffic to expect on your carriageway.","The maximum speed may be higher."]}
   },
   {
     id: "c11b",
     family: "indication",
-    code: "C11b",
+    code: "",
     name: "Fin de route à chaussées séparées",
     icon: "dual-carriageway-end",
-    text: "Signale la fin de la separation des deux sens de circulation.",
-    tips: ["Redouble d'attention: la circulation redevient a double sens.", "Adapte ta vitesse au nouveau contexte."],
-    en: { name: "End of dual carriageway", text: "Signals the end of the separation between the two directions of traffic.", tips: ["Stay extra alert: two-way traffic resumes.", "Adapt your speed to the new context."] }
+    text: "Signale la fin de la séparation des deux sens de circulation.",
+    tips: ["Redouble d'attention: la circulation redevient à double sens.","Adapte ta vitesse au nouveau contexte."],
+    en: {"name":"End of dual carriageway","text":"Signals the end of the separation between the two directions of traffic.","tips":["Stay extra alert: two-way traffic resumes.","Adapt your speed to the new context."]}
   },
   {
     id: "c24b",
     family: "indication",
-    code: "C24b",
+    code: "",
     name: "Voie réservée au covoiturage",
     icon: "carpool",
-    text: "Indique une voie reservee aux vehicules pratiquant le covoiturage, selon les conditions affichees.",
-    tips: ["Verifie le nombre minimal d'occupants exige.", "Ne l'emprunte pas si tu ne remplis pas la condition."],
-    en: { name: "Carpool lane", text: "Indicates a lane reserved for carpooling vehicles, under the conditions shown.", tips: ["Check the minimum number of occupants required.", "Don't use it if you don't meet the condition."] }
+    text: "Indique une voie réservée aux véhicules pratiquant le covoiturage, selon les conditions affichées.",
+    tips: ["Vérifie le nombre minimal d'occupants exigé.","Ne l'emprunte pas si tu ne remplis pas la condition."],
+    en: {"name":"Carpool lane","text":"Indicates a lane reserved for carpooling vehicles, under the conditions shown.","tips":["Check the minimum number of occupants required.","Don't use it if you don't meet the condition."]}
   },
   {
     id: "c119",
     family: "indication",
-    code: "C119",
+    code: "",
     name: "Parking relais (P+R)",
     icon: "park-ride",
-    text: "Indique un parking relie aux transports en commun pour laisser sa voiture et continuer autrement.",
-    tips: ["Utile pour eviter le trafic et le stationnement en centre-ville.", "Verifie les horaires du transport associe."],
-    en: { name: "Park and ride (P+R)", text: "Indicates a car park linked to public transport, to leave your car and continue another way.", tips: ["Useful to avoid traffic and parking in the city centre.", "Check the timetable of the connecting transport."] }
+    text: "Indique un parking relié aux transports en commun pour laisser sa voiture et continuer autrement.",
+    tips: ["Utile pour éviter le trafic et le stationnement en centre-ville.","Vérifie les horaires du transport associé."],
+    en: {"name":"Park and ride (P+R)","text":"Indicates a car park linked to public transport, to leave your car and continue another way.","tips":["Useful to avoid traffic and parking in the city centre.","Check the timetable of the connecting transport."]}
   },
   {
     id: "c120",
     family: "indication",
-    code: "C120",
+    code: "CE52",
     name: "Aire de covoiturage",
     icon: "carpool-area",
-    text: "Indique un espace amenage pour se retrouver et partager un trajet en covoiturage.",
-    tips: ["Bon point de rendez-vous pour partager un trajet.", "Verifie que le stationnement y est autorise longue duree."],
-    en: { name: "Carpool area", text: "Indicates a space set up to meet and share a carpool journey.", tips: ["A good meeting point to share a ride.", "Check whether long-term parking is allowed there."] }
-  },
-  {
-    id: "c25",
-    family: "indication",
-    code: "C25",
-    name: "Sortie (voie de décélération)",
-    icon: "exit",
-    text: "Annonce une sortie prochaine sur autoroute ou voie express, avec une voie de deceleration.",
-    tips: ["Rabats-toi progressivement sur la voie de sortie.", "Ne freine pas encore sur la voie principale."],
-    en: { name: "Exit (deceleration lane)", text: "Announces an upcoming exit on a motorway or expressway, with a deceleration lane.", tips: ["Move over gradually into the exit lane.", "Don't brake yet on the main carriageway."] }
-  },
-  {
-    id: "c30",
-    family: "indication",
-    code: "C107a",
-    name: "Fin de section à circulation prioritaire",
-    icon: "priority-end",
-    text: "Indique la fin d'une section ou une categorie de vehicules beneficiait d'une priorite particuliere.",
-    tips: ["Verifie les nouvelles regles de priorite.", "Adapte ton comportement au contexte normal."],
-    en: { name: "End of priority section", text: "Indicates the end of a section where a category of vehicles had a special priority.", tips: ["Check the new priority rules.", "Adapt your behaviour to normal conditions."] }
+    text: "Indique un espace aménagé pour se retrouver et partager un trajet en covoiturage.",
+    tips: ["Bon point de rendez-vous pour partager un trajet.","Vérifie que le stationnement y est autorisé longue durée."],
+    en: {"name":"Carpool area","text":"Indicates a space set up to meet and share a carpool journey.","tips":["A good meeting point to share a ride.","Check whether long-term parking is allowed there."]}
   },
   {
     id: "ce2",
     family: "services",
-    code: "CE2",
+    code: "CE2b",
     name: "Téléphone",
     icon: "phone",
-    text: "Indique la presence d'un telephone public a proximite.",
-    tips: ["Utile en cas de panne sans reseau mobile.", "De moins en moins frequent avec la generalisation des portables."],
-    en: { name: "Telephone", text: "Indicates a public telephone nearby.", tips: ["Useful in case of a breakdown with no mobile signal.", "Increasingly rare with mobile phones now widespread."] }
+    text: "Indique la présence d'un téléphone public à proximité.",
+    tips: ["Utile en cas de panne sans réseau mobile.","De moins en moins fréquent avec la généralisation des portables."],
+    en: {"name":"Telephone","text":"Indicates a public telephone nearby.","tips":["Useful in case of a breakdown with no mobile signal.","Increasingly rare with mobile phones now widespread."]}
   },
   {
     id: "ce6",
     family: "services",
-    code: "CE6",
+    code: "",
     name: "Camping",
     icon: "tent",
-    text: "Indique un terrain de camping amenage a proximite.",
-    tips: ["Utile pour planifier une etape sur un long trajet.", "Verifie les equipements disponibles sur place."],
-    en: { name: "Campsite", text: "Indicates a nearby campsite.", tips: ["Useful for planning a stop on a long trip.", "Check the facilities available there."] }
+    text: "Indique un terrain de camping aménagé à proximité.",
+    tips: ["Utile pour planifier une étape sur un long trajet.","Vérifie les équipements disponibles sur place."],
+    en: {"name":"Campsite","text":"Indicates a nearby campsite.","tips":["Useful for planning a stop on a long trip.","Check the facilities available there."]}
   },
   {
     id: "ce8",
     family: "services",
-    code: "CE8",
+    code: "",
     name: "Aire pour caravanes et camping-cars",
     icon: "camper",
-    text: "Indique un espace amenage pour accueillir caravanes et camping-cars.",
-    tips: ["Verifie les services disponibles (eau, electricite).", "Certaines aires sont payantes."],
-    en: { name: "Caravan and motorhome area", text: "Indicates a space set up to welcome caravans and motorhomes.", tips: ["Check the services available (water, electricity).", "Some areas charge a fee."] }
-  },
-  {
-    id: "ce9",
-    family: "services",
-    code: "CE9",
-    name: "Gare routière",
-    icon: "train-station",
-    text: "Indique la presence d'une gare routiere ou d'un point d'arret de bus important.",
-    tips: ["Utile pour un depose-minute ou une correspondance.", "Attention aux bus qui manoeuvrent a proximite."],
-    en: { name: "Bus station", text: "Indicates a bus station or a major bus stop.", tips: ["Useful for a quick drop-off or a connection.", "Watch for buses manoeuvring nearby."] }
+    text: "Indique un espace aménagé pour accueillir caravanes et camping-cars.",
+    tips: ["Vérifie les services disponibles (eau, électricité).","Certaines aires sont payantes."],
+    en: {"name":"Caravan and motorhome area","text":"Indicates a space set up to welcome caravans and motorhomes.","tips":["Check the services available (water, electricity).","Some areas charge a fee."]}
   },
   {
     id: "ce10",
     family: "services",
     code: "CE10",
-    name: "Port ou zone portuaire",
+    name: "Embarcadère",
     icon: "port",
-    text: "Indique la direction d'un port ou d'une zone portuaire.",
-    tips: ["Utile pour rejoindre un embarquement.", "Verifie les horaires si tu prends un ferry."],
-    en: { name: "Port or harbour area", text: "Indicates the direction of a port or harbour area.", tips: ["Useful to reach a departure point.", "Check the schedule if you're taking a ferry."] }
-  },
-  {
-    id: "ce11",
-    family: "services",
-    code: "CE11",
-    name: "Baignade surveillée",
-    icon: "swim",
-    text: "Indique un lieu de baignade avec surveillance a proximite.",
-    tips: ["Preferable a une baignade non surveillee.", "Verifie les horaires de surveillance affiches."],
-    en: { name: "Supervised swimming area", text: "Indicates a swimming spot with lifeguard supervision nearby.", tips: ["Safer than an unsupervised swimming spot.", "Check the posted supervision hours."] }
-  },
-  {
-    id: "ce12",
-    family: "services",
-    code: "CE12",
-    name: "Piscine",
-    icon: "pool",
-    text: "Indique la presence d'une piscine publique a proximite.",
-    tips: ["Utile pour une pause en famille.", "Verifie les horaires d'ouverture avant de t'y rendre."],
-    en: { name: "Swimming pool", text: "Indicates a nearby public swimming pool.", tips: ["Useful for a family break.", "Check opening hours before heading there."] }
-  },
-  {
-    id: "ce13",
-    family: "services",
-    code: "CE13",
-    name: "Refuge de montagne",
-    icon: "cabin",
-    text: "Indique un refuge amenage pour les randonneurs en montagne.",
-    tips: ["Utile pour preparer une randonnee en altitude.", "Renseigne-toi sur la reservation avant de partir."],
-    en: { name: "Mountain refuge", text: "Indicates a shelter set up for mountain hikers.", tips: ["Useful when planning a hike at altitude.", "Check booking requirements before setting off."] }
+    text: "Indique un embarcadère, point d'embarquement pour les bateaux.",
+    tips: ["Utile pour rejoindre un embarquement.","Vérifie les horaires si tu prends un ferry."],
+    en: {"name":"Landing stage","text":"Indicates a landing stage, where boats are boarded.","tips":["Useful to reach a departure point.","Check the schedule if you're taking a ferry."]}
   },
   {
     id: "ce17",
     family: "services",
-    code: "CE17",
+    code: "CE18",
     name: "Buvette",
     icon: "drink",
-    text: "Indique un point de vente de boissons a proximite.",
-    tips: ["Utile pour une pause hydratation rapide.", "Souvent present sur les aires ou lieux touristiques."],
-    en: { name: "Refreshment stand", text: "Indicates a drinks stand nearby.", tips: ["Useful for a quick drink break.", "Often found at rest areas or tourist spots."] }
-  },
-  {
-    id: "ce18",
-    family: "services",
-    code: "CE18",
-    name: "Musée",
-    icon: "museum",
-    text: "Indique la presence d'un musee a proximite.",
-    tips: ["Verifie les horaires et jours de fermeture.", "Utile pour planifier une visite culturelle."],
-    en: { name: "Museum", text: "Indicates a nearby museum.", tips: ["Check opening hours and closing days.", "Useful for planning a cultural visit."] }
-  },
-  {
-    id: "ce19",
-    family: "services",
-    code: "CE19",
-    name: "Monument ou château",
-    icon: "castle",
-    text: "Indique un monument historique ou un chateau a proximite.",
-    tips: ["Souvent accompagne d'un nom ou d'une distance.", "Utile pour planifier un detour touristique."],
-    en: { name: "Historic monument or castle", text: "Indicates a historic monument or castle nearby.", tips: ["Often shown with a name or distance.", "Useful for planning a scenic detour."] }
+    text: "Indique un point de vente de boissons à proximité.",
+    tips: ["Utile pour une pause hydratation rapide.","Souvent présent sur les aires ou lieux touristiques."],
+    en: {"name":"Refreshment stand","text":"Indicates a drinks stand nearby.","tips":["Useful for a quick drink break.","Often found at rest areas or tourist spots."]}
   },
   {
     id: "ce21",
     family: "services",
-    code: "CE21",
+    code: "CE6a",
     name: "Départ de randonnée pédestre",
     icon: "hiking",
-    text: "Indique le point de depart d'un sentier de randonnee balise.",
-    tips: ["Verifie la difficulte et la duree du parcours.", "Prevois de l'eau et des chaussures adaptees."],
-    en: { name: "Hiking trail start", text: "Indicates the starting point of a marked hiking trail.", tips: ["Check the trail's difficulty and duration.", "Bring water and suitable footwear."] }
-  },
-  {
-    id: "ce23",
-    family: "services",
-    code: "CE23",
-    name: "Point d'eau potable",
-    icon: "water",
-    text: "Indique un point d'eau potable accessible a proximite.",
-    tips: ["Utile pour remplir une gourde en randonnee ou en camping-car.", "Verifie que le point est bien signale comme potable."],
-    en: { name: "Drinking water point", text: "Indicates an accessible drinking water point nearby.", tips: ["Useful for filling a bottle while hiking or in a motorhome.", "Check that the point is clearly marked as drinkable."] }
+    text: "Indique le point de départ d'un sentier de randonnée balisé.",
+    tips: ["Vérifie la difficulté et la durée du parcours.","Prévois de l'eau et des chaussures adaptées."],
+    en: {"name":"Hiking trail start","text":"Indicates the starting point of a marked hiking trail.","tips":["Check the trail's difficulty and duration.","Bring water and suitable footwear."]}
   },
   {
     id: "ce24",
     family: "services",
-    code: "CE24",
+    code: "CE21",
     name: "Point de vue ou panorama",
     icon: "viewpoint",
-    text: "Indique un lieu amenage offrant une vue remarquable.",
-    tips: ["Bon endroit pour une pause photo.", "Gare-toi uniquement sur les emplacements prevus."],
-    en: { name: "Scenic viewpoint", text: "Indicates a spot set up with a remarkable view.", tips: ["A good spot for a photo break.", "Only park in the designated spaces."] }
+    text: "Indique un lieu aménagé offrant une vue remarquable.",
+    tips: ["Bon endroit pour une pause photo.","Gare-toi uniquement sur les emplacements prévus."],
+    en: {"name":"Scenic viewpoint","text":"Indicates a spot set up with a remarkable view.","tips":["A good spot for a photo break.","Only park in the designated spaces."]}
   },
   {
     id: "ce25",
     family: "services",
-    code: "CE25",
+    code: "CE23",
     name: "Aire de jeux pour enfants",
     icon: "playground",
-    text: "Indique un espace amenage avec des jeux pour enfants.",
-    tips: ["Bonne option pour une pause en famille sur un long trajet.", "Reste attentif aux enfants traversant a proximite."],
-    en: { name: "Children's playground", text: "Indicates a space set up with games for children.", tips: ["A good option for a family break on a long trip.", "Watch for children crossing nearby."] }
+    text: "Indique un espace aménagé avec des jeux pour enfants.",
+    tips: ["Bonne option pour une pause en famille sur un long trajet.","Reste attentif aux enfants traversant à proximité."],
+    en: {"name":"Children's playground","text":"Indicates a space set up with games for children.","tips":["A good option for a family break on a long trip.","Watch for children crossing nearby."]}
   },
   {
     id: "ce27",
     family: "services",
-    code: "CE27",
+    code: "CE12",
     name: "Sanitaires publics",
     icon: "restroom",
-    text: "Indique la presence de toilettes publiques a proximite.",
-    tips: ["Utile a anticiper avant un long trajet sans arret.", "Souvent present sur les aires de repos et de service."],
-    en: { name: "Public restrooms", text: "Indicates public toilets nearby.", tips: ["Useful to plan ahead before a long stretch without stops.", "Often found at rest and service areas."] }
-  },
-  {
-    id: "ce32",
-    family: "services",
-    code: "CE32",
-    name: "Station de lavage",
-    icon: "carwash",
-    text: "Indique une station de lavage pour vehicules a proximite.",
-    tips: ["Pratique avant un long trajet ou apres la route en hiver.", "Souvent disponible sur les grandes aires."],
-    en: { name: "Car wash", text: "Indicates a vehicle wash station nearby.", tips: ["Handy before a long trip or after winter driving.", "Often available at larger service areas."] }
+    text: "Indique la présence de toilettes publiques à proximité.",
+    tips: ["Utile à anticiper avant un long trajet sans arrêt.","Souvent présent sur les aires de repos et de service."],
+    en: {"name":"Public restrooms","text":"Indicates public toilets nearby.","tips":["Useful to plan ahead before a long stretch without stops.","Often found at rest and service areas."]}
   },
   {
     id: "ce35",
     family: "services",
-    code: "CE35",
+    code: "",
     name: "Gîte ou chambre d'hôtes",
     icon: "hotel",
-    text: "Indique un hebergement de type gite ou chambre d'hotes a proximite.",
-    tips: ["Utile pour planifier une etape hors des grands axes.", "Verifie la disponibilite avant de t'y rendre."],
-    en: { name: "Guesthouse or B&B", text: "Indicates guesthouse-style accommodation nearby.", tips: ["Useful for planning a stop off the main routes.", "Check availability before heading there."] }
-  },
-  {
-    id: "ce36",
-    family: "services",
-    code: "CE36",
-    name: "Aérodrome",
-    icon: "airport",
-    text: "Indique la presence d'un aerodrome ou terrain d'aviation legere a proximite.",
-    tips: ["Reste attentif aux traversees eventuelles pres des pistes.", "Utile pour rejoindre un vol prive ou de loisir."],
-    en: { name: "Airfield", text: "Indicates a nearby small airfield or light-aviation site.", tips: ["Stay alert for possible crossings near runways.", "Useful for reaching a private or leisure flight."] }
-  },
-  {
-    id: "ce37",
-    family: "services",
-    code: "CE37",
-    name: "Centre équestre",
-    icon: "horse",
-    text: "Indique la presence d'un centre equestre a proximite.",
-    tips: ["Redouble d'attention sur les routes environnantes.", "Des cavaliers peuvent circuler pres de la voie."],
-    en: { name: "Riding centre", text: "Indicates a nearby horse-riding centre.", tips: ["Stay extra alert on the surrounding roads.", "Riders may be using the road nearby."] }
+    text: "Indique un hébergement de type gîte ou chambre d'hôtes à proximité.",
+    tips: ["Utile pour planifier une étape hors des grands axes.","Vérifie la disponibilité avant de t'y rendre."],
+    en: {"name":"Guesthouse or B&B","text":"Indicates guesthouse-style accommodation nearby.","tips":["Useful for planning a stop off the main routes.","Check availability before heading there."]}
   },
   {
     id: "m4a",
     family: "panonceau",
     code: "M4a",
-    name: "Panonceau véhicules légers",
+    name: "Panonceau véhicules à moteur",
     icon: "panel-car",
-    text: "Precise que la prescription du panneau principal s'applique aux voitures et vehicules legers.",
-    tips: ["Verifie si ton vehicule est bien concerne.", "Peut ajouter ou retirer une exception selon le contexte."],
-    en: { name: "Light vehicles panel", text: "Specifies that the main sign's rule applies to cars and light vehicles.", tips: ["Check whether your vehicle is affected.", "It can add or remove an exception depending on context."] }
+    text: "Précise que la prescription du panneau principal s'applique aux véhicules à moteur.",
+    tips: ["Vérifie si ton véhicule est bien concerné.","Peut ajouter ou retirer une exception selon le contexte."],
+    en: {"name":"Motor vehicles panel","text":"Specifies that the main sign's rule applies to motor vehicles.","tips":["Check whether your vehicle is affected.","It can add or remove an exception depending on context."]}
   },
   {
     id: "m4d",
     family: "panonceau",
-    code: "M4d",
-    name: "Panonceau poids lourds",
+    code: "M4g",
+    name: "Panonceau véhicules de marchandises",
     icon: "panel-truck",
-    text: "Precise que la prescription du panneau principal concerne specifiquement les poids lourds.",
-    tips: ["Verifie le tonnage de ton vehicule si tu conduis un utilitaire.", "La regle peut ne pas s'appliquer aux autres vehicules."],
-    en: { name: "Heavy goods vehicles panel", text: "Specifies that the main sign's rule specifically concerns heavy goods vehicles.", tips: ["Check your vehicle's tonnage if driving a commercial vehicle.", "The rule may not apply to other vehicles."] }
+    text: "Précise que la prescription du panneau principal concerne les véhicules de transport de marchandises.",
+    tips: ["Vérifie le tonnage de ton véhicule si tu conduis un utilitaire.","La règle peut ne pas s'appliquer aux autres véhicules."],
+    en: {"name":"Goods vehicles panel","text":"Specifies that the main sign's rule concerns goods vehicles.","tips":["Check your vehicle's tonnage if driving a commercial vehicle.","The rule may not apply to other vehicles."]}
   },
   {
     id: "m4e",
     family: "panonceau",
-    code: "M4e",
-    name: "Panonceau autocars",
+    code: "M4b",
+    name: "Panonceau transports en commun",
     icon: "panel-bus",
-    text: "Precise que la prescription du panneau principal concerne specifiquement les autocars.",
-    tips: ["Utile aux conducteurs de transport en commun.", "Verifie si la regle s'applique a ton type de vehicule."],
-    en: { name: "Coaches panel", text: "Specifies that the main sign's rule specifically concerns coaches.", tips: ["Useful for public transport drivers.", "Check whether the rule applies to your vehicle type."] }
+    text: "Précise que la prescription du panneau principal concerne les véhicules de transport en commun (autobus, autocars).",
+    tips: ["Utile aux conducteurs de transport en commun.","Vérifie si la règle s'applique à ton type de véhicule."],
+    en: {"name":"Public transport vehicles panel","text":"Specifies that the main sign's rule concerns public transport vehicles (buses and coaches).","tips":["Useful for public transport drivers.","Check whether the rule applies to your vehicle type."]}
   },
   {
     id: "m6b",
     family: "panonceau",
-    code: "M6b",
+    code: "M9z",
     name: "Panonceau sauf transports scolaires",
     icon: "panel-except",
-    text: "Exempte les vehicules de transport scolaire de l'interdiction indiquee par le panneau principal.",
-    tips: ["Ne s'applique pas si tu ne conduis pas un vehicule scolaire.", "C'est une exception locale, pas une regle generale."],
-    en: { name: "Except school transport panel", text: "Exempts school transport vehicles from the ban shown on the main sign.", tips: ["Doesn't apply unless you're driving a school transport vehicle.", "It's a local exception, not a general rule."] }
+    text: "Exempte les véhicules de transport scolaire de l'interdiction indiquée par le panneau principal.",
+    tips: ["Ne s'applique pas si tu ne conduis pas un véhicule scolaire.","C'est une exception locale, pas une règle générale."],
+    en: {"name":"Except school transport panel","text":"Exempts school transport vehicles from the ban shown on the main sign.","tips":["Doesn't apply unless you're driving a school transport vehicle.","It's a local exception, not a general rule."]}
   },
   {
     id: "m6d",
     family: "panonceau",
-    code: "M6d",
+    code: "M9z",
     name: "Panonceau sauf desserte locale",
     icon: "panel-except",
-    text: "Exempte les vehicules qui desservent le secteur local de l'interdiction indiquee.",
-    tips: ["Concerne les riverains et les livraisons locales.", "Ne t'y fie pas si tu es seulement de passage."],
-    en: { name: "Except local access panel", text: "Exempts vehicles serving the local area from the ban shown.", tips: ["Applies to residents and local deliveries.", "Don't rely on it if you're just passing through."] }
+    text: "Exempte les véhicules qui desservent le secteur local de l'interdiction indiquée.",
+    tips: ["Concerne les riverains et les livraisons locales.","Ne t'y fie pas si tu es seulement de passage."],
+    en: {"name":"Except local access panel","text":"Exempts vehicles serving the local area from the ban shown.","tips":["Applies to residents and local deliveries.","Don't rely on it if you're just passing through."]}
   },
   {
     id: "m8",
     family: "panonceau",
-    code: "M8",
+    code: "M9z",
     name: "Panonceau sauf livraisons",
     icon: "panel-except",
-    text: "Exempte les vehicules de livraison de l'interdiction indiquee par le panneau principal, souvent pour un stationnement bref.",
-    tips: ["Ne s'applique pas si tu n'effectues pas de livraison.", "Reste bref pour ne pas gener la circulation."],
-    en: { name: "Except deliveries panel", text: "Exempts delivery vehicles from the ban shown on the main sign, usually for a brief stop.", tips: ["Doesn't apply unless you're making a delivery.", "Keep it brief so you don't block traffic."] }
+    text: "Exempte les véhicules de livraison de l'interdiction indiquée par le panneau principal, souvent pour un stationnement bref.",
+    tips: ["Ne s'applique pas si tu n'effectués pas de livraison.","Reste bref pour ne pas gêner la circulation."],
+    en: {"name":"Except deliveries panel","text":"Exempts delivery vehicles from the ban shown on the main sign, usually for a brief stop.","tips":["Doesn't apply unless you're making a delivery.","Keep it brief so you don't block traffic."]}
   },
   {
-    id: "m9a",
-    family: "panonceau",
-    code: "M9a",
-    name: "Panonceau début de zone",
-    icon: "panel-zone",
-    text: "Indique le debut precis d'une zone ou s'applique la prescription du panneau principal.",
-    tips: ["Repere ce point comme le debut exact de la regle.", "La regle vaut jusqu'au panneau de fin de zone."],
-    en: { name: "Start of zone panel", text: "Indicates the exact start of a zone where the main sign's rule applies.", tips: ["Note this point as where the rule begins.", "The rule applies until the end-of-zone sign."] }
-  },
-  {
-    id: "m13a",
-    family: "panonceau",
-    code: "M13a",
-    name: "Panonceau de déclivité",
-    icon: "panel-slope",
-    text: "Precise le pourcentage de pente associe a un panneau de descente ou montee dangereuse.",
-    tips: ["Plus le pourcentage est eleve, plus la pente est forte.", "Adapte ta vitesse et ton freinage en consequence."],
-    en: { name: "Gradient panel", text: "Specifies the slope percentage linked to a steep descent or climb sign.", tips: ["The higher the percentage, the steeper the slope.", "Adapt your speed and braking accordingly."] }
+    id: "zfe",
+    family: "interdiction",
+    code: "",
+    name: "Zone à faibles émissions (ZFE)",
+    icon: "bang",
+    shape: "zfe",
+    text: "Un panneau rectangulaire blanc bordé de rouge annonce l'entrée d'une zone à faibles émissions. Il indique les vignettes Crit'Air autorisées, parfois aussi les jours et horaires d'application. Son aspect exact peut varier d'une ville à l'autre.",
+    tips: ["Lis bien les vignettes Crit'Air autorisées sur le panneau.","Les règles (véhicules, horaires) sont propres à chaque agglomération."],
+    en: {"name":"Low-emission zone (ZFE)","text":"A white rectangular sign with a red border marks the entry to a low-emission zone. It shows which Crit'Air stickers are allowed, sometimes with days and hours. Its exact look can vary from one city to another.","tips":["Read the allowed Crit'Air stickers on the sign.","Rules (vehicles, hours) are specific to each city."]}
   }
 ];
 
@@ -1960,5 +1643,12 @@ const icons = {
   "panel-truck": `<rect x="24" y="50" width="38" height="26" fill="none" stroke="#111" stroke-width="6"/><path d="M62 58 H82 L92 70 V76 H62 Z" fill="none" stroke="#111" stroke-width="6" stroke-linejoin="round"/><circle cx="40" cy="82" r="6" fill="#111"/><circle cx="80" cy="82" r="6" fill="#111"/>`,
   "panel-bus": `<rect x="26" y="45" width="68" height="35" rx="6" fill="none" stroke="#111" stroke-width="6"/><circle cx="42" cy="88" r="6" fill="#111"/><circle cx="78" cy="88" r="6" fill="#111"/>`,
   "panel-slope": `<path d="M20 90 L100 30 M100 30 V50 M100 30 H80" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><text x="55" y="95" text-anchor="middle" font-size="16" font-weight="900" fill="#111">8%</text>`
+,
+  "horse-white": `<path d="M30 90 L34 60 Q36 42 52 38 L66 30 L74 38 L64 44 Q76 46 80 60 L84 90 M40 90 L38 100 M72 90 L76 100 M50 38 L46 24" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>`,
+  "bike-end": `<circle cx="39" cy="77" r="14" fill="none" stroke-width="6"/><circle cx="81" cy="77" r="14" fill="none" stroke-width="6"/><path d="M39 77 L55 55 L66 77 L49 77 M55 55 H70" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 92 L96 28" stroke="#d62430" stroke-width="8" stroke-linecap="round" fill="none"/>`,
+  "bus-end": `<rect x="30" y="35" width="60" height="45" rx="7" fill="none" stroke-width="7"/><circle cx="43" cy="85" r="5"/><circle cx="77" cy="85" r="5"/><path d="M38 50 H82" stroke-width="6"/><path d="M24 92 L96 28" stroke="#d62430" stroke-width="8" stroke-linecap="round" fill="none"/>`,
+  "snow-end": `<path d="M60 25 V95 M35 38 L85 82 M85 38 L35 82" fill="none" stroke-width="8" stroke-linecap="round"/><path d="M24 92 L96 28" stroke="#d62430" stroke-width="8" stroke-linecap="round" fill="none"/>`,
+  "detour-right-arrow": `<path d="M32 32 L84 84 M58 86 H86 V58" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>`,
+  "detour-left-arrow": `<path d="M88 32 L36 84 M62 86 H34 V58" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>`,
+  "chains": `<circle cx="60" cy="60" r="26" fill="none" stroke-width="7"/><circle cx="60" cy="60" r="7" stroke-width="2"/><path d="M60 24 V34 M60 86 V96 M24 60 H34 M86 60 H96 M34.5 34.5 L41.5 41.5 M78.5 78.5 L85.5 85.5 M85.5 34.5 L78.5 41.5 M41.5 78.5 L34.5 85.5" fill="none" stroke-width="6" stroke-linecap="round"/>`
 };
-

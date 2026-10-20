@@ -136,3 +136,29 @@ function buildSignMCQ(sign, allSigns) {
     explanation: signField(sign, "text")
   };
 }
+
+// "Mes erreurs": ids whose LAST answer was wrong (box back to 1 with at
+// least one miss on record). Returns { questions: [ids], signs: [ids] },
+// keeping only ids that really exist in the question bank / sign list
+// (mini-quiz ids from the fiches are tracked but not replayable here).
+function getMissedItems() {
+  const out = { questions: [], signs: [] };
+  const qStats = safeGetJSON("qStats", {});
+  const sStats = safeGetJSON("signStats", {});
+  const qIds = typeof knowledgeQuestions !== "undefined" ? new Set(knowledgeQuestions.map((q) => q.id)) : new Set();
+  const sIds = typeof signs !== "undefined" ? new Set(signs.map((s) => s.id)) : new Set();
+  Object.keys(qStats).forEach((id) => {
+    const e = qStats[id];
+    if (e && (e.wrong || 0) > 0 && (e.box || 1) <= 1 && qIds.has(id)) out.questions.push(id);
+  });
+  Object.keys(sStats).forEach((id) => {
+    const e = sStats[id];
+    if (e && (e.wrong || 0) > 0 && (e.box || 1) <= 1 && sIds.has(id)) out.signs.push(id);
+  });
+  return out;
+}
+
+function countMissedItems() {
+  const m = getMissedItems();
+  return m.questions.length + m.signs.length;
+}

@@ -110,6 +110,19 @@
       if (loggedIn) loggedIn.hidden = false;
       var emailEl = $("auth-account-email");
       if (emailEl) emailEl.textContent = session.user.email || "";
+      var del = $("auth-delete");
+      if (!del) {
+        var lo = $("auth-logout");
+        if (lo && lo.parentNode) {
+          del = document.createElement("a");
+          del.id = "auth-delete"; del.className = "auth-delete"; del.style.cssText = "display:block;margin-top:12px;font-size:.85rem;color:var(--muted);text-decoration:underline";
+          lo.parentNode.appendChild(del);
+        }
+      }
+      if (del) {
+        del.textContent = t("auth_delete_btn");
+        del.href = "mailto:routis@mailo.com?subject=" + encodeURIComponent(t("auth_delete_subject")) + "&body=" + encodeURIComponent(t("auth_delete_body") + (session.user.email || ""));
+      }
       var statusEl = $("auth-sync-status");
       if (statusEl) statusEl.textContent = "";
     } else {
