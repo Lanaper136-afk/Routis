@@ -37,6 +37,7 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
     <link rel="stylesheet" href="assets/style.css" />
     <style>
 .exam-timer[hidden] { display: none !important; }
+#exam-start[hidden], #exam-running[hidden], #exam-results[hidden] { display: none !important; }
 .errors-box { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(0,0,0,.12); }
 .errors-box h3 { margin: 0 0 6px; }
 .quiz-knowledge-badge {
@@ -421,6 +422,7 @@ body.exam-live #exam-running .exam-note { display: none; }
         <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
         <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
         <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+        <a href="reglages.html"><span data-i18n="nav_reglages">Réglages</span></a>
       </nav>
       <div class="topbar-end">
         <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
@@ -489,6 +491,7 @@ body.exam-live #exam-running .exam-note { display: none; }
               <li><strong>🙈</strong><span data-i18n="exam_rule_no_feedback">Pas de correction pendant l'examen, comme dans le vrai centre d'examen : tu découvres ton résultat à la fin.</span></li>
             </ul>
             <button class="button primary" id="exam-start-btn" type="button" data-i18n="exam_start_btn">Commencer l'examen blanc</button>
+            <p style="margin:14px 0 0"><a class="button secondary" href="series.html">📚 50 séries de 40 questions (avec correction immédiate)</a></p>
             <div class="errors-box" id="errors-box">
               <h3 data-i18n="errors_title">Mes erreurs</h3>
               <p class="muted" data-i18n="errors_desc">Refais seulement les questions que tu as ratées la dernière fois.</p>

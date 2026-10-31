@@ -451,6 +451,46 @@
     }
   });
 
+
+  // ================= Schémas supplémentaires (simulations, lot 2) =================
+  function bike(x, y) { return `<g transform="translate(${x} ${y})"><rect x="-2" y="-11" width="4" height="22" rx="2" fill="#222"/><circle r="5" cy="-1" fill="#e8a000" stroke="#222" stroke-width="1"/></g>`; }
+  function dashedCenter(x) { return `<line x1="${x}" y1="0" x2="${x}" y2="${H}" stroke="${WHITE}" stroke-width="2" stroke-dasharray="9 8"/>`; }
+  Object.assign(scenes, {
+    depasse_cycliste: {
+      alt: "Route à double sens hors agglomération. Un cycliste roule sur le bord droit de la chaussée. Votre véhicule bleu A arrive derrière lui et veut le dépasser ; la voie d'en face est libre.",
+      draw: (id) => roadV(115, 90) + dashedCenter(160) + bike(190, 95) + arrow("M178 168 C178 140 150 134 150 70", id) + car(178, 205, 0, YOU, "A")
+    },
+    autoroute_voies: {
+      alt: "Autoroute à trois voies. Votre véhicule bleu A vient de dépasser le camion qui roule sur la voie de droite ; il est sur la voie de gauche, le camion est derrière lui à droite.",
+      draw: (id) => `<rect width="${W}" height="${H}" fill="${GRASS}"/><rect x="75" y="0" width="170" height="${H}" fill="${ROAD}"/>
+        <g stroke="${WHITE}" stroke-width="2" stroke-dasharray="9 8"><line x1="132" y1="0" x2="132" y2="${H}"/><line x1="188" y1="0" x2="188" y2="${H}"/></g>` +
+        arrow("M104 130 C104 100 214 100 216 40", id) + car(104, 150, 0, YOU, "A") + car(216, 205, 0, TRUCK, "C", true)
+    },
+    ecole_zone: {
+      alt: "Rue devant une école, à l'heure de la sortie. Des enfants attendent sur le trottoir près d'un passage piéton. Votre véhicule bleu A approche.",
+      draw: () => roadV(120, 80) + `<rect x="60" y="0" width="60" height="${H}" fill="#b9bcc2"/><rect x="200" y="0" width="60" height="${H}" fill="#b9bcc2"/>
+        <rect x="0" y="40" width="58" height="80" fill="#c8553d" stroke="#7a2e1d" stroke-width="2"/><polygon points="0,40 29,18 58,40" fill="#8a3a28"/>
+        <line x1="160" y1="0" x2="160" y2="${H}" stroke="${WHITE}" stroke-width="2" stroke-dasharray="9 8"/>` + zebraH(122, 104, 80) +
+        person(104, 92) + person(94, 112) + person(110, 128) + car(180, 200, 0, YOU, "A") + pedSign(232, 160)
+    },
+    triangle_panne: {
+      alt: "Route ordinaire. Votre voiture bleue A est en panne sur le bord de la route, feux de détresse allumés. Un repère indique la distance à laquelle poser le triangle de présignalisation derrière le véhicule.",
+      draw: () => roadV(115, 90) + dashedCenter(160) + veh(190, 70, 0, 18, 34, YOU, "A") + blink(182, 91) + blink(198, 91) + blink(182, 49) + blink(198, 49) +
+        `<path d="M222 90 L222 190" stroke="#ffd43b" stroke-width="3"/><path d="M216 90 h12 M216 190 h12" stroke="#ffd43b" stroke-width="3"/><text x="234" y="144" font-size="16" font-weight="800" fill="#16212f" font-family="Arial,sans-serif">30 m</text>
+        <polygon points="190,186 181,204 199,204" fill="#fff" stroke="#d62430" stroke-width="3.5" stroke-linejoin="round"/>`
+    },
+    double_file: {
+      alt: "Rue à double sens. Des voitures sont garées le long du trottoir de droite. Votre véhicule bleu A est arrêté à côté d'elles, en double file, avec les feux de détresse allumés, et une voiture arrive derrière.",
+      draw: () => roadV(100, 120) + `<rect x="100" y="0" width="30" height="${H}" fill="#5d626c"/><rect x="190" y="0" width="30" height="${H}" fill="#5d626c"/>` + dashedCenter(160) +
+        veh(205, 50, 0, 17, 32, "#8d99a6") + veh(205, 95, 0, 17, 32, "#c9a227") + veh(205, 140, 0, 17, 32, "#6b8e5a") +
+        veh(172, 118, 0, 18, 34, YOU, "A") + blink(164, 138) + blink(180, 138) + car(172, 210, 0, OTHER, "B")
+    },
+    camion_droite: {
+      alt: "Carrefour. Un camion roule devant vous et clignote à droite. Votre véhicule bleu A est derrière lui, à droite, et veut le dépasser par la droite.",
+      draw: (id) => crossroads() + car(165, 135, 0, TRUCK, "C", true) + blink(176, 108) + blink(176, 160) + arrow("M182 195 C190 160 192 120 190 60", id) + car(182, 215, 0, YOU, "A")
+    }
+  });
+
   window.sceneIds = Object.keys(scenes);
 
   window.sceneAlt = function (id) {

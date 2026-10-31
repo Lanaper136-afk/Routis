@@ -209,7 +209,15 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
   border-bottom: none;
 }
     </style>
-  </head>
+  <style>
+.fiche-chapter{display:none}
+.fiche-chapter.fiche-active{display:block}
+html[lang="en"] .fiche-fr-only{display:none}
+body.fiche-single .page-hero,body.fiche-single .fiche-index{display:none}
+body:not(.fiche-single) .fiche-chapter{display:none!important}
+.fiche-top-back{display:inline-block;margin:6px 0 14px;font-weight:700}
+</style>
+</head>
   <body>
 
     <header class="topbar">
@@ -238,6 +246,7 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
         <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
         <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
         <a class="active" href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+        <a href="reglages.html"><span data-i18n="nav_reglages">Réglages</span></a>
       </nav>
       <div class="topbar-end">
         <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
@@ -494,7 +503,35 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <p data-i18n="fiche_wet_p2">Le temps de réaction, lui, ne change pas avec la météo — c'est pourquoi il faut augmenter ses distances de sécurité par temps de pluie plutôt que de compter sur des réflexes plus rapides.</p>
         </div>
 
-        <div class="section-shell" id="fiche-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Calculer les distances de tête</h3>
+          <p>Deux formules suffisent pour estimer vite. La distance de réaction (en mètres) vaut à peu près la <span class="fiche-highlight">vitesse divisée par 10, multipliée par 3</span>. La distance de freinage sur route sèche vaut la <span class="fiche-highlight">vitesse divisée par 10, puis élevée au carré</span>.</p>
+          <ul><li>À 50 km/h : environ 15 m de réaction + 25 m de freinage, soit près de 40 m d'arrêt.</li><li>À 90 km/h : environ 27 m + 81 m, soit plus de 100 m.</li><li>À 130 km/h : environ 39 m + 169 m, soit plus de 200 m.</li></ul>
+          <p class="fiche-note">Quand la vitesse double, la distance de freinage est multipliée par quatre : c'est pour cela qu'un petit excès de vitesse change beaucoup de choses.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Ce qui allonge l'arrêt, et la distance de sécurité</h3>
+          <p>Le temps de réaction moyen est d'environ une seconde, mais il s'allonge avec la fatigue, l'alcool, certains médicaments, le téléphone ou une simple inattention. Le freinage dépend aussi de l'état des <span class="fiche-highlight">pneus</span> (sculptures de 1,6 mm minimum), des freins, de la charge du véhicule et de la pente.</p>
+          <p>Pour garder une marge, respectez l'intervalle de <span class="fiche-highlight">2 secondes</span> minimum avec le véhicule qui précède, et doublez-le sur chaussée mouillée. Pour le mesurer, choisissez un repère fixe (poteau, panneau) : le temps entre le passage du véhicule devant vous et le vôtre doit être d'au moins deux secondes.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>6. La distance de sécurité, en ville comme sur autoroute</h3>
+          <p>La règle est la même partout : garder au moins <span class="fiche-highlight">2 secondes</span> avec le véhicule qui précède, c'est-à-dire la distance qu'on parcourt en 2 secondes. Elle s'allonge avec la vitesse :</p>
+          <table class="fiche-table">
+            <thead><tr><th>Vitesse</th><th>Distance parcourue en 2 secondes</th></tr></thead>
+            <tbody>
+              <tr><td>50 km/h (ville)</td><td>environ 28 m</td></tr>
+              <tr><td>90 km/h (route)</td><td>environ 50 m</td></tr>
+              <tr><td>130 km/h (autoroute)</td><td>environ 72 m</td></tr>
+            </tbody>
+          </table>
+          <p>En ville, on reste vigilant : piétons, cyclistes et bus peuvent surgir ou freiner brusquement, et l'on s'arrête plus tôt qu'on ne le croit. Sur chaussée mouillée, on <span class="fiche-highlight">double l'intervalle</span> (environ 4 secondes). Ne pas respecter les distances de sécurité est une infraction : 135 € d'amende et retrait de 3 points.</p>
+          <p class="fiche-note">Si quelqu'un vous colle, ne freinez pas pour le punir : augmentez votre propre distance avec le véhicule de devant et laissez-le passer dès que possible.</p>
+        </div>
+
+<div class="section-shell" id="fiche-quiz">
           <div class="section-heading">
             <div>
               <p class="eyebrow" data-i18n="fiche_quiz_eyebrow">Vérifie tes connaissances</p>
@@ -598,7 +635,21 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <p class="fiche-note" data-i18n="fiche2_phone_p3">Une seconde d'inattention à 90 km/h, c'est déjà 25 mètres parcourus sans regarder la route — l'équivalent d'une conduite les yeux fermés sur la longueur d'un terrain de basket.</p>
         </div>
 
-        <div class="section-shell" id="fiche2-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Alcool : seuils, effets et sanctions</h3>
+          <p>Le taux légal est de <span class="fiche-highlight">0,5 g d'alcool par litre de sang</span> (0,25 mg par litre d'air expiré). Il descend à <span class="fiche-highlight">0,2 g/l</span> pour les conducteurs en permis probatoire et pour les transports en commun. Un verre standard de bar (10 cl de vin, 25 cl de bière, 3 cl d'alcool fort) apporte à peu près la même quantité d'alcool, quelle que soit la boisson.</p>
+          <p>L'alcool allonge le temps de réaction, réduit le champ de vision et donne une fausse impression d'assurance. Seul le temps élimine l'alcool (environ 0,10 à 0,15 g/l par heure) : ni le café, ni une douche, ni de l'eau ne font baisser le taux.</p>
+          <ul><li>Entre 0,5 et 0,8 g/l : contravention, 135 € d'amende et retrait de 6 points.</li><li>À partir de 0,8 g/l : délit, jusqu'à 4 500 € d'amende et 2 ans de prison, avec retrait de 6 points et suspension ou annulation du permis.</li><li>Stupéfiants : mêmes peines maximales ; alcool et stupéfiants cumulés : jusqu'à 3 ans de prison et 9 000 €.</li></ul>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Fatigue, médicaments et distractions</h3>
+          <p>Les signes de somnolence sont les bâillements répétés, les paupières lourdes, les picotements dans les yeux, les difficultés à tenir sa trajectoire. Dès les premiers signes, il faut s'arrêter : seule une <span class="fiche-highlight">sieste de 15 à 20 minutes</span> est efficace. Musique forte, fenêtre ouverte et café ne font que retarder l'endormissement.</p>
+          <p>Sur un médicament, le pictogramme indique le niveau de risque : niveau 1 (prudence), niveau 2 (soyez très prudent, avis d'un professionnel conseillé), niveau 3 (ne conduisez pas sans l'avis d'un médecin ou d'un pharmacien).</p>
+          <p>Tenir son téléphone en main en conduisant est puni de 135 € d'amende et de 3 points. Le GPS doit être fixé et programmé avant le départ. Regarder un écran pendant deux secondes à 90 km/h, c'est parcourir 50 mètres à l'aveugle.</p>
+        </div>
+
+<div class="section-shell" id="fiche2-quiz">
           <div class="section-heading">
             <div>
               <p class="eyebrow" data-i18n="fiche_quiz_eyebrow">Vérifie tes connaissances</p>
@@ -691,7 +742,20 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <figure class="fiche-figure"><div data-scene="inter_droite"></div><figcaption data-i18n="figcap_inter_droite">Sans panneau, la priorité à droite s'applique : A cède le passage à B, qui arrive de sa droite.</figcaption></figure>
         </div>
 
-        <div class="section-shell" id="fiche3-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. L'ordre des priorités à un carrefour</h3>
+          <p>Quand plusieurs règles se contredisent, on applique l'ordre suivant : l'<span class="fiche-highlight">agent de la circulation</span> d'abord, puis les <span class="fiche-highlight">feux</span>, puis les <span class="fiche-highlight">panneaux</span> (STOP, Cédez le passage, route prioritaire) et enfin la <span class="fiche-highlight">priorité à droite</span> en l'absence de tout le reste.</p>
+          <p>Un agent qui lève le bras à la verticale impose l'arrêt à tous les usagers, même si le feu est vert. Les panneaux et marquages temporaires de chantier l'emportent sur la signalisation permanente tant que le chantier dure.</p>
+          <p class="fiche-note">Le piège classique : un feu en panne (éteint ou orange clignotant) ne donne plus la priorité. Si aucun panneau ne subsiste, la priorité à droite s'applique.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Tramways, passages à niveau et bus</h3>
+          <p>Le tramway est prioritaire presque partout : on ne s'engage pas sur ses rails devant lui et on ne le dépasse pas par la gauche. En agglomération, on doit <span class="fiche-highlight">faciliter la sortie d'un bus</span> qui quitte son arrêt en mettant son clignotant gauche, en ralentissant ou en s'arrêtant.</p>
+          <p>À un passage à niveau, les feux rouges clignotants ou le son de la cloche imposent l'arrêt, même si les barrières ne sont pas encore baissées. On ne s'engage jamais si la file devant soi empêche de dégager complètement la voie ferrée. Si le véhicule cale sur la voie, on fait descendre tout le monde, on s'éloigne et on prévient les secours.</p>
+        </div>
+
+<div class="section-shell" id="fiche3-quiz">
           <div class="section-heading">
             <div>
               <p class="eyebrow" data-i18n="fiche_quiz_eyebrow">Vérifie tes connaissances</p>
@@ -793,7 +857,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <figure class="fiche-figure"><div data-scene="cycliste"></div><figcaption data-i18n="figcap_cycliste">Une bande cyclable à droite de la chaussée : en tournant à droite, on laisse passer le cycliste qui continue tout droit.</figcaption></figure>
         </div>
 
-        <div class="section-shell" id="fiche4-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Les panneaux de priorité</h3>
+          <p>Cinq panneaux à reconnaître immédiatement : le <span class="fiche-highlight">STOP</span> (octogone rouge, arrêt complet obligatoire à la ligne), le <span class="fiche-highlight">Cédez le passage</span> (triangle pointe en bas, ralentir et s'arrêter si nécessaire), la <span class="fiche-highlight">route à priorité</span> (losange jaune bordé de blanc), la fin de cette priorité (le même losange barré) et l'<span class="fiche-highlight">intersection où la priorité à droite s'applique</span> (triangle de danger avec une croix noire).</p>
+          <p>Un panneau de priorité n'a de valeur qu'à l'endroit où il est posé : une fois la route quittée, on retrouve la priorité à droite. Les panonceaux placés sous un panneau (distance, flèche, exception) en précisent le sens et doivent aussi être lus.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Les autres marquages à connaître</h3>
+          <ul><li>Les bandes blanches parallèles du passage piéton : le conducteur cède à tout piéton engagé ou sur le point de traverser.</li><li>La ligne d'arrêt (continue) au STOP, et les triangles blancs « dents de requin » au Cédez le passage.</li><li>Les zébras : zone où l'on ne doit ni rouler ni stationner.</li><li>Les flèches de rabattement annoncent la fin d'une voie : on s'insère un véhicule sur deux, en alternance.</li><li>La ligne jaune continue au bord de la chaussée interdit l'arrêt et le stationnement ; la ligne jaune discontinue interdit le stationnement.</li></ul>
+          <p class="fiche-note">Sur la route, le marquage au sol peut être complété par la signalisation verticale : en cas de contradiction, c'est le panneau qui prime.</p>
+        </div>
+
+<div class="section-shell" id="fiche4-quiz">
           <div class="section-heading">
             <div>
               <p class="eyebrow">Vérifie tes connaissances</p>
@@ -879,7 +955,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <figure class="fiche-figure"><div data-scene="fig_angle_mort_pl"></div><figcaption data-i18n="figcap_fig_angle_mort_pl">Autour d'un poids lourd, les zones rouges sont des angles morts : le chauffeur ne voit pas un cycliste ou une moto qui s'y trouve.</figcaption></figure>
         </div>
 
-        <div class="section-shell" id="fiche5-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Les cyclistes en détail</h3>
+          <p>Pour dépasser un cycliste, on laisse <span class="fiche-highlight">1 mètre</span> d'écart latéral en agglomération et <span class="fiche-highlight">1,5 mètre</span> hors agglomération, quitte à franchir une ligne discontinue si la route est dégagée. Les cyclistes peuvent rouler à deux de front et, dans certaines rues, en double sens malgré un sens unique pour les autres véhicules.</p>
+          <p>Aux feux, un sas vélo est réservé devant la ligne d'arrêt : les voitures s'arrêtent avant. Un panonceau « cédez le passage cycliste » autorise le cycliste à tourner ou à continuer malgré le feu rouge, en cédant la priorité. Avant d'ouvrir sa portière, on regarde dans le rétroviseur et par-dessus l'épaule.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Piétons vulnérables, camions et motards</h3>
+          <p>Les enfants et les personnes âgées sous-estiment les distances et la vitesse des véhicules : près des écoles et des maisons de retraite, on ralentit et on se tient prêt à s'arrêter. Une personne avec une canne blanche ou un chien guide est à laisser passer sans hésiter.</p>
+          <p>Autour d'un camion, les <span class="fiche-highlight">angles morts</span> sont immenses : à droite, derrière et juste devant la cabine. Règle d'or : si l'on ne voit pas ses rétroviseurs, le chauffeur ne nous voit pas. Un poids lourd qui tourne à droite peut se déporter d'abord à gauche : on ne se glisse jamais à sa droite. Les motards, plus difficiles à repérer et plus vulnérables, supportent mal un écart trop court : on garde une vraie distance.</p>
+        </div>
+
+<div class="section-shell" id="fiche5-quiz">
           <div class="section-heading">
             <div>
               <p class="eyebrow">Vérifie tes connaissances</p>
@@ -973,7 +1061,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <p class="fiche-note">Le délit de fuite après un accident est en général sanctionné plus sévèrement que l'accident lui-même : il ne faut jamais quitter les lieux sans s'identifier.</p>
         </div>
 
-        <div class="section-shell" id="fiche6-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Le permis à points en pratique</h3>
+          <p>Le capital est de <span class="fiche-highlight">12 points</span> pour un permis classique. Le jeune conducteur démarre à <span class="fiche-highlight">6 points</span> pendant 3 ans (2 ans après une conduite accompagnée) et gagne des points chaque année sans infraction. Le permis est invalidé quand le solde tombe à zéro : il faut alors attendre au moins 6 mois avant de le repasser.</p>
+          <p>On récupère ses points en restant 3 ans sans infraction (6 mois si l'infraction n'en avait retiré qu'un seul). Un stage de sensibilisation volontaire permet de regagner jusqu'à 4 points, une seule fois par an.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Documents, assurance et sanctions fréquentes</h3>
+          <p>À chaque contrôle, il faut pouvoir présenter son <span class="fiche-highlight">permis</span>, la <span class="fiche-highlight">carte grise</span> et l'<span class="fiche-highlight">attestation d'assurance</span>. L'assurance au tiers (responsabilité civile) est obligatoire pour tout véhicule, même à l'arrêt sur la voie publique. Le contrôle technique, à refaire tous les 2 ans, est suivi d'une contre-visite si des défauts majeurs sont relevés.</p>
+          <ul><li>Grand excès de vitesse (50 km/h ou plus) : jusqu'à 1 500 € d'amende, 6 points et suspension possible.</li><li>Téléphone tenu en main : 135 € et 3 points.</li><li>Ceinture non bouclée : 135 € et 3 points.</li><li>Feu rouge ou STOP grillé : 135 € et 4 points.</li></ul>
+        </div>
+
+<div class="section-shell" id="fiche6-quiz">
           <div class="section-heading">
             <div>
               <p class="eyebrow">Vérifie tes connaissances</p>
@@ -1055,7 +1155,18 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <p class="fiche-note">Le covoiturage réduit le nombre de véhicules utilisés pour un même trajet, ce qui diminue à la fois les émissions et la congestion routière, tout en partageant les frais entre passagers.</p>
         </div>
 
-        <div class="section-shell" id="fiche7-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Les pollutions et la vignette Crit'Air</h3>
+          <p>Un moteur rejette du dioxyde de carbone (CO₂, effet de serre), des oxydes d'azote (NOx) et des particules fines, nocifs pour la santé. La vignette <span class="fiche-highlight">Crit'Air</span> classe les véhicules de 1 à 5 selon leurs émissions : les véhicules électriques et à hydrogène portent la vignette verte, les plus polluants sont exclus des zones à faibles émissions (ZFE) en cas d'alerte ou en permanence selon la ville.</p>
+          <p>Rouler à faible vitesse en ville et utiliser les transports en commun, le vélo ou la marche pour les petits trajets réduisent fortement les émissions.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Entretien et chargement : de vraies économies</h3>
+          <ul><li>Vérifier la pression des pneus tous les mois : un pneu sous-gonflé augmente la consommation et allonge le freinage.</li><li>Retirer la galerie de toit et vider le coffre : le poids et la résistance de l'air font consommer plus.</li><li>Limiter la climatisation et couper le moteur à l'arrêt prolongé.</li><li>Rapporter l'huile usagée et les batteries en déchetterie, jamais à la poubelle.</li><li>Rouler à 110 km/h au lieu de 130 km/h sur autoroute peut faire baisser la consommation d'environ 20 %.</li></ul>
+        </div>
+
+<div class="section-shell" id="fiche7-quiz">
           <div class="section-heading">
             <div>
               <p class="eyebrow">Vérifie tes connaissances</p>
@@ -1138,7 +1249,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <p class="fiche-note">Le transport d'un animal doit se faire de façon sécurisée (caisse, harnais, grille de séparation), afin de ne pas gêner la conduite ni risquer de blesser les occupants en cas de freinage brusque.</p>
         </div>
 
-        <div class="section-shell" id="fiche8-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Enfants, animaux et chargement : les règles précises</h3>
+          <p>Un enfant de moins de 10 ans doit être installé dans un <span class="fiche-highlight">dispositif de retenue adapté</span> à sa taille et à son poids. Il voyage à l'arrière ; à l'avant, c'est autorisé seulement dans un véhicule sans banquette arrière ou si celle-ci est occupée par d'autres enfants, et un siège dos à la route impose de désactiver l'airbag passager.</p>
+          <p>Un animal ne doit pas gêner le conducteur : on utilise une cage, une grille de séparation ou un harnais adapté. Un chargement doit être arrimé, et s'il dépasse de plus d'un mètre à l'arrière, on le signale avec un panneau à bandes rouges et blanches.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Remorques et caravanes</h3>
+          <p>Une remorque doit porter les mêmes feux que le véhicule tracteur et une plaque d'immatriculation. Au-delà de 750 kg de poids total, le permis B seul ne suffit plus dans tous les cas : il faut vérifier que l'ensemble reste dans les limites du permis (B96 ou BE si besoin).</p>
+          <p>L'attelage allonge le freinage et réduit la stabilité : on augmente la distance de sécurité, on évite les mouvements brusques, et on adapte les rétroviseurs pour voir derrière la remorque.</p>
+        </div>
+
+<div class="section-shell" id="fiche8-quiz">
           <div class="section-heading">
             <div>
               <p class="eyebrow">Vérifie tes connaissances</p>
@@ -1220,7 +1343,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <figure class="fiche-figure"><div data-scene="panne_autoroute"></div><figcaption data-i18n="figcap_panne_autoroute">En panne sur autoroute : feux de détresse, gilet enfilé avant de sortir, puis on se met à l'abri derrière la glissière.</figcaption></figure>
         </div>
 
-        <div class="section-shell" id="fiche9-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. La ceinture : un réflexe pour tous</h3>
+          <p>La ceinture est obligatoire à <span class="fiche-highlight">toutes les places équipées</span>, y compris à l'arrière et sur de courts trajets. Elle ne doit être ni détendue ni portée sous le bras. Le conducteur est responsable de l'attache des passagers mineurs ; un passager adulte qui ne l'attache pas est sanctionné lui-même (135 € et 3 points pour le conducteur concerné).</p>
+          <p>En cas de choc à 50 km/h, un passager non attaché est projeté avec une force comparable à une chute depuis un troisième étage : il met aussi en danger les autres occupants.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Siège enfant, casque et gilet</h3>
+          <p>Les enfants sont installés dos à la route le plus longtemps possible (règlementation i-Size : jusqu'à 15 mois au minimum). Les sièges sont choisis selon la taille ou le poids, jamais selon l'âge seul. À moto et en scooter, le <span class="fiche-highlight">casque homologué</span> et les gants homologués sont obligatoires ; à vélo, le casque est obligatoire pour les moins de 12 ans.</p>
+          <p>Le gilet de sécurité doit être à portée de main dans l'habitacle (pas dans le coffre), et on l'enfile avant de sortir du véhicule en cas d'arrêt d'urgence.</p>
+        </div>
+
+<div class="section-shell" id="fiche9-quiz">
           <div class="section-heading">
             <div>
               <p class="eyebrow">Vérifie tes connaissances</p>
@@ -1302,7 +1437,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <p class="fiche-note">Les feux de croisement sont obligatoires de nuit et dès que la visibilité est insuffisante, même le jour. Les feux de détresse signalent un danger ou un arrêt d'urgence ; les feux de brouillard arrière ne doivent être utilisés qu'en cas de visibilité inférieure à environ 50 mètres.</p>
         </div>
 
-        <div class="section-shell" id="fiche10-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Les pneus : la seule liaison avec la route</h3>
+          <p>La profondeur minimale des sculptures est de <span class="fiche-highlight">1,6 mm</span> : en dessous, le pneu est interdit et l'adhérence sur sol mouillé s'effondre. Les pneus d'un même essieu doivent être de même type. Dans les zones de montagne signalées (loi Montagne, du 1er novembre au 31 mars), on doit avoir des pneus hiver ou des chaînes dans le véhicule.</p>
+          <p>La pression se contrôle à froid, avec la valeur indiquée par le constructeur (souvent à l'intérieur de la portière).</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. ABS, ESP et éclairage au quotidien</h3>
+          <p>L'<span class="fiche-highlight">ABS</span> empêche le blocage des roues au freinage et permet de continuer à braquer : sur freinage d'urgence, on appuie à fond et on garde le pied enfoncé. L'<span class="fiche-highlight">ESP</span> corrige une dérive de trajectoire en freinant certaines roues, mais ne repousse pas les lois de la physique.</p>
+          <ul><li>Feux de croisement : en ville la nuit ou par mauvaise visibilité.</li><li>Feux de route : hors agglomération sans éclairage, en l'absence de véhicule en face.</li><li>Antibrouillard arrière : seulement par brouillard ou neige dense.</li><li>Feux de détresse : danger, panne, queue de bouchon.</li></ul>
+        </div>
+
+<div class="section-shell" id="fiche10-quiz">
           <div class="section-heading">
             <div>
               <p class="eyebrow">Vérifie tes connaissances</p>
@@ -1384,7 +1531,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <p class="fiche-note">En cas de panne sur autoroute : se garer sur la bande d'arrêt d'urgence, enfiler son gilet avant de sortir, sortir côté passager si possible, et se mettre à l'abri derrière la glissière en attendant les secours. Avant un trajet, pensez à vérifier les niveaux (huile, liquide de refroidissement, lave-glace) et l'état des pneus.</p>
         </div>
 
-        <div class="section-shell" id="fiche11-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. L'alerte : que dire au téléphone</h3>
+          <p>Les numéros : <span class="fiche-highlight">15</span> (SAMU), <span class="fiche-highlight">18</span> (pompiers), <span class="fiche-highlight">17</span> (police), <span class="fiche-highlight">112</span> (urgence européenne, depuis tout téléphone). Il faut indiquer le lieu précis (route, sens, borne ou repère), le nombre de victimes, leur état et rester en ligne : le régulateur donne les consignes à suivre.</p>
+          <p class="fiche-note">Ne raccrochez pas avant qu'on vous le dise, et envoyez quelqu'un attendre les secours au bord de la route si vous êtes plusieurs.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Les gestes qui sauvent</h3>
+          <ul><li>Hémorragie : appuyer fortement sur la plaie avec la main ou un tissu propre.</li><li>Arrêt cardiaque (la victime ne répond pas et ne respire pas) : appeler le 15, faire des compressions thoraciques à 100-120 par minute et utiliser un défibrillateur (DAE) si possible.</li><li>Étouffement complet : 5 claques dans le dos puis 5 compressions abdominales.</li><li>Brûlure : l'arroser à l'eau tempérée pendant 10 minutes.</li><li>Motard accidenté : ne pas retirer son casque sauf s'il ne respire plus.</li></ul>
+          <p>Ne jamais faire boire une victime et ne la déplacer qu'en cas de danger immédiat (incendie, route non protégée).</p>
+        </div>
+
+<div class="section-shell" id="fiche11-quiz">
           <div class="section-heading">
             <div>
               <p class="eyebrow">Vérifie tes connaissances</p>
@@ -1471,7 +1630,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <div data-i18n-html="autoroute.c2.b"><p>Gardez au moins <span class="fiche-highlight">2 secondes</span> derrière le véhicule qui précède : les chevrons peints sur la chaussée vous aident à évaluer cette distance. Faites une pause de 15 à 20 minutes toutes les 2 heures : la monotonie endort vite.</p><p>En cas de panne : allumez les feux de détresse, rangez-vous sur la bande d'arrêt d'urgence, mettez votre gilet avant de sortir, sortez côté droit, puis mettez-vous à l'abri <span class="fiche-highlight">derrière la glissière</span> et appelez les secours (borne orange ou 112). Le triangle ne se pose que si cela ne vous oblige pas à marcher près de la circulation.</p></div>
         </div>
 
-        <div class="section-shell" id="fiche12-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Qui peut circuler sur autoroute, et comment</h3>
+          <p>L'autoroute est réservée aux véhicules à moteur capables de dépasser <span class="fiche-highlight">80 km/h</span> : piétons, cyclistes, tracteurs et certains engins en sont exclus. On circule sur la voie de droite ; les autres voies servent à dépasser. Les poids lourds n'utilisent pas la voie la plus à gauche quand l'autoroute compte au moins trois voies.</p>
+          <p>Les panneaux de couleur bleue indiquent les directions, les aires de repos et de service. L'entrée dans les zones de péage s'effectue à vitesse très réduite.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Bouchons, secours et sécurité</h3>
+          <p>En queue de bouchon, on <span class="fiche-highlight">allume les feux de détresse</span> pour avertir ceux qui arrivent derrière, puis on les éteint quand le trafic reprend. On ne roule jamais sur la bande d'arrêt d'urgence : elle est réservée aux secours et aux pannes.</p>
+          <p>Des bornes d'appel orange sont installées tous les 2 km environ ; elles sont reliées aux secours. Après une panne ou un accident, on reste derrière la glissière avec son gilet et on évite de traverser la chaussée.</p>
+        </div>
+
+<div class="section-shell" id="fiche12-quiz">
           <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
           <div class="sim-grid">
             <article class="sim-card">
@@ -1535,7 +1706,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <div data-i18n-html="depassement.c2.b"><p>Pour dépasser un cycliste, un piéton, un cavalier ou un engin de déplacement personnel, on laisse une distance latérale d'au moins <span class="fiche-highlight">1 mètre en agglomération</span> et <span class="fiche-highlight">1,5 mètre hors agglomération</span>. Si c'est impossible, on attend, quitte à ralentir. On ne klaxonne pas pour effrayer un cheval ou un cycliste.</p></div>
         </div>
 
-        <div class="section-shell" id="fiche13-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Les cas où on dépasse (ou pas) par la droite</h3>
+          <p>On dépasse normalement <span class="fiche-highlight">par la gauche</span>. Le dépassement par la droite n'est autorisé que dans quelques cas : le véhicule dépassé tourne à gauche, il circule sur une chaussée à plusieurs voies en files continues.</p>
+          <p>On ne dépasse jamais un véhicule qui s'est arrêté pour céder le passage à un piéton, ni un véhicule qui s'apprête à tourner à gauche s'il n'a pas la place de se rabattre. Un véhicule qui commence à nous dépasser ne doit pas être gêné : on ne serre pas à gauche et on n'accélère pas.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Se faire dépasser et cas particuliers</h3>
+          <p>Quand on se fait dépasser, on <span class="fiche-highlight">n'accélère pas</span>, on serre légèrement à droite pour laisser de la place et on garde une vitesse constante. Si l'on roule lentement et que des véhicules s'accumulent derrière soi, on se range dès que possible pour les laisser passer.</p>
+          <p>Pour dépasser un véhicule long (camion, convoi agricole, véhicule avec remorque), il faut prévoir plus de distance et de temps : on ne s'engage que si la route dégagée devant soi est suffisante pour terminer la manœuvre en sécurité. En agglomération, on n'accélère pas pour gagner une place : le gain de temps est minime et le risque est important.</p>
+        </div>
+
+<div class="section-shell" id="fiche13-quiz">
           <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
           <div class="sim-grid">
             <article class="sim-card">
@@ -1599,7 +1782,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <div data-i18n-html="intersections-ronds-points.c2.b"><p>Dans un rond-point signalé par un panneau « cédez le passage » à l'entrée, <span class="fiche-highlight">les véhicules déjà engagés dans l'anneau sont prioritaires</span>. On ralentit à l'approche, on regarde à gauche, puis on s'engage quand la voie est libre.</p><ul><li>On met le clignotant droit juste avant de quitter le rond-point, au moment de prendre sa sortie.</li><li>Pour sortir à la première sortie, on reste plutôt à droite ; pour aller plus loin, on prend plutôt la voie de gauche, puis on se rabat en vérifiant son rétroviseur.</li><li>À l'intérieur, on ne s'arrête pas et on ne fait pas demi-tour.</li></ul></div>
         </div>
 
-        <div class="section-shell" id="fiche14-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Le STOP et la limite de visibilité</h3>
+          <p>Au STOP, on s'arrête à la <span class="fiche-highlight">ligne d'arrêt</span> ; si elle ne permet pas de voir, on s'arrête une seconde fois à l'endroit d'où l'on a une vue dégagée (la « limite de visibilité »). Un arrêt complet est obligatoire, même s'il n'y a personne.</p>
+          <p>Au Cédez le passage, on ralentit et on s'arrête uniquement si c'est nécessaire. Passer un feu rouge ou un STOP coûte 135 € et 4 points. Au feu vert, on ne s'engage que si l'on est sûr de pouvoir dégager complètement le carrefour : bloquer l'intersection est interdit.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Tourner à gauche, à droite et dans un rond-point</h3>
+          <p>Pour tourner à gauche, on laisse passer les véhicules qui arrivent en face ; pour tourner à droite, on cède aux piétons qui traversent la rue dans laquelle on s'engage et aux cyclistes qui continuent tout droit. On annonce son intention suffisamment tôt avec le clignotant, puis on se place sur la voie correspondante.</p>
+          <p>Dans un rond-point, on <span class="fiche-highlight">cède aux véhicules déjà engagés</span> dans l'anneau (lorsque le panneau Cédez le passage est présent), on signale la sortie en mettant son clignotant droit avant de quitter l'anneau. La voie de droite sert à tourner à droite ou à sortir tôt, la voie de gauche à poursuivre plus loin autour de l'anneau.</p>
+        </div>
+
+<div class="section-shell" id="fiche14-quiz">
           <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
           <div class="sim-grid">
             <article class="sim-card">
@@ -1663,7 +1858,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <div data-i18n-html="conduite-nuit-mauvais-temps.c2.b"><p>Si vous êtes ébloui par les phares d'en face, <span class="fiche-highlight">ralentissez et regardez le bord droit de la chaussée</span>, sans répondre avec vos feux de route. La nuit, la fatigue arrive plus vite : arrêtez-vous dès les premiers signes (bâillements, yeux qui piquent, paupières lourdes) et faites une pause d'au moins 15 à 20 minutes toutes les 2 heures.</p></div>
         </div>
 
-        <div class="section-shell" id="fiche15-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Brouillard et pluie : adapter sa conduite</h3>
+          <p>Par brouillard avec une visibilité inférieure à <span class="fiche-highlight">50 mètres</span>, on allume les feux de croisement et les antibrouillard (avant et arrière) ; la vitesse est limitée à 50 km/h. Quand la visibilité redevient normale, on éteint l'antibrouillard arrière, qui éblouit les conducteurs suivants.</p>
+          <p>Sous la pluie, on augmente les distances, on allume les feux de croisement et on ralentit. En cas d'<span class="fiche-highlight">aquaplanage</span> (le volant devient léger), on lève le pied progressivement, sans freiner ni donner un coup de volant.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Neige, verglas, vent et éblouissement</h3>
+          <p>Sur neige ou verglas, tout se fait en douceur : accélérations, freinages, virages. On peut équiper le véhicule de chaînes ou de pneus hiver, et on emporte de quoi se réchauffer en cas de blocage. Par vent fort, on tient fermement son volant, surtout en sortie de tunnel ou de pont, et on se méfie des camions et des véhicules légers.</p>
+          <p>Face à un éblouissement, on ne regarde pas les phares : on dirige son regard vers le bord droit de la chaussée, on ralentit et on peut baisser le pare-soleil. La nuit, la fatigue augmente et la vision diminue, d'où l'importance de faire des pauses plus fréquentes.</p>
+        </div>
+
+<div class="section-shell" id="fiche15-quiz">
           <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
           <div class="sim-grid">
             <article class="sim-card">
@@ -1727,7 +1934,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <div data-i18n-html="stationnement.c2.b"><p>Un stationnement « gênant » est puni d'une amende de <span class="fiche-highlight">35 €</span> ; « très gênant » (trottoir, passage piéton, piste cyclable, place handicapé…), de <span class="fiche-highlight">135 €</span>, et le véhicule peut être mis en fourrière. Dans les villes qui l'ont mis en place, le stationnement payant remplace l'amende par un « forfait de post-stationnement ».</p><p>Avant de descendre, regardez derrière vous pour ne pas ouvrir la portière devant un cycliste ou un scooter. Quand une rue est à stationnement alterné, on se gare côté impair du 1er au 15 du mois et côté pair du 16 à la fin du mois.</p></div>
         </div>
 
-        <div class="section-shell" id="fiche16-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Gênant, très gênant, abusif : les différences</h3>
+          <ul><li>Stationnement <span class="fiche-highlight">gênant</span> : en double file, devant une entrée, sur un emplacement réservé aux livraisons (amende de 35 €).</li><li>Stationnement <span class="fiche-highlight">très gênant</span> : sur un passage piéton, un trottoir, une piste cyclable, une place handicapé (amende de 135 €).</li><li>Stationnement <span class="fiche-highlight">abusif</span> : plus de 7 jours consécutifs au même endroit.</li><li>Dans les cas graves, le véhicule peut être mis en fourrière.</li></ul>
+          <p>Dans les zones payantes, le forfait post-stationnement est fixé par la commune ; il remplace l'amende classique en cas de non-paiement.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Manœuvrer et quitter son véhicule en sécurité</h3>
+          <p>On choisit un créneau, une bataille (perpendiculaire) ou un épi (en angle) en fonction de la largeur de la place, en regardant d'abord dans les rétroviseurs et l'angle mort. On serre le frein à main, on coupe le moteur, on laisse le véhicule engagé en 1re ou en marche arrière pour les pentes.</p>
+          <p>En quittant le véhicule, on vérifie derrière soi avant d'ouvrir la portière et on sort côté trottoir quand c'est possible. Dans une zone bleue, on place le disque de stationnement bien visible et on respecte la durée autorisée.</p>
+        </div>
+
+<div class="section-shell" id="fiche16-quiz">
           <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
           <div class="sim-grid">
             <article class="sim-card">
@@ -1791,7 +2010,19 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <div data-i18n-html="vitesse.c2.b"><table class="fiche-table"><thead><tr><th>Excès par rapport à la limite</th><th>Points retirés</th></tr></thead><tbody><tr><td>moins de 20 km/h</td><td>1 point</td></tr><tr><td>20 à 29 km/h</td><td>2 points</td></tr><tr><td>30 à 39 km/h</td><td>3 points</td></tr><tr><td>40 à 49 km/h</td><td>4 points (suspension possible)</td></tr><tr><td>50 km/h ou plus</td><td>6 points et suspension possible</td></tr></tbody></table><p class="fiche-note">Les radars appliquent une marge technique : 5 km/h jusqu'à 100 km/h, et 5 % au-delà. Elle ne vous autorise pas à dépasser la limite, elle sert seulement à corriger l'imprécision des appareils.</p></div>
         </div>
 
-        <div class="section-shell" id="fiche17-quiz">
+                <div class="fiche-card fiche-fr-only">
+          <h3>4. Les limites par type de route</h3>
+          <ul><li>Agglomération : <span class="fiche-highlight">50 km/h</span> (30 km/h en zone 30, 20 km/h en zone de rencontre).</li><li>Route à double sens sans séparateur central : <span class="fiche-highlight">80 km/h</span>.</li><li>Route à double sens avec séparateur central, ou à 2 voies dans le même sens : <span class="fiche-highlight">90 km/h</span>.</li><li>Voie rapide à chaussées séparées : <span class="fiche-highlight">110 km/h</span>.</li><li>Autoroute : <span class="fiche-highlight">130 km/h</span>.</li></ul>
+          <p class="fiche-note">Sur autoroute, les jeunes conducteurs en permis probatoire sont limités à 110 km/h ; sur autoroute, la pluie abaisse la limite à 110 km/h.</p>
+        </div>
+
+        <div class="fiche-card fiche-fr-only">
+          <h3>5. Radars, points et conséquences d'un excès</h3>
+          <p>Un excès de vitesse de 20 km/h ou plus est sanctionné d'au moins 2 points (jusqu'à 6 points pour un excès de 50 km/h ou plus) et d'une amende plus élevée. Un <span class="fiche-highlight">grand excès de vitesse</span> (50 km/h et plus) peut aussi entraîner une suspension du permis, la confiscation du véhicule et, en cas de récidive, des peines de prison.</p>
+          <p>Les avertisseurs de radars sont interdits ; seules les applications qui signalent des zones de danger sont tolérées. Au-delà des sanctions, c'est le freinage qui compte : à 130 km/h, un choc est aussi violent qu'une chute depuis environ 66 mètres.</p>
+        </div>
+
+<div class="section-shell" id="fiche17-quiz">
           <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
           <div class="sim-grid">
             <article class="sim-card">
@@ -2396,5 +2627,33 @@ function initSliceGame() {
 initSliceGame();
 
     </script>
-  </body>
+  <script>
+(function () {
+  function showFiche() {
+    var h = decodeURIComponent((location.hash || "").slice(1));
+    var chapters = document.querySelectorAll(".fiche-chapter");
+    var target = h ? document.getElementById(h) : null;
+    var chap = target ? target.closest(".fiche-chapter") : null;
+    chapters.forEach(function (c) { c.classList.toggle("fiche-active", c === chap); });
+    document.body.classList.toggle("fiche-single", !!chap);
+    if (chap) {
+      setTimeout(function () { if (target === chap) window.scrollTo(0, 0); }, 0);
+      if (target === chap) window.scrollTo(0, 0); else target.scrollIntoView();
+    } else if (h && h !== "top") {
+      window.scrollTo(0, 0);
+    }
+  }
+  document.querySelectorAll(".fiche-chapter").forEach(function (c) {
+    var a = document.createElement("a");
+    a.className = "fiche-top-back";
+    a.href = "#top";
+    a.textContent = "← Toutes les fiches";
+    c.insertBefore(a, c.firstChild);
+  });
+  window.addEventListener("hashchange", showFiche);
+  showFiche();
+  window.addEventListener("load", function () { setTimeout(function () { var h = decodeURIComponent((location.hash || "").slice(1)); var t = h ? document.getElementById(h) : null; if (t && t.classList.contains("fiche-chapter")) window.scrollTo(0, 0); }, 150); });
+})();
+</script>
+</body>
 </html>

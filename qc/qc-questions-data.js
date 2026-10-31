@@ -727,6 +727,198 @@ const qcQuestions = [
 ],
 "correctIndex": 3,
 "explanation": "Les panneaux rectangulaires blancs indiquent des règles (limites, interdictions…)."
+},
+{
+"id": "qc57",
+"theme": "permis",
+"question": "Un jeune de 17 ans veut son permis d'apprenti : que faut-il en plus ?",
+"options": ["Le consentement écrit d'un parent ou tuteur","Un certificat de son école de conduite","Une lettre de son employeur","Rien de plus, il est déjà majeur pour la SAAQ"],
+"correctIndex": 0,
+"explanation": "Avant 18 ans, un parent ou tuteur doit donner son consentement par écrit."
+},
+{
+"id": "qc58",
+"theme": "permis",
+"question": "Après combien de mois d'apprentissage peut-on passer l'examen théorique de la SAAQ ?",
+"options": ["Après 6 mois","Après 10 mois","Après 3 mois","Après 24 mois"],
+"correctIndex": 1,
+"explanation": "L'examen théorique est possible à partir du 10e mois, mais l'examen pratique exige au moins 12 mois de permis d'apprenti."
+},
+{
+"id": "qc59",
+"theme": "permis",
+"question": "Combien de temps faut-il attendre avant de se représenter à l'examen théorique ou pratique après un échec ?",
+"options": ["28 jours","10 jours","6 mois","Aucun délai"],
+"correctIndex": 0,
+"explanation": "Le délai de reprise après un échec est de 28 jours."
+},
+{
+"id": "qc60",
+"theme": "permis",
+"question": "Quelle classe de permis permet de conduire une voiture de promenade au Québec ?",
+"options": ["La classe 6","La classe 5","La classe 1","La classe 8"],
+"correctIndex": 1,
+"explanation": "La classe 5 correspond aux véhicules de promenade. Le permis d'apprenti de classe 5 s'obtient dès 16 ans."
+},
+{
+"id": "qc61",
+"theme": "restrictions",
+"question": "Un titulaire de permis probatoire peut-il conduire entre minuit et 5 h ?",
+"options": ["Oui, sans aucune restriction","Oui, mais seulement avec un passager","Non : cette plage est interdite aux apprentis et aux probatoires","Oui, mais seulement en semaine"],
+"correctIndex": 2,
+"explanation": "La conduite entre minuit et 5 h est interdite aux titulaires d'un permis d'apprenti ou probatoire (avec les exceptions prévues par la SAAQ)."
+},
+{
+"id": "qc62",
+"theme": "restrictions",
+"question": "Quelle est la durée du permis probatoire ?",
+"options": ["12 mois","24 mois","18 mois","36 mois"],
+"correctIndex": 1,
+"explanation": "Le permis probatoire dure 24 mois, après quoi on obtient le permis de conduire."
+},
+{
+"id": "qc63",
+"theme": "points",
+"question": "Combien de points d'inaptitude un conducteur de moins de 23 ans peut-il accumuler avant d'être révoqué ?",
+"options": ["8 points","12 points","15 points","4 points"],
+"correctIndex": 0,
+"explanation": "Le maximum est de 8 points pour les moins de 23 ans (4 pour apprentis et probatoires, 12 pour les 23-24 ans, 15 pour les 25 ans et plus)."
+},
+{
+"id": "qc64",
+"theme": "points",
+"question": "Quel est le maximum de points d'inaptitude pour un conducteur de 24 ans titulaire d'un permis de conduire ?",
+"options": ["4 points","8 points","15 points","12 points"],
+"correctIndex": 3,
+"explanation": "Le maximum est de 12 points pour les 23 à 24 ans."
+},
+{
+"id": "qc65",
+"theme": "points",
+"question": "Combien de points d'inaptitude fait-on perdre en refusant de fournir un échantillon d'haleine ?",
+"options": ["4 points","1 point","3 points","2 points"],
+"correctIndex": 0,
+"explanation": "Le refus de fournir un échantillon d'haleine entraîne 4 points d'inaptitude."
+},
+{
+"id": "qc66",
+"theme": "points",
+"question": "Combien de temps les points d'inaptitude demeurent-ils inscrits au dossier ?",
+"options": ["1 an","2 ans","5 ans","10 ans"],
+"correctIndex": 1,
+"explanation": "Les points restent inscrits pendant 2 ans à partir de la date de l'infraction."
+},
+{
+"id": "qc67",
+"theme": "alcool",
+"question": "Un conducteur détenant un permis de conduire complet de 30 ans peut conduire jusqu'à quel taux d'alcool ?",
+"options": ["0,16","0,05","0,08","Aucun taux n'est toléré"],
+"correctIndex": 2,
+"explanation": "La limite est de 0,08 (80 mg d'alcool par 100 ml de sang) pour la majorité des conducteurs expérimentés."
+},
+{
+"id": "qc68",
+"theme": "alcool",
+"question": "Pour quel conducteur la tolérance zéro alcool s'applique-t-elle ?",
+"options": ["Seulement les conducteurs de camions","Apprentis, probatoires, moins de 22 ans, taxis et autobus","Uniquement les nouveaux résidents","Aucun conducteur au Québec"],
+"correctIndex": 1,
+"explanation": "La tolérance zéro s'applique aux apprentis, aux probatoires, aux conducteurs de moins de 22 ans et à ceux de taxi ou d'autobus."
+},
+{
+"id": "qc69",
+"theme": "alcool",
+"question": "Quelle sanction immédiate suit une alcoolémie de 0,16 ou plus ?",
+"options": ["Un simple avertissement","Une suspension de 7 jours","Une suspension de 90 jours et la saisie du véhicule 30 jours","Une amende uniquement"],
+"correctIndex": 2,
+"explanation": "Une alcoolémie de 0,16 ou plus entraîne une suspension immédiate de 90 jours et une saisie du véhicule de 30 jours."
+},
+{
+"id": "qc70",
+"theme": "cellulaire",
+"question": "Quelle amende encourt-on pour l'utilisation d'un cellulaire au volant ?",
+"options": ["50 $ à 100 $","300 $ à 600 $","1 000 $ à 2 000 $","Aucune amende, seulement des points"],
+"correctIndex": 1,
+"explanation": "L'amende est de 300 $ à 600 $, avec 5 points d'inaptitude."
+},
+{
+"id": "qc71",
+"theme": "cellulaire",
+"question": "Quelle suspension de permis suit une première récidive d'usage du cellulaire au volant ?",
+"options": ["30 jours","7 jours","Aucune","3 jours"],
+"correctIndex": 3,
+"explanation": "Une première récidive entraîne une suspension de 3 jours, puis 7 jours, puis 30 jours aux récidives suivantes."
+},
+{
+"id": "qc72",
+"theme": "cellulaire",
+"question": "En conduisant, peut-on tenir son cellulaire pour regarder une carte à un feu rouge ?",
+"options": ["Oui, si le feu est rouge depuis un moment","Non : on ne doit pas le manipuler pendant la conduite","Oui, si le téléphone est en mode avion","Oui, mais seulement la nuit"],
+"correctIndex": 1,
+"explanation": "Il est interdit de tenir ou de manipuler un appareil portable au volant, même arrêté à un feu."
+},
+{
+"id": "qc73",
+"theme": "vitesse",
+"question": "Sur un chemin de gravier, sans panneau, quelle est la limite de vitesse ?",
+"options": ["50 km/h","60 km/h","90 km/h","70 km/h"],
+"correctIndex": 3,
+"explanation": "La limite par défaut est de 70 km/h sur un chemin de gravier."
+},
+{
+"id": "qc74",
+"theme": "vitesse",
+"question": "Dans une agglomération, sans panneau, quelle est la limite de vitesse ?",
+"options": ["40 km/h","50 km/h","60 km/h","30 km/h"],
+"correctIndex": 1,
+"explanation": "En l'absence de panneau, la limite par défaut en agglomération est de 50 km/h."
+},
+{
+"id": "qc75",
+"theme": "vitesse",
+"question": "Que se passe-t-il pour les amendes de vitesse dans une zone de travaux ?",
+"options": ["Elles sont doublées","Elles sont réduites de moitié","Elles sont les mêmes qu'ailleurs","Elles sont remplacées par un avertissement"],
+"correctIndex": 0,
+"explanation": "Les amendes de vitesse sont doublées dans les zones de travaux et les zones scolaires."
+},
+{
+"id": "qc76",
+"theme": "ecoles",
+"question": "À quelle distance d'un autobus scolaire dont les feux rouges clignotent faut-il s'immobiliser ?",
+"options": ["À plus de 5 mètres","À 1 mètre","À 2 mètres","À 20 mètres"],
+"correctIndex": 0,
+"explanation": "On doit s'immobiliser à plus de 5 mètres de l'autobus."
+},
+{
+"id": "qc77",
+"theme": "ecoles",
+"question": "Quelle sanction attend le conducteur qui dépasse un autobus scolaire dont les feux rouges clignotent ?",
+"options": ["Un avertissement","2 points et 50 $","9 points et 200 $ à 300 $","Une simple amende sans points"],
+"correctIndex": 2,
+"explanation": "La sanction est de 200 $ à 300 $ et 9 points d'inaptitude."
+},
+{
+"id": "qc78",
+"theme": "hiver",
+"question": "Entre quelles dates les pneus d'hiver sont-ils obligatoires au Québec ?",
+"options": ["Du 15 novembre au 1er avril","Du 1er décembre au 15 mars","Du 1er janvier au 28 février","Du 1er octobre au 30 avril"],
+"correctIndex": 1,
+"explanation": "Les pneus d'hiver sont obligatoires du 1er décembre au 15 mars pour les véhicules immatriculés au Québec."
+},
+{
+"id": "qc79",
+"theme": "hiver",
+"question": "Comment reconnaît-on un pneu d'hiver conforme ?",
+"options": ["Il porte un pictogramme alpin (montagne et flocon)","Il a une bande de couleur sur le flanc","Il est plus étroit que les autres pneus","Il porte la mention « M+S » seulement"],
+"correctIndex": 0,
+"explanation": "Le pictogramme alpin prouve qu'un pneu est un pneu d'hiver conforme."
+},
+{
+"id": "qc80",
+"theme": "intersections",
+"question": "Où le virage à droite au feu rouge est-il interdit ?",
+"options": ["Nulle part au Québec","Sur l'île de Montréal et là où un panneau l'interdit","Seulement sur l'autoroute","Seulement la nuit"],
+"correctIndex": 1,
+"explanation": "Le virage à droite au feu rouge est permis, sauf sur l'île de Montréal et là où un panneau l'interdit."
 }
 ];
 const qcThemes = {"permis": "Obtenir le permis", "restrictions": "Apprentis et probatoires", "points": "Points d'inaptitude", "alcool": "Alcool et drogues", "cellulaire": "Cellulaire", "vitesse": "Vitesse", "ecoles": "Autobus et écoles", "hiver": "Pneus d'hiver", "intersections": "Intersections", "panneaux": "Panneaux"};

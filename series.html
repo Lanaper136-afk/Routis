@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>50 séries de questions du code de la route | Routis</title>
+    <meta name="description" content="50 séries de 40 questions (panneaux et connaissances) pour réviser le code de la route, avec correction immédiate et suivi de ton meilleur score. Gratuit." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/series.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="50 séries de questions du code de la route | Routis" />
+    <meta property="og:description" content="50 séries de 40 questions (panneaux et connaissances) pour réviser le code de la route, avec correction immédiate et suivi de ton meilleur score. Gratuit." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/series.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.exam-timer[hidden] { display: none !important; }
+#exam-start[hidden], #exam-running[hidden], #exam-results[hidden] { display: none !important; }
+.errors-box { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(0,0,0,.12); }
+.errors-box h3 { margin: 0 0 6px; }
+.quiz-knowledge-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 3rem;
+}
+
+.quiz-knowledge-badge span {
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* --- Exam start screen --- */
+.exam-start-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 18px;
+}
+
+.exam-intro-card {
+  padding: clamp(18px, 4vw, 30px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.exam-rules {
+  display: grid;
+  gap: 10px;
+  margin: 18px 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.exam-rules li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+
+.exam-rules li strong {
+  flex: 0 0 auto;
+}
+
+.exam-history-card {
+  padding: clamp(18px, 4vw, 24px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.exam-history-card h3 {
+  margin-top: 0;
+}
+
+.exam-history-list {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.exam-history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-left-width: 4px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.exam-history-item.pass {
+  border-left-color: var(--green);
+}
+
+.exam-history-item.fail {
+  border-left-color: var(--red);
+}
+
+.exam-history-date {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.exam-history-status {
+  font-size: 0.82rem;
+}
+
+.exam-history-item.pass .exam-history-status {
+  color: var(--green);
+}
+
+.exam-history-item.fail .exam-history-status {
+  color: var(--red);
+}
+
+/* --- Plein écran pendant l'examen --- */
+body.exam-live { overflow: hidden; }
+body.exam-live .topbar, body.exam-live .page-hero, body.exam-live .site-footer,
+body.exam-live .section-heading { display: none !important; }
+body.exam-live #exam-running {
+  position: fixed; inset: 0; z-index: 1000; overflow-y: auto;
+  background: var(--paper); margin: 0; padding: 20px 16px 40px;
+  align-content: start; justify-items: center;
+}
+body.exam-live #exam-running { display: block; }
+body.exam-live #exam-running .quiz-board { width: 100%; max-width: 760px; margin: 0 auto; }
+body.exam-live #exam-running .exam-note { display: none; }
+.exam-quit { background: none; border: 0; color: var(--muted, #667); text-decoration: underline; cursor: pointer; font: inherit; padding: 6px 0; }
+
+/* --- Running exam screen --- */
+.exam-timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 900;
+}
+
+.exam-timer.urgent {
+  color: #fff;
+  background: var(--red);
+}
+
+.exam-progressbar {
+  height: 6px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  background: #eef3f8;
+  border-radius: 999px;
+}
+
+.exam-progressbar-fill {
+  height: 100%;
+  background: var(--blue);
+  transition: width 0.2s ease;
+}
+
+.answers button.selected {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.exam-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+/* --- Results screen --- */
+.exam-status-banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 22px;
+  border-radius: 8px;
+}
+
+.exam-status-banner.pass {
+  color: #fff;
+  background: var(--green);
+}
+
+.exam-status-banner.fail {
+  color: #fff;
+  background: var(--red);
+}
+
+.exam-status-banner h2 {
+  margin: 0 0 4px;
+  color: inherit;
+}
+
+.exam-status-banner p {
+  margin: 0;
+  opacity: 0.92;
+}
+
+.exam-status-score {
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.theme-recap-list {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 30px;
+}
+
+.theme-bar-row {
+  display: grid;
+  grid-template-columns: minmax(140px, 220px) 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-bar-track {
+  height: 12px;
+  overflow: hidden;
+  background: #eef3f8;
+  border-radius: 999px;
+}
+
+.theme-bar-fill {
+  height: 100%;
+  background: var(--blue);
+  border-radius: 999px;
+}
+
+.theme-bar-fill.weak {
+  background: var(--red);
+}
+
+.theme-bar-fill.strong {
+  background: var(--green);
+}
+
+.theme-bar-score {
+  color: var(--muted);
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.correction-list {
+  display: grid;
+  gap: 14px;
+}
+
+.correction-item {
+  padding: clamp(16px, 3vw, 22px);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.correction-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.correction-head h4 {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.badge.badge-correct {
+  background: var(--green);
+}
+
+.badge.badge-wrong {
+  background: var(--red);
+}
+
+.correction-question {
+  margin: 0 0 12px;
+  font-weight: 800;
+}
+
+.scene-art { width: 100%; max-width: 460px; margin: 0 auto; }
+.scene-art svg { display: block; width: 100%; height: auto; border-radius: 8px; }
+.quiz-sign:has(.scene-art) { padding: 8px; }
+.correction-scene { max-width: 280px; margin: 0 0 12px; }
+.correction-visual {
+  float: right;
+  width: 74px;
+  height: 74px;
+  margin: 0 0 10px 12px;
+}
+
+.correction-visual .sign-art {
+  width: 74px;
+  height: 74px;
+}
+
+.correction-answers {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.correction-answers .your-answer.wrong-answer {
+  color: var(--red);
+}
+
+.correction-answers .your-answer.right-answer {
+  color: var(--green);
+}
+
+.correction-explanation {
+  clear: both;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.exam-results-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 26px 0 36px;
+}
+
+@media (max-width: 760px) {
+  .exam-start-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .theme-bar-row {
+    grid-template-columns: 1fr;
+  }
+}
+    </style>
+  <style>
+.ser-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px;margin-top:14px}
+.ser-card{display:flex;flex-direction:column;gap:4px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line,#d9dee8);border-radius:12px;background:var(--card,#fff);color:inherit;font:inherit;cursor:pointer;text-align:left}
+.ser-card span{font-size:.85rem;opacity:.75}
+.ser-card:hover{border-color:#ffc928}
+.ser-card.ser-ok{border-color:#2e9e5b;background:rgba(46,158,91,.1)}
+.ser-card.ser-try{border-color:#e0a030;background:rgba(224,160,48,.1)}
+.ser-summary{font-weight:600;margin-top:6px}
+#ser-feedback{margin-top:12px}
+</style>
+</head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+        <a href="reglages.html"><span data-i18n="nav_reglages">Réglages</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main>
+      <section class="page-hero">
+        <p class="eyebrow" id="ser-eyebrow">Séries</p>
+        <h1 id="ser-title">50 séries de questions</h1>
+        <p id="ser-desc">50 séries de 40 questions, toujours les mêmes : retrouve ta série, améliore ton score et passe à la suivante.</p>
+      </section>
+
+      <section class="section-shell" id="examen">
+        <div id="exam-start">
+          <p class="muted" id="ser-help"></p>
+          <div class="ser-summary" id="ser-summary"></div>
+          <div class="ser-grid" id="ser-grid"></div>
+          <p class="muted" style="margin-top:18px"><a href="examens.html" id="ser-exam-link">Passer un examen blanc chronométré</a></p>
+        </div>
+
+        <!-- Running exam screen -->
+        <div id="exam-running" class="quiz-layout" style="grid-template-columns:minmax(0,1fr)" hidden>
+          <div class="quiz-board">
+            <div class="quiz-topline">
+              <span id="exam-progress-label">Question 1/40</span>
+              <span class="exam-timer" id="exam-timer" hidden><span id="exam-timer-value">0:20</span></span><span id="ser-label" class="muted"></span>
+            </div>
+            <div class="exam-progressbar"><div class="exam-progressbar-fill" id="exam-progressbar-fill"></div></div>
+            <div class="quiz-sign" id="exam-visual"></div>
+            <h3 id="exam-question">Question</h3>
+            <div class="answers" id="exam-answers"></div>
+            <div class="exam-actions">
+              <span class="muted" id="exam-skip-hint" id="exam-skip-hint"></span>
+              <button class="button primary" id="exam-next-btn" type="button" data-i18n="exam_next_btn">Question suivante</button>
+            </div>
+            <div style="text-align:center;margin-top:10px"><button type="button" class="exam-quit" id="exam-quit-btn">Quitter la série</button></div>
+          </div>
+          
+        </div>
+
+        <!-- Results screen -->
+        <div id="exam-results" hidden>
+          <div class="exam-status-banner" id="exam-status-banner">
+            <div>
+              <h2 id="exam-status-label">ADMIS(E)</h2>
+              <p id="exam-threshold-note"></p>
+            </div>
+            <div class="exam-status-score" id="exam-score-line">37/40</div>
+          </div>
+
+          <h3 data-i18n="exam_theme_recap_title">Résultats par thème</h3>
+          <div class="theme-recap-list" id="exam-theme-recap"></div>
+
+          <div class="exam-results-actions">
+            <button class="button primary" id="exam-restart-btn" type="button" >Autres séries</button>
+          </div>
+
+          <h3 data-i18n="exam_correction_title">Correction détaillée</h3>
+          <p class="muted" data-i18n="exam_correction_hint">Relis chaque question, surtout celles ratées, pour progresser.</p>
+          <div class="correction-list" id="exam-correction-list"></div>
+
+          <div class="exam-results-actions">
+            <button class="button primary" id="exam-restart-btn-bottom" type="button" >Autres séries</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/scenes.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script src="assets/badges.js" defer></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+const EXAM_TOTAL_QUESTIONS = 40;
+const EXAM_SIGN_QUESTIONS = 8;
+const EXAM_DURATION_SECONDS = 20; // secondes par question, comme à l'examen officiel
+const EXAM_PASS_THRESHOLD = 35;
+const EXAM_HISTORY_LIMIT = 10;
+const ERRORS_SESSION_SIZE = 20;
+
+const examState = {
+  screen: "start",
+  questions: [],
+  answers: [],
+  index: 0,
+  secondsLeft: EXAM_DURATION_SECONDS,
+  timerId: null,
+  lastResults: null,
+  mode: "exam"
+};
+
+let rng = Math.random;
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let x = Math.imul(a ^ (a >>> 15), 1 | a);
+    x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x;
+    return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function shuffle(items) {
+  const a = [...items];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+const SERIES_COUNT = 50;
+const L = (fr, en) => (getLang() === "en" ? en : fr);
+
+// Tirage fixe : la série n contient toujours les mêmes questions.
+function buildSeriesQuestions(n) {
+  const sEn = (getLang() === "en");
+  const out = [];
+  const rngSaved = rng;
+  rng = mulberry32(1000 + n);
+  const signList = (() => { rng = mulberry32(777); const l = shuffle(signs); rng = mulberry32(1000 + n); return l; })();
+  const quotas = EXAM_THEME_QUOTAS;
+  const chosen = [];
+  Object.keys(quotas).forEach((theme) => {
+    rng = mulberry32(5000 + theme.length * 31 + theme.charCodeAt(0));
+    const list = shuffle(knowledgeQuestions.filter((q) => q.theme === theme));
+    const q = quotas[theme];
+    for (let k = 0; k < q; k++) chosen.push(list[((n - 1) * q + k) % list.length]);
+  });
+  rng = mulberry32(1000 + n);
+  for (let k = 0; k < EXAM_SIGN_QUESTIONS; k++) chosen.push({ __sign: signList[((n - 1) * EXAM_SIGN_QUESTIONS + k) % signList.length] });
+  const mixed = shuffle(chosen);
+  mixed.forEach((c) => out.push(c.__sign ? buildSignQuestion(c.__sign) : buildKnowledgeQuestion(c)));
+  rng = rngSaved;
+  return out;
+}
+
+function formatClock(totalSeconds) {
+  const safeSeconds = Math.max(0, totalSeconds);
+  const minutes = Math.floor(safeSeconds / 60);
+  const seconds = safeSeconds % 60;
+  return `${minutes}:${String(seconds).padStart(2, "0")}`;
+}
+
+function buildSignQuestion(sign) {
+  const distractors = shuffle(signs.filter((item) => item.id !== sign.id)).slice(0, 3);
+  const allSigns = shuffle([sign, ...distractors]);
+  const correctIndex = allSigns.findIndex((item) => item.id === sign.id);
+  return {
+    id: `sign-${sign.id}`,
+    type: "sign",
+    theme: "signalisation",
+    signRef: sign,
+    question: t("quiz_question"),
+    options: allSigns.map((item) => signField(item, "name")),
+    correctIndex,
+    explanation: signField(sign, "text")
+  };
+}
+
+function buildKnowledgeQuestion(source) {
+  const optionTexts = signField(source, "options");
+  const shuffledOptions = shuffle(optionTexts.map((text, idx) => ({ text, correct: idx === source.correctIndex })));
+  const correctIndex = shuffledOptions.findIndex((option) => option.correct);
+  return {
+    id: source.id,
+    type: "knowledge",
+    theme: source.theme,
+    question: signField(source, "question"),
+    options: shuffledOptions.map((option) => option.text),
+    correctIndex,
+    explanation: signField(source, "explanation"),
+    scene: source.scene || null,
+    signRef: source.sign ? (signs.find((item) => item.id === source.sign) || null) : null
+  };
+}
+
+const EXAM_THEME_QUOTAS = {
+  conducteur: 8, usagers: 4, circulation: 3, route: 3, equipements: 3,
+  reglementation: 2, securite_passagers: 2, notions: 2, prendre_quitter: 2,
+  environnement: 2, secours: 1
+};
+
+function setScreen(name) {
+  examState.screen = name;
+  document.body.classList.toggle("exam-live", name === "running");
+  window.scrollTo(0, 0);
+  const start = document.querySelector("#exam-start");
+  const running = document.querySelector("#exam-running");
+  const results = document.querySelector("#exam-results");
+  if (start) start.hidden = name !== "start";
+  if (running) running.hidden = name !== "running";
+  if (results) results.hidden = name !== "results";
+}
+
+function updateTimerDisplay() {
+  const timerValue = document.querySelector("#exam-timer-value");
+  const timer = document.querySelector("#exam-timer");
+  if (timerValue) timerValue.textContent = formatClock(examState.secondsLeft);
+  if (timer) timer.classList.toggle("urgent", examState.secondsLeft <= 5);
+}
+
+function renderRunning() {
+  const current = examState.questions[examState.index];
+  if (!current) return;
+
+  const progressLabel = document.querySelector("#exam-progress-label");
+  const progressFill = document.querySelector("#exam-progressbar-fill");
+  const visual = document.querySelector("#exam-visual");
+  const question = document.querySelector("#exam-question");
+  const answers = document.querySelector("#exam-answers");
+  const nextBtn = document.querySelector("#exam-next-btn");
+
+  if (progressLabel) progressLabel.textContent = t("quiz_step", { current: examState.index + 1, total: examState.questions.length });
+  if (progressFill) progressFill.style.width = `${Math.round(((examState.index + 1) / examState.questions.length) * 100)}%`;
+
+  if (visual) {
+    visual.innerHTML = (current.type === "sign" || current.signRef)
+      ? signSvg(current.signRef)
+      : current.scene
+      ? sceneSvg(current.scene)
+      : `<div class="quiz-knowledge-badge">🧠<span>${t("quiz_knowledge_label")}</span></div>`;
+  }
+  if (question) question.textContent = current.question;
+
+  const selected = examState.answers[examState.index];
+  if (answers) {
+    answers.innerHTML = current.options.map((text, idx) => `
+      <button type="button" data-index="${idx}" class="${selected === idx ? "selected" : ""}">${text}</button>
+    `).join("");
+  }
+
+  const oldFb = document.querySelector("#ser-feedback");
+  if (oldFb) oldFb.remove();
+  if (selected !== null && selected !== undefined) showFeedback(selected);
+  if (nextBtn) {
+    nextBtn.textContent = examState.index === examState.questions.length - 1 ? t("exam_finish_btn") : t("exam_next_btn");
+  }
+}
+
+function showFeedback(idx) {
+  const cur = examState.questions[examState.index];
+  const answers = document.querySelector("#exam-answers");
+  if (!answers || !cur) return;
+  const sel = examState.answers[examState.index];
+  [...answers.querySelectorAll("button")].forEach((button) => {
+    const i = Number(button.dataset.index);
+    button.disabled = true;
+    if (i === cur.correctIndex) button.classList.add("correct");
+    else if (i === sel) button.classList.add("wrong");
+  });
+  let fb = document.querySelector("#ser-feedback");
+  if (!fb) { fb = document.createElement("p"); fb.id = "ser-feedback"; fb.className = "feedback"; answers.after(fb); }
+  fb.textContent = (sel === cur.correctIndex ? L("Bonne réponse ! ", "Correct! ") : L("Raté. ", "Not quite. ")) + cur.explanation;
+}
+
+function selectAnswer(index) {
+  if (examState.answers[examState.index] !== null && examState.answers[examState.index] !== undefined) return;
+  examState.answers[examState.index] = index;
+  showFeedback(index);
+}
+
+function goNext() {
+  if (examState.index >= examState.questions.length - 1) {
+    finishExam();
+    return;
+  }
+  examState.index += 1;
+  renderRunning();
+}
+
+function computeResults() {
+  const perQuestion = examState.questions.map((question, idx) => {
+    const selected = examState.answers[idx];
+    const isCorrect = selected !== null && selected !== undefined && selected === question.correctIndex;
+    return { question, selected, isCorrect };
+  });
+  // Feed the per-theme/per-family stats and the spaced-repetition boxes
+  // (qStats / signStats) even for the mock exam, so progression.html's
+  // "weak themes" view stays accurate — the exam's own random draw is
+  // untouched, only this tracking is added.
+  perQuestion.forEach((item) => {
+    const q = item.question;
+    if (q.type === "sign") {
+      recordSignAnswer(q.signRef.id, q.signRef.family, item.isCorrect);
+    } else {
+      recordQuestionAnswer(q.id, q.theme, item.isCorrect);
+    }
+  });
+  const score = perQuestion.filter((item) => item.isCorrect).length;
+  const total = examState.questions.length;
+  const passed = score >= EXAM_PASS_THRESHOLD;
+  const themeStats = {};
+  perQuestion.forEach((item) => {
+    const key = item.question.theme;
+    if (!themeStats[key]) themeStats[key] = { correct: 0, total: 0 };
+    themeStats[key].total += 1;
+    if (item.isCorrect) themeStats[key].correct += 1;
+  });
+  return { perQuestion, score, total, passed, themeStats, date: new Date().toISOString() };
+}
+
+function saveHistory(results) {
+  const history = safeGetJSON("examHistory", []);
+  history.unshift({ date: results.date, score: results.score, total: results.total, passed: results.passed });
+  safeSetJSON("examHistory", history.slice(0, EXAM_HISTORY_LIMIT));
+}
+
+function finishExam() {
+  if (examState.timerId) {
+    window.clearInterval(examState.timerId);
+    examState.timerId = null;
+  }
+  const results = computeResults();
+  examState.lastResults = results;
+  const best = safeGetJSON("seriesBest", {});
+  const key = String(examState.series);
+  if (best[key] === undefined || results.score > best[key]) best[key] = results.score;
+  safeSetJSON("seriesBest", best);
+  setScreen("results");
+  renderResults();
+}
+
+function themeLabel(theme) {
+  const key = `theme_${theme}`;
+  const label = t(key);
+  return label === key ? theme : label;
+}
+
+function renderResults() {
+  const results = examState.lastResults;
+  if (!results) return;
+
+  const banner = document.querySelector("#exam-status-banner");
+  const statusLabel = document.querySelector("#exam-status-label");
+  const scoreLine = document.querySelector("#exam-score-line");
+  const errorsMode = false;
+  const okState = errorsMode ? results.score === results.total : results.passed;
+  if (banner) banner.classList.toggle("pass", okState);
+  if (banner) banner.classList.toggle("fail", !okState);
+  if (statusLabel) statusLabel.textContent = errorsMode ? (okState ? t("errors_status_good") : t("errors_status_done")) : (results.passed ? t("exam_status_admis") : t("exam_status_ajourne"));
+  const thrNote = document.querySelector("#exam-threshold-note");
+  if (thrNote) thrNote.textContent = L("Pour valider la série : 35/40.", "To pass the series: 35/40.");
+  if (scoreLine) scoreLine.textContent = t("exam_score_line", { score: results.score, total: results.total });
+
+  const themeRecap = document.querySelector("#exam-theme-recap");
+  if (themeRecap) {
+    const rows = Object.keys(results.themeStats).sort((a, b) => themeLabel(a).localeCompare(themeLabel(b)));
+    themeRecap.innerHTML = rows.map((theme) => {
+      const stat = results.themeStats[theme];
+      const percent = Math.round((stat.correct / stat.total) * 100);
+      const fillClass = percent >= 80 ? "strong" : percent < 50 ? "weak" : "";
+      return `
+        <div class="theme-bar-row">
+          <span>${themeLabel(theme)}</span>
+          <div class="theme-bar-track"><div class="theme-bar-fill ${fillClass}" style="width:${percent}%"></div></div>
+          <span class="theme-bar-score">${stat.correct}/${stat.total}</span>
+        </div>
+      `;
+    }).join("");
+  }
+
+  const correctionList = document.querySelector("#exam-correction-list");
+  if (correctionList) {
+    correctionList.innerHTML = results.perQuestion.map((item, idx) => {
+      const q = item.question;
+      const yourAnswerText = item.selected === null || item.selected === undefined ? t("exam_unanswered") : q.options[item.selected];
+      const yourAnswerClass = item.isCorrect ? "right-answer" : "wrong-answer";
+      const visual = (q.type === "sign" || q.signRef)
+        ? `<div class="correction-visual">${signSvg(q.signRef)}</div>`
+        : q.scene ? `<div class="correction-scene">${sceneSvg(q.scene)}</div>` : "";
+      return `
+        <article class="correction-item">
+          <div class="correction-head">
+            <h4>${t("quiz_step", { current: idx + 1, total: results.total })} · ${themeLabel(q.theme)}</h4>
+            <span class="badge ${item.isCorrect ? "badge-correct" : "badge-wrong"}">${item.isCorrect ? t("exam_badge_correct") : t("exam_badge_wrong")}</span>
+          </div>
+          ${visual}
+          <p class="correction-question">${q.question}</p>
+          <div class="correction-answers">
+            <span class="your-answer ${yourAnswerClass}">${t("exam_your_answer")} ${yourAnswerText}</span>
+            ${!item.isCorrect ? `<span class="right-answer">${t("exam_correct_answer")} ${q.options[q.correctIndex]}</span>` : ""}
+          </div>
+          <p class="correction-explanation">${q.explanation}</p>
+        </article>
+      `;
+    }).join("");
+  }
+
+  const sub = document.querySelector("#ser-result-title");
+  if (sub) sub.textContent = L("Série ", "Series ") + examState.series;
+}
+
+function renderCurrentScreen() {
+  applySeriesTexts();
+  if (examState.screen === "start") renderGrid();
+  else if (examState.screen === "running") renderRunning();
+  else if (examState.screen === "results") renderResults();
+}
+
+
+function applySeriesTexts() {
+  const set = (id, v) => { const e = document.getElementById(id); if (e) e.textContent = v; };
+  set("ser-eyebrow", L("Séries", "Series"));
+  set("ser-title", L("50 séries de questions", "50 question series"));
+  set("ser-desc", L("50 séries de 40 questions, toujours les mêmes : retrouve ta série, améliore ton score et passe à la suivante.", "50 series of 40 questions, always the same: find your series, improve your score and move on to the next."));
+  set("ser-help", L("Chaque série mélange panneaux et connaissances sur tous les thèmes, comme à l'examen. Tu vois la correction après chaque réponse. 35/40 pour la valider.", "Each series mixes signs and general knowledge across all themes, like the exam. You see the correction after each answer. 35/40 to pass it."));
+  set("ser-exam-link", L("Passer un examen blanc chronométré", "Take a timed mock exam"));
+  set("exam-quit-btn", L("Quitter la série", "Quit the series"));
+  set("exam-skip-hint", "");
+  document.querySelectorAll("#exam-restart-btn, #exam-restart-btn-bottom").forEach((b) => { b.textContent = L("Autres séries", "Other series"); });
+  set("exam-threshold-note", L("Pour valider la série : 35/40.", "To pass the series: 35/40."));
+  document.title = L("50 séries de questions du code de la route | Routis", "50 driving theory question series | Routis");
+}
+
+function renderGrid() {
+  const best = safeGetJSON("seriesBest", {});
+  const grid = document.querySelector("#ser-grid");
+  const sum = document.querySelector("#ser-summary");
+  if (!grid) return;
+  let done = 0, ok = 0;
+  grid.innerHTML = Array.from({ length: SERIES_COUNT }, (_, i) => {
+    const n = i + 1;
+    const b = best[String(n)];
+    let cls = "ser-card", note = L("À faire", "To do");
+    if (b !== undefined) { done++; if (b >= 35) { ok++; cls += " ser-ok"; } else cls += " ser-try"; note = b + "/40"; }
+    return `<button type="button" class="${cls}" data-series="${n}"><strong>${L("Série", "Series")} ${n}</strong><span>${note}</span></button>`;
+  }).join("");
+  if (sum) sum.textContent = L(`${done} série(s) tentée(s) · ${ok} validée(s) sur ${SERIES_COUNT}`, `${done} series attempted · ${ok} passed out of ${SERIES_COUNT}`);
+}
+
+function startSeries(n) {
+  examState.mode = "series";
+  examState.series = n;
+  examState.questions = buildSeriesQuestions(n);
+  examState.answers = examState.questions.map(() => null);
+  examState.index = 0;
+  examState.lastResults = null;
+  const lab = document.getElementById("ser-label");
+  if (lab) lab.textContent = L("Série ", "Series ") + n;
+  setScreen("running");
+  renderRunning();
+}
+
+
+const grid = document.querySelector("#ser-grid");
+if (grid) grid.addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-series]");
+  if (b) startSeries(Number(b.dataset.series));
+});
+["#exam-restart-btn", "#exam-restart-btn-bottom"].forEach((sel) => {
+  const el = document.querySelector(sel);
+  if (el) el.addEventListener("click", () => { setScreen("start"); renderGrid(); });
+});
+const nextBtn = document.querySelector("#exam-next-btn");
+if (nextBtn) nextBtn.addEventListener("click", goNext);
+const quitBtn = document.querySelector("#exam-quit-btn");
+if (quitBtn) quitBtn.addEventListener("click", () => {
+  if (!window.confirm(L("Quitter la série ? Tes réponses ne seront pas enregistrées.", "Quit the series? Your answers will not be saved."))) return;
+  setScreen("start"); renderGrid();
+});
+const examAnswers = document.querySelector("#exam-answers");
+if (examAnswers) examAnswers.addEventListener("click", (event) => {
+  const button = event.target.closest("button");
+  if (!button) return;
+  selectAnswer(Number(button.dataset.index));
+});
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+    renderCurrentScreen();
+  });
+});
+applyStaticTranslations();
+setScreen("start");
+applySeriesTexts();
+renderGrid();
+const qs = Number(new URLSearchParams(location.search).get("n"));
+if (qs >= 1 && qs <= SERIES_COUNT) startSeries(qs);
+
+    </script>
+  </body>
+</html>

@@ -12,8 +12,8 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>22 mises en situation du code de la route | Routis</title>
-    <meta name="description" content="Entraîne-toi avec 22 mises en situation illustrées : STOP, giratoire, dépassement, piétons... Choisis la bonne réaction et comprends pourquoi." />
+    <title>60 mises en situation du code de la route | Routis</title>
+    <meta name="description" content="Entraîne-toi avec 60 mises en situation illustrées : STOP, giratoire, dépassement, piétons... Choisis la bonne réaction et comprends pourquoi." />
     <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/simulations.html" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.svg" />
@@ -23,8 +23,8 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Routis" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="22 mises en situation du code de la route | Routis" />
-    <meta property="og:description" content="Entraîne-toi avec 22 mises en situation illustrées : STOP, giratoire, dépassement, piétons... Choisis la bonne réaction et comprends pourquoi." />
+    <meta property="og:title" content="60 mises en situation du code de la route | Routis" />
+    <meta property="og:description" content="Entraîne-toi avec 60 mises en situation illustrées : STOP, giratoire, dépassement, piétons... Choisis la bonne réaction et comprends pourquoi." />
     <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/simulations.html" />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Routis" />
@@ -157,6 +157,7 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
         <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
         <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
         <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+        <a href="reglages.html"><span data-i18n="nav_reglages">Réglages</span></a>
       </nav>
       <div class="topbar-end">
         <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
@@ -470,7 +471,7 @@ if (answers) {
 }
 
 // ---------------------------------------------------------------------
-// Mises en situation (simulations.html) : 22 scenarios, 4 options chacun,
+// Mises en situation (simulations.html) : 60 scenarios, 4 options chacun,
 // une seule conforme au code de la route. La bonne réponse est répartie
 // volontairement sur les 4 positions pour ne pas être devinable par la
 // position du bouton. Contenu en français uniquement (comme les questions
@@ -761,6 +762,500 @@ const simulations = [
     ],
     correctIndex: 1,
     explanation: "En France, tout enfant de moins de 10 ans doit être installé dans un dispositif de retenue homologué et adapté à sa morphologie et à son poids (siège auto ou réhausseur avec la ceinture), quelle que soit sa place dans le véhicule ou la longueur du trajet. Amende forfaitaire de 135 €."
+  },
+  {
+    id: "n-pd-droite", scene: "inter_droite", theme: "circulation", level: 1, icon: "🚗",
+    title: "Carrefour sans panneau : le véhicule arrive par la droite",
+    question: "Tu arrives à un carrefour sans aucun panneau ni feu. Le véhicule B arrive sur ta droite. Qui passe en premier ?",
+    options: [
+      "Toi, car tu es arrivé le premier à l'entrée du carrefour",
+      "Toi, car tu roules plus vite que B",
+      "Celui qui klaxonne le premier",
+      "B, car en l'absence de signalisation un conducteur doit céder le passage au véhicule qui vient de sa droite"
+    ],
+    correctIndex: 3,
+    explanation: "Sans panneau ni feu, la priorité à droite s'applique : on cède le passage au véhicule qui arrive de la droite, quelle que soit la largeur de sa route ou l'ordre d'arrivée."
+  },
+  {
+    id: "n-pd-gauche", scene: "inter_gauche", theme: "circulation", level: 1, icon: "🚗",
+    title: "Carrefour sans panneau : le véhicule arrive par la gauche",
+    question: "Même carrefour sans signalisation, mais cette fois B arrive de ta gauche. Que se passe-t-il ?",
+    options: [
+      "Tu as la priorité, mais tu restes vigilant et prêt à freiner si B ne s'arrête pas",
+      "B a la priorité car il est sur la route la plus large",
+      "Vous devez tous les deux vous arrêter complètement",
+      "B doit passer en premier parce qu'il est arrivé après toi"
+    ],
+    correctIndex: 0,
+    explanation: "Avec la priorité à droite, c'est B qui doit te céder le passage puisque tu viens de sa droite. La priorité n'empêche pas d'être prudent : on ne se fie jamais au seul droit de passer."
+  },
+  {
+    id: "n-cedez", scene: "cedez", theme: "circulation", level: 1, icon: "🔻",
+    title: "Panneau Cédez le passage",
+    question: "Tu es face à un panneau Cédez le passage. B arrive sur la route que tu croises, par ta droite. Que fais-tu ?",
+    options: [
+      "Tu passes avant B, tu es plus proche du carrefour",
+      "Tu cèdes le passage à B et tu t'engages seulement quand la voie est libre",
+      "Tu t'arrêtes obligatoirement, quelle que soit la circulation",
+      "Tu klaxonnes pour signaler que tu passes"
+    ],
+    correctIndex: 1,
+    explanation: "Le panneau Cédez le passage oblige à laisser passer les véhicules des autres routes. On ne s'arrête que si c'est nécessaire (c'est la différence avec le STOP), et on s'engage seulement quand on est sûr de ne gêner personne."
+  },
+  {
+    id: "n-losange", scene: "priorite", theme: "circulation", level: 2, icon: "🔶",
+    title: "Route à priorité (losange jaune)",
+    question: "Tu roules sur une route marquée par le panneau jaune en losange. B arrive par ta droite, face à un Cédez le passage. Qui doit céder ?",
+    options: [
+      "Toi : la priorité à droite s'applique toujours",
+      "Celui qui arrive le premier au carrefour",
+      "Tu dois t'arrêter pour être sûr",
+      "B doit te céder le passage, tu es sur la route prioritaire"
+    ],
+    correctIndex: 3,
+    explanation: "Le losange jaune à bordure blanche indique une route prioritaire. Sur cette route, tu n'as pas à céder la priorité à droite : ce sont les véhicules des routes qui la croisent qui doivent te laisser passer."
+  },
+  {
+    id: "n-tourne-gauche", scene: "tourne_gauche", theme: "circulation", level: 2, icon: "↰",
+    title: "Tourner à gauche avec un véhicule en face",
+    question: "Tu veux tourner à gauche à un carrefour. B arrive en face et va tout droit. Que fais-tu ?",
+    options: [
+      "Tu tournes en premier, car tu es déjà engagé",
+      "B doit s'arrêter pour te laisser tourner",
+      "Tu accélères pour passer avant B",
+      "Tu laisses passer B, puis tu tournes quand la voie est libre"
+    ],
+    correctIndex: 3,
+    explanation: "Un véhicule qui tourne à gauche coupe la route de ceux qui arrivent en face : il doit leur céder le passage. On tourne seulement quand le croisement est libre."
+  },
+  {
+    id: "n-droite-pieton", scene: "tourne_droite_pieton", theme: "usagers", level: 2, icon: "🚶",
+    title: "Tourner à droite avec un piéton qui traverse",
+    question: "Tu tournes à droite. Un piéton s'engage sur le passage de la rue dans laquelle tu veux entrer. Que fais-tu ?",
+    options: [
+      "Tu passes derrière lui sans ralentir",
+      "Tu klaxonnes pour qu'il se dépêche",
+      "Tu t'arrêtes et tu le laisses traverser avant de t'engager",
+      "Tu passes si tu es là le premier"
+    ],
+    correctIndex: 2,
+    explanation: "Quand on tourne, on doit laisser passer les piétons qui traversent la chaussée dans laquelle on s'engage. Il faut ralentir et s'arrêter si nécessaire."
+  },
+  {
+    id: "n-rond-entree", scene: "rond_point", theme: "circulation", level: 1, icon: "🔄",
+    title: "S'engager dans un rond-point",
+    question: "Tu arrives à l'entrée d'un rond-point (panneau Cédez le passage). B est déjà dans l'anneau. Que fais-tu ?",
+    options: [
+      "Tu laisses passer B et tu t'engages seulement quand le passage est libre",
+      "Tu t'engages, car tu es arrivé le premier à l'entrée",
+      "Tu t'engages à la même vitesse que B pour qu'il te laisse passer",
+      "Tu t'arrêtes dans l'anneau pour laisser passer B"
+    ],
+    correctIndex: 0,
+    explanation: "Dans un rond-point, les véhicules déjà engagés dans l'anneau sont prioritaires. Tu cèdes le passage à l'entrée, puis tu t'engages quand la voie est libre."
+  },
+  {
+    id: "n-pieton-passage", scene: "pieton", theme: "usagers", level: 1, icon: "🚸",
+    title: "Piéton sur un passage protégé",
+    question: "Un piéton est engagé sur un passage protégé. Tu arrives. Que fais-tu ?",
+    options: [
+      "Tu passes vite avant qu'il arrive de ton côté",
+      "Tu klaxonnes pour qu'il se dépêche",
+      "Tu ralentis et tu t'arrêtes pour le laisser traverser",
+      "Tu l'évites en roulant à gauche"
+    ],
+    correctIndex: 2,
+    explanation: "Le conducteur doit céder le passage au piéton engagé ou qui manifeste clairement l'intention de traverser sur un passage protégé. Ne pas le faire est une infraction sanctionnée par une amende et un retrait de points."
+  },
+  {
+    id: "n-continue-camion", scene: "ligne_continue", theme: "circulation", level: 1, icon: "🚛",
+    title: "Dépasser un camion lent sur ligne continue",
+    question: "Tu suis un camion lent sur une route à double sens séparée par une ligne continue. Un véhicule arrive en face. Que fais-tu ?",
+    options: [
+      "Tu restes derrière le camion et tu patientes",
+      "Tu doubles, car le camion est très lent",
+      "Tu doubles en klaxonnant pour avertir",
+      "Tu doubles seulement si le véhicule en face est loin"
+    ],
+    correctIndex: 0,
+    explanation: "Une ligne continue interdit de la franchir ou de la chevaucher pour dépasser, quelle que soit la lenteur du véhicule qui précède ou la distance de celui qui vient en face."
+  },
+  {
+    id: "n-discontinue", scene: "ligne_discontinue", theme: "circulation", level: 2, icon: "➖",
+    title: "Dépasser un camion sur ligne discontinue",
+    question: "La ligne est discontinue et la route est dégagée en face. Tu suis un camion lent. Peux-tu le doubler ?",
+    options: [
+      "Oui, si la visibilité est suffisante, si la vitesse maximale autorisée n'est pas dépassée et si tu as la place de te rabattre ensuite",
+      "Oui, sans condition particulière tant que la ligne est discontinue",
+      "Non, il est toujours interdit de dépasser un camion",
+      "Oui, mais seulement en roulant 20 km/h au-dessus de la limite pour finir vite"
+    ],
+    correctIndex: 0,
+    explanation: "Une ligne discontinue autorise le dépassement à condition d'avoir une visibilité suffisante, de rester dans les limites de vitesse et d'être certain de pouvoir se rabattre sans gêner personne. On annonce toujours sa manœuvre avec le clignotant."
+  },
+  {
+    id: "n-feu-rouge", scene: "feu_rouge", theme: "circulation", level: 1, icon: "🔴",
+    title: "Feu rouge, personne en vue",
+    question: "Tu arrives à un feu rouge. Aucun autre véhicule ni piéton n'est visible. Que fais-tu ?",
+    options: [
+      "Tu passes, car il n'y a personne",
+      "Tu ralentis et tu passes si tu es seul",
+      "Tu t'arrêtes avant la ligne et tu attends le feu vert",
+      "Tu passes si tu klaxonnes avant"
+    ],
+    correctIndex: 2,
+    explanation: "Le feu rouge impose l'arrêt avant la ligne, même si la voie semble libre. Le franchir expose à une amende et à un retrait de points."
+  },
+  {
+    id: "n-feu-orange", scene: "feu_orange", theme: "circulation", level: 2, icon: "🟠",
+    title: "Le feu passe à l'orange",
+    question: "Le feu passe à l'orange alors que tu peux encore t'arrêter sans danger avant la ligne. Que fais-tu ?",
+    options: [
+      "Tu accélères pour passer avant le rouge",
+      "Tu passes sans changer de vitesse",
+      "Tu t'arrêtes avant la ligne",
+      "Tu t'arrêtes uniquement si un autre véhicule est derrière toi"
+    ],
+    correctIndex: 2,
+    explanation: "Le feu orange signifie qu'il faut s'arrêter, sauf si le véhicule est trop près pour s'arrêter dans de bonnes conditions de sécurité. Ici tu peux freiner sans danger : tu dois donc t'arrêter."
+  },
+  {
+    id: "n-t-droite", scene: "t_droite", theme: "circulation", level: 1, icon: "⊤",
+    title: "Intersection en T sans panneau",
+    question: "Tu arrives au bout d'une route qui se termine en T, sans panneau. B arrive par ta droite sur la route transversale. Que fais-tu ?",
+    options: [
+      "Tu passes, car B est sur une route plus petite",
+      "Tu laisses passer B, il vient de ta droite",
+      "Tu passes si tu es arrivé le premier",
+      "B doit s'arrêter pour toi"
+    ],
+    correctIndex: 1,
+    explanation: "Sans signalisation, la priorité à droite s'applique aussi aux intersections en T : tu cèdes le passage au véhicule qui arrive de ta droite."
+  },
+  {
+    id: "n-depasse-cycliste", scene: "depasse_cycliste", theme: "usagers", level: 2, icon: "🚴",
+    title: "Dépasser un cycliste hors agglomération",
+    question: "Tu roules hors agglomération et tu veux dépasser un cycliste qui roule en bord de route. Quelle distance latérale minimale dois-tu laisser ?",
+    options: [
+      "Environ 20 cm, il suffit de ne pas le toucher",
+      "50 cm",
+      "1 m, comme en ville",
+      "1,5 m au moins"
+    ],
+    correctIndex: 3,
+    explanation: "Pour dépasser un cycliste, il faut laisser une distance latérale d'au moins 1 m en agglomération et d'au moins 1,5 m hors agglomération. On se déporte, quitte à franchir la ligne si elle est discontinue et la voie libre."
+  },
+  {
+    id: "n-autoroute-voies", scene: "autoroute_voies", theme: "circulation", level: 2, icon: "🛣️",
+    title: "Se rabattre après un dépassement sur autoroute",
+    question: "Sur autoroute, tu viens de dépasser un camion et tu es sur la voie de gauche. Le camion est maintenant loin derrière toi. Que fais-tu ?",
+    options: [
+      "Tu restes sur la voie de gauche pour maintenir ta vitesse",
+      "Tu restes à gauche tant qu'un véhicule arrive derrière",
+      "Tu te rabats sur la voie de droite dès que tu peux le faire en sécurité",
+      "Tu freines pour laisser le camion repasser"
+    ],
+    correctIndex: 2,
+    explanation: "On circule normalement sur la voie la plus à droite. Les voies de gauche servent à dépasser : une fois la manœuvre terminée, on se rabat dès que c'est possible."
+  },
+  {
+    id: "n-ecole-zone", scene: "ecole_zone", theme: "usagers", level: 1, icon: "🏫",
+    title: "Sortie d'école",
+    question: "Tu approches d'une école à l'heure de la sortie. Des enfants sont près du passage piéton. Que fais-tu ?",
+    options: [
+      "Tu gardes ta vitesse, tu as la priorité sur la route",
+      "Tu klaxonnes pour avertir les enfants",
+      "Tu ralentis nettement et tu es prêt à t'arrêter",
+      "Tu accélères pour dégager vite la zone"
+    ],
+    correctIndex: 2,
+    explanation: "Les enfants sont imprévisibles et ont du mal à évaluer les distances. Près d'une école, on réduit nettement sa vitesse et on se tient prêt à s'arrêter, surtout aux heures d'entrée et de sortie."
+  },
+  {
+    id: "n-triangle", scene: "triangle_panne", theme: "equipements", level: 2, icon: "🔺",
+    title: "Poser le triangle de présignalisation",
+    question: "Ta voiture est en panne sur une route ordinaire. Où poses-tu le triangle de présignalisation ?",
+    options: [
+      "Juste à côté de la voiture, sur la chaussée",
+      "À au moins 30 m derrière le véhicule, sur le bord de la route, visible de loin",
+      "Sur le toit de la voiture",
+      "À 5 m derrière, pour rester près du véhicule"
+    ],
+    correctIndex: 1,
+    explanation: "Le triangle doit être placé à au moins 30 m du véhicule, dans le sens d'arrivée des autres usagers, pour qu'ils soient avertis à temps. On enfile d'abord le gilet et on met les feux de détresse. Sur autoroute, on ne pose pas le triangle."
+  },
+  {
+    id: "n-double-file", scene: "double_file", theme: "reglementation", level: 1, icon: "🛑",
+    title: "Arrêt en double file",
+    question: "Tu veux déposer un ami. Des voitures sont garées le long de la rue. Tu t'arrêtes à côté d'elles, en double file, avec les feux de détresse. Est-ce permis ?",
+    options: [
+      "Oui, avec les feux de détresse allumés",
+      "Non, l'arrêt en double file gêne la circulation et reste interdit même brièvement",
+      "Oui, si tu restes moins de 5 minutes",
+      "Oui, si le conducteur reste au volant"
+    ],
+    correctIndex: 1,
+    explanation: "L'arrêt et le stationnement en double file sont interdits : ils gênent la circulation et masquent la visibilité. Les feux de détresse ne rendent pas la manœuvre légale."
+  },
+  {
+    id: "n-camion-droite", scene: "camion_droite", theme: "usagers", level: 3, icon: "🚚",
+    title: "Camion qui clignote à droite",
+    question: "Un camion devant toi met son clignotant à droite avant un carrefour. Tu veux le dépasser par la droite pour passer devant lui. Que fais-tu ?",
+    options: [
+      "Tu le dépasses par la droite, il tourne",
+      "Tu restes derrière lui, il peut se déporter à gauche avant de tourner",
+      "Tu klaxonnes et tu passes à droite",
+      "Tu accélères pour passer avant le virage"
+    ],
+    correctIndex: 1,
+    explanation: "Un poids lourd peut devoir se déporter vers la gauche pour tourner à droite : l'espace à droite devient un angle mort dangereux. Il faut rester derrière lui et ne pas chercher à se glisser entre le camion et le trottoir."
+  },
+  {
+    id: "n-telephone", theme: "conducteur", level: 1, icon: "📱",
+    title: "Téléphone au volant",
+    question: "Un message arrive pendant que tu conduis. Tu décroches le téléphone à la main pour répondre. Que risques-tu ?",
+    options: [
+      "Rien du tout si tu regardes la route",
+      "Un simple avertissement",
+      "135 € d'amende et le retrait de 3 points",
+      "Une amende uniquement en cas d'accident"
+    ],
+    correctIndex: 2,
+    explanation: "Tenir un téléphone en main en conduisant est interdit : amende forfaitaire de 135 € et retrait de 3 points. L'usage d'écouteurs ou d'oreillettes est également interdit en conduisant."
+  },
+  {
+    id: "n-alcool-06", theme: "conducteur", level: 2, icon: "🍷",
+    title: "Après deux verres de trop",
+    question: "Un conducteur titulaire du permis depuis 8 ans est contrôlé avec un taux de 0,6 g d'alcool par litre de sang. Il encourt :",
+    options: [
+      "Une amende de 135 € et le retrait de 6 points",
+      "Rien, c'est sous le seuil autorisé",
+      "Un simple avertissement oral",
+      "Une peine de prison automatique"
+    ],
+    correctIndex: 0,
+    explanation: "À partir de 0,5 g/l de sang (0,25 mg/l d'air expiré), la conduite est une contravention : 135 € d'amende et retrait de 6 points, avec risque de suspension. À partir de 0,8 g/l, c'est un délit. Le seuil est de 0,2 g/l pour les jeunes conducteurs."
+  },
+  {
+    id: "n-ceinture-arriere", theme: "securite_passagers", level: 1, icon: "💺",
+    title: "Ceinture à l'arrière",
+    question: "Tu conduis avec un passager adulte à l'arrière qui n'a pas attaché sa ceinture. Que dit la règle ?",
+    options: [
+      "La ceinture n'est obligatoire qu'à l'avant",
+      "Chaque passager doit être attaché, y compris à l'arrière",
+      "La ceinture n'est obligatoire que sur autoroute",
+      "Seul le conducteur doit être attaché"
+    ],
+    correctIndex: 1,
+    explanation: "La ceinture est obligatoire à toutes les places équipées. Le conducteur est responsable de l'attache des passagers mineurs, et chaque adulte est sanctionné personnellement s'il ne l'attache pas."
+  },
+  {
+    id: "n-enfant-avant", theme: "securite_passagers", level: 2, icon: "👶",
+    title: "Siège bébé à l'avant",
+    question: "Tu installes un siège bébé dos à la route sur le siège avant passager. Que dois-tu faire ?",
+    options: [
+      "Laisser l'airbag actif, il protège aussi le bébé",
+      "Installer le siège face à la route à la place",
+      "Désactiver l'airbag passager avant de partir",
+      "Ne rien faire de particulier si le siège est homologué"
+    ],
+    correctIndex: 2,
+    explanation: "Un enfant en siège dos à la route ne doit jamais être installé devant un airbag passager actif : en se déclenchant, il peut blesser gravement l'enfant. On le désactive, ou on installe le siège à l'arrière."
+  },
+  {
+    id: "n-fatigue", theme: "conducteur", level: 1, icon: "😴",
+    title: "Longue route et fatigue",
+    question: "Tu fais un long trajet et tu sens la fatigue arriver. Que fais-tu ?",
+    options: [
+      "Tu ouvres la fenêtre et tu écoutes de la musique forte",
+      "Tu bois du café et tu continues sans t'arrêter",
+      "Tu accélères pour arriver plus vite",
+      "Tu t'arrêtes dès que possible pour faire une pause de quelques minutes"
+    ],
+    correctIndex: 3,
+    explanation: "La fatigue ne se combat ni avec la musique ni avec la fenêtre ouverte : seul le repos est efficace. On s'arrête dès les premiers signes, et il est conseillé de faire une pause toutes les deux heures."
+  },
+  {
+    id: "n-pluie-autoroute", theme: "route", level: 2, icon: "🌧️",
+    title: "Autoroute sous la pluie",
+    question: "Tu roules sur autoroute sous la pluie. Quelle est la vitesse maximale autorisée si la limite normale est de 130 km/h ?",
+    options: [
+      "130 km/h",
+      "110 km/h",
+      "100 km/h",
+      "90 km/h"
+    ],
+    correctIndex: 1,
+    explanation: "Par temps de pluie ou autre précipitation, les limitations sont abaissées : 110 km/h au lieu de 130 km/h sur autoroute. On ajoute aussi de la distance de sécurité."
+  },
+  {
+    id: "n-controle-technique", theme: "reglementation", level: 1, icon: "🔧",
+    title: "Contrôle technique d'une voiture neuve",
+    question: "Tu achètes une voiture neuve. Quand doit-elle passer son premier contrôle technique ?",
+    options: [
+      "Avant sa mise en circulation",
+      "Après 8 ans",
+      "Dans les 6 mois qui précèdent le quatrième anniversaire de la mise en circulation",
+      "Seulement si elle change de propriétaire"
+    ],
+    correctIndex: 2,
+    explanation: "Le premier contrôle technique d'un véhicule de moins de 3,5 t doit avoir lieu dans les 6 mois qui précèdent le quatrième anniversaire de sa mise en circulation. Il est ensuite refait tous les 2 ans."
+  },
+  {
+    id: "n-pls", theme: "secours", level: 2, icon: "🩺",
+    title: "Personne inconsciente qui respire",
+    question: "Après un accident, une personne est inconsciente mais respire. Tu as appelé les secours. Que fais-tu ?",
+    options: [
+      "Tu la laisses sur le dos jusqu'à l'arrivée des secours",
+      "Tu lui donnes à boire pour la réveiller",
+      "Tu la fais asseoir pour faciliter sa respiration",
+      "Tu la mets sur le côté en position latérale de sécurité et tu surveilles sa respiration"
+    ],
+    correctIndex: 3,
+    explanation: "Une personne inconsciente qui respire est mise en position latérale de sécurité (PLS) pour éviter l'étouffement. On surveille sa respiration jusqu'à l'arrivée des secours."
+  },
+  {
+    id: "n-eco-conduite", theme: "environnement", level: 1, icon: "🌱",
+    title: "Conduite économique",
+    question: "Pour consommer moins et polluer moins, quel est le bon réflexe ?",
+    options: [
+      "Anticiper pour lever le pied plutôt que freiner brusquement",
+      "Rouler à régime élevé sur les premiers rapports",
+      "Laisser tourner le moteur à l'arrêt pour qu'il reste chaud",
+      "Accélérer fort puis freiner fort"
+    ],
+    correctIndex: 0,
+    explanation: "L'éco-conduite consiste à anticiper, rouler en souplesse, passer les rapports tôt et couper le moteur à l'arrêt prolongé. Elle réduit la consommation, les émissions et l'usure."
+  },
+  {
+    id: "n-portiere", theme: "prendre_quitter", level: 1, icon: "🚪",
+    title: "Descendre de la voiture en ville",
+    question: "Tu t'es garé le long d'une rue et tu vas ouvrir ta portière côté chaussée. Que fais-tu ?",
+    options: [
+      "Tu ouvres directement, la portière s'ouvre doucement",
+      "Tu ouvres en klaxonnant pour avertir",
+      "Tu laisses ton passager ouvrir à ta place",
+      "Tu regardes dans le rétroviseur et par-dessus l'épaule avant d'ouvrir"
+    ],
+    correctIndex: 3,
+    explanation: "Ouvrir sa portière sans regarder met en danger cyclistes et motards. On vérifie derrière soi, dans le rétroviseur et par-dessus l'épaule, avant d'ouvrir."
+  },
+  {
+    id: "n-distance-mouille", theme: "route", level: 2, icon: "💧",
+    title: "Freiner sur chaussée mouillée",
+    question: "Il pleut et la chaussée est mouillée. Comment la distance d'arrêt évolue-t-elle par rapport à une route sèche ?",
+    options: [
+      "Elle est environ multipliée par 2",
+      "Elle reste identique",
+      "Elle diminue grâce à l'eau",
+      "Elle augmente de 10 % seulement"
+    ],
+    correctIndex: 0,
+    explanation: "Sur sol mouillé, l'adhérence diminue : la distance de freinage peut être à peu près doublée. Il faut donc ralentir et augmenter la distance avec le véhicule qui précède."
+  },
+  {
+    id: "n-medicament", theme: "conducteur", level: 2, icon: "💊",
+    title: "Médicament avec pictogramme rouge",
+    question: "Ton médicament porte un pictogramme de niveau 3 (rouge). Que fais-tu avant de conduire ?",
+    options: [
+      "Tu conduis normalement, ce n'est qu'un avertissement",
+      "Tu ne conduis pas et tu demandes l'avis d'un médecin ou d'un pharmacien",
+      "Tu conduis mais lentement",
+      "Tu conduis seulement de jour"
+    ],
+    correctIndex: 1,
+    explanation: "Un pictogramme de niveau 3 signifie « Danger : ne pas conduire », sauf avis d'un professionnel de santé. Les niveaux 1 et 2 appellent à la prudence."
+  },
+  {
+    id: "n-trottinette", theme: "usagers", level: 1, icon: "🛴",
+    title: "Trottinette électrique sur le trottoir",
+    question: "Tu circules en trottinette électrique et tu veux rouler sur le trottoir pour éviter la circulation. Est-ce autorisé ?",
+    options: [
+      "Oui, tant que tu ralentis",
+      "Oui, mais seulement le soir",
+      "Oui, comme pour les piétons",
+      "Non, c'est interdit sauf autorisation de la commune, à la vitesse du pas"
+    ],
+    correctIndex: 3,
+    explanation: "Les trottinettes électriques doivent circuler sur les pistes ou bandes cyclables, ou sur la chaussée dans les zones limitées à 50 km/h. Le trottoir est interdit, sauf autorisation expresse de la commune, à une allure réduite."
+  },
+  {
+    id: "n-orange-clignotant", theme: "circulation", level: 3, icon: "🟠",
+    title: "Feu orange clignotant",
+    question: "À un carrefour, le feu est orange clignotant. Que fais-tu ?",
+    options: [
+      "Tu passes avec prudence en respectant les règles de priorité habituelles",
+      "Tu t'arrêtes, comme à un feu rouge",
+      "Tu passes en priorité sur tous les autres usagers",
+      "Tu t'arrêtes uniquement si un piéton est présent"
+    ],
+    correctIndex: 0,
+    explanation: "Un feu orange clignotant n'impose pas l'arrêt : il avertit d'un danger et il faut respecter les règles de priorité habituelles. À ne pas confondre avec le feu orange fixe, qui annonce le rouge."
+  },
+  {
+    id: "n-autoroute-recul", theme: "circulation", level: 2, icon: "⛔",
+    title: "Sortie manquée sur autoroute",
+    question: "Tu viens de rater ta sortie d'autoroute. Que fais-tu ?",
+    options: [
+      "Tu continues jusqu'à la sortie suivante",
+      "Tu t'arrêtes et tu recules sur la bande d'arrêt d'urgence",
+      "Tu fais demi-tour sur la voie de gauche",
+      "Tu t'arrêtes et tu fais demi-tour par le terre-plein"
+    ],
+    correctIndex: 0,
+    explanation: "La marche arrière et le demi-tour sont interdits sur autoroute. On continue jusqu'à la sortie suivante et on reprend le trajet depuis là."
+  },
+  {
+    id: "n-voie-bus", theme: "reglementation", level: 1, icon: "🚌",
+    title: "Voie réservée aux bus",
+    question: "La voie de droite est marquée « BUS ». Elle est libre et tu es pris dans les embouteillages. Peux-tu l'utiliser ?",
+    options: [
+      "Oui, si tu roules lentement",
+      "Oui, tant qu'aucun bus n'arrive",
+      "Non, elle est réservée aux bus et aux autres véhicules autorisés",
+      "Oui, avec les feux de détresse"
+    ],
+    correctIndex: 2,
+    explanation: "Les voies réservées sont interdites aux autres véhicules, même quand elles sont libres. Il faut rester dans la circulation générale."
+  },
+  {
+    id: "n-verglas", theme: "route", level: 1, icon: "🧊",
+    title: "Risque de verglas",
+    question: "Par temps de gel, tu sens ton volant devenir léger : tu suspectes du verglas. Que fais-tu ?",
+    options: [
+      "Tu freines fort pour reprendre le contrôle",
+      "Tu lèves le pied et tu évites tout freinage ou virage brusque",
+      "Tu accélères pour sortir de la zone",
+      "Tu donnes un grand coup de volant"
+    ],
+    correctIndex: 1,
+    explanation: "Sur verglas, l'adhérence est quasi nulle. On relâche l'accélérateur sans brusquerie, on évite de freiner fort et de braquer brutalement, et on dose chaque geste."
+  },
+  {
+    id: "n-antibrouillard", theme: "equipements", level: 2, icon: "💡",
+    title: "Feux antibrouillard arrière",
+    question: "Il fait grand beau mais tu as laissé tes feux antibrouillard arrière allumés. Est-ce un problème ?",
+    options: [
+      "Non, plus tu es visible, mieux c'est",
+      "Non, ils sont autorisés en permanence",
+      "Oui, mais seulement la nuit",
+      "Oui, ils éblouissent les autres usagers et ne doivent s'utiliser que par brouillard ou chute de neige"
+    ],
+    correctIndex: 3,
+    explanation: "Les feux antibrouillard arrière sont très puissants : ils ne servent que par brouillard ou forte chute de neige. Ils éblouissent les autres conducteurs et gênent la lecture des feux stop."
+  },
+  {
+    id: "n-secours-112", theme: "secours", level: 1, icon: "📞",
+    title: "Alerter les secours",
+    question: "Tu es témoin d'un accident grave en voyage dans un autre pays européen. Quel numéro peux-tu appeler ?",
+    options: [
+      "Le 112, numéro d'urgence européen",
+      "Le 3939",
+      "Le 118",
+      "Le 0800"
+    ],
+    correctIndex: 0,
+    explanation: "Le 112 est le numéro d'urgence unique dans toute l'Union européenne. Il est gratuit et permet d'alerter les secours, y compris depuis un téléphone sans forfait ou sans réseau de son opérateur."
   }
 ];
 
