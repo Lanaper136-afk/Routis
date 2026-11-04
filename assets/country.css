@@ -2,6 +2,8 @@
 body.cx { --cx-a:#0f2f6b; --cx-b:#1769e0; --cx-acc:#f6c443; background:#f4f6fb; }
 body.cx-uk { --cx-a:#14284f; --cx-b:#2b4a93; --cx-acc:#e03a4a; }
 body.cx-qc { --cx-a:#0b3a8c; --cx-b:#1e78e6; --cx-acc:#f6c443; }
+body.cx-ch { --cx-a:#d52b1e; --cx-b:#a31d14; --cx-acc:#ffffff; }
+body.cx-be { --cx-a:#1d1d1f; --cx-b:#b80f2a; --cx-acc:#fcd116; }
 body.cx .uk-wrap { width:min(900px,calc(100% - 28px)); padding-bottom:40px; }
 
 /* barre du haut */

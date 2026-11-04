@@ -35,6 +35,8 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
       <div class="opts-country" id="country-opts">
         <label class="copt"><input type="radio" name="country" value="fr" /><span>France<small>Code de la route français</small></span></label>
         <label class="copt"><input type="radio" name="country" value="qc" /><span>Canada · Québec<small>Code de la route du Québec (SAAQ, classe 5)</small></span></label>
+        <label class="copt"><input type="radio" name="country" value="be" /><span>Belgique<small>Code de la route belge (permis B)</small></span></label>
+        <label class="copt"><input type="radio" name="country" value="ch" /><span>Suisse<small>Code de la route suisse (Suisse romande)</small></span></label>
         <label class="copt"><input type="radio" name="country" value="uk" id="opt-uk" /><span>United Kingdom<small>UK theory test · Highway Code</small></span></label>
       </div>
       <p id="saved" role="status"></p>
@@ -66,8 +68,8 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
         radios.forEach(function (r) {
           r.addEventListener("change", function () {
             window.routisCountry.set(r.value);
-            document.getElementById("saved").textContent = r.value === "uk" ? "Saved. Taking you to the UK section…" : r.value === "qc" ? "Enregistré. Direction le module Québec…" : "Enregistré. Retour à l'accueil…";
-            setTimeout(function () { location.href = r.value === "uk" ? "uk/index.html" : r.value === "qc" ? "qc/index.html" : "index.html?stay=1"; }, 700);
+            document.getElementById("saved").textContent = r.value === "uk" ? "Saved. Taking you to the UK section…" : r.value === "qc" ? "Enregistré. Direction le module Québec…" : r.value === "be" ? "Enregistré. Direction le module Belgique…" : r.value === "ch" ? "Enregistré. Direction le module Suisse…" : "Enregistré. Retour à l'accueil…";
+            setTimeout(function () { location.href = r.value === "uk" ? "uk/index.html" : r.value === "qc" ? "qc/index.html" : r.value === "be" ? "be/index.html" : r.value === "ch" ? "ch/index.html" : "index.html?stay=1"; }, 700);
           });
         });
         var m2 = document.getElementById("cookie-manage2");

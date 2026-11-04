@@ -1,7 +1,7 @@
 // Service worker for Routis — cache-first offline support.
 // Bump CACHE_VERSION on every deploy that changes any cached file so old
 // caches get cleaned up and users are not stuck on a stale version.
-const CACHE_VERSION = "routis-v33";
+const CACHE_VERSION = "routis-v35";
 const CACHE_NAME = CACHE_VERSION;
 
 // Every file needed to fully use the site offline. Paths are relative to
@@ -83,6 +83,8 @@ const PRECACHE_URLS = [
   "jeux.html",
   "installer.html",
   "jeu-vrai-faux.html",
+  "jeu-express.html",
+  "jeu-trie-panneaux.html",
   "jeu-memoire.html",
   "jeu-dangers.html",
   "mentions-legales.html",

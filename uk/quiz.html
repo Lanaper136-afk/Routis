@@ -15,7 +15,7 @@
       .uk-wrap { width: min(760px, calc(100% - 32px)); margin: 0 auto; }
       .uk-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
       .uk-top a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
-      .uk-top nav { display: flex; gap: 16px; }
+      .uk-top nav { display: flex; gap: 8px 16px; flex-wrap: wrap; }
       .uk-badge { background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 800; font-size: .85rem; }
       .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
       .modes { display: grid; gap: 12px; }
@@ -64,7 +64,7 @@
     <script src="uk-questions-data.js"></script>
     <script>
       const $app = document.getElementById("app");
-      const THEMES = { basics: "The basics", speed: "Speed limits", stopping: "Stopping distances", lanes: "Lanes and overtaking", junctions: "Junctions", roundabouts: "Roundabouts", lights: "Traffic lights", crossings: "Pedestrian crossings", alcohol: "Alcohol, drugs, tiredness", belts: "Seat belts and phones", parking: "Parking", motorways: "Motorways", weather: "Weather", vulnerable: "Vulnerable road users", breakdowns: "Breakdowns and crashes", penalties: "Penalty points", signs: "Sign basics" };
+      const THEMES = { basics: "The basics", speed: "Speed limits", stopping: "Stopping distances", lanes: "Lanes and overtaking", junctions: "Junctions", roundabouts: "Roundabouts", lights: "Traffic lights", crossings: "Pedestrian crossings", alcohol: "Alcohol, drugs, tiredness", belts: "Seat belts and phones", parking: "Parking", motorways: "Motorways", weather: "Weather", vulnerable: "Vulnerable road users", breakdowns: "Breakdowns and crashes", penalties: "Penalty points", signs: "Sign basics", licence: "Licence, learners and test", vehicle: "Vehicle and documents", markings: "Road markings", levelx: "Level crossings and trams", night: "Night, fog and tiredness", accidents: "Accidents and emergencies", roadworks: "Roadworks", animals: "Animals", emergency: "Emergency vehicles", towing: "Towing and loads" };
       const MOCK_N = 50, PASS = 43, MOCK_SECONDS = 57 * 60;
       const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
       const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };

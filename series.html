@@ -965,6 +965,28 @@ renderGrid();
 const qs = Number(new URLSearchParams(location.search).get("n"));
 if (qs >= 1 && qs <= SERIES_COUNT) startSeries(qs);
 
+
+var SERIES_LABEL = ["à une série de questions","on a question series"];
+(function () {
+  var btn = document.createElement("button");
+  btn.type = "button"; btn.className = "button secondary"; btn.id = "share-score-btn";
+  var en = function () { return typeof getLang === "function" && getLang() === "en"; };
+  function label() { btn.textContent = en() ? "Share my score" : "Partager mon score"; }
+  label();
+  btn.addEventListener("click", function () {
+    var r = examState.lastResults; if (!r) return;
+    var what = SERIES_LABEL;
+    var text = en()
+      ? "I scored " + r.score + "/" + r.total + " " + what[1] + " on Routis! Practise for free:"
+      : "J'ai eu " + r.score + "/" + r.total + " " + what[0] + " sur Routis ! Entraîne-toi gratuitement :";
+    var url = "https://code-route-gratuit-routis.netlify.app/";
+    if (navigator.share) { navigator.share({ text: text, url: url }).catch(function () {}); }
+    else if (navigator.clipboard) { navigator.clipboard.writeText(text + " " + url).then(function () { btn.textContent = en() ? "Copied!" : "Copié !"; setTimeout(label, 2000); }); }
+  });
+  var host = document.querySelector("#exam-results .exam-results-actions");
+  if (host) host.appendChild(btn);
+  document.querySelectorAll(".lang-option").forEach(function (b) { b.addEventListener("click", function () { setTimeout(label, 0); }); });
+})();
     </script>
   </body>
 </html>

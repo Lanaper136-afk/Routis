@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="fr-BE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>Quiz et examen blanc du code de la route belge | Routis Belgique</title>
+    <meta name="description" content="Quiz gratuit du code de la route belge : séries de 10 ou 30 questions, examen blanc de 50 questions (41 pour réussir), par thème, avec explications." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/be/quiz.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#b80f2a" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="../assets/country.css" />
+    <style>
+      h1 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); line-height: 1.15; margin: 8px 0 12px; }
+      .uk-wrap { width: min(820px, calc(100% - 32px)); margin: 0 auto; }
+      .uk-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+      .uk-top a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
+      .uk-top nav { display: flex; gap: 16px; flex-wrap: wrap; }
+      .uk-badge { background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 800; font-size: .85rem; }
+      .intro { color: var(--muted); max-width: 62ch; }
+      .uk-note { margin: 24px 0; font-size: .85rem; color: var(--muted); }
+      .cards { display: grid; gap: 12px; margin: 20px 0; }
+      .card { display: block; background: #fff; border: 2px solid var(--line); border-radius: 16px; padding: 18px; color: var(--ink); text-decoration: none; }
+      .card:hover, .card:focus-visible { border-color: var(--blue); outline: none; box-shadow: var(--shadow); }
+      .card strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+      .card span { color: var(--muted); }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+      details.fiche { background: #fff; border: 1px solid var(--line); border-radius: 14px; margin-bottom: 12px; position: relative; scroll-margin-top: 12px; }
+      details.fiche summary { cursor: pointer; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; list-style: none; }
+      details.fiche summary::-webkit-details-marker { display: none; }
+      details.fiche summary::after { content: "+"; position: absolute; right: 18px; top: 12px; font-size: 1.4rem; color: var(--blue); }
+      details.fiche[open] summary::after { content: "–"; }
+      .ft { font-weight: 800; font-size: 1.08rem; padding-right: 30px; }
+      .fr { color: var(--muted); font-size: .85rem; }
+      .fb { padding: 0 16px 16px; line-height: 1.55; }
+      .fb ul { margin: 0 0 12px; padding-left: 20px; } .fb li { margin-bottom: 8px; }
+      .src { font-size: .82rem; color: var(--muted); } .src a { color: var(--blue-dark); }
+      .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; }
+      .toc a { border: 2px solid var(--line); background: #fff; color: var(--ink); text-decoration: none; border-radius: 999px; padding: 6px 12px; font-size: .85rem; font-weight: 700; }
+      .signs { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+      .sg { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; text-align: center; }
+      .sg svg { width: 110px; height: 110px; }
+      .sg h3 { margin: 8px 0 4px; font-size: 1.05rem; } .sg p { margin: 0; color: var(--muted); font-size: .9rem; text-align: left; }
+     .modes{display:grid;gap:12px}.big{text-align:left;border:2px solid var(--line);background:#fff;border-radius:14px;padding:16px;font:inherit;cursor:pointer;color:var(--ink)}
+ .big:hover,.big:focus-visible{border-color:var(--blue);outline:none}.big strong{display:block;font-size:1.05rem}.big span{color:var(--muted);font-size:.9rem}
+ .topics{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.topics button{border:2px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+ .meta{display:flex;justify-content:space-between;color:var(--muted);font-weight:700;margin-bottom:10px}.bar{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:14px}.bar i{display:block;height:100%;background:var(--blue)}
+ .qsign svg{width:130px;height:130px;display:block;margin:0 auto 10px}.qtext{font-size:1.1rem;font-weight:800;margin:4px 0 12px}.opts{display:grid;gap:10px}
+ .opt{text-align:left;padding:12px 14px;border:2px solid var(--line);background:#fff;border-radius:12px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+ .opt.ok{border-color:var(--green);background:#e6f6ee}.opt.bad{border-color:var(--red);background:#fdeaec}
+ .explain{margin-top:12px;padding:10px 12px;background:#f1f5fb;border-radius:10px;line-height:1.5}
+ .btn{margin-top:14px;padding:12px 20px;border:0;border-radius:10px;background:var(--blue);color:#fff;font:inherit;font-weight:800;cursor:pointer}.btn.sec{background:var(--ink);margin-top:0}
+</style>
+  </head>
+  <body class="cx cx-be">
+    <div class="uk-wrap">
+      <div class="uk-top">
+        <a href="index.html">← Accueil Belgique</a>
+        <nav><a href="panneaux.html">Panneaux</a><a href="fiches.html">Fiches</a><a href="quiz.html">Quiz</a><a href="../reglages.html">Réglages</a></nav>
+        <span class="uk-badge">Belgique</span>
+      </div>
+<h1>Quiz du code de la route belge</h1>
+<div id="app"></div>
+<div style="border-top:1px solid var(--line);padding:16px 0;font-size:.85rem"><a href="../reglages.html">Réglages (changer de pays)</a> · <a href="../mentions-legales.html">Mentions légales</a> · <a href="../confidentialite.html">Confidentialité</a></div><p class="uk-note">Routis est un site indépendant : il n'est affilié à aucun organisme officiel belge (SPF Mobilité et Transports, Vias, centres d'examen) et n'est pas approuvé par eux. Ce contenu est un outil de révision rédigé par Routis à partir de sources publiques ; ce ne sont pas les questions de l'examen officiel. Les règles peuvent changer et varient selon la Région : vérifiez toujours auprès de sources officielles (mobilit.belgium.be). Les panneaux sont des illustrations simplifiées. Ce module n'utilise ni témoins ni outils d'analyse.</p>
+    </div>
+<script src="be-questions-data.js"></script>
+<script>
+const $app=document.getElementById("app");
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+let run=null;
+function signQ(s){
+  let pool=beSigns.filter(x=>x.id!==s.id&&x.family===s.family);
+  if(pool.length<3)pool=beSigns.filter(x=>x.id!==s.id);
+  const others=shuffle(pool).slice(0,3);const opts=shuffle([s].concat(others));
+  return{svg:s.svg,question:"Que signifie ce panneau ?",options:opts.map(o=>o.name),correctIndex:opts.indexOf(s),explanation:s.text,theme:"panneaux"}}
+function mixed(n){ // n questions: environ 1 sur 6 est un panneau
+  const ns=Math.round(n/6);
+  const qs=shuffle(beQuestions).slice(0,n-ns).concat(shuffle(beSigns).slice(0,ns).map(signQ));
+  return shuffle(qs)}
+function bestKey(k){return"beBest_"+k}
+function getBest(k){try{return JSON.parse(localStorage.getItem(bestKey(k))||"null")}catch(e){return null}}
+function setBest(k,v){try{const b=getBest(k);if(!b||v>b)localStorage.setItem(bestKey(k),JSON.stringify(v))}catch(e){}}
+function home(){run=null;
+ const b50=getBest("exam"),b30=getBest("s30"),b10=getBest("s10");
+ $app.innerHTML='<div class="panel"><p>Entraînez-vous avec des questions rédigées par Routis, expliquées une par une. L\'examen blanc reprend le format de l\'examen théorique : 50 questions, 41 bonnes réponses pour réussir.</p><div class="modes"><button class="big" id="mex"><strong>Examen blanc : 50 questions</strong><span>Sans correction pendant l\'épreuve, résultat à la fin (41 sur 50 pour réussir).'+(b50!=null?' Meilleur score : '+b50+' / 50.':'')+'</span></button><button class="big" id="m10"><strong>Série de 10 questions</strong><span>Explication immédiate après chaque réponse.'+(b10!=null?' Meilleur score : '+b10+' / 10.':'')+'</span></button><button class="big" id="m30"><strong>Série de 30 questions</strong><span>Score à la fin et révision de vos erreurs.'+(b30!=null?' Meilleur score : '+b30+' / 30.':'')+'</span></button></div></div><div class="panel"><strong>Réviser un thème</strong><div class="topics" id="topics"></div></div>';
+ document.getElementById("mex").onclick=()=>start(50,null,"exam");document.getElementById("m10").onclick=()=>start(10,null,"s10");document.getElementById("m30").onclick=()=>start(30,null,"s30");
+ const t=document.getElementById("topics");
+ Object.keys(beThemes).forEach(k=>{const n=beQuestions.filter(q=>q.theme===k).length;if(!n)return;const b=document.createElement("button");b.type="button";b.textContent=beThemes[k]+" ("+n+")";b.onclick=()=>start(0,k,"theme");t.appendChild(b)});
+ const bp=document.createElement("button");bp.type="button";bp.textContent="Panneaux ("+beSigns.length+")";bp.onclick=()=>start(0,"__signs","theme");t.appendChild(bp)}
+function start(n,theme,mode){let qs;
+ if(theme==="__signs")qs=shuffle(beSigns).map(signQ);
+ else if(theme)qs=shuffle(beQuestions.filter(q=>q.theme===theme));
+ else qs=mixed(n);
+ run={qs,i:0,score:0,wrong:[],mode,exam:mode==="exam",answers:[]};show()}
+function show(){if(run.i>=run.qs.length)return finish();const q=run.qs[run.i];
+ $app.innerHTML='<div class="panel"><div class="meta"><span>Question '+(run.i+1)+' / '+run.qs.length+'</span>'+(run.exam?'<span>Examen blanc</span>':'')+'</div><div class="bar"><i style="width:'+(100*run.i/run.qs.length)+'%"></i></div>'+(q.svg?'<div class="qsign">'+q.svg+'</div>':'')+'<div class="qtext"></div><div class="opts"></div><div id="fb"></div></div><button class="btn sec" id="quit">Quitter</button>';
+ $app.querySelector(".qtext").textContent=q.question;const wrap=$app.querySelector(".opts");
+ q.options.forEach((o,idx)=>{const b=document.createElement("button");b.type="button";b.className="opt";b.textContent=o;b.onclick=()=>{
+  const ok=idx===q.correctIndex;if(ok)run.score++;else run.wrong.push(q);
+  if(run.exam){run.i++;show();return}
+  wrap.querySelectorAll(".opt").forEach((x,k)=>{x.disabled=true;if(k===q.correctIndex)x.classList.add("ok")});
+  if(!ok)b.classList.add("bad");
+  document.getElementById("fb").innerHTML='<div class="explain"></div><button class="btn" id="nx"></button>';
+  $app.querySelector(".explain").textContent=(ok?"Bonne réponse. ":"Pas tout à fait. ")+q.explanation;
+  const nx=document.getElementById("nx");nx.textContent=run.i===run.qs.length-1?"Voir le résultat":"Suivante";nx.onclick=()=>{run.i++;show()}};wrap.appendChild(b)});
+ document.getElementById("quit").onclick=()=>{if(confirm("Quitter ce quiz ?"))home()}}
+function finish(){
+ const tot=run.qs.length;let h='<div class="panel"><h2>Score : '+run.score+' / '+tot+'</h2>';
+ if(run.mode==="exam"){h+=run.score>=41?'<p><strong>Réussi !</strong> Il fallait 41 points sur 50 à l\'examen théorique.</p>':'<p><strong>Pas encore.</strong> Il faut 41 bonnes réponses sur 50. Revoyez les erreurs ci-dessous.</p>';setBest("exam",run.score)}
+ else if(run.mode==="s10")setBest("s10",run.score);else if(run.mode==="s30")setBest("s30",run.score);
+ if(run.wrong.length){h+='<p>À revoir :</p><ul>';run.wrong.forEach(()=>{h+='<li></li>'});h+='</ul>'}else h+='<p>Sans faute, bravo !</p>';
+ h+='<button class="btn" id="again">Recommencer</button></div>';$app.innerHTML=h;
+ $app.querySelectorAll("li").forEach((li,i)=>{const w=run.wrong[i];li.textContent=w.question+" → "+w.options[w.correctIndex]+" ("+w.explanation+")"});
+ document.getElementById("again").onclick=home}
+home();
+</script>
+  </body>
+</html>

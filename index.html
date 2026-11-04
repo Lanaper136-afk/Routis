@@ -80,7 +80,20 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
 .hm-cta p { margin: 0 auto 20px; max-width: 52ch; opacity: .92; }
 .hm-cta .hero-actions { justify-content: center; }
     </style>
-  </head>
+  <style>
+.qdj-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;box-shadow:0 10px 28px rgba(20,33,51,.08)}
+.qdj-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.qdj-streak{background:#fff4d6;border:1px solid #f6c443;color:#7a5600;border-radius:999px;padding:3px 12px;font-weight:800;font-size:.85rem}
+.qdj-q{font-size:1.3rem;line-height:1.3;margin:10px 0 14px}
+.qdj-opts{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.qdj-opts button{text-align:left;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#f9fbfd;color:var(--ink);font:inherit;font-weight:700;cursor:pointer;min-height:50px}
+.qdj-opts button:hover:not(:disabled){border-color:var(--blue)}
+.qdj-opts button.correct{background:var(--green);border-color:var(--green);color:#fff}
+.qdj-opts button.wrong{background:var(--red);border-color:var(--red);color:#fff}
+.qdj-fb{margin:14px 0 0;line-height:1.5}
+@media(max-width:620px){.qdj-opts{grid-template-columns:1fr}}
+</style>
+</head>
   <body>
 
     <header class="topbar">
@@ -182,6 +195,15 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
           <div class="hm-stat"><strong data-count="questions">1108</strong><span data-i18n="hm_stat_questions">questions de code</span></div>
           <div class="hm-stat"><strong>60</strong><span data-i18n="hm_stat_sims">mises en situation</span></div>
           <div class="hm-stat"><strong>100&nbsp;%</strong><span data-i18n="hm_stat_free">gratuit</span></div>
+        </div>
+      </section>
+
+      <section class="hm-wrap hm-section" id="qdj" aria-labelledby="qdj-title">
+        <div class="qdj-card">
+          <div class="qdj-head"><span class="eyebrow" id="qdj-eyebrow">Question du jour</span><span class="qdj-streak" id="qdj-streak" hidden></span></div>
+          <h2 id="qdj-title" class="qdj-q"></h2>
+          <div class="qdj-opts" id="qdj-opts"></div>
+          <p class="qdj-fb" id="qdj-fb" hidden></p>
         </div>
       </section>
 
@@ -288,6 +310,8 @@ try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==
         <a href="confidentialite.html">Confidentialité</a>
         <a href="reglages.html">Réglages</a>
         <a href="qc/index.html">Canada · Québec</a>
+        <a href="be/index.html">Belgique</a>
+        <a href="ch/index.html">Suisse</a>
         <button type="button" id="cookie-manage">Gérer les cookies</button>
       </nav>
       <p>Routis · Révision gratuite du code de la route</p>
@@ -832,5 +856,52 @@ function initSliceGame() {
 initSliceGame();
 
     </script>
-  </body>
+  <script>
+(function () {
+  try {
+    if (typeof knowledgeQuestions === "undefined") return;
+    var en = (typeof getLang === "function" && getLang() === "en");
+    function pick(q, f) { return (en && q.en && q.en[f]) ? q.en[f] : q[f]; }
+    var d = new Date();
+    var key = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    var day = Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000);
+    var q = knowledgeQuestions[(day * 37) % knowledgeQuestions.length];
+    var opts = pick(q, "options");
+    var state = (typeof safeGetJSON === "function") ? safeGetJSON("dailyQ", {}) : {};
+    var el = function (id) { return document.getElementById(id); };
+    el("qdj-eyebrow").textContent = en ? "Question of the day" : "Question du jour";
+    el("qdj-title").textContent = pick(q, "question");
+    var box = el("qdj-opts");
+    box.innerHTML = opts.map(function (o, i) { return '<button type="button" data-i="' + i + '"></button>'; }).join("");
+    box.querySelectorAll("button").forEach(function (b, i) { b.textContent = opts[i]; });
+    function streakLabel() {
+      var n = state.streak || 0;
+      var s = el("qdj-streak");
+      if (n > 0) { s.hidden = false; s.textContent = "🔥 " + n + (en ? (n > 1 ? " days in a row" : " day") : (n > 1 ? " jours d'affilée" : " jour")); }
+    }
+    function reveal(sel) {
+      box.querySelectorAll("button").forEach(function (b, i) {
+        b.disabled = true;
+        if (i === q.correctIndex) b.classList.add("correct"); else if (i === sel) b.classList.add("wrong");
+      });
+      var fb = el("qdj-fb"); fb.hidden = false;
+      fb.textContent = (sel === q.correctIndex ? (en ? "Correct! " : "Bonne réponse ! ") : (en ? "Not quite. " : "Raté. ")) + pick(q, "explanation") + (en ? " Come back tomorrow for a new question." : " Reviens demain pour une nouvelle question.");
+    }
+    streakLabel();
+    if (state.date === key && typeof state.sel === "number") reveal(state.sel);
+    box.addEventListener("click", function (e) {
+      var b = e.target.closest("button"); if (!b || b.disabled) return;
+      var sel = Number(b.dataset.i);
+      var yesterday = new Date(d.getFullYear(), d.getMonth(), d.getDate() - 1);
+      var yk = yesterday.getFullYear() + "-" + String(yesterday.getMonth() + 1).padStart(2, "0") + "-" + String(yesterday.getDate()).padStart(2, "0");
+      state.streak = (state.last === yk) ? (state.streak || 0) + 1 : 1;
+      state.last = key; state.date = key; state.sel = sel;
+      if (typeof safeSetJSON === "function") safeSetJSON("dailyQ", state);
+      if (typeof recordQuestionAnswer === "function") recordQuestionAnswer(q.id, q.theme, sel === q.correctIndex);
+      streakLabel(); reveal(sel);
+    });
+  } catch (e) {}
+})();
+</script>
+</body>
 </html>

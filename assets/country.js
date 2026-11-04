@@ -21,6 +21,8 @@ var ROUTIS_UK_LIVE = true;
   if (!isHome) return;
   if (get() === "uk" && !/[?&]stay=1/.test(location.search)) { location.replace("uk/index.html"); return; }
   if (get() === "qc" && !/[?&]stay=1/.test(location.search)) { location.replace("qc/index.html"); return; }
+  if (get() === "be" && !/[?&]stay=1/.test(location.search)) { location.replace("be/index.html"); return; }
+  if (get() === "ch" && !/[?&]stay=1/.test(location.search)) { location.replace("ch/index.html"); return; }
   if (get()) return;
 
   var lang = ((navigator.languages && navigator.languages[0]) || navigator.language || "fr").toLowerCase();
@@ -34,11 +36,15 @@ var ROUTIS_UK_LIVE = true;
       '<p style="margin:0 0 16px;color:#607086">Driving rules and road signs are different in each country. Pick the one you want to learn.</p>' +
       '<button type="button" id="pick-uk" style="display:block;width:100%;padding:14px;border:0;border-radius:12px;background:#1769e0;color:#fff;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer">United Kingdom</button>' +
       '<button type="button" id="pick-qc" style="display:block;width:100%;margin-top:10px;padding:14px;border:0;border-radius:12px;background:#1769e0;color:#fff;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer">Canada (Québec) <small style="font-weight:600">· content in French</small></button>' +
+      '<button type="button" id="pick-be" style="display:block;width:100%;margin-top:10px;padding:14px;border:0;border-radius:12px;background:#1769e0;color:#fff;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer">Belgium <small style="font-weight:600">· content in French</small></button>' +
+      '<button type="button" id="pick-ch" style="display:block;width:100%;margin-top:10px;padding:14px;border:0;border-radius:12px;background:#1769e0;color:#fff;font:inherit;font-weight:800;font-size:1.05rem;cursor:pointer">Switzerland <small style="font-weight:600">· content in French</small></button>' +
       '<p style="margin:10px 0 0;color:#607086;font-size:.85rem;text-align:center">More countries coming soon.</p>' +
       '<p style="margin:14px 0 0;text-align:center"><button type="button" id="pick-fr" style="border:0;background:none;color:#607086;font:inherit;font-size:.75rem;text-decoration:underline;cursor:pointer;padding:4px">France</button></p>';
     document.body.appendChild(d);
     d.querySelector("#pick-uk").onclick = function () { set("uk"); location.href = "uk/index.html"; };
     d.querySelector("#pick-qc").onclick = function () { set("qc"); location.href = "qc/index.html"; };
+    d.querySelector("#pick-be").onclick = function () { set("be"); location.href = "be/index.html"; };
+    d.querySelector("#pick-ch").onclick = function () { set("ch"); location.href = "ch/index.html"; };
     d.querySelector("#pick-fr").onclick = function () { set("fr"); d.close(); d.remove(); };
     if (d.showModal) d.showModal(); else d.setAttribute("open", "");
   }

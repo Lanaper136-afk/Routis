@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="fr-CH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>Défi express : questions du code de la route suisse en 60 secondes | Routis Suisse</title>
+    <meta name="description" content="Réponds à un maximum de questions du code de la route suisse en 60 secondes. Gratuit." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/ch/express.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#d52b1e" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="../assets/country.css" />
+    <style>
+      h1 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); line-height: 1.15; margin: 8px 0 12px; }
+      .uk-wrap { width: min(820px, calc(100% - 32px)); margin: 0 auto; }
+      .uk-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+      .uk-top a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
+      .uk-top nav { display: flex; gap: 16px; flex-wrap: wrap; }
+      .uk-badge { background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 800; font-size: .85rem; }
+      .intro { color: var(--muted); max-width: 62ch; }
+      .uk-note { margin: 24px 0; font-size: .85rem; color: var(--muted); }
+      .cards { display: grid; gap: 12px; margin: 20px 0; }
+      .card { display: block; background: #fff; border: 2px solid var(--line); border-radius: 16px; padding: 18px; color: var(--ink); text-decoration: none; }
+      .card:hover, .card:focus-visible { border-color: var(--blue); outline: none; box-shadow: var(--shadow); }
+      .card strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+      .card span { color: var(--muted); }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+      details.fiche { background: #fff; border: 1px solid var(--line); border-radius: 14px; margin-bottom: 12px; position: relative; scroll-margin-top: 12px; }
+      details.fiche summary { cursor: pointer; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; list-style: none; }
+      details.fiche summary::-webkit-details-marker { display: none; }
+      details.fiche summary::after { content: "+"; position: absolute; right: 18px; top: 12px; font-size: 1.4rem; color: var(--blue); }
+      details.fiche[open] summary::after { content: "–"; }
+      .ft { font-weight: 800; font-size: 1.08rem; padding-right: 30px; }
+      .fr { color: var(--muted); font-size: .85rem; }
+      .fb { padding: 0 16px 16px; line-height: 1.55; }
+      .fb ul { margin: 0 0 12px; padding-left: 20px; } .fb li { margin-bottom: 8px; }
+      .src { font-size: .82rem; color: var(--muted); } .src a { color: var(--blue-dark); }
+      .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; }
+      .toc a { border: 2px solid var(--line); background: #fff; color: var(--ink); text-decoration: none; border-radius: 999px; padding: 6px 12px; font-size: .85rem; font-weight: 700; }
+      .signs { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+      .sg { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; text-align: center; }
+      .sg svg { width: 110px; height: 110px; }
+      .sg h3 { margin: 8px 0 4px; font-size: 1.05rem; } .sg p { margin: 0; color: var(--muted); font-size: .9rem; text-align: left; }
+     .modes{display:grid;gap:12px}.big{text-align:left;border:2px solid var(--line);background:#fff;border-radius:14px;padding:16px;font:inherit;cursor:pointer;color:var(--ink)}
+ .big:hover,.big:focus-visible{border-color:var(--blue);outline:none}.big strong{display:block;font-size:1.05rem}.big span{color:var(--muted);font-size:.9rem}
+ .topics{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.topics button{border:2px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+ .meta{display:flex;justify-content:space-between;color:var(--muted);font-weight:700;margin-bottom:10px}.bar{height:8px;background:var(--line);border-radius:999px;overflow:hidden;margin-bottom:14px}.bar i{display:block;height:100%;background:var(--blue)}
+ .qsign svg{width:130px;height:130px;display:block;margin:0 auto 10px}.qtext{font-size:1.1rem;font-weight:800;margin:4px 0 12px}.opts{display:grid;gap:10px}
+ .opt{text-align:left;padding:12px 14px;border:2px solid var(--line);background:#fff;border-radius:12px;font:inherit;font-weight:700;cursor:pointer;color:var(--ink)}
+ .opt.ok{border-color:var(--green);background:#e6f6ee}.opt.bad{border-color:var(--red);background:#fdeaec}
+ .explain{margin-top:12px;padding:10px 12px;background:#f1f5fb;border-radius:10px;line-height:1.5}
+ .btn{margin-top:14px;padding:12px 20px;border:0;border-radius:10px;background:var(--blue);color:#fff;font:inherit;font-weight:800;cursor:pointer}.btn.sec{background:var(--ink);margin-top:0}
+</style>
+  </head>
+  <body class="cx cx-ch">
+    <div class="uk-wrap">
+      <div class="uk-top">
+        <a href="index.html">← Accueil Suisse</a>
+        <nav><a href="panneaux.html">Panneaux</a><a href="fiches.html">Fiches</a><a href="quiz.html">Quiz</a><a href="../reglages.html">Réglages</a></nav>
+        <span class="uk-badge">Suisse</span>
+      </div>
+<h1>Défi express</h1>
+<p class="intro">Réponds à un maximum de questions en 60 secondes. Une erreur te coûte 5 secondes.</p>
+<div id="app"></div>
+<div style="border-top:1px solid var(--line);padding:16px 0;font-size:.85rem"><a href="../reglages.html">Réglages (changer de pays)</a> · <a href="../mentions-legales.html">Mentions légales</a> · <a href="../confidentialite.html">Confidentialité</a></div><p class="uk-note">Routis est un site indépendant : il n'est affilié à aucun organisme officiel suisse (OFROU, services cantonaux des automobiles, TCS, bpa) et n'est pas approuvé par eux. Ce contenu est un outil de révision rédigé par Routis à partir de sources publiques ; ce ne sont pas les questions de l'examen officiel. Les règles peuvent changer et certains détails varient selon le canton : vérifiez toujours auprès de sources officielles (astra.admin.ch, service des automobiles de votre canton). Les panneaux sont des illustrations simplifiées. Ce module n'utilise ni témoins ni outils d'analyse.</p>
+    </div>
+<script src="ch-questions-data.js"></script>
+<script>
+const Q=chQuestions;const T={"start": "Jouer", "score": "Score :", "time": "Temps :", "best": "Meilleur score :", "over": "Temps écoulé !", "again": "Rejouer", "rev": "Tes erreurs", "cur": "", "key": "chBestExpress"};const KEY='chBestExpress';
+const $app=document.getElementById("app");
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const store={get(k){try{return localStorage.getItem(k);}catch(e){return null;}},set(k,v){try{localStorage.setItem(k,v);}catch(e){}}};
+let running=false,timer=null,score=0,left=60,cur=null,wrong=[],queue=[];
+function next(){if(!queue.length)queue=shuffle(Q);const q=queue.pop();cur={q,idx:shuffle(q.options.map((_,i)=>i))};}
+function home(){const best=Number(store.get(KEY))||0;$app.innerHTML='<div class="panel" style="text-align:center"><p>'+T.best+' <strong>'+best+'</strong></p><button class="btn" id="go" type="button">'+T.start+'</button></div>';document.getElementById("go").onclick=start;}
+function start(){running=true;score=0;left=60;wrong=[];next();draw();clearInterval(timer);timer=setInterval(tick,1000);}
+function tick(){left--;if(left<=0)end();else hud();}
+function hud(){const h=document.getElementById("hud");if(h)h.innerHTML='<span>'+T.time+' '+Math.max(left,0)+'</span><span>'+T.score+' '+score+'</span>';const b=document.getElementById("bar");if(b)b.style.width=Math.max(left,0)/60*100+"%";}
+function draw(){$app.innerHTML='<div class="panel"><div class="meta" id="hud"></div><div class="bar"><i id="bar" style="width:100%"></i></div><div class="qtext"></div><div class="opts"></div></div>';
+ $app.querySelector(".qtext").textContent=cur.q.question;const w=$app.querySelector(".opts");
+ cur.idx.forEach(i=>{const b=document.createElement("button");b.type="button";b.className="opt";b.textContent=cur.q.options[i];b.onclick=()=>answer(i);w.appendChild(b);});hud();}
+function answer(i){if(!running)return;if(i===cur.q.correctIndex)score++;else{left-=5;wrong.push(cur.q);}
+ if(left<=0){end();return;}next();draw();}
+function end(){clearInterval(timer);running=false;const prev=Number(store.get(KEY))||0;if(score>prev)store.set(KEY,String(score));
+ let h='<div class="panel result" style="text-align:center"><h2>'+T.over+'</h2><p>'+T.score+' <strong>'+score+'</strong></p><p>'+T.best+' <strong>'+Math.max(prev,score)+'</strong></p><button class="btn" id="again" type="button">'+T.again+'</button></div>';
+ if(wrong.length)h+='<div class="panel"><strong>'+T.rev+' ('+Math.min(wrong.length,8)+')</strong><div id="rev"></div></div>';
+ $app.innerHTML=h;document.getElementById("again").onclick=start;
+ const r=document.getElementById("rev");if(r)wrong.slice(0,8).forEach(q=>{const d=document.createElement("div");d.className="rev";d.innerHTML="<strong></strong><p class='c'></p>";d.querySelector("strong").textContent=q.question;d.querySelector(".c").textContent="✔ "+q.options[q.correctIndex]+" — "+q.explanation;r.appendChild(d);});}
+home();
+</script>
+  </body>
+</html>

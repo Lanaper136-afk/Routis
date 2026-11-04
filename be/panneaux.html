@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr-BE">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>Panneaux belges : formes, couleurs et sens | Routis Belgique</title>
+    <meta name="description" content="Les panneaux de signalisation belges par famille (priorité, interdiction, danger, obligation, indication) avec leur signification." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/be/panneaux.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#b80f2a" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="../assets/country.css" />
+    <style>
+      h1 { font-size: clamp(1.6rem, 4.5vw, 2.2rem); line-height: 1.15; margin: 8px 0 12px; }
+      .uk-wrap { width: min(820px, calc(100% - 32px)); margin: 0 auto; }
+      .uk-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+      .uk-top a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
+      .uk-top nav { display: flex; gap: 16px; flex-wrap: wrap; }
+      .uk-badge { background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 800; font-size: .85rem; }
+      .intro { color: var(--muted); max-width: 62ch; }
+      .uk-note { margin: 24px 0; font-size: .85rem; color: var(--muted); }
+      .cards { display: grid; gap: 12px; margin: 20px 0; }
+      .card { display: block; background: #fff; border: 2px solid var(--line); border-radius: 16px; padding: 18px; color: var(--ink); text-decoration: none; }
+      .card:hover, .card:focus-visible { border-color: var(--blue); outline: none; box-shadow: var(--shadow); }
+      .card strong { display: block; font-size: 1.1rem; margin-bottom: 4px; }
+      .card span { color: var(--muted); }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+      details.fiche { background: #fff; border: 1px solid var(--line); border-radius: 14px; margin-bottom: 12px; position: relative; scroll-margin-top: 12px; }
+      details.fiche summary { cursor: pointer; padding: 14px 16px; display: flex; flex-direction: column; gap: 2px; list-style: none; }
+      details.fiche summary::-webkit-details-marker { display: none; }
+      details.fiche summary::after { content: "+"; position: absolute; right: 18px; top: 12px; font-size: 1.4rem; color: var(--blue); }
+      details.fiche[open] summary::after { content: "–"; }
+      .ft { font-weight: 800; font-size: 1.08rem; padding-right: 30px; }
+      .fr { color: var(--muted); font-size: .85rem; }
+      .fb { padding: 0 16px 16px; line-height: 1.55; }
+      .fb ul { margin: 0 0 12px; padding-left: 20px; } .fb li { margin-bottom: 8px; }
+      .src { font-size: .82rem; color: var(--muted); } .src a { color: var(--blue-dark); }
+      .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 22px; }
+      .toc a { border: 2px solid var(--line); background: #fff; color: var(--ink); text-decoration: none; border-radius: 999px; padding: 6px 12px; font-size: .85rem; font-weight: 700; }
+      .signs { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+      .sg { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px; text-align: center; }
+      .sg svg { width: 110px; height: 110px; }
+      .sg h3 { margin: 8px 0 4px; font-size: 1.05rem; } .sg p { margin: 0; color: var(--muted); font-size: .9rem; text-align: left; }
+    .sg svg{width:110px;height:110px}</style>
+  </head>
+  <body class="cx cx-be">
+    <div class="uk-wrap">
+      <div class="uk-top">
+        <a href="index.html">← Accueil Belgique</a>
+        <nav><a href="panneaux.html">Panneaux</a><a href="fiches.html">Fiches</a><a href="quiz.html">Quiz</a><a href="../reglages.html">Réglages</a></nav>
+        <span class="uk-badge">Belgique</span>
+      </div>
+<h1>Panneaux belges : à reconnaître</h1>
+<p class="intro">Les panneaux principaux par famille, en illustrations simplifiées. Les codes entre parenthèses sont ceux du règlement belge pour les panneaux les plus importants.</p>
+<div id="sg-root"></div>
+<div style="border-top:1px solid var(--line);padding:16px 0;font-size:.85rem"><a href="../reglages.html">Réglages (changer de pays)</a> · <a href="../mentions-legales.html">Mentions légales</a> · <a href="../confidentialite.html">Confidentialité</a></div><p class="uk-note">Routis est un site indépendant : il n'est affilié à aucun organisme officiel belge (SPF Mobilité et Transports, Vias, centres d'examen) et n'est pas approuvé par eux. Ce contenu est un outil de révision rédigé par Routis à partir de sources publiques ; ce ne sont pas les questions de l'examen officiel. Les règles peuvent changer et varient selon la Région : vérifiez toujours auprès de sources officielles (mobilit.belgium.be). Les panneaux sont des illustrations simplifiées. Ce module n'utilise ni témoins ni outils d'analyse.</p>
+    </div>
+<script src="be-questions-data.js"></script>
+<script>
+(function(){
+  var root=document.getElementById("sg-root");
+  var order=["priorite","interdiction","danger","obligation","indication"];
+  order.forEach(function(f){
+    var items=beSigns.filter(function(s){return s.family===f});
+    if(!items.length)return;
+    var h=document.createElement("h2");h.textContent=beFamilies[f]+" ("+items.length+")";h.style.margin="26px 0 12px";root.appendChild(h);
+    var g=document.createElement("div");g.className="signs";
+    items.forEach(function(s){
+      var d=document.createElement("div");d.className="sg";
+      d.innerHTML=s.svg;
+      var t=document.createElement("h3");t.textContent=s.name+(s.code?" ("+s.code+")":"");d.appendChild(t);
+      var p=document.createElement("p");p.textContent=s.text;d.appendChild(p);
+      g.appendChild(d);
+    });
+    root.appendChild(g);
+  });
+})();
+</script>
+  </body>
+</html>

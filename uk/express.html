@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="index, follow" />
+    <title>Express challenge: UK theory test questions in 60 seconds | Routis UK</title>
+    <meta name="description" content="Answer as many Highway Code questions as you can in 60 seconds. Free UK theory test practice." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/uk/express.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="stylesheet" href="../assets/style.css" />
+    <link rel="stylesheet" href="../assets/country.css" />
+    <style>
+      .uk-wrap { width: min(760px, calc(100% - 32px)); margin: 0 auto; }
+      .uk-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 0; flex-wrap: wrap; }
+      .uk-top a { color: var(--blue-dark); font-weight: 800; text-decoration: none; }
+      .uk-top nav { display: flex; gap: 8px 16px; flex-wrap: wrap; }
+      .uk-badge { background: var(--blue); color: #fff; border-radius: 999px; padding: 3px 12px; font-weight: 800; font-size: .85rem; }
+      .panel { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; margin-bottom: 16px; }
+      .modes { display: grid; gap: 12px; }
+      .big { text-align: left; border: 2px solid var(--line); background: #fff; border-radius: 14px; padding: 16px; font: inherit; cursor: pointer; color: var(--ink); }
+      .big:hover, .big:focus-visible { border-color: var(--blue); outline: none; }
+      .big strong { display: block; font-size: 1.05rem; }
+      .big span { color: var(--muted); font-size: .9rem; }
+      .topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+      .topics button { border: 2px solid var(--line); background: #fff; border-radius: 999px; padding: 8px 14px; font: inherit; font-weight: 700; cursor: pointer; color: var(--ink); }
+      .topics button:hover { border-color: var(--blue); }
+      .meta { display: flex; justify-content: space-between; color: var(--muted); font-weight: 700; margin-bottom: 10px; gap: 8px; flex-wrap: wrap; }
+      .bar { height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; margin-bottom: 14px; }
+      .bar i { display: block; height: 100%; background: var(--blue); }
+      .qsign svg { width: 150px; height: 150px; display: block; margin: 0 auto 10px; }
+      .qtext { font-size: 1.1rem; font-weight: 800; margin: 4px 0 12px; }
+      .opts { display: grid; gap: 10px; }
+      .opt { text-align: left; padding: 12px 14px; border: 2px solid var(--line); background: #fff; border-radius: 12px; font: inherit; font-weight: 700; cursor: pointer; color: var(--ink); }
+      .opt:hover:not(:disabled) { border-color: var(--blue); }
+      .opt.sel { border-color: var(--blue); background: #eef4ff; }
+      .opt.ok { border-color: var(--green); background: #e6f6ee; }
+      .opt.bad { border-color: var(--red); background: #fdeaec; }
+      .explain { margin-top: 12px; padding: 10px 12px; background: #f1f5fb; border-radius: 10px; line-height: 1.5; }
+      .explain small { color: var(--muted); display: block; margin-top: 4px; }
+      .btn { margin-top: 14px; padding: 12px 20px; border: 0; border-radius: 10px; background: var(--blue); color: #fff; font: inherit; font-weight: 800; cursor: pointer; }
+      .btn.sec { background: var(--ink); }
+      .btn:disabled { opacity: .45; cursor: default; }
+      .result h2 { margin-top: 0; }
+      .pass { color: var(--green); } .fail { color: var(--red); }
+      .rev { border-top: 1px solid var(--line); padding: 12px 0; }
+      .rev .qsign svg { width: 70px; height: 70px; margin: 0 0 6px; }
+      .uk-note { margin: 24px 0 24px; font-size: .85rem; color: var(--muted); }
+    </style>
+  </head>
+  <body class="cx cx-uk">
+    <div class="uk-wrap">
+      <div class="uk-top">
+        <a href="index.html">← UK home</a>
+        <nav><a href="signs.html">Signs</a><a href="fiches.html">Study sheets</a><a href="quiz.html">Practice test</a><a href="hazards.html">Hazard practice</a><a href="other-quiz.html">Moped, bike &amp; trailer</a><a href="../reglages.html">Settings</a></nav>
+        <span class="uk-badge">United Kingdom</span>
+      </div>
+      <h1>Express challenge</h1>
+<p class="intro">Answer as many questions as you can in 60 seconds. A mistake costs you 5 seconds.</p>
+      <div id="app"></div>
+      <p class="uk-note">Practice questions written by Routis from the Highway Code (GOV.UK). They are not the official theory test questions and the real test also includes a hazard perception part. Routis is an independent site, not affiliated with or endorsed by the DVSA, the Department for Transport or any UK government body. Contains public sector information licensed under the Open Government Licence v3.0. Traffic sign designs are © Crown copyright.</p>
+    </div>
+    <script src="uk-signs-data.js"></script>
+    <script src="uk-questions-data.js"></script>
+<script>
+const Q=ukQuestions;const T={"start": "Play", "score": "Score:", "time": "Time:", "best": "Best score:", "over": "Time's up!", "again": "Play again", "rev": "Your mistakes", "cur": "Highway Code: ", "key": "ukBestExpress"};const KEY='ukBestExpress';
+const $app=document.getElementById("app");
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const store={get(k){try{return localStorage.getItem(k);}catch(e){return null;}},set(k,v){try{localStorage.setItem(k,v);}catch(e){}}};
+let running=false,timer=null,score=0,left=60,cur=null,wrong=[],queue=[];
+function next(){if(!queue.length)queue=shuffle(Q);const q=queue.pop();cur={q,idx:shuffle(q.options.map((_,i)=>i))};}
+function home(){const best=Number(store.get(KEY))||0;$app.innerHTML='<div class="panel" style="text-align:center"><p>'+T.best+' <strong>'+best+'</strong></p><button class="btn" id="go" type="button">'+T.start+'</button></div>';document.getElementById("go").onclick=start;}
+function start(){running=true;score=0;left=60;wrong=[];next();draw();clearInterval(timer);timer=setInterval(tick,1000);}
+function tick(){left--;if(left<=0)end();else hud();}
+function hud(){const h=document.getElementById("hud");if(h)h.innerHTML='<span>'+T.time+' '+Math.max(left,0)+'</span><span>'+T.score+' '+score+'</span>';const b=document.getElementById("bar");if(b)b.style.width=Math.max(left,0)/60*100+"%";}
+function draw(){$app.innerHTML='<div class="panel"><div class="meta" id="hud"></div><div class="bar"><i id="bar" style="width:100%"></i></div><div class="qtext"></div><div class="opts"></div></div>';
+ $app.querySelector(".qtext").textContent=cur.q.question;const w=$app.querySelector(".opts");
+ cur.idx.forEach(i=>{const b=document.createElement("button");b.type="button";b.className="opt";b.textContent=cur.q.options[i];b.onclick=()=>answer(i);w.appendChild(b);});hud();}
+function answer(i){if(!running)return;if(i===cur.q.correctIndex)score++;else{left-=5;wrong.push(cur.q);}
+ if(left<=0){end();return;}next();draw();}
+function end(){clearInterval(timer);running=false;const prev=Number(store.get(KEY))||0;if(score>prev)store.set(KEY,String(score));
+ let h='<div class="panel result" style="text-align:center"><h2>'+T.over+'</h2><p>'+T.score+' <strong>'+score+'</strong></p><p>'+T.best+' <strong>'+Math.max(prev,score)+'</strong></p><button class="btn" id="again" type="button">'+T.again+'</button></div>';
+ if(wrong.length)h+='<div class="panel"><strong>'+T.rev+' ('+Math.min(wrong.length,8)+')</strong><div id="rev"></div></div>';
+ $app.innerHTML=h;document.getElementById("again").onclick=start;
+ const r=document.getElementById("rev");if(r)wrong.slice(0,8).forEach(q=>{const d=document.createElement("div");d.className="rev";d.innerHTML="<strong></strong><p class='c'></p>";d.querySelector("strong").textContent=q.question;d.querySelector(".c").textContent="✔ "+q.options[q.correctIndex]+" — "+q.explanation;r.appendChild(d);});}
+home();
+</script>
+  </body>
+</html>
