@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inter-files, voie de détresse, aides à la conduite | Routis</title>
+    <meta name="description" content="Inter-files des motos, voie de détresse, régulateur, véhicule électrique, permis étrangers, panne sur autoroute et passage à niveau." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/situations-particulieres.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Inter-files, voie de détresse, aides à la conduite | Routis" />
+    <meta property="og:description" content="Inter-files des motos, voie de détresse, régulateur, véhicule électrique, permis étrangers, panne sur autoroute et passage à niveau." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/situations-particulieres.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    </style>
+  <style>
+.cm-hero-img{max-width:560px;margin:0 auto 22px}
+.cm-hero-img img{width:100%;height:auto;display:block;border-radius:22px;box-shadow:0 14px 34px rgba(22,33,47,.14)}
+.cm-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:6px 0 14px}
+.cm-figs figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.cm-figs img{width:100%;height:auto;display:block}
+.cm-figs figcaption{padding:8px 12px 10px;font-weight:800;font-size:.9rem;text-align:center}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Routis", "item": "https://code-route-gratuit-routis.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Cours", "item": "https://code-route-gratuit-routis.netlify.app/cours.html"}, {"@type": "ListItem", "position": 3, "name": "Situations particulières : inter-files, voie de détresse, aides à la conduite, véhicule électrique", "item": "https://code-route-gratuit-routis.netlify.app/situations-particulieres.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment bien régler son appuie-tête ?", "acceptedAnswer": {"@type": "Answer", "text": "Le bord supérieur à la hauteur du sommet de la tête, et le plus près possible de l'arrière du crâne."}}, {"@type": "Question", "name": "Qu'est-ce que la méthode hollandaise ?", "acceptedAnswer": {"@type": "Answer", "text": "On ouvre la portière avec la main éloignée de celle-ci : le buste pivote et on voit derrière, ce qui évite de heurter un cycliste."}}, {"@type": "Question", "name": "Doit-on enlever son gilet de sécurité après ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, on le garde sur soi tant qu'on reste à proximité de la route."}}]}</script>
+</head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+        <a href="reglages.html"><span data-i18n="nav_reglages">Réglages</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow"><a href="cours.html" data-i18n-html="ui.0">Cours</a> · <span data-i18n-html="ui.17">Circulation</span></p>
+        <h1 data-i18n-html="situations-particulieres.h1">Situations particulières : inter-files, voie de détresse, aides à la conduite, véhicule électrique</h1>
+        <p data-i18n-html="situations-particulieres.intro">Des sujets plus rares mais bien présents à l'examen : motos en inter-files, voie de détresse, aides à la conduite, véhicules électriques, permis étrangers, panne sur autoroute, équipements du motard et passage à niveau en danger.</p>
+      </section>
+      <section class="fiche-chapter" data-theme="circulation">
+        <div class="fiche-card">
+          <h3 data-i18n-html="situations-particulieres.c0.h">1. Circulation inter-files des motos</h3>
+          <div data-i18n-html="situations-particulieres.c0.b"><ul><li>La <strong>circulation inter-files</strong> est la circulation d'une moto entre deux files de véhicules. Elle est autorisée en France, <span class="fiche-highlight">sous conditions</span> (décret de janvier 2025).</li><li>Sur <strong>autoroutes et routes à chaussées séparées</strong> avec au moins deux voies par sens, limitées à 70 km/h ou plus, et seulement <strong>entre les deux voies les plus à gauche</strong>.</li><li>Vitesse maximale : <strong>50 km/h</strong> (30 km/h si les files sont à l'arrêt). Au-delà, on se remet dans une voie.</li><li>Interdit : en ville, sur route à une seule chaussée, sur sol enneigé ou verglacé et dans une zone de travaux.</li><li>On ne force pas le passage, on ne se faufile pas dans un espace trop étroit et on ne dépasse pas un autre deux-roues déjà en inter-files.</li><li>Seules les motos et tricycles de moins d'un mètre de large sont concernés. Infraction : amende de 4<sup>e</sup> classe et perte de 3 points.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="situations-particulieres.c1.h">2. La voie de détresse</h3>
+          <div data-i18n-html="situations-particulieres.c1.b"><ul><li>Dans certaines <strong>descentes longues et raides</strong>, une voie de détresse (ou d'échappement) sort de la route : c'est un lit de gravier ou de sable, souvent en montée, qui arrête un véhicule dont les <strong>freins ont lâché</strong>.</li><li>On y entre en cas de <span class="fiche-highlight">perte de freinage</span>, en tenant bien le volant : le véhicule ralentit seul.</li><li><strong>Interdit</strong> de s'y arrêter ou de s'y garer, et on ne s'en sert pas pour une simple pause ou un dépassement. Elle doit rester libre.</li><li>On évite d'en arriver là : <strong>rétrograder</strong> bien avant la descente, freiner par à-coups et utiliser le frein moteur.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="situations-particulieres.c2.h">3. Régulateur, limiteur et aides à la conduite</h3>
+          <div data-i18n-html="situations-particulieres.c2.b"><ul><li><strong>Régulateur de vitesse</strong> : il maintient la vitesse que tu as choisie. Un coup de frein ou d'embrayage le coupe. Pratique sur voie dégagée, <span class="fiche-highlight">à éviter</span> sous la pluie, sur sol glissant ou dans la circulation dense.</li><li><strong>Limiteur de vitesse</strong> : il empêche de dépasser la vitesse programmée. Pour la dépasser en cas de besoin, on enfonce franchement l'accélérateur.</li><li><strong>Régulateur adaptatif</strong> : il adapte aussi la vitesse pour garder une distance avec le véhicule de devant.</li><li><strong>Aide au maintien dans la voie</strong> : elle alerte, voire corrige légèrement la trajectoire si on franchit une ligne sans clignotant. <strong>Freinage d'urgence automatique</strong>, aide au stationnement, radar de recul : des aides, pas des remplaçants.</li><li>Dans tous les cas, <strong>le conducteur reste responsable</strong> : mains sur le volant, regard sur la route.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="situations-particulieres.c3.h">4. Véhicules électriques et recharge</h3>
+          <div data-i18n-html="situations-particulieres.c3.b"><ul><li>Un véhicule électrique est <strong>très silencieux</strong> : à basse vitesse il émet un son artificiel pour être entendu des piétons (jusqu'à environ 20 km/h). Les piétons et cyclistes doivent donc être surveillés avec soin.</li><li>Quand on lève le pied, le <strong>freinage régénératif</strong> ralentit la voiture et recharge un peu la batterie.</li><li><strong>Recharge</strong> : sur une borne publique ou une prise renforcée (wallbox). Une prise domestique ordinaire n'est pas faite pour charger longtemps à forte puissance.</li><li>Une place équipée d'une borne est <span class="fiche-highlight">réservée à la recharge</span> d'un véhicule branché.</li><li>En cas d'accident : ne touche pas aux <strong>câbles orange</strong> (haute tension), coupe le contact et préviens les secours en précisant qu'il s'agit d'un véhicule électrique.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="situations-particulieres.c4.h">5. Conducteurs étrangers et permis étrangers</h3>
+          <div data-i18n-html="situations-particulieres.c4.b"><ul><li>Un permis de l'<strong>Union européenne ou de l'Espace économique européen</strong> est reconnu en France, pour sa durée de validité.</li><li>Un permis <strong>d'un autre pays</strong> permet de conduire en France pour un séjour court, avec le permis en cours de validité et, selon les cas, une traduction ou un <strong>permis international</strong>.</li><li>Si on s'installe en France, un permis hors UE est valable <span class="fiche-highlight">un an</span> après l'installation. Passé ce délai, il faut l'<strong>échanger</strong> contre un permis français (selon les accords entre pays) ou repasser le permis.</li><li>Les règles du code de la route français s'appliquent à tous, y compris aux étrangers : vitesses, priorités, alcool.</li><li>Un conducteur étranger qui commet une infraction est sanctionné comme un autre.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="situations-particulieres.c5.h">6. Panne ou accident sur autoroute</h3>
+          <div data-i18n-html="situations-particulieres.c5.b"><ul><li>Allume les <strong>feux de détresse</strong>, puis rejoins la <strong>bande d'arrêt d'urgence</strong> (BAU) tout à droite, sans jamais t'arrêter sur la voie.</li><li>Mets ton <strong>gilet</strong>, sors <strong>côté droit</strong> et fais passer tous les occupants <span class="fiche-highlight">derrière la glissière</span>, loin de la chaussée.</li><li>Alerte avec la <strong>borne d'appel orange</strong> (environ tous les 2 km, flèches sur les glissières) ou le <strong>112</strong>. On ne traverse jamais l'autoroute.</li><li>On ne pose le triangle que si c'est sans danger. Sinon, la priorité est de se mettre à l'abri.</li><li>Seul un <strong>dépanneur agréé</strong> par le gestionnaire d'autoroute peut intervenir. Pas de dépannage par un ami ou un inconnu.</li><li>Interdit de faire demi-tour ou de reculer sur la BAU.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="situations-particulieres.c6.h">7. Équipements de protection du motard</h3>
+          <div data-i18n-html="situations-particulieres.c6.b"><ul><li><strong>Casque</strong> : obligatoire pour le conducteur <em>et</em> le passager, <span class="fiche-highlight">homologué</span> (étiquette de norme) et <strong>attaché</strong> par la jugulaire.</li><li><strong>Gants homologués</strong> : obligatoires pour tous les conducteurs et passagers de deux-roues motorisés (marquage CE).</li><li>Fortement conseillés : blouson et pantalon avec protections (dos, épaules, coudes, genoux), bottes montantes, éventuellement <strong>gilet airbag</strong>.</li><li>Être vu : vêtements clairs ou réfléchissants, feux de jour allumés.</li><li>Un <strong>gilet de sécurité</strong> doit être porté en cas d'arrêt d'urgence sur la route.</li></ul></div>
+        </div>
+        <div class="fiche-card">
+          <h3 data-i18n-html="situations-particulieres.c7.h">8. Passage à niveau : en cas de danger</h3>
+          <div data-i18n-html="situations-particulieres.c7.b"><ul><li>Un train met <strong>de longues distances à s'arrêter</strong> (souvent plus d'un kilomètre) : le mécanicien ne peut pas t'éviter.</li><li>Ne t'engage jamais si tu ne peux pas <strong>dégager</strong> de l'autre côté (file arrêtée derrière le passage).</li><li>Véhicule en panne ou bloqué sur le passage : <span class="fiche-highlight">fais descendre tout le monde</span> et éloigne-les de la voie, puis préviens (téléphone du passage ou 112/18).</li><li>On s'éloigne en <strong>s'écartant de la voie dans le sens d'arrivée du train</strong>, pour éviter les débris en cas de choc.</li><li>Barrières qui s'abaissent : on ne les franchit pas, et on ne contourne pas une barrière baissée.</li></ul></div>
+        </div>
+        <div class="section-shell" id="quiz">
+          <div class="section-heading"><div><p class="eyebrow" data-i18n-html="ui.1">Vérifie tes connaissances</p><h3 data-i18n-html="ui.2">Mini-quiz</h3></div></div>
+          <div class="sim-grid">
+            <article class="sim-card">
+              <h3 data-i18n-html="situations-particulieres.q1.t">Inter-files</h3>
+              <p data-i18n-html="situations-particulieres.q1.q">La circulation inter-files d'une moto est autorisée à une vitesse maximale de :</p>
+              <div class="sim-actions">
+                <button data-sim="particq_1" data-answer="right" data-i18n-html="situations-particulieres.q1.r">50 km/h</button>
+                <button data-sim="particq_1" data-answer="wrong" data-i18n-html="situations-particulieres.q1.w">90 km/h</button>
+              </div>
+              <p class="sim-result" id="sim-particq_1"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="situations-particulieres.q2.t">Voie de détresse</h3>
+              <p data-i18n-html="situations-particulieres.q2.q">On utilise une voie de détresse en cas de :</p>
+              <div class="sim-actions">
+                <button data-sim="particq_2" data-answer="wrong" data-i18n-html="situations-particulieres.q2.w">Envie de faire une pause</button>
+                <button data-sim="particq_2" data-answer="right" data-i18n-html="situations-particulieres.q2.r">Perte de freinage en descente</button>
+              </div>
+              <p class="sim-result" id="sim-particq_2"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="situations-particulieres.q3.t">Régulateur</h3>
+              <p data-i18n-html="situations-particulieres.q3.q">Sur sol glissant, le régulateur de vitesse est :</p>
+              <div class="sim-actions">
+                <button data-sim="particq_3" data-answer="right" data-i18n-html="situations-particulieres.q3.r">À éviter</button>
+                <button data-sim="particq_3" data-answer="wrong" data-i18n-html="situations-particulieres.q3.w">Recommandé</button>
+              </div>
+              <p class="sim-result" id="sim-particq_3"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="situations-particulieres.q4.t">Véhicule électrique</h3>
+              <p data-i18n-html="situations-particulieres.q4.q">Après un accident avec un véhicule électrique, on :</p>
+              <div class="sim-actions">
+                <button data-sim="particq_4" data-answer="wrong" data-i18n-html="situations-particulieres.q4.w">Coupe les câbles orange à mains nues</button>
+                <button data-sim="particq_4" data-answer="right" data-i18n-html="situations-particulieres.q4.r">Ne touche pas aux câbles orange</button>
+              </div>
+              <p class="sim-result" id="sim-particq_4"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="situations-particulieres.q5.t">Permis étranger</h3>
+              <p data-i18n-html="situations-particulieres.q5.q">Un permis hors UE est valable après installation en France :</p>
+              <div class="sim-actions">
+                <button data-sim="particq_5" data-answer="right" data-i18n-html="situations-particulieres.q5.r">Un an</button>
+                <button data-sim="particq_5" data-answer="wrong" data-i18n-html="situations-particulieres.q5.w">Dix ans</button>
+              </div>
+              <p class="sim-result" id="sim-particq_5"></p>
+            </article>
+            <article class="sim-card">
+              <h3 data-i18n-html="situations-particulieres.q6.t">Panne autoroute</h3>
+              <p data-i18n-html="situations-particulieres.q6.q">En panne sur autoroute, les occupants vont :</p>
+              <div class="sim-actions">
+                <button data-sim="particq_6" data-answer="wrong" data-i18n-html="situations-particulieres.q6.w">Sur la chaussée pour faire signe</button>
+                <button data-sim="particq_6" data-answer="right" data-i18n-html="situations-particulieres.q6.r">Derrière la glissière</button>
+              </div>
+              <p class="sim-result" id="sim-particq_6"></p>
+            </article>
+          </div>
+        </div>
+        <section class="fiche-card"><h3 data-i18n-html="ui.3">Questions fréquentes</h3><p><strong data-i18n-html="situations-particulieres.f0.q">Peut-on faire de l'inter-files avec un scooter 50 cm³ ?</strong><br><span data-i18n-html="situations-particulieres.f0.a">En théorie oui, mais ces scooters n'ont pas le droit d'emprunter les autoroutes ni la plupart des voies rapides où l'inter-files est permis.</span></p><p><strong data-i18n-html="situations-particulieres.f1.q">Pourquoi rétrograder avant une longue descente ?</strong><br><span data-i18n-html="situations-particulieres.f1.a">Pour que le frein moteur retienne le véhicule. Les freins, moins sollicités, ne chauffent pas et ne risquent pas de lâcher.</span></p><p><strong data-i18n-html="situations-particulieres.f2.q">Le régulateur de vitesse me dispense-t-il de regarder la route ?</strong><br><span data-i18n-html="situations-particulieres.f2.a">Non. Le conducteur reste entièrement responsable : mains sur le volant et attention à la route.</span></p></section>
+        <section class="fiche-card"><h3 data-i18n-html="ui.4">À lire aussi</h3><ul><li><a href="autoroute.html" data-i18n-html="autoroute.h1">Conduire sur autoroute : règles et bons réflexes</a></li><li><a href="permis-moto.html" data-i18n-html="permis-moto.h1">Permis moto : A1, A2 et A, quelle moto à quel âge ?</a></li><li><a href="equipements-obligatoires.html" data-i18n-html="equipements-obligatoires.h1">Équipements obligatoires et contrôle technique</a></li><li><a href="premiers-secours.html" data-i18n-html="premiers-secours.h1">Accident de la route : protéger, alerter, secourir</a></li></ul></section>
+      </section>
+      <section class="section-shell"><p><a class="button primary" href="examens.html" data-i18n-html="ui.5">S'entraîner avec un examen blanc</a> <a class="button secondary" href="fiches.html" data-i18n-html="ui.6">Toutes les fiches</a></p></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/i18n-pages.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/scenes.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector("#sim-" + button.dataset.sim);
+    const right = button.dataset.answer === "right";
+    const chapter = button.closest(".fiche-chapter");
+    if (target) {
+      target.textContent = right ? t("fiche_feedback_right") : t("fiche_feedback_wrong");
+      target.style.color = right ? "var(--green)" : "var(--red)";
+    }
+    if (chapter && typeof recordQuestionAnswer === "function") recordQuestionAnswer("fiche-" + button.dataset.sim, chapter.dataset.theme, right);
+  });
+});
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+  });
+});
+applyStaticTranslations();
+document.querySelectorAll("[data-scene]").forEach((el) => { if (typeof sceneSvg === "function") el.innerHTML = sceneSvg(el.dataset.scene); });
+</script>
+  </body>
+</html>

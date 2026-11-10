@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panneaux de services et panonceaux : liste illustrée | Routis</title>
+    <meta name="description" content="Panneaux de services (station-service, hôpital, restaurant, hôtel) et panonceaux (distance, étendue, exception) du code de la route, illustrés et expliqués." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/panneaux-services-panonceaux.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Panneaux de services et panonceaux : liste illustrée | Routis" />
+    <meta property="og:description" content="Panneaux de services (station-service, hôpital, restaurant, hôtel) et panonceaux (distance, étendue, exception) du code de la route, illustrés et expliqués." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/panneaux-services-panonceaux.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    </style>
+  <style>
+.cm-hero-img{max-width:560px;margin:0 auto 22px}
+.cm-hero-img img{width:100%;height:auto;display:block;border-radius:22px;box-shadow:0 14px 34px rgba(22,33,47,.14)}
+.cm-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:6px 0 14px}
+.cm-figs figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.cm-figs img{width:100%;height:auto;display:block}
+.cm-figs figcaption{padding:8px 12px 10px;font-weight:800;font-size:.9rem;text-align:center}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Routis", "item": "https://code-route-gratuit-routis.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Cours", "item": "https://code-route-gratuit-routis.netlify.app/cours.html"}, {"@type": "ListItem", "position": 3, "name": "Panneaux de services et panonceaux : liste illustrée", "item": "https://code-route-gratuit-routis.netlify.app/panneaux-services-panonceaux.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment bien régler son appuie-tête ?", "acceptedAnswer": {"@type": "Answer", "text": "Le bord supérieur à la hauteur du sommet de la tête, et le plus près possible de l'arrière du crâne."}}, {"@type": "Question", "name": "Qu'est-ce que la méthode hollandaise ?", "acceptedAnswer": {"@type": "Answer", "text": "On ouvre la portière avec la main éloignée de celle-ci : le buste pivote et on voit derrière, ce qui évite de heurter un cycliste."}}, {"@type": "Question", "name": "Doit-on enlever son gilet de sécurité après ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, on le garde sur soi tant qu'on reste à proximité de la route."}}]}</script>
+<style>.psigns{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin:0}.psign{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;display:grid;gap:8px;align-content:start}.psign .sign-art{width:96px;height:96px}.psign h3{font-size:1.02rem;line-height:1.25;margin:4px 0 0}.psign .pcode{color:var(--muted);font-size:.82rem;font-weight:700}.psign p{margin:0;color:var(--ink)}.psign ul{margin:0;padding-left:18px;color:var(--muted);font-size:.92rem}.psign .sign-art{margin:0}</style></head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+        <a href="reglages.html"><span data-i18n="nav_reglages">Réglages</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow"><a href="cours.html" data-i18n-html="ui.0">Cours</a> · <a href="panneaux.html">Panneaux</a></p>
+        <h1 data-i18n-html="panneaux-services-panonceaux.h1">Panneaux de services et panonceaux : liste illustrée</h1>
+        <p data-i18n-html="panneaux-services-panonceaux.intro">Station-service, hôpital, restaurant, parking... et les petits panonceaux placés sous un panneau pour préciser une distance ou une exception. Voici la liste illustrée.</p>
+      </section>
+      <section class="fiche-chapter" data-theme="route">
+        <div class="fiche-card">
+          <h3 data-i18n-html="panneaux-services-panonceaux.c0.h">Comment les reconnaître ?</h3>
+          <div data-i18n-html="panneaux-services-panonceaux.c0.b"><ul><li>Les <strong>panneaux de services</strong> indiquent un lieu utile : station-service, hôpital, restaurant, hôtel, aire de repos...</li><li>Les <strong>panonceaux</strong> sont de petits panneaux placés <span class="fiche-highlight">sous</span> un autre panneau pour le préciser : distance, étendue, exception, catégorie de véhicule.</li><li>Un panonceau seul n'a aucun sens : il se lit avec le panneau au-dessus.</li></ul></div>
+        </div>
+        <div class="fiche-card"><h2 data-i18n-html="panneaux-services-panonceaux.lh">31 panneaux à connaître</h2><div class="psigns"><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M54 30 H66 V53 H90 V65 H66 V90 H54 V65 H30 V53 H54 Z"/></g></svg></div><span class="pcode">CE1</span><h3 data-i18n-html="panneaux-services-panonceaux.s0.n">Poste de secours</h3><p data-i18n-html="panneaux-services-panonceaux.s0.t">Indique un service de secours ou de premiers soins.</p><ul data-i18n-html="panneaux-services-panonceaux.s0.k"><li>Utile sur autoroute et lieux isolés.</li><li>Ne confonds pas avec hôpital.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M39 30 H70 V92 H39 Z M70 42 H82 L91 53 V87 Q91 94 84 94 Q77 94 77 87 V66 H70" fill="none" stroke-width="7" stroke-linejoin="round"/></g></svg></div><span class="pcode">CE15a</span><h3 data-i18n-html="panneaux-services-panonceaux.s1.n">Station-service</h3><p data-i18n-html="panneaux-services-panonceaux.s1.t">Annonce une station-service ou une aire avec carburant.</p><ul data-i18n-html="panneaux-services-panonceaux.s1.k"><li>Sur autoroute, anticipe l&#x27;autonomie.</li><li>Certains panneaux précisent les énergies disponibles.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M44 30 V91 M34 30 V52 Q34 63 44 63 Q54 63 54 52 V30 M78 30 V91 M78 30 Q94 48 78 65" fill="none" stroke-width="7" stroke-linecap="round"/></g></svg></div><span class="pcode">CE16</span><h3 data-i18n-html="panneaux-services-panonceaux.s2.n">Restaurant</h3><p data-i18n-html="panneaux-services-panonceaux.s2.t">Signale un restaurant ou un point de restauration.</p><ul data-i18n-html="panneaux-services-panonceaux.s2.k"><li>Souvent accompagné de distances.</li><li>Sur aire, regarde aussi les services associés.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M38 31 H70 V91 H38 Z M78 38 V58 Q78 68 88 68 V91" fill="none" stroke-width="7" stroke-linejoin="round"/><path d="M57 43 L48 62 H59 L52 80 L72 55 H60 Z" fill="#fff" stroke="none"/></g></svg></div><span class="pcode">CE15</span><h3 data-i18n-html="panneaux-services-panonceaux.s3.n">Recharge véhicule électrique</h3><p data-i18n-html="panneaux-services-panonceaux.s3.t">Indique un point de recharge pour véhicules électriques.</p><ul data-i18n-html="panneaux-services-panonceaux.s3.k"><li>Vérifie la puissance et la disponibilité.</li><li>Planifie les arrêts sur long trajet.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M28 90 V50 H92 V90 M28 66 H50 V56 H28 M28 78 H92" fill="none" stroke-width="6" stroke-linejoin="round"/></g></svg></div><span class="pcode">CE17</span><h3 data-i18n-html="panneaux-services-panonceaux.s4.n">Hôtel</h3><p data-i18n-html="panneaux-services-panonceaux.s4.t">Indique un hôtel ou un hébergement à proximité.</p><ul data-i18n-html="panneaux-services-panonceaux.s4.k"><li>Utile pour planifier une pause longue.</li><li>Regarde les distances associées sur autoroute.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M22 85 V55 H70 L92 65 V85 Z M22 65 H70" fill="none" stroke-width="6" stroke-linejoin="round"/><circle cx="40" cy="90" r="6"/><circle cx="80" cy="90" r="6"/></g></svg></div><span class="pcode"></span><h3 data-i18n-html="panneaux-services-panonceaux.s5.n">Aire de camping-car</h3><p data-i18n-html="panneaux-services-panonceaux.s5.t">Indique une aire aménagée pour l&#x27;accueil des camping-cars.</p><ul data-i18n-html="panneaux-services-panonceaux.s5.k"><li>Vérifie les services disponibles (eau, vidange).</li><li>Certaines aires sont payantes.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><rect x="28" y="35" width="64" height="55" rx="6" fill="none" stroke-width="6"/><path d="M60 48 V78 M46 63 H74" stroke-width="7" stroke-linecap="round"/></g></svg></div><span class="pcode"></span><h3 data-i18n-html="panneaux-services-panonceaux.s6.n">Hôpital</h3><p data-i18n-html="panneaux-services-panonceaux.s6.t">Indique la présence d&#x27;un hôpital ou d&#x27;un centre de soins à proximité.</p><ul data-i18n-html="panneaux-services-panonceaux.s6.k"><li>Utile en cas d&#x27;urgence médicale.</li><li>Respecte le calme autour des établissements de santé.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><text x="52" y="80" text-anchor="middle" font-size="58" font-weight="900">P</text><circle cx="88" cy="34" r="16" fill="#f6c443" stroke="#111" stroke-width="3"/><text x="88" y="41" text-anchor="middle" font-size="18" font-weight="900" fill="#111">€</text></g></svg></div><span class="pcode">C1c</span><h3 data-i18n-html="panneaux-services-panonceaux.s7.n">Parking payant</h3><p data-i18n-html="panneaux-services-panonceaux.s7.t">Indique un parking dont l&#x27;utilisation est soumise à paiement.</p><ul data-i18n-html="panneaux-services-panonceaux.s7.k"><li>Vérifie les horaires et tarifs affichés.</li><li>Garde ton ticket bien visible si demandé.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><circle cx="60" cy="34" r="8"/><rect x="52" y="50" width="16" height="40" rx="4"/></g></svg></div><span class="pcode">CE3a</span><h3 data-i18n-html="panneaux-services-panonceaux.s8.n">Information touristique</h3><p data-i18n-html="panneaux-services-panonceaux.s8.t">Indique un point d&#x27;information touristique à proximité.</p><ul data-i18n-html="panneaux-services-panonceaux.s8.k"><li>Utile pour obtenir une carte locale.</li><li>Souvent situé près des centres-villes.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M25 55 H95 M35 55 V90 M85 55 V90 M25 45 L95 45" fill="none" stroke-width="6" stroke-linecap="round"/></g></svg></div><span class="pcode">CE7</span><h3 data-i18n-html="panneaux-services-panonceaux.s9.n">Aire de pique-nique</h3><p data-i18n-html="panneaux-services-panonceaux.s9.t">Indique un espace aménagé pour pique-niquer en bord de route.</p><ul data-i18n-html="panneaux-services-panonceaux.s9.k"><li>Bon endroit pour une pause repas.</li><li>Pense à repartir sans laisser de déchets.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="12" y="40" width="96" height="40" rx="4" fill="#fff" stroke="#111" stroke-width="6"/><g><text x="60" y="70" text-anchor="middle" font-size="24" font-weight="900" fill="#111">150 m</text></g></svg></div><span class="pcode">M1</span><h3 data-i18n-html="panneaux-services-panonceaux.s10.n">Panonceau de distance</h3><p data-i18n-html="panneaux-services-panonceaux.s10.t">Indique la distance entre le panneau et le début du danger ou de la prescription qu&#x27;il annonce.</p><ul data-i18n-html="panneaux-services-panonceaux.s10.k"><li>Anticipe le danger annoncé dès la lecture du panonceau.</li><li>Le décompte commence à cet endroit précis.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="12" y="40" width="96" height="40" rx="4" fill="#fff" stroke="#111" stroke-width="6"/><g><path d="M20 52 H100 M20 52 L30 44 M20 52 L30 60 M100 52 L90 44 M100 52 L90 60" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><text x="60" y="82" text-anchor="middle" font-size="18" font-weight="900" fill="#111">3 km</text></g></svg></div><span class="pcode">M2</span><h3 data-i18n-html="panneaux-services-panonceaux.s11.n">Panonceau d&#x27;étendue</h3><p data-i18n-html="panneaux-services-panonceaux.s11.t">Indique la longueur de la zone concernée par le danger ou la prescription, par exemple 3 km.</p><ul data-i18n-html="panneaux-services-panonceaux.s11.k"><li>La prescription s&#x27;applique sur toute la distance indiquée.</li><li>Reste attentif jusqu&#x27;à la fin de la zone.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="12" y="40" width="96" height="40" rx="4" fill="#fff" stroke="#111" stroke-width="6"/><g><path d="M35 35 L85 85 M85 85 L85 60 M85 85 L60 85" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">M3a</span><h3 data-i18n-html="panneaux-services-panonceaux.s12.n">Panonceau de position (voies concernées)</h3><p data-i18n-html="panneaux-services-panonceaux.s12.t">Indique la voie ou les voies sur lesquelles s&#x27;applique la prescription du panneau, grâce à des flèches.</p><ul data-i18n-html="panneaux-services-panonceaux.s12.k"><li>Regarde bien la flèche du panonceau.</li><li>La règle ne s&#x27;applique pas forcément à toutes les voies.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="12" y="40" width="96" height="40" rx="4" fill="#fff" stroke="#111" stroke-width="6"/><g><circle cx="35" cy="82" r="12" fill="none" stroke="#111" stroke-width="5"/><circle cx="73" cy="82" r="12" fill="none" stroke="#111" stroke-width="5"/><path d="M35 82 L49 60 L60 82 L43 82 M49 60 H64" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">M4d1</span><h3 data-i18n-html="panneaux-services-panonceaux.s13.n">Panonceau cycles</h3><p data-i18n-html="panneaux-services-panonceaux.s13.t">Indique que la prescription du panneau principal concerne les cycles (vélos).</p><ul data-i18n-html="panneaux-services-panonceaux.s13.k"><li>Vérifie si les cycles sont concernés par la règle.</li><li>Cela peut ajouter ou retirer une exception.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="12" y="40" width="96" height="40" rx="4" fill="#fff" stroke="#111" stroke-width="6"/><g><text x="60" y="72" text-anchor="middle" font-size="22" font-weight="900" fill="#111">SAUF</text></g></svg></div><span class="pcode">M9z</span><h3 data-i18n-html="panneaux-services-panonceaux.s14.n">Panonceau sauf riverains</h3><p data-i18n-html="panneaux-services-panonceaux.s14.t">Exempte les riverains de l&#x27;interdiction indiquée par le panneau principal.</p><ul data-i18n-html="panneaux-services-panonceaux.s14.k"><li>Ne s&#x27;applique pas si tu n&#x27;es pas riverain.</li><li>C&#x27;est une exception locale, pas une règle générale.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M40 35 Q52 30 57 42 Q59 48 53 51 Q60 68 78 76 Q80 70 86 72 Q94 76 90 85 Q82 92 68 84 Q47 72 36 52 Q32 42 40 35 Z" fill="none" stroke-width="6" stroke-linejoin="round"/></g></svg></div><span class="pcode">CE2b</span><h3 data-i18n-html="panneaux-services-panonceaux.s15.n">Téléphone</h3><p data-i18n-html="panneaux-services-panonceaux.s15.t">Indique la présence d&#x27;un téléphone public à proximité.</p><ul data-i18n-html="panneaux-services-panonceaux.s15.k"><li>Utile en cas de panne sans réseau mobile.</li><li>De moins en moins fréquent avec la généralisation des portables.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M60 25 L95 92 H25 Z" fill="none" stroke-width="7" stroke-linejoin="round"/><path d="M60 25 V92" stroke-width="5"/></g></svg></div><span class="pcode"></span><h3 data-i18n-html="panneaux-services-panonceaux.s16.n">Camping</h3><p data-i18n-html="panneaux-services-panonceaux.s16.t">Indique un terrain de camping aménagé à proximité.</p><ul data-i18n-html="panneaux-services-panonceaux.s16.k"><li>Utile pour planifier une étape sur un long trajet.</li><li>Vérifie les équipements disponibles sur place.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M22 85 V55 H70 L92 65 V85 Z M22 65 H70" fill="none" stroke-width="6" stroke-linejoin="round"/><circle cx="40" cy="90" r="6"/><circle cx="80" cy="90" r="6"/></g></svg></div><span class="pcode"></span><h3 data-i18n-html="panneaux-services-panonceaux.s17.n">Aire pour caravanes et camping-cars</h3><p data-i18n-html="panneaux-services-panonceaux.s17.t">Indique un espace aménagé pour accueillir caravanes et camping-cars.</p><ul data-i18n-html="panneaux-services-panonceaux.s17.k"><li>Vérifie les services disponibles (eau, électricité).</li><li>Certaines aires sont payantes.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M25 70 H95 M35 70 V90 M50 70 V90 M65 70 V90 M80 70 V90" stroke-width="6" stroke-linecap="round"/><path d="M60 20 V60 M60 20 L84 30 L60 40" fill="none" stroke-width="6" stroke-linejoin="round"/></g></svg></div><span class="pcode">CE10</span><h3 data-i18n-html="panneaux-services-panonceaux.s18.n">Embarcadère</h3><p data-i18n-html="panneaux-services-panonceaux.s18.t">Indique un embarcadère, point d&#x27;embarquement pour les bateaux.</p><ul data-i18n-html="panneaux-services-panonceaux.s18.k"><li>Utile pour rejoindre un embarquement.</li><li>Vérifie les horaires si tu prends un ferry.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M42 30 H78 L70 90 H50 Z" fill="none" stroke-width="6" stroke-linejoin="round"/><path d="M46 45 H74" stroke-width="5"/></g></svg></div><span class="pcode">CE18</span><h3 data-i18n-html="panneaux-services-panonceaux.s19.n">Buvette</h3><p data-i18n-html="panneaux-services-panonceaux.s19.t">Indique un point de vente de boissons à proximité.</p><ul data-i18n-html="panneaux-services-panonceaux.s19.k"><li>Utile pour une pause hydratation rapide.</li><li>Souvent présent sur les aires ou lieux touristiques.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><circle cx="55" cy="30" r="8"/><path d="M55 40 L42 58 L52 68 L46 92 M55 42 L70 50 L64 68 M52 68 L70 76" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">CE6a</span><h3 data-i18n-html="panneaux-services-panonceaux.s20.n">Départ de randonnée pédestre</h3><p data-i18n-html="panneaux-services-panonceaux.s20.t">Indique le point de départ d&#x27;un sentier de randonnée balisé.</p><ul data-i18n-html="panneaux-services-panonceaux.s20.k"><li>Vérifie la difficulté et la durée du parcours.</li><li>Prévois de l&#x27;eau et des chaussures adaptées.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M20 85 L45 45 L62 70 L78 42 L100 85 Z" fill="none" stroke-width="6" stroke-linejoin="round"/><circle cx="85" cy="30" r="8"/></g></svg></div><span class="pcode">CE21</span><h3 data-i18n-html="panneaux-services-panonceaux.s21.n">Point de vue ou panorama</h3><p data-i18n-html="panneaux-services-panonceaux.s21.t">Indique un lieu aménagé offrant une vue remarquable.</p><ul data-i18n-html="panneaux-services-panonceaux.s21.k"><li>Bon endroit pour une pause photo.</li><li>Gare-toi uniquement sur les emplacements prévus.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><circle cx="34" cy="30" r="8"/><path d="M34 40 L28 62 M34 42 L44 55 M28 62 L20 90 M28 62 L40 90" fill="none" stroke-width="5" stroke-linecap="round"/><path d="M65 30 V90 M65 30 L95 45 L65 60" fill="none" stroke-width="6" stroke-linejoin="round"/></g></svg></div><span class="pcode">CE23</span><h3 data-i18n-html="panneaux-services-panonceaux.s22.n">Aire de jeux pour enfants</h3><p data-i18n-html="panneaux-services-panonceaux.s22.t">Indique un espace aménagé avec des jeux pour enfants.</p><ul data-i18n-html="panneaux-services-panonceaux.s22.k"><li>Bonne option pour une pause en famille sur un long trajet.</li><li>Reste attentif aux enfants traversant à proximité.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><circle cx="42" cy="28" r="8"/><rect x="34" y="40" width="16" height="30" rx="3"/><circle cx="80" cy="28" r="8" fill="none" stroke-width="5"/><path d="M80 40 L72 56 H88 L83 92 M77 56 L74 92" fill="none" stroke-width="5" stroke-linecap="round"/></g></svg></div><span class="pcode">CE12</span><h3 data-i18n-html="panneaux-services-panonceaux.s23.n">Sanitaires publics</h3><p data-i18n-html="panneaux-services-panonceaux.s23.t">Indique la présence de toilettes publiques à proximité.</p><ul data-i18n-html="panneaux-services-panonceaux.s23.k"><li>Utile à anticiper avant un long trajet sans arrêt.</li><li>Souvent présent sur les aires de repos et de service.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="10" y="10" width="100" height="100" rx="8" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M28 90 V50 H92 V90 M28 66 H50 V56 H28 M28 78 H92" fill="none" stroke-width="6" stroke-linejoin="round"/></g></svg></div><span class="pcode"></span><h3 data-i18n-html="panneaux-services-panonceaux.s24.n">Gîte ou chambre d&#x27;hôtes</h3><p data-i18n-html="panneaux-services-panonceaux.s24.t">Indique un hébergement de type gîte ou chambre d&#x27;hôtes à proximité.</p><ul data-i18n-html="panneaux-services-panonceaux.s24.k"><li>Utile pour planifier une étape hors des grands axes.</li><li>Vérifie la disponibilité avant de t&#x27;y rendre.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="12" y="40" width="96" height="40" rx="4" fill="#fff" stroke="#111" stroke-width="6"/><g><path d="M28 68 L36 50 H84 L92 68 Z" fill="none" stroke="#111" stroke-width="6" stroke-linejoin="round"/><circle cx="42" cy="74" r="6" fill="#111"/><circle cx="78" cy="74" r="6" fill="#111"/></g></svg></div><span class="pcode">M4a</span><h3 data-i18n-html="panneaux-services-panonceaux.s25.n">Panonceau véhicules à moteur</h3><p data-i18n-html="panneaux-services-panonceaux.s25.t">Précise que la prescription du panneau principal s&#x27;applique aux véhicules à moteur.</p><ul data-i18n-html="panneaux-services-panonceaux.s25.k"><li>Vérifie si ton véhicule est bien concerné.</li><li>Peut ajouter ou retirer une exception selon le contexte.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="12" y="40" width="96" height="40" rx="4" fill="#fff" stroke="#111" stroke-width="6"/><g><rect x="24" y="50" width="38" height="26" fill="none" stroke="#111" stroke-width="6"/><path d="M62 58 H82 L92 70 V76 H62 Z" fill="none" stroke="#111" stroke-width="6" stroke-linejoin="round"/><circle cx="40" cy="82" r="6" fill="#111"/><circle cx="80" cy="82" r="6" fill="#111"/></g></svg></div><span class="pcode">M4g</span><h3 data-i18n-html="panneaux-services-panonceaux.s26.n">Panonceau véhicules de marchandises</h3><p data-i18n-html="panneaux-services-panonceaux.s26.t">Précise que la prescription du panneau principal concerne les véhicules de transport de marchandises.</p><ul data-i18n-html="panneaux-services-panonceaux.s26.k"><li>Vérifie le tonnage de ton véhicule si tu conduis un utilitaire.</li><li>La règle peut ne pas s&#x27;appliquer aux autres véhicules.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="12" y="40" width="96" height="40" rx="4" fill="#fff" stroke="#111" stroke-width="6"/><g><rect x="26" y="45" width="68" height="35" rx="6" fill="none" stroke="#111" stroke-width="6"/><circle cx="42" cy="88" r="6" fill="#111"/><circle cx="78" cy="88" r="6" fill="#111"/></g></svg></div><span class="pcode">M4b</span><h3 data-i18n-html="panneaux-services-panonceaux.s27.n">Panonceau transports en commun</h3><p data-i18n-html="panneaux-services-panonceaux.s27.t">Précise que la prescription du panneau principal concerne les véhicules de transport en commun (autobus, autocars).</p><ul data-i18n-html="panneaux-services-panonceaux.s27.k"><li>Utile aux conducteurs de transport en commun.</li><li>Vérifie si la règle s&#x27;applique à ton type de véhicule.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="12" y="40" width="96" height="40" rx="4" fill="#fff" stroke="#111" stroke-width="6"/><g><text x="60" y="72" text-anchor="middle" font-size="22" font-weight="900" fill="#111">SAUF</text></g></svg></div><span class="pcode">M9z</span><h3 data-i18n-html="panneaux-services-panonceaux.s28.n">Panonceau sauf transports scolaires</h3><p data-i18n-html="panneaux-services-panonceaux.s28.t">Exempte les véhicules de transport scolaire de l&#x27;interdiction indiquée par le panneau principal.</p><ul data-i18n-html="panneaux-services-panonceaux.s28.k"><li>Ne s&#x27;applique pas si tu ne conduis pas un véhicule scolaire.</li><li>C&#x27;est une exception locale, pas une règle générale.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="12" y="40" width="96" height="40" rx="4" fill="#fff" stroke="#111" stroke-width="6"/><g><text x="60" y="72" text-anchor="middle" font-size="22" font-weight="900" fill="#111">SAUF</text></g></svg></div><span class="pcode">M9z</span><h3 data-i18n-html="panneaux-services-panonceaux.s29.n">Panonceau sauf desserte locale</h3><p data-i18n-html="panneaux-services-panonceaux.s29.t">Exempte les véhicules qui desservent le secteur local de l&#x27;interdiction indiquée.</p><ul data-i18n-html="panneaux-services-panonceaux.s29.k"><li>Concerne les riverains et les livraisons locales.</li><li>Ne t&#x27;y fie pas si tu es seulement de passage.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><rect x="12" y="40" width="96" height="40" rx="4" fill="#fff" stroke="#111" stroke-width="6"/><g><text x="60" y="72" text-anchor="middle" font-size="22" font-weight="900" fill="#111">SAUF</text></g></svg></div><span class="pcode">M9z</span><h3 data-i18n-html="panneaux-services-panonceaux.s30.n">Panonceau sauf livraisons</h3><p data-i18n-html="panneaux-services-panonceaux.s30.t">Exempte les véhicules de livraison de l&#x27;interdiction indiquée par le panneau principal, souvent pour un stationnement bref.</p><ul data-i18n-html="panneaux-services-panonceaux.s30.k"><li>Ne s&#x27;applique pas si tu n&#x27;effectués pas de livraison.</li><li>Reste bref pour ne pas gêner la circulation.</li></ul></article></div></div>
+        <section class="fiche-card"><h3 data-i18n-html="ui.3">Questions fréquentes</h3><p><strong data-i18n-html="panneaux-services-panonceaux.f0.q">À quoi sert un panonceau ?</strong><br><span data-i18n-html="panneaux-services-panonceaux.f0.a">À préciser le panneau placé au-dessus : distance, étendue ou exception.</span></p></section>
+        <section class="fiche-card"><h3 data-i18n-html="ui.4">À lire aussi</h3><ul><li><a href="panneaux.html" data-i18n-html="panneaux-services-panonceaux.all">Tous les panneaux illustrés</a></li><li><a href="panneaux-de-danger.html" data-i18n-html="panneaux-de-danger.h1">Panneaux de danger : liste illustrée et signification</a></li><li><a href="panneaux-d-interdiction.html" data-i18n-html="panneaux-d-interdiction.h1">Panneaux d&#x27;interdiction : liste illustrée et signification</a></li><li><a href="panneaux-d-obligation.html" data-i18n-html="panneaux-d-obligation.h1">Panneaux d&#x27;obligation : liste illustrée et signification</a></li><li><a href="panneaux-de-priorite.html" data-i18n-html="panneaux-de-priorite.h1">Panneaux de priorité : stop, cédez le passage, route prioritaire</a></li></ul></section>
+      </section>
+      <section class="section-shell"><p><a class="button primary" href="panneaux.html" data-i18n-html="panneaux-services-panonceaux.cta">S'entraîner sur les panneaux</a> <a class="button secondary" href="jeu-trie-panneaux.html" data-i18n-html="panneaux-services-panonceaux.cta2">Jeu : trier les panneaux</a></p></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/i18n-pages.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/scenes.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector("#sim-" + button.dataset.sim);
+    const right = button.dataset.answer === "right";
+    const chapter = button.closest(".fiche-chapter");
+    if (target) {
+      target.textContent = right ? t("fiche_feedback_right") : t("fiche_feedback_wrong");
+      target.style.color = right ? "var(--green)" : "var(--red)";
+    }
+    if (chapter && typeof recordQuestionAnswer === "function") recordQuestionAnswer("fiche-" + button.dataset.sim, chapter.dataset.theme, right);
+  });
+});
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+  });
+});
+applyStaticTranslations();
+document.querySelectorAll("[data-scene]").forEach((el) => { if (typeof sceneSvg === "function") el.innerHTML = sceneSvg(el.dataset.scene); });
+</script>
+  </body>
+</html>

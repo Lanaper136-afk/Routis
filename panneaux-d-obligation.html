@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panneaux d&#x27;obligation : liste illustrée et sens | Routis</title>
+    <meta name="description" content="Tous les panneaux d&#x27;obligation du code de la route, illustrés : direction obligatoire, piste cyclable, vitesse minimale, chaînes à neige... Leur signification." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/panneaux-d-obligation.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Panneaux d&#x27;obligation : liste illustrée et sens | Routis" />
+    <meta property="og:description" content="Tous les panneaux d&#x27;obligation du code de la route, illustrés : direction obligatoire, piste cyclable, vitesse minimale, chaînes à neige... Leur signification." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/panneaux-d-obligation.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    </style>
+  <style>
+.cm-hero-img{max-width:560px;margin:0 auto 22px}
+.cm-hero-img img{width:100%;height:auto;display:block;border-radius:22px;box-shadow:0 14px 34px rgba(22,33,47,.14)}
+.cm-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:6px 0 14px}
+.cm-figs figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.cm-figs img{width:100%;height:auto;display:block}
+.cm-figs figcaption{padding:8px 12px 10px;font-weight:800;font-size:.9rem;text-align:center}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Routis", "item": "https://code-route-gratuit-routis.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Cours", "item": "https://code-route-gratuit-routis.netlify.app/cours.html"}, {"@type": "ListItem", "position": 3, "name": "Panneaux d'obligation : liste illustrée et signification", "item": "https://code-route-gratuit-routis.netlify.app/panneaux-d-obligation.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment bien régler son appuie-tête ?", "acceptedAnswer": {"@type": "Answer", "text": "Le bord supérieur à la hauteur du sommet de la tête, et le plus près possible de l'arrière du crâne."}}, {"@type": "Question", "name": "Qu'est-ce que la méthode hollandaise ?", "acceptedAnswer": {"@type": "Answer", "text": "On ouvre la portière avec la main éloignée de celle-ci : le buste pivote et on voit derrière, ce qui évite de heurter un cycliste."}}, {"@type": "Question", "name": "Doit-on enlever son gilet de sécurité après ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, on le garde sur soi tant qu'on reste à proximité de la route."}}]}</script>
+<style>.psigns{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin:0}.psign{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;display:grid;gap:8px;align-content:start}.psign .sign-art{width:96px;height:96px}.psign h3{font-size:1.02rem;line-height:1.25;margin:4px 0 0}.psign .pcode{color:var(--muted);font-size:.82rem;font-weight:700}.psign p{margin:0;color:var(--ink)}.psign ul{margin:0;padding-left:18px;color:var(--muted);font-size:.92rem}.psign .sign-art{margin:0}</style></head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+        <a href="reglages.html"><span data-i18n="nav_reglages">Réglages</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow"><a href="cours.html" data-i18n-html="ui.0">Cours</a> · <a href="panneaux.html">Panneaux</a></p>
+        <h1 data-i18n-html="panneaux-d-obligation.h1">Panneaux d&#x27;obligation : liste illustrée et signification</h1>
+        <p data-i18n-html="panneaux-d-obligation.intro">Les panneaux d&#x27;obligation t&#x27;imposent un comportement : tourner, rouler sur une piste cyclable, mettre des chaînes... Voici la liste illustrée avec leur signification.</p>
+      </section>
+      <section class="fiche-chapter" data-theme="route">
+        <div class="fiche-card">
+          <h3 data-i18n-html="panneaux-d-obligation.c0.h">Comment les reconnaître ?</h3>
+          <div data-i18n-html="panneaux-d-obligation.c0.b"><ul><li>Les panneaux d'obligation sont des <strong>disques à fond bleu</strong> avec un symbole blanc.</li><li>Ils <span class="fiche-highlight">imposent</span> un comportement : direction obligatoire, piste cyclable, vitesse minimale, chaînes à neige...</li><li>Un panneau de fin d'obligation indique que la règle cesse de s'appliquer.</li></ul></div>
+        </div>
+        <div class="fiche-card"><h2 data-i18n-html="panneaux-d-obligation.lh">19 panneaux à connaître</h2><div class="psigns"><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><circle cx="39" cy="77" r="14" fill="none" stroke-width="6"/><circle cx="81" cy="77" r="14" fill="none" stroke-width="6"/><path d="M39 77 L55 55 L66 77 L49 77 M55 55 H70" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">B22a</span><h3 data-i18n-html="panneaux-d-obligation.s0.n">Piste cyclable obligatoire</h3><p data-i18n-html="panneaux-d-obligation.s0.t">Les cyclistes doivent utiliser l&#x27;aménagement signalé.</p><ul data-i18n-html="panneaux-d-obligation.s0.k"><li>Respecte la séparation des usagers.</li><li>En voiture, ne stationne pas sur la piste.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><circle cx="60" cy="60" r="26" fill="none" stroke-width="7"/><circle cx="60" cy="60" r="7" stroke-width="2"/><path d="M60 24 V34 M60 86 V96 M24 60 H34 M86 60 H96 M34.5 34.5 L41.5 41.5 M78.5 78.5 L85.5 85.5 M85.5 34.5 L78.5 41.5 M41.5 78.5 L34.5 85.5" fill="none" stroke-width="6" stroke-linecap="round"/></g></svg></div><span class="pcode">B26</span><h3 data-i18n-html="panneaux-d-obligation.s1.n">Chaînes à neige obligatoires</h3><p data-i18n-html="panneaux-d-obligation.s1.t">Les équipements spécifiques sont obligatoires sur la section signalée.</p><ul data-i18n-html="panneaux-d-obligation.s1.k"><li>Équipe-toi avant d&#x27;être bloqué.</li><li>Respecte la signalisation temporaire en montagne.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><text x="60" y="74" text-anchor="middle" font-size="36" font-weight="900" fill="#fff" stroke="none">30</text></g></svg></div><span class="pcode">B25</span><h3 data-i18n-html="panneaux-d-obligation.s2.n">Vitesse minimale obligatoire</h3><p data-i18n-html="panneaux-d-obligation.s2.t">Tu dois circuler au moins à la vitesse indiquée si les conditions le permettent.</p><ul data-i18n-html="panneaux-d-obligation.s2.k"><li>Ne force pas si la sécurité impose moins.</li><li>Fréquent sur certaines voies rapides.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M28 60 H92 M92 60 L71 39 M92 60 L71 81" fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">B21c1</span><h3 data-i18n-html="panneaux-d-obligation.s3.n">Direction obligatoire à droite</h3><p data-i18n-html="panneaux-d-obligation.s3.t">Oblige à tourner à droite à la prochaine intersection.</p><ul data-i18n-html="panneaux-d-obligation.s3.k"><li>Prépare ton clignotant à l&#x27;avance.</li><li>Respecte la trajectoire indiquée.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M92 60 H28 M28 60 L49 39 M28 60 L49 81" fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">B21c2</span><h3 data-i18n-html="panneaux-d-obligation.s4.n">Direction obligatoire à gauche</h3><p data-i18n-html="panneaux-d-obligation.s4.t">Oblige à tourner à gauche à la prochaine intersection.</p><ul data-i18n-html="panneaux-d-obligation.s4.k"><li>Prépare ton clignotant à l&#x27;avance.</li><li>Respecte la trajectoire indiquée.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><circle cx="40" cy="85" r="11" fill="none" stroke-width="5"/><circle cx="80" cy="85" r="11" fill="none" stroke-width="5"/><path d="M40 85 L54 62 L65 85 M54 62 H70" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M30 35 H90 M90 35 L82 28 M90 35 L82 42" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M90 45 H30 M30 45 L38 38 M30 45 L38 52" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode"></span><h3 data-i18n-html="panneaux-d-obligation.s5.n">Double sens cyclable</h3><p data-i18n-html="panneaux-d-obligation.s5.t">Signale une voie où les cyclistes peuvent circuler dans les deux sens.</p><ul data-i18n-html="panneaux-d-obligation.s5.k"><li>Sois attentif aux cyclistes venant en face.</li><li>Laisse une distance latérale suffisante.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M20 60 H100" stroke-width="4" stroke-dasharray="6 6"/><circle cx="45" cy="35" r="8"/><path d="M45 45 L40 60 M45 47 L54 55" fill="none" stroke-width="5" stroke-linecap="round"/><circle cx="70" cy="90" r="10" fill="none" stroke-width="5"/><path d="M70 90 L80 72 L88 90 M80 72 H92" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode"></span><h3 data-i18n-html="panneaux-d-obligation.s6.n">Piste cyclable et voie piétonne séparées</h3><p data-i18n-html="panneaux-d-obligation.s6.t">Indique une voie mixte où cyclistes et piétons circulent sur des espaces séparés.</p><ul data-i18n-html="panneaux-d-obligation.s6.k"><li>Respecte la partie qui te concerne.</li><li>Reste attentif aux traversées.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><circle cx="40" cy="35" r="8"/><path d="M40 45 L34 62 M40 47 L50 56" fill="none" stroke-width="5" stroke-linecap="round"/><circle cx="78" cy="80" r="10" fill="none" stroke-width="5"/><path d="M78 80 L88 62 L96 80 M88 62 H100" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode"></span><h3 data-i18n-html="panneaux-d-obligation.s7.n">Piste cyclable et voie piétonne non séparées</h3><p data-i18n-html="panneaux-d-obligation.s7.t">Indique une voie mixte partagée entre cyclistes et piétons, sans séparation.</p><ul data-i18n-html="panneaux-d-obligation.s7.k"><li>Adapte ta vitesse à vélo près des piétons.</li><li>Reste vigilant, l&#x27;espace est partagé.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><circle cx="60" cy="35" r="9"/><path d="M60 47 L52 72 L38 96 M60 49 L75 65 M55 71 L80 97" fill="none" stroke-width="6" stroke-linecap="round"/></g></svg></div><span class="pcode">B22b</span><h3 data-i18n-html="panneaux-d-obligation.s8.n">Chemin obligatoire pour piétons</h3><p data-i18n-html="panneaux-d-obligation.s8.t">Oblige les piétons à emprunter ce chemin plutôt que la chaussée.</p><ul data-i18n-html="panneaux-d-obligation.s8.k"><li>Utile près des routes sans trottoir.</li><li>Reste sur le chemin balisé autant que possible.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><rect x="30" y="35" width="60" height="45" rx="7" fill="none" stroke-width="7"/><circle cx="43" cy="85" r="5"/><circle cx="77" cy="85" r="5"/><path d="M38 50 H82" stroke-width="6"/></g></svg></div><span class="pcode">B27a</span><h3 data-i18n-html="panneaux-d-obligation.s9.n">Voie réservée aux transports en commun</h3><p data-i18n-html="panneaux-d-obligation.s9.t">Oblige les transports en commun à utiliser cette voie dédiée.</p><ul data-i18n-html="panneaux-d-obligation.s9.k"><li>Ne t&#x27;engage pas sur cette voie en voiture.</li><li>Laisse la priorité aux bus qui en sortent.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M88 32 L36 84 M62 86 H34 V58" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">B21a2</span><h3 data-i18n-html="panneaux-d-obligation.s10.n">Contournement obligatoire par la gauche</h3><p data-i18n-html="panneaux-d-obligation.s10.t">Oblige à contourner l&#x27;obstacle ou le terre-plein par la gauche.</p><ul data-i18n-html="panneaux-d-obligation.s10.k"><li>Suis le sens indiqué par la flèche.</li><li>Ne coupe pas la trajectoire des autres usagers.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M60 92 V28 M60 28 L39 50 M60 28 L81 50" fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">B21b</span><h3 data-i18n-html="panneaux-d-obligation.s11.n">Direction obligatoire tout droit</h3><p data-i18n-html="panneaux-d-obligation.s11.t">Oblige à continuer tout droit à la prochaine intersection.</p><ul data-i18n-html="panneaux-d-obligation.s11.k"><li>Ne tourne ni à droite ni à gauche à cet endroit.</li><li>Reste sur la voie appropriée à l&#x27;approche.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M28 60 H92 M92 60 L71 39 M92 60 L71 81" fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">B21d1</span><h3 data-i18n-html="panneaux-d-obligation.s12.n">Direction obligatoire à droite ou tout droit</h3><p data-i18n-html="panneaux-d-obligation.s12.t">Oblige à continuer tout droit ou à tourner à droite à la prochaine intersection.</p><ul data-i18n-html="panneaux-d-obligation.s12.k"><li>Choisis ta voie selon la direction souhaitée.</li><li>Ne tourne jamais à gauche à cet endroit.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M92 60 H28 M28 60 L49 39 M28 60 L49 81" fill="none" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">B21d2</span><h3 data-i18n-html="panneaux-d-obligation.s13.n">Direction obligatoire à gauche ou tout droit</h3><p data-i18n-html="panneaux-d-obligation.s13.t">Oblige à continuer tout droit ou à tourner à gauche à la prochaine intersection.</p><ul data-i18n-html="panneaux-d-obligation.s13.k"><li>Choisis ta voie selon la direction souhaitée.</li><li>Ne tourne jamais à droite à cet endroit.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M32 32 L84 84 M58 86 H86 V58" fill="none" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">B21a1</span><h3 data-i18n-html="panneaux-d-obligation.s14.n">Contournement obligatoire par la droite</h3><p data-i18n-html="panneaux-d-obligation.s14.t">Oblige à contourner l&#x27;obstacle ou le terre-plein par la droite.</p><ul data-i18n-html="panneaux-d-obligation.s14.k"><li>Suis le sens indiqué par la flèche.</li><li>Ne coupe pas la trajectoire des autres usagers.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><circle cx="39" cy="77" r="14" fill="none" stroke-width="6"/><circle cx="81" cy="77" r="14" fill="none" stroke-width="6"/><path d="M39 77 L55 55 L66 77 L49 77 M55 55 H70" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 92 L96 28" stroke="#d62430" stroke-width="8" stroke-linecap="round" fill="none"/></g></svg></div><span class="pcode">B40</span><h3 data-i18n-html="panneaux-d-obligation.s15.n">Fin de piste cyclable obligatoire</h3><p data-i18n-html="panneaux-d-obligation.s15.t">Signale la fin de l&#x27;obligation pour les cyclistes d&#x27;utiliser la piste cyclable.</p><ul data-i18n-html="panneaux-d-obligation.s15.k"><li>Les cyclistes peuvent revenir sur la chaussée.</li><li>Automobilistes, redouble d&#x27;attention en les croisant.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><rect x="30" y="35" width="60" height="45" rx="7" fill="none" stroke-width="7"/><circle cx="43" cy="85" r="5"/><circle cx="77" cy="85" r="5"/><path d="M38 50 H82" stroke-width="6"/><path d="M24 92 L96 28" stroke="#d62430" stroke-width="8" stroke-linecap="round" fill="none"/></g></svg></div><span class="pcode">B45</span><h3 data-i18n-html="panneaux-d-obligation.s16.n">Fin de voie réservée aux transports en commun</h3><p data-i18n-html="panneaux-d-obligation.s16.t">Signale la fin de la voie dédiée aux transports en commun.</p><ul data-i18n-html="panneaux-d-obligation.s16.k"><li>La voie redevient accessible à tous.</li><li>Reste attentif aux bus qui s&#x27;y rabattent.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M60 25 V95 M35 38 L85 82 M85 38 L35 82" fill="none" stroke-width="8" stroke-linecap="round"/><path d="M24 92 L96 28" stroke="#d62430" stroke-width="8" stroke-linecap="round" fill="none"/></g></svg></div><span class="pcode">B44</span><h3 data-i18n-html="panneaux-d-obligation.s17.n">Fin de l&#x27;obligation des chaînes à neige</h3><p data-i18n-html="panneaux-d-obligation.s17.t">Signale la fin de la section où les chaînes ou équipements neige étaient obligatoires.</p><ul data-i18n-html="panneaux-d-obligation.s17.k"><li>Tu peux retirer tes chaînes si les conditions le permettent.</li><li>Reste prudent, la route peut rester glissante.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><circle cx="60" cy="60" r="52" fill="#1769e0"/><g fill="#fff" stroke="#fff"><path d="M30 90 L34 60 Q36 42 52 38 L66 30 L74 38 L64 44 Q76 46 80 60 L84 90 M40 90 L38 100 M72 90 L76 100 M50 38 L46 24" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">B22c</span><h3 data-i18n-html="panneaux-d-obligation.s18.n">Chemin obligatoire pour cavaliers</h3><p data-i18n-html="panneaux-d-obligation.s18.t">Oblige les cavaliers à emprunter ce chemin plutôt que la chaussée.</p><ul data-i18n-html="panneaux-d-obligation.s18.k"><li>Utile près des routes sans bas-côté adapté.</li><li>Reste sur le chemin balisé autant que possible.</li></ul></article></div></div>
+        <section class="fiche-card"><h3 data-i18n-html="ui.3">Questions fréquentes</h3><p><strong data-i18n-html="panneaux-d-obligation.f0.q">Quelle est la couleur d&#x27;un panneau d&#x27;obligation ?</strong><br><span data-i18n-html="panneaux-d-obligation.f0.a">Un disque à fond bleu avec un symbole blanc.</span></p></section>
+        <section class="fiche-card"><h3 data-i18n-html="ui.4">À lire aussi</h3><ul><li><a href="panneaux.html" data-i18n-html="panneaux-d-obligation.all">Tous les panneaux illustrés</a></li><li><a href="panneaux-de-danger.html" data-i18n-html="panneaux-de-danger.h1">Panneaux de danger : liste illustrée et signification</a></li><li><a href="panneaux-d-interdiction.html" data-i18n-html="panneaux-d-interdiction.h1">Panneaux d&#x27;interdiction : liste illustrée et signification</a></li><li><a href="panneaux-de-priorite.html" data-i18n-html="panneaux-de-priorite.h1">Panneaux de priorité : stop, cédez le passage, route prioritaire</a></li><li><a href="panneaux-d-indication.html" data-i18n-html="panneaux-d-indication.h1">Panneaux d&#x27;indication : liste illustrée et signification</a></li></ul></section>
+      </section>
+      <section class="section-shell"><p><a class="button primary" href="panneaux.html" data-i18n-html="panneaux-d-obligation.cta">S'entraîner sur les panneaux</a> <a class="button secondary" href="jeu-trie-panneaux.html" data-i18n-html="panneaux-d-obligation.cta2">Jeu : trier les panneaux</a></p></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/i18n-pages.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/scenes.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector("#sim-" + button.dataset.sim);
+    const right = button.dataset.answer === "right";
+    const chapter = button.closest(".fiche-chapter");
+    if (target) {
+      target.textContent = right ? t("fiche_feedback_right") : t("fiche_feedback_wrong");
+      target.style.color = right ? "var(--green)" : "var(--red)";
+    }
+    if (chapter && typeof recordQuestionAnswer === "function") recordQuestionAnswer("fiche-" + button.dataset.sim, chapter.dataset.theme, right);
+  });
+});
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+  });
+});
+applyStaticTranslations();
+document.querySelectorAll("[data-scene]").forEach((el) => { if (typeof sceneSvg === "function") el.innerHTML = sceneSvg(el.dataset.scene); });
+</script>
+  </body>
+</html>

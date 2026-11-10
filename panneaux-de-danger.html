@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+<!-- Google Tag Manager : chargé uniquement après consentement -->
+<script>window.routisLoadGTM=function(){if(window.__gtmLoaded)return;window.__gtmLoaded=true;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-59PS7V3L');};
+try{var c=JSON.parse(localStorage.getItem('routis_consent')||'null');if(c&&c.v==='granted'&&Date.now()-c.t<15552000000){window.routisLoadGTM();}}catch(e){}</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Panneaux de danger : liste illustrée et sens | Routis</title>
+    <meta name="description" content="Tous les panneaux de danger du code de la route, illustrés : virages, chaussée glissante, passage d&#x27;animaux, travaux... Leur forme, leur signification et la conduite à adopter." />
+    <link rel="canonical" href="https://code-route-gratuit-routis.netlify.app/panneaux-de-danger.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="apple-touch-icon" href="/icons/icon-180.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Routis" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Panneaux de danger : liste illustrée et sens | Routis" />
+    <meta property="og:description" content="Tous les panneaux de danger du code de la route, illustrés : virages, chaussée glissante, passage d&#x27;animaux, travaux... Leur forme, leur signification et la conduite à adopter." />
+    <meta property="og:url" content="https://code-route-gratuit-routis.netlify.app/panneaux-de-danger.html" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Routis" />
+    <meta property="og:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Routis : Cassez les codes. Code de la route gratuit" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://code-route-gratuit-routis.netlify.app/og-image.png" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+.stat-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+}
+
+
+.fiche-figure { margin: 18px auto 4px; max-width: 460px; }
+.fiche-figure .scene-art { width: 100%; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #fff; }
+.fiche-figure .scene-art svg { display: block; width: 100%; height: auto; }
+.fiche-figure .sign-art { width: 84px; height: 84px; }
+.fiche-figure [data-scene="fam_panneaux"] { display: flex; gap: 18px; justify-content: center; padding: 14px; background: #eef3f8; border: 1px solid var(--line); border-radius: 8px; }
+.fiche-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 0.92rem; line-height: 1.45; text-align: center; }
+
+.fiche-card {
+  padding: clamp(18px, 4vw, 28px);
+  margin-bottom: 18px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  line-height: 1.65;
+}
+
+.fiche-card h3 {
+  margin-top: 0;
+}
+
+.fiche-index {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0 40px;
+}
+
+.fiche-index-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.fiche-index-card:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.fiche-index-badge {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.fiche-index-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.fiche-index-title {
+  color: var(--ink);
+  font-weight: 900;
+}
+
+.fiche-index-desc {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.fiche-index-arrow {
+  flex: none;
+  color: var(--blue);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.fiche-chapter {
+  padding-top: 28px;
+  margin-top: 12px;
+  border-top: 2px solid var(--line);
+}
+
+.fiche-chapter + .fiche-chapter {
+  margin-top: 48px;
+}
+
+.fiche-chapter-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.fiche-chapter-header h2 {
+  margin: 0;
+}
+
+.fiche-chapter-badge {
+  flex: none;
+  padding: 6px 14px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 0.85rem;
+}
+
+.fiche-back-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--blue);
+  font-weight: 800;
+}
+
+.fiche-back-link:hover {
+  text-decoration: underline;
+}
+
+.fiche-highlight {
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.fiche-note {
+  margin-top: 14px;
+  padding: 12px 14px;
+  color: var(--ink);
+  background: #eef3f8;
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.fiche-table {
+  width: 100%;
+  margin: 16px 0 4px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fiche-table th,
+.fiche-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.fiche-table th {
+  color: var(--ink);
+  background: #eef3f8;
+  font-weight: 900;
+}
+
+.fiche-table tr:last-child td {
+  border-bottom: none;
+}
+    </style>
+  <style>
+.cm-hero-img{max-width:560px;margin:0 auto 22px}
+.cm-hero-img img{width:100%;height:auto;display:block;border-radius:22px;box-shadow:0 14px 34px rgba(22,33,47,.14)}
+.cm-figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:6px 0 14px}
+.cm-figs figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.cm-figs img{width:100%;height:auto;display:block}
+.cm-figs figcaption{padding:8px 12px 10px;font-weight:800;font-size:.9rem;text-align:center}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Routis", "item": "https://code-route-gratuit-routis.netlify.app/"}, {"@type": "ListItem", "position": 2, "name": "Cours", "item": "https://code-route-gratuit-routis.netlify.app/cours.html"}, {"@type": "ListItem", "position": 3, "name": "Panneaux de danger : liste illustrée et signification", "item": "https://code-route-gratuit-routis.netlify.app/panneaux-de-danger.html"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment bien régler son appuie-tête ?", "acceptedAnswer": {"@type": "Answer", "text": "Le bord supérieur à la hauteur du sommet de la tête, et le plus près possible de l'arrière du crâne."}}, {"@type": "Question", "name": "Qu'est-ce que la méthode hollandaise ?", "acceptedAnswer": {"@type": "Answer", "text": "On ouvre la portière avec la main éloignée de celle-ci : le buste pivote et on voit derrière, ce qui évite de heurter un cycliste."}}, {"@type": "Question", "name": "Doit-on enlever son gilet de sécurité après ?", "acceptedAnswer": {"@type": "Answer", "text": "Non, on le garde sur soi tant qu'on reste à proximité de la route."}}]}</script>
+<style>.psigns{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin:0}.psign{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;display:grid;gap:8px;align-content:start}.psign .sign-art{width:96px;height:96px}.psign h3{font-size:1.02rem;line-height:1.25;margin:4px 0 0}.psign .pcode{color:var(--muted);font-size:.82rem;font-weight:700}.psign p{margin:0;color:var(--ink)}.psign ul{margin:0;padding-left:18px;color:var(--muted);font-size:.92rem}.psign .sign-art{margin:0}</style></head>
+  <body>
+
+    <header class="topbar">
+      <div class="topbar-start">
+        <div class="lang-switcher" id="lang-switcher" role="group">
+          <button type="button" class="lang-option" data-lang="fr">FR</button>
+          <button type="button" class="lang-option" data-lang="en">EN</button>
+        </div>
+        <a class="brand" href="index.html" aria-label="Accueil Routis">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 200 200" focusable="false"><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#fff" stroke-width="29" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#fff" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#141a26" stroke-width="22" stroke-linecap="round"/><path d="M155.5 38.3L163.8 74.0L127.4 69.5Z" fill="#141a26" stroke="#141a26" stroke-width="3" stroke-linejoin="round"/><path d="M154.7 129.1A62 62 0 1 1 141.5 53.9" fill="none" stroke="#ffc928" stroke-width="3.6" stroke-dasharray="8 7"/><path d="M82 136V66h26a20.5 20.5 0 0 1 0 41H82M104 107l22 29" fill="none" stroke="#fff" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>Routis</span>
+        </a>
+      </div>
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="nav-home" href="index.html" aria-label="Accueil Routis" title="Accueil">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+            <path d="M4 11.5 12 4l8 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 10.5V20h5v-5h2v5h5v-9.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="panneaux.html"><span data-i18n="nav_panneaux">Panneaux</span></a>
+        <a href="examens.html"><span data-i18n="nav_examens">Examens blancs</span></a>
+        <a href="simulations.html"><span data-i18n="nav_simulations">Simulations</span></a>
+        <a href="progression.html"><span data-i18n="nav_progression">Progression</span></a>
+        <a href="jeux.html"><span data-i18n="nav_jeux">Jeux</span></a>
+        <a href="fiches.html"><span data-i18n="nav_fiches">Fiches</span></a>
+        <a href="reglages.html"><span data-i18n="nav_reglages">Réglages</span></a>
+      </nav>
+      <div class="topbar-end">
+        <button type="button" class="button secondary auth-button" id="auth-button" data-i18n="auth_login_btn">Se connecter</button>
+      </div>
+    </header>
+    <dialog id="auth-dialog" class="auth-dialog">
+      <div class="auth-dialog-inner">
+        <div id="auth-logged-out">
+          <div class="auth-tabs" role="tablist" aria-label="Authentification">
+            <button type="button" class="auth-tab active" data-mode="login" data-i18n="auth_tab_login">Connexion</button>
+            <button type="button" class="auth-tab" data-mode="signup" data-i18n="auth_tab_signup">Créer un compte</button>
+          </div>
+          <form id="auth-form" novalidate>
+            <p class="auth-intro" id="auth-intro" data-i18n="auth_intro_login">Connecte-toi pour synchroniser ta progression entre tes appareils.</p>
+            <label class="field">
+              <span data-i18n="auth_email_label">Adresse email</span>
+              <input type="email" id="auth-email" name="email" autocomplete="email" required />
+            </label>
+            <label class="field" id="auth-password-field">
+              <span data-i18n="auth_password_label">Mot de passe</span>
+              <input type="password" id="auth-password" name="password" autocomplete="current-password" minlength="6" required />
+            </label>
+            <p class="auth-error" id="auth-error" role="alert" hidden></p>
+            <p class="auth-success" id="auth-success" role="status" hidden></p>
+            <button type="submit" class="button primary" id="auth-submit" data-i18n="auth_submit_login">Se connecter</button>
+            <div class="auth-links">
+              <button type="button" class="link-button" id="auth-forgot" data-i18n="auth_forgot_link">Mot de passe oublié ?</button>
+            </div>
+          </form>
+        </div>
+        <div id="auth-logged-in" hidden>
+          <p class="auth-intro" data-i18n="auth_account_title">Mon compte</p>
+          <p class="auth-account-email" id="auth-account-email"></p>
+          <p class="auth-sync-status" id="auth-sync-status"></p>
+          <button type="button" class="button secondary" id="auth-logout" data-i18n="auth_logout_btn">Se déconnecter</button>
+        </div>
+        <form method="dialog" class="auth-close-row">
+          <button type="submit" class="link-button" data-i18n="dialog_close_btn">Continuer</button>
+        </form>
+      </div>
+    </dialog>
+
+    <main id="top">
+      <section class="page-hero">
+        <p class="eyebrow"><a href="cours.html" data-i18n-html="ui.0">Cours</a> · <a href="panneaux.html">Panneaux</a></p>
+        <h1 data-i18n-html="panneaux-de-danger.h1">Panneaux de danger : liste illustrée et signification</h1>
+        <p data-i18n-html="panneaux-de-danger.intro">Les panneaux de danger préviennent d&#x27;un risque sur la route : virage, chaussée glissante, passage d&#x27;animaux, travaux... Voici la liste illustrée, avec le sens de chaque panneau et le bon réflexe.</p>
+      </section>
+      <section class="fiche-chapter" data-theme="route">
+        <div class="fiche-card">
+          <h3 data-i18n-html="panneaux-de-danger.c0.h">Comment les reconnaître ?</h3>
+          <div data-i18n-html="panneaux-de-danger.c0.b"><ul><li>Les panneaux de danger sont des <strong>triangles à bord rouge</strong>, pointe vers le haut, avec un symbole noir sur fond blanc.</li><li>Ils sont placés <strong>avant</strong> le danger, pour te laisser le temps de réagir.</li><li>À leur vue : on <span class="fiche-highlight">ralentit</span>, on observe et on se tient prêt à s'arrêter.</li><li>Ils annoncent un danger, mais ne donnent aucune priorité.</li></ul></div>
+        </div>
+        <div class="fiche-card"><h2 data-i18n-html="panneaux-de-danger.lh">27 panneaux à connaître</h2><div class="psigns"><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M25 82 Q60 38 95 82" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/></g></svg></div><span class="pcode">A2a</span><h3 data-i18n-html="panneaux-de-danger.s0.n">Cassis ou dos-d&#x27;âne</h3><p data-i18n-html="panneaux-de-danger.s0.t">Prévient d&#x27;une déformation importante de la chaussée.</p><ul data-i18n-html="panneaux-de-danger.s0.k"><li>Réduis l&#x27;allure.</li><li>Tiens compte des deux-roues et des piétons proches.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M37 22 C48 44 48 76 37 98 M83 22 C72 44 72 76 83 98" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/></g></svg></div><span class="pcode">A3</span><h3 data-i18n-html="panneaux-de-danger.s1.n">Chaussée rétrécie</h3><p data-i18n-html="panneaux-de-danger.s1.t">La route devient moins large. Les croisements peuvent être plus délicats.</p><ul data-i18n-html="panneaux-de-danger.s1.k"><li>Anticipe le placement.</li><li>Cède si un obstacle est de ton côté.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M35 35 h28 v20 h-28z M58 84 h28 v20 h-28z" fill="#111"/><path d="M34 88 C52 69 74 82 91 60 M49 102 C64 85 83 96 98 77" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/></g></svg></div><span class="pcode">A4</span><h3 data-i18n-html="panneaux-de-danger.s2.n">Chaussée glissante</h3><p data-i18n-html="panneaux-de-danger.s2.t">Risque de perte d&#x27;adhérence, notamment par pluie, verglas, feuilles ou gravillons.</p><ul data-i18n-html="panneaux-de-danger.s2.k"><li>Augmente les distances.</li><li>Freine doucement et évite les gestes brusques.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><circle cx="60" cy="35" r="8" fill="#111"/><path d="M60 45 L54 67 L40 89 M60 47 L73 61 M55 66 L78 92" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round"/></g></svg></div><span class="pcode">A13b</span><h3 data-i18n-html="panneaux-de-danger.s3.n">Passage pour piétons</h3><p data-i18n-html="panneaux-de-danger.s3.t">Annonce un passage pour piétons ou une zone où ils peuvent traverser.</p><ul data-i18n-html="panneaux-de-danger.s3.k"><li>Sois prêt à t&#x27;arrêter.</li><li>Ne double pas à l&#x27;approche du passage.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M60 30 L60 72" stroke="#111" stroke-width="11" stroke-linecap="round"/><circle cx="60" cy="90" r="7" fill="#111"/></g></svg></div><span class="pcode">A14</span><h3 data-i18n-html="panneaux-de-danger.s4.n">Autres dangers</h3><p data-i18n-html="panneaux-de-danger.s4.t">Signale un danger particulier précisé par un panonceau ou par le contexte.</p><ul data-i18n-html="panneaux-de-danger.s4.k"><li>Ralentis et cherche l&#x27;indice.</li><li>Lis le panonceau quand il existe.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><g transform="translate(8 14) scale(.82)"><g fill="#111"><ellipse cx="55" cy="70" rx="26" ry="13"/><path d="M70 66 L82 42 L94 46 L88 72Z"/><circle cx="91" cy="41" r="7"/><path d="M40 78 L38 102 L45 102 L50 82Z M62 80 L64 102 L71 102 L72 80Z M32 68 L22 58 L28 56 L36 63Z"/></g><path d="M90 34 L87 20 L79 14 M87 20 L95 12 M96 35 L101 21 L109 17 M101 21 L107 11" stroke="#111" stroke-width="3.5" fill="none" stroke-linecap="round"/></g></g></svg></div><span class="pcode">A15b</span><h3 data-i18n-html="panneaux-de-danger.s5.n">Animaux sauvages</h3><p data-i18n-html="panneaux-de-danger.s5.t">Risque de traversées d&#x27;animaux, surtout la nuit ou près des bois.</p><ul data-i18n-html="panneaux-de-danger.s5.k"><li>Réduis l&#x27;allure.</li><li>Ne donne pas de coup de volant brutal.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M28 82 L94 42 L94 82 Z" fill="#111"/><text x="59" y="75" text-anchor="middle" fill="#fff" font-size="17" font-weight="900">10%</text></g></svg></div><span class="pcode">A16</span><h3 data-i18n-html="panneaux-de-danger.s6.n">Descente dangereuse</h3><p data-i18n-html="panneaux-de-danger.s6.t">La pente impose de maîtriser la vitesse et les distances.</p><ul data-i18n-html="panneaux-de-danger.s6.k"><li>Utilise le frein moteur.</li><li>Évite de maintenir le pied sur le frein trop longtemps.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><rect x="46" y="24" width="28" height="70" rx="7" fill="none" stroke="#111" stroke-width="7"/><circle cx="60" cy="40" r="6" fill="#111"/><circle cx="60" cy="59" r="6" fill="#111"/><circle cx="60" cy="78" r="6" fill="#111"/></g></svg></div><span class="pcode">A17</span><h3 data-i18n-html="panneaux-de-danger.s7.n">Feux tricolores</h3><p data-i18n-html="panneaux-de-danger.s7.t">Annonce des feux tricolores qui peuvent être cachés par un virage ou la circulation.</p><ul data-i18n-html="panneaux-de-danger.s7.k"><li>Lève le pied dès le panneau.</li><li>Sois prêt à t&#x27;arrêter même sans voir encore le feu.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M32 30 L88 90 M88 30 L32 90" stroke="#d62430" stroke-width="9" stroke-linecap="round"/></g></svg></div><span class="pcode">A8</span><h3 data-i18n-html="panneaux-de-danger.s8.n">Passage à niveau sans barrière</h3><p data-i18n-html="panneaux-de-danger.s8.t">Signale une voie ferrée qui traverse la route sans barrière ni demi-barrière.</p><ul data-i18n-html="panneaux-de-danger.s8.k"><li>Ralentis et regarde des deux côtés.</li><li>Ne t&#x27;engage jamais si un train approche.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><circle cx="42" cy="82" r="13" fill="none" stroke="#111" stroke-width="6"/><circle cx="82" cy="82" r="13" fill="none" stroke="#111" stroke-width="6"/><path d="M42 82 L57 55 L70 82 L48 82 M57 55 H74" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">A21</span><h3 data-i18n-html="panneaux-de-danger.s9.n">Débouche de cyclistes</h3><p data-i18n-html="panneaux-de-danger.s9.t">Prévient que des cyclistes peuvent déboucher sur la chaussée, souvent près d&#x27;une piste cyclable.</p><ul data-i18n-html="panneaux-de-danger.s9.k"><li>Vérifie rétroviseurs et angles morts.</li><li>Laisse une distance latérale suffisante.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M42 20 V72 M42 20 L31 33 M42 20 L53 33" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M78 100 V48 M78 100 L67 87 M78 100 L89 87" fill="none" stroke="#111" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">A18</span><h3 data-i18n-html="panneaux-de-danger.s10.n">Deux sens de circulation</h3><p data-i18n-html="panneaux-de-danger.s10.t">Prévient que la route redevient à double sens après une section à sens unique.</p><ul data-i18n-html="panneaux-de-danger.s10.k"><li>Reste bien sur ta voie de droite.</li><li>Sois attentif aux véhicules venant en face.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M28 78 Q30 54 55 52 Q60 40 70 48 Q90 50 92 72 L100 66 M40 79 L34 96 M78 79 L84 96 M48 52 L44 38 M64 50 L68 36" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/></g></svg></div><span class="pcode">A15a1</span><h3 data-i18n-html="panneaux-de-danger.s11.n">Passage d&#x27;animaux domestiques</h3><p data-i18n-html="panneaux-de-danger.s11.t">Signale une zone où des troupeaux peuvent traverser ou longer la route.</p><ul data-i18n-html="panneaux-de-danger.s11.k"><li>Ralentis fortement si tu vois des animaux.</li><li>Ne klaxonne pas, cela peut les affoler.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M30 90 L34 60 Q36 42 52 38 L66 30 L74 38 L64 44 Q76 46 80 60 L84 90 M40 90 L38 100 M72 90 L76 100 M50 38 L46 24" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">A15c</span><h3 data-i18n-html="panneaux-de-danger.s12.n">Passage de cavaliers</h3><p data-i18n-html="panneaux-de-danger.s12.t">Signale une zone fréquentée par des cavaliers qui peuvent traverser la route.</p><ul data-i18n-html="panneaux-de-danger.s12.k"><li>Ralentis et laisse de la distance.</li><li>Évite les bruits soudains près des chevaux.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M30 45 L48 30 L64 42 L54 58 Z" fill="#111"/><path d="M40 95 L58 68 L78 82 L96 95 Z" fill="none" stroke="#111" stroke-width="6" stroke-linejoin="round"/></g></svg></div><span class="pcode">A19</span><h3 data-i18n-html="panneaux-de-danger.s13.n">Chute de pierres</h3><p data-i18n-html="panneaux-de-danger.s13.t">Signale un risque de chute de pierres ou d&#x27;éboulement près de la route.</p><ul data-i18n-html="panneaux-de-danger.s13.k"><li>Ne t&#x27;arrête pas sous une paroi rocheuse.</li><li>Reste attentif même par beau temps.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M20 70 H100 M30 70 V90 M45 70 V90 M60 70 V90 M75 70 V90 M90 70 V90" stroke="#111" stroke-width="6" stroke-linecap="round"/><path d="M20 50 Q35 58 50 50 Q65 42 80 50 Q95 58 100 50" fill="none" stroke="#111" stroke-width="5" stroke-linecap="round"/></g></svg></div><span class="pcode">A20</span><h3 data-i18n-html="panneaux-de-danger.s14.n">Débouche sur un quai ou une berge</h3><p data-i18n-html="panneaux-de-danger.s14.t">Prévient d&#x27;un risque de chute dans l&#x27;eau en bout de route, près d&#x27;un quai ou d&#x27;une berge.</p><ul data-i18n-html="panneaux-de-danger.s14.k"><li>Ralentis fortement à l&#x27;approche.</li><li>Vérifie la signalisation au sol avant d&#x27;avancer.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M30 30 V95 M30 34 H90 L74 46 L90 58 H30" fill="none" stroke="#111" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/></g></svg></div><span class="pcode">A24</span><h3 data-i18n-html="panneaux-de-danger.s15.n">Vent latéral</h3><p data-i18n-html="panneaux-de-danger.s15.t">Signale une zone exposée à des rafales de vent latéral, fréquente sur ponts et viaducs.</p><ul data-i18n-html="panneaux-de-danger.s15.k"><li>Tiens fermement le volant.</li><li>Réduis ta vitesse, surtout avec une remorque.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M44 100 V66 Q44 44 66 44 H84 M74 32 L88 44 L74 56" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">A1a</span><h3 data-i18n-html="panneaux-de-danger.s16.n">Virage à droite</h3><p data-i18n-html="panneaux-de-danger.s16.t">Annonce un virage isolé vers la droite.</p><ul data-i18n-html="panneaux-de-danger.s16.k"><li>Ralentis avant d&#x27;amorcer le virage.</li><li>Reste sur ta voie, ne coupe pas la trajectoire.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M76 100 V66 Q76 44 54 44 H36 M46 32 L32 44 L46 56" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div><span class="pcode">A1b</span><h3 data-i18n-html="panneaux-de-danger.s17.n">Virage à gauche</h3><p data-i18n-html="panneaux-de-danger.s17.t">Annonce un virage isolé vers la gauche.</p><ul data-i18n-html="panneaux-de-danger.s17.k"><li>Ralentis avant d&#x27;amorcer le virage.</li><li>Reste sur ta voie, ne coupe pas la trajectoire.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M30 100 C30 70 55 75 60 55 C65 35 90 40 90 15" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/></g></svg></div><span class="pcode">A1c</span><h3 data-i18n-html="panneaux-de-danger.s18.n">Succession de virages, le premier à droite</h3><p data-i18n-html="panneaux-de-danger.s18.t">Annonce plusieurs virages qui se suivent, le premier partant vers la droite.</p><ul data-i18n-html="panneaux-de-danger.s18.k"><li>Adapte ta vitesse pour toute la série de virages.</li><li>Ne redonne de l&#x27;allure qu&#x27;à la sortie du dernier virage.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M90 100 C90 70 65 75 60 55 C55 35 30 40 30 15" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/></g></svg></div><span class="pcode">A1d</span><h3 data-i18n-html="panneaux-de-danger.s19.n">Succession de virages, le premier à gauche</h3><p data-i18n-html="panneaux-de-danger.s19.t">Annonce plusieurs virages qui se suivent, le premier partant vers la gauche.</p><ul data-i18n-html="panneaux-de-danger.s19.k"><li>Adapte ta vitesse pour toute la série de virages.</li><li>Ne redonne de l&#x27;allure qu&#x27;à la sortie du dernier virage.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M25 82 Q60 38 95 82" fill="none" stroke="#111" stroke-width="10" stroke-linecap="round"/></g></svg></div><span class="pcode">A2b</span><h3 data-i18n-html="panneaux-de-danger.s20.n">Ralentisseur de type dos-d&#x27;âne</h3><p data-i18n-html="panneaux-de-danger.s20.t">Signale un ralentisseur aménagé sur la chaussée, distinct d&#x27;un simple cassis naturel.</p><ul data-i18n-html="panneaux-de-danger.s20.k"><li>Franchis-le à vitesse très réduite.</li><li>Attention aux deux-roues qui peuvent le contourner.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M83 22 C72 44 72 76 83 98" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/><path d="M37 22 V98" stroke="#111" stroke-width="9" stroke-linecap="round"/></g></svg></div><span class="pcode">A3a</span><h3 data-i18n-html="panneaux-de-danger.s21.n">Chaussée rétrécie par la droite</h3><p data-i18n-html="panneaux-de-danger.s21.t">La chaussée se rétrécit du côté droit de la route.</p><ul data-i18n-html="panneaux-de-danger.s21.k"><li>Anticipe ton placement vers la gauche de ta voie.</li><li>Cède si un obstacle vient d&#x27;en face.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M37 22 C48 44 48 76 37 98" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/><path d="M83 22 V98" stroke="#111" stroke-width="9" stroke-linecap="round"/></g></svg></div><span class="pcode">A3b</span><h3 data-i18n-html="panneaux-de-danger.s22.n">Chaussée rétrécie par la gauche</h3><p data-i18n-html="panneaux-de-danger.s22.t">La chaussée se rétrécit du côté gauche de la route.</p><ul data-i18n-html="panneaux-de-danger.s22.k"><li>Anticipe ton placement vers la droite de ta voie.</li><li>Cède si un obstacle vient d&#x27;en face.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><path d="M20 45 L100 75 M20 75 L100 45" stroke="#d62430" stroke-width="7" stroke-linecap="round"/><rect x="26" y="30" width="14" height="14" fill="#111"/><rect x="80" y="76" width="14" height="14" fill="#111"/></g></svg></div><span class="pcode">A7</span><h3 data-i18n-html="panneaux-de-danger.s23.n">Passage à niveau muni de barrières ou demi-barrières</h3><p data-i18n-html="panneaux-de-danger.s23.t">Signale une voie ferrée équipée de barrières ou demi-barrières qui se ferment à l&#x27;approche d&#x27;un train.</p><ul data-i18n-html="panneaux-de-danger.s23.k"><li>Ne t&#x27;engage jamais quand les barrières s&#x27;abaissent.</li><li>Attends l&#x27;ouverture complète avant de repartir.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><circle cx="42" cy="34" r="8" fill="#111"/><circle cx="78" cy="42" r="7" fill="#111"/><path d="M42 44 L36 66 L28 90 M42 46 L52 60 M38 65 L48 88 M78 50 L74 70 L68 90 M78 52 L86 64" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"/></g></svg></div><span class="pcode">A13a</span><h3 data-i18n-html="panneaux-de-danger.s24.n">Endroit fréquenté par les enfants</h3><p data-i18n-html="panneaux-de-danger.s24.t">Signale la proximité d&#x27;une école ou d&#x27;un lieu où des enfants peuvent surgir sur la chaussée.</p><ul data-i18n-html="panneaux-de-danger.s24.k"><li>Ralentis nettement, surtout aux heures d&#x27;entrée et de sortie des classes.</li><li>Sois prêt à t&#x27;arrêter à tout moment.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><circle cx="47" cy="30" r="7" fill="#111"/><path d="M47 40 L40 60 L30 78 M47 42 L60 55 L56 78 M40 60 H58" fill="none" stroke="#111" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M70 85 L92 40" stroke="#111" stroke-width="7" stroke-linecap="round"/></g></svg></div><span class="pcode">AK5</span><h3 data-i18n-html="panneaux-de-danger.s25.n">Travaux</h3><p data-i18n-html="panneaux-de-danger.s25.t">Signale temporairement un chantier ou des travaux en cours sur ou près de la chaussée.</p><ul data-i18n-html="panneaux-de-danger.s25.k"><li>Respecte la limitation de vitesse temporaire.</li><li>Sois attentif aux ouvriers et engins de chantier.</li></ul></article><article class="psign"><div class="sign-art"><svg viewBox="0 0 120 120" role="img"><polygon points="60,8 112,104 8,104" fill="#fff" stroke="#d62430" stroke-width="10" join="round"/><g><rect x="22" y="55" width="26" height="18" rx="3" fill="#111"/><rect x="55" y="55" width="26" height="18" rx="3" fill="#111"/><rect x="88" y="55" width="14" height="18" rx="3" fill="#111" opacity="0.5"/></g></svg></div><span class="pcode">AK30</span><h3 data-i18n-html="panneaux-de-danger.s26.n">Risque de bouchon</h3><p data-i18n-html="panneaux-de-danger.s26.t">Prévient d&#x27;un risque de bouchon sur la section à venir.</p><ul data-i18n-html="panneaux-de-danger.s26.k"><li>Lève le pied et augmente ta vigilance.</li><li>Anticipe un arrêt complet possible.</li></ul></article></div></div>
+        <section class="fiche-card"><h3 data-i18n-html="ui.3">Questions fréquentes</h3><p><strong data-i18n-html="panneaux-de-danger.f0.q">Que signifie un triangle à bord rouge ?</strong><br><span data-i18n-html="panneaux-de-danger.f0.a">Un danger sur la route : il faut ralentir et rester attentif.</span></p></section>
+        <section class="fiche-card"><h3 data-i18n-html="ui.4">À lire aussi</h3><ul><li><a href="panneaux.html" data-i18n-html="panneaux-de-danger.all">Tous les panneaux illustrés</a></li><li><a href="panneaux-d-interdiction.html" data-i18n-html="panneaux-d-interdiction.h1">Panneaux d&#x27;interdiction : liste illustrée et signification</a></li><li><a href="panneaux-d-obligation.html" data-i18n-html="panneaux-d-obligation.h1">Panneaux d&#x27;obligation : liste illustrée et signification</a></li><li><a href="panneaux-de-priorite.html" data-i18n-html="panneaux-de-priorite.h1">Panneaux de priorité : stop, cédez le passage, route prioritaire</a></li><li><a href="panneaux-d-indication.html" data-i18n-html="panneaux-d-indication.h1">Panneaux d&#x27;indication : liste illustrée et signification</a></li></ul></section>
+      </section>
+      <section class="section-shell"><p><a class="button primary" href="panneaux.html" data-i18n-html="panneaux-de-danger.cta">S'entraîner sur les panneaux</a> <a class="button secondary" href="jeu-trie-panneaux.html" data-i18n-html="panneaux-de-danger.cta2">Jeu : trier les panneaux</a></p></section>
+    </main>
+    <footer class="site-footer">
+      <nav aria-label="Informations légales">
+        <a href="cours.html">Cours</a>
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="reglages.html">Réglages</a>
+        <button type="button" id="cookie-manage">Gérer les cookies</button>
+      </nav>
+      <p>Routis · Révision gratuite du code de la route</p>
+    </footer>
+    <script src="assets/signs-data.js"></script>
+    <script src="assets/questions-data.js"></script>
+    <script src="assets/i18n.js"></script>
+    <script src="assets/i18n-pages.js"></script>
+    <script src="assets/common.js"></script>
+    <script src="assets/stats.js"></script>
+    <script type="module" src="assets/supabase-client.js"></script>
+    <script src="assets/scenes.js"></script>
+    <script src="assets/auth-ui.js" defer></script>
+    <script src="assets/sync.js" defer></script>
+    <script>
+document.querySelectorAll("[data-sim]").forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = document.querySelector("#sim-" + button.dataset.sim);
+    const right = button.dataset.answer === "right";
+    const chapter = button.closest(".fiche-chapter");
+    if (target) {
+      target.textContent = right ? t("fiche_feedback_right") : t("fiche_feedback_wrong");
+      target.style.color = right ? "var(--green)" : "var(--red)";
+    }
+    if (chapter && typeof recordQuestionAnswer === "function") recordQuestionAnswer("fiche-" + button.dataset.sim, chapter.dataset.theme, right);
+  });
+});
+document.querySelectorAll(".lang-option").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.lang === getLang()) return;
+    setLang(btn.dataset.lang);
+    applyStaticTranslations();
+  });
+});
+applyStaticTranslations();
+document.querySelectorAll("[data-scene]").forEach((el) => { if (typeof sceneSvg === "function") el.innerHTML = sceneSvg(el.dataset.scene); });
+</script>
+  </body>
+</html>
