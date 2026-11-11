@@ -67,7 +67,12 @@
     if (msg.indexOf("password") !== -1 && (msg.indexOf("least") !== -1 || msg.indexOf("short") !== -1 || msg.indexOf("characters") !== -1)) {
       return t("auth_err_short_password");
     }
-    return t("auth_err_generic");
+    var en = String(document.documentElement.lang || "fr").slice(0, 2) !== "fr";
+    if (msg.indexOf("not confirmed") !== -1) return en ? "Email not confirmed yet: click the link we emailed you." : "Adresse email pas encore confirmée : clique sur le lien reçu par email.";
+    if (msg.indexOf("rate limit") !== -1 || msg.indexOf("too many") !== -1 || msg.indexOf("security purposes") !== -1) return en ? "Too many attempts or emails sent. Please wait a few minutes and try again." : "Trop de tentatives ou d'emails envoyés. Attends quelques minutes puis réessaie.";
+    if (msg.indexOf("signups not allowed") !== -1 || msg.indexOf("signup is disabled") !== -1 || msg.indexOf("disabled") !== -1) return en ? "Sign-ups are turned off right now." : "Les inscriptions sont désactivées pour le moment.";
+    if (msg.indexOf("already registered") !== -1 || msg.indexOf("already been registered") !== -1) return en ? "This email already has an account. Sign in instead." : "Cet email a déjà un compte. Connecte-toi.";
+    return t("auth_err_generic") + (msg ? " [" + msg.slice(0, 120) + "]" : "");
   }
 
   function setMode(nextMode) {
@@ -193,7 +198,7 @@
       }
     } catch (err) {
       // Le plus souvent : pas de réseau (mode hors-ligne PWA).
-      showError(t("auth_err_generic"));
+      showError(t("auth_err_generic") + " [" + String((err && err.message) || err).slice(0, 120) + "]");
     } finally {
       if (submitBtn) submitBtn.disabled = false;
     }

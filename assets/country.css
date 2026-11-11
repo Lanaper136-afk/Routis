@@ -62,3 +62,22 @@ body.cx .uk-note { background:#fff; border:1px solid var(--line); border-radius:
 body.cx .card { padding-right:42px; }
 body.cx-uk .cx-cta a { color:#fff; }
 body.cx-uk .cx-hero h1 { font-size:clamp(1.7rem,6vw,2.3rem); }
+
+/* Navigation compacte sur mobile : une ligne défilante au lieu de plusieurs lignes de pastilles */
+@media (max-width:700px){
+  body.cx .uk-top{flex-wrap:wrap;gap:6px 10px}
+  body.cx .uk-top nav{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 0 4px}
+  body.cx .uk-top nav::-webkit-scrollbar{display:none}
+  body.cx .uk-top nav a{white-space:nowrap;flex:none}
+  body.cx .uk-top .uk-badge{order:2}
+}
+/* Bandeau de chiffres du test et cartes de guides (accueil UK) */
+body.cx-uk .uk-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+body.cx-uk .uk-fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center}
+body.cx-uk .uk-fact b{display:block;font-size:1.5rem;line-height:1.1;color:var(--cx-a)}
+body.cx-uk .uk-fact span{font-size:.78rem;color:var(--muted);font-weight:700}
+body.cx-uk .uk-guides{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px;margin:10px 0 18px}
+body.cx-uk .uk-guides a{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:var(--cx-a);font-weight:800;text-decoration:none;font-size:.95rem}
+body.cx-uk .uk-guides a:hover{border-color:var(--cx-b);box-shadow:0 6px 18px rgba(20,33,51,.08)}
+body.cx-uk .uk-guides a i{font-style:normal;font-size:1.3rem}
+@media (max-width:520px){body.cx-uk .uk-facts{grid-template-columns:repeat(2,1fr)}}
