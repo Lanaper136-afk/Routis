@@ -59,7 +59,7 @@
       <section id="quiz" aria-live="polite"></section>
 
       <div class="uk-tools" id="chips" role="group" aria-label="Sign type"></div>
-      <div class="uk-tools"><input class="uk-search" id="search" type="search" placeholder="Search a sign…" aria-label="Search a sign" /><button type="button" class="uk-quiz-btn" id="quiz-start">Start a 10-question quiz</button></div>
+      <div class="uk-tools"><input class="uk-search" id="search" type="search" placeholder="Search a sign…" aria-label="Search a sign" /><select id="qlen" aria-label="Quiz length" class="uk-search" style="max-width:150px"><option value="10">10 questions</option><option value="20">20 questions</option><option value="40">40 questions</option></select><button type="button" class="uk-quiz-btn" id="quiz-start">Start a sign quiz</button></div>
       <div class="uk-grid" id="grid"></div>
 
       <p class="uk-note">Signs are simplified drawings made for learning, based on the designs in the official Highway Code. The official versions are the reference. Traffic sign designs are © Crown copyright. The Highway Code is published under the Open Government Licence v3.0. Routis is an independent site, not affiliated with or endorsed by the DVSA, the Department for Transport or any UK government body, and is not the official theory test.</p>
@@ -69,7 +69,7 @@
 
     <script src="uk-signs-data.js"></script>
     <script>
-      const CATS = [["all", "All"], ["orders", "Prohibitions"], ["mandatory", "Mandatory"], ["warning", "Warning"], ["information", "Information"]];
+      const CATS = [["all", "All"], ["orders", "Prohibitions"], ["mandatory", "Mandatory"], ["warning", "Warning"], ["information", "Information"], ["markings", "Road markings"], ["signals", "Traffic lights"]];
       let cat = "all", q = "";
       const $ = (s) => document.querySelector(s);
       const chips = $("#chips");
@@ -104,13 +104,13 @@
       const shuffle = (a) => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
       let run = null;
       $("#quiz-start").addEventListener("click", () => {
-        run = { qs: shuffle(ukSigns).slice(0, 10), i: 0, score: 0 };
+        const pool = ukSigns.filter((x) => cat === "all" || x.cat === cat); run = { qs: shuffle(pool).slice(0, +$("#qlen").value), i: 0, score: 0 };
         $("#quiz").style.display = "block"; window.scrollTo({ top: 0, behavior: "smooth" }); showQ();
       });
       function showQ() {
         const box = $("#quiz");
         if (run.i >= run.qs.length) {
-          box.innerHTML = '<h2>Score: ' + run.score + ' / ' + run.qs.length + '</h2><p>' + (run.score >= 9 ? "Excellent!" : run.score >= 7 ? "Good, keep practising." : "Keep going: review the signs and try again.") + '</p><button class="next" id="again">Try again</button> <button class="next" id="stop" style="background:var(--ink)">Close quiz</button>';
+          box.innerHTML = '<h2>Score: ' + run.score + ' / ' + run.qs.length + '</h2><p>' + (run.score / run.qs.length >= .9 ? "Excellent!" : run.score / run.qs.length >= .7 ? "Good, keep practising." : "Keep going: review the signs and try again.") + '</p><button class="next" id="again">Try again</button> <button class="next" id="stop" style="background:var(--ink)">Close quiz</button>';
           $("#again").onclick = () => $("#quiz-start").click(); $("#stop").onclick = () => { box.style.display = "none"; run = null; };
           return;
         }

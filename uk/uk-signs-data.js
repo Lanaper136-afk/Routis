@@ -62,7 +62,7 @@ const ukSigns = [
   "name": "Stop",
   "text": "You must stop at the line and give way to traffic on the major road before moving off.",
   "tip": "Stop completely, even if the road looks clear.",
-  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><polygon points=\"112.7,81.8 81.8,112.7 38.2,112.7 7.3,81.8 7.3,38.2 38.2,7.3 81.8,7.3 112.7,38.2\" fill=\"#d3202a\" stroke=\"#fff\" stroke-width=\"4\"/><text x=\"60\" y=\"74\" font-family=\"Arial,Helvetica,sans-serif\" font-size=\"38\" font-weight=\"800\" fill=\"#fff\" text-anchor=\"middle\">STOP</text></svg>"
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><polygon points=\"112.7,81.8 81.8,112.7 38.2,112.7 7.3,81.8 7.3,38.2 38.2,7.3 81.8,7.3 112.7,38.2\" fill=\"#d3202a\" stroke=\"#fff\" stroke-width=\"4\"/><text x=\"60\" y=\"72\" font-family=\"Arial,Helvetica,sans-serif\" font-size=\"31\" font-weight=\"800\" fill=\"#fff\" text-anchor=\"middle\">STOP</text></svg>"
  },
  {
   "id": "give-way",
@@ -615,5 +615,196 @@ const ukSigns = [
   "text": "Road works ahead.",
   "tip": "Slow down and follow the signs.",
   "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><polygon points=\"60,9 113,103 7,103\" fill=\"#fff\" stroke=\"#d3202a\" stroke-width=\"11\" stroke-linejoin=\"round\"/><g transform=\"translate(60,70)\"><g transform=\"translate(-8,-2) scale(0.9)\" stroke=\"#111\" stroke-width=\"5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" fill=\"none\"><circle cx=\"0\" cy=\"-20\" r=\"6\" fill=\"#111\" stroke=\"none\"/><path d=\"M0 -12V6M0 6L-6 22M0 6L7 22M0 -9L-9 2M0 -9L9 -3\"/></g><path d=\"M2 -16L18 6\" stroke=\"#111\" stroke-width=\"5\" stroke-linecap=\"round\"/><path d=\"M12 8L26 -2\" stroke=\"#111\" stroke-width=\"6\"/><path d=\"M-30 26L-8 12H12L30 26Z\" fill=\"#111\"/></g></svg>"
+ },
+ {
+  "id": "w-narrows-left",
+  "cat": "warning",
+  "name": "Road narrows on left",
+  "text": "The road narrows on the left ahead.",
+  "tip": "Watch for oncoming traffic and keep to your side.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><polygon points=\"60,9 113,103 7,103\" fill=\"#fff\" stroke=\"#d3202a\" stroke-width=\"11\" stroke-linejoin=\"round\"/><g transform=\"translate(60,70) scale(-1,1)\"><path d=\"M-14 28V-28M14 28Q14 4 6 -28\" fill=\"none\" stroke=\"#111\" stroke-width=\"9\"/></g></svg>"
+ },
+ {
+  "id": "w-merge-right",
+  "cat": "warning",
+  "name": "Traffic merging from right",
+  "text": "Traffic is merging from the right ahead.",
+  "tip": "Make room for merging vehicles where possible.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><polygon points=\"60,9 113,103 7,103\" fill=\"#fff\" stroke=\"#d3202a\" stroke-width=\"11\" stroke-linejoin=\"round\"/><g transform=\"translate(60,70) scale(-1,1)\"><path d=\"M-4 26V-30\" stroke=\"#111\" stroke-width=\"10\"/><path d=\"M-26 20L-4 -4\" stroke=\"#111\" stroke-width=\"9\"/></g></svg>"
+ },
+ {
+  "id": "w-two-way",
+  "cat": "warning",
+  "name": "Two-way traffic",
+  "text": "Two-way traffic is ahead, on a road that was one-way.",
+  "tip": "Keep to the left and expect oncoming vehicles.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><polygon points=\"60,9 113,103 7,103\" fill=\"#fff\" stroke=\"#d3202a\" stroke-width=\"11\" stroke-linejoin=\"round\"/><g transform=\"translate(60,72)\" fill=\"#111\"><rect x=\"-16\" y=\"-14\" width=\"8\" height=\"36\"/><polygon points=\"-12,-30 -24,-12 0,-12\"/><rect x=\"8\" y=\"-22\" width=\"8\" height=\"36\"/><polygon points=\"12,30 0,12 24,12\"/></g></svg>"
+ },
+ {
+  "id": "w-humps",
+  "cat": "warning",
+  "name": "Road humps",
+  "text": "Road humps (speed humps) are ahead.",
+  "tip": "Slow down to the speed shown for the humps.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><polygon points=\"60,9 113,103 7,103\" fill=\"#fff\" stroke=\"#d3202a\" stroke-width=\"11\" stroke-linejoin=\"round\"/><g transform=\"translate(60,70)\"><path d=\"M-32 22Q-16 -10 0 22Q16 -10 32 22Z\" fill=\"#111\"/></g></svg>"
+ },
+ {
+  "id": "keep-right",
+  "cat": "mandatory",
+  "name": "Keep right",
+  "text": "You must keep to the right of the obstacle.","tip": "The arrow shows which side to pass.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><g transform=\"translate(120,0) scale(-1,1)\"><circle cx=\"60\" cy=\"60\" r=\"56\" fill=\"#0a4ea3\"/><g transform=\"translate(84,30) rotate(125.36246188706906)\" fill=\"#fff\"><rect x=\"0\" y=\"-7.0\" width=\"49.026311234992846\" height=\"14\"/><polygon points=\"76.02631123499285,0 48.026311234992846,-17.36 48.026311234992846,17.36\"/></g></g></svg>"
+ },
+ {
+  "id": "m-double-white",
+  "cat": "markings",
+  "name": "Double white lines (solid nearest you)",
+  "text": "Two solid white lines along the middle of the road. You must not cross or straddle them if the line nearest you is solid.",
+  "tip": "Overtaking is not allowed here, except to pass a stationary vehicle or a very slow one.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><line x1=\"56\" y1=\"0\" x2=\"56\" y2=\"120\" stroke=\"#fff\" stroke-width=\"4\"/><line x1=\"66\" y1=\"0\" x2=\"66\" y2=\"120\" stroke=\"#fff\" stroke-width=\"4\"/></svg>"
+ },
+ {
+  "id": "m-centre-line",
+  "cat": "markings",
+  "name": "Centre line",
+  "text": "A broken white line with short markings and long gaps along the middle of the road.",
+  "tip": "You may cross it to overtake when it is safe and legal.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><line x1=\"60\" y1=\"0\" x2=\"60\" y2=\"120\" stroke=\"#fff\" stroke-width=\"5\" stroke-dasharray=\"12 22\"/></svg>"
+ },
+ {
+  "id": "m-hazard-line",
+  "cat": "markings",
+  "name": "Hazard warning line",
+  "text": "A broken white line with long markings and short gaps.",
+  "tip": "A hazard is ahead. Do not cross it unless the road is clearly safe.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><line x1=\"60\" y1=\"0\" x2=\"60\" y2=\"120\" stroke=\"#fff\" stroke-width=\"5\" stroke-dasharray=\"28 8\"/></svg>"
+ },
+ {
+  "id": "m-single-yellow",
+  "cat": "markings",
+  "name": "Single yellow line",
+  "text": "A single yellow line along the edge of the road.",
+  "tip": "Waiting is restricted at the times shown on nearby plates.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><line x1=\"24\" y1=\"0\" x2=\"24\" y2=\"120\" stroke=\"#f5c400\" stroke-width=\"5\"/></svg>"
+ },
+ {
+  "id": "m-double-yellow",
+  "cat": "markings",
+  "name": "Double yellow lines",
+  "text": "Two yellow lines along the edge of the road.",
+  "tip": "No waiting at any time, unless a sign says otherwise.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><line x1=\"22\" y1=\"0\" x2=\"22\" y2=\"120\" stroke=\"#f5c400\" stroke-width=\"5\"/><line x1=\"32\" y1=\"0\" x2=\"32\" y2=\"120\" stroke=\"#f5c400\" stroke-width=\"5\"/></svg>"
+ },
+ {
+  "id": "m-red-route",
+  "cat": "markings",
+  "name": "Red route line",
+  "text": "A red line along the edge of the road on a red route.",
+  "tip": "Do not stop except in marked bays and for the times allowed.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><line x1=\"24\" y1=\"0\" x2=\"24\" y2=\"120\" stroke=\"#e02020\" stroke-width=\"6\"/></svg>"
+ },
+ {
+  "id": "m-zigzag",
+  "cat": "markings",
+  "name": "Zigzag lines at a crossing",
+  "text": "White zigzag lines on each side of a pedestrian crossing.",
+  "tip": "No parking, and no overtaking the moving vehicle nearest the crossing.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><polyline points=\"30,2 38,12 30,22 38,32\" fill=\"none\" stroke=\"#fff\" stroke-width=\"4\"/><polyline points=\"30,80 38,90 30,100 38,110\" fill=\"none\" stroke=\"#fff\" stroke-width=\"4\"/><rect x=\"26\" y=\"48\" width=\"9\" height=\"24\" fill=\"#fff\"/><rect x=\"42\" y=\"48\" width=\"9\" height=\"24\" fill=\"#fff\"/><rect x=\"58\" y=\"48\" width=\"9\" height=\"24\" fill=\"#fff\"/><rect x=\"74\" y=\"48\" width=\"9\" height=\"24\" fill=\"#fff\"/><rect x=\"90\" y=\"48\" width=\"9\" height=\"24\" fill=\"#fff\"/><rect x=\"106\" y=\"48\" width=\"9\" height=\"24\" fill=\"#fff\"/></svg>"
+ },
+ {
+  "id": "m-box-junction",
+  "cat": "markings",
+  "name": "Yellow box junction",
+  "text": "Yellow criss-cross lines painted on a junction.",
+  "tip": "Do not enter unless your exit is clear, except when turning right and held up by oncoming traffic.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><rect x=\"30\" y=\"24\" width=\"72\" height=\"72\" fill=\"none\" stroke=\"#f5c400\" stroke-width=\"5\"/><line x1=\"30\" y1=\"24\" x2=\"102\" y2=\"96\" stroke=\"#f5c400\" stroke-width=\"5\"/><line x1=\"102\" y1=\"24\" x2=\"30\" y2=\"96\" stroke=\"#f5c400\" stroke-width=\"5\"/></svg>"
+ },
+ {
+  "id": "m-stop-line",
+  "cat": "markings",
+  "name": "Stop line",
+  "text": "A solid white line across your lane at a Stop sign.",
+  "tip": "You must stop behind it and give way before you move on.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><line x1=\"12\" y1=\"60\" x2=\"62\" y2=\"60\" stroke=\"#fff\" stroke-width=\"8\"/><line x1=\"64\" y1=\"70\" x2=\"64\" y2=\"120\" stroke=\"#fff\" stroke-width=\"4\" stroke-dasharray=\"14 14\"/><text x=\"14\" y=\"95\" font-family=\"Arial,sans-serif\" font-size=\"15\" font-weight=\"700\" fill=\"#fff\">STOP</text></svg>"
+ },
+ {
+  "id": "m-giveway-line",
+  "cat": "markings",
+  "name": "Give way line",
+  "text": "Two broken white lines across your lane.",
+  "tip": "Give way to traffic on the main road before you go on.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><line x1=\"12\" y1=\"54\" x2=\"62\" y2=\"54\" stroke=\"#fff\" stroke-width=\"4\" stroke-dasharray=\"9 6\"/><line x1=\"12\" y1=\"66\" x2=\"62\" y2=\"66\" stroke=\"#fff\" stroke-width=\"4\" stroke-dasharray=\"9 6\"/><line x1=\"64\" y1=\"76\" x2=\"64\" y2=\"120\" stroke=\"#fff\" stroke-width=\"4\" stroke-dasharray=\"14 14\"/></svg>"
+ },
+ {
+  "id": "m-bus-lane",
+  "cat": "markings",
+  "name": "Bus lane markings",
+  "text": "A lane marked BUS LANE with a solid or broken white line.",
+  "tip": "Do not drive in it during the hours shown on the sign.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><line x1=\"74\" y1=\"0\" x2=\"74\" y2=\"120\" stroke=\"#fff\" stroke-width=\"4\"/><text x=\"14\" y=\"52\" font-family=\"Arial,sans-serif\" font-size=\"15\" font-weight=\"700\" fill=\"#fff\">BUS</text><text x=\"14\" y=\"72\" font-family=\"Arial,sans-serif\" font-size=\"15\" font-weight=\"700\" fill=\"#fff\">LANE</text></svg>"
+ },
+ {
+  "id": "m-cycle-lane",
+  "cat": "markings",
+  "name": "Cycle lane (solid white line)",
+  "text": "A cycle lane marked off by a solid white line.",
+  "tip": "You must not drive or park in it while it is in operation.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><line x1=\"52\" y1=\"0\" x2=\"52\" y2=\"120\" stroke=\"#fff\" stroke-width=\"5\"/><g stroke=\"#fff\" stroke-width=\"4\" fill=\"none\"><circle cx=\"20\" cy=\"82\" r=\"8\"/><circle cx=\"42\" cy=\"82\" r=\"8\"/><path d=\"M20 82L28 64H38M42 82L32 64\"/></g></svg>"
+ },
+ {
+  "id": "m-school-keep-clear",
+  "cat": "markings",
+  "name": "School Keep Clear",
+  "text": "Yellow zigzag lines outside a school entrance.",
+  "tip": "Do not stop or park there, even to set down or pick up children.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><polyline points=\"22,2 30,12 22,22 30,32 22,42 30,52 22,62 30,72 22,82 30,92 22,102 30,112\" fill=\"none\" stroke=\"#f5c400\" stroke-width=\"4\"/><text x=\"48\" y=\"54\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"700\" fill=\"#f5c400\">SCHOOL</text><text x=\"48\" y=\"72\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"700\" fill=\"#f5c400\">KEEP</text><text x=\"48\" y=\"88\" font-family=\"Arial,sans-serif\" font-size=\"13\" font-weight=\"700\" fill=\"#f5c400\">CLEAR</text></svg>"
+ },
+ {
+  "id": "m-zebra",
+  "cat": "markings",
+  "name": "Zebra crossing markings",
+  "text": "White stripes across the road with flashing amber beacons nearby.",
+  "tip": "Give way to anyone waiting to cross or already on the crossing.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"0\" y=\"0\" width=\"120\" height=\"120\" rx=\"14\" fill=\"#2f343c\"/><rect x=\"0\" y=\"0\" width=\"12\" height=\"120\" fill=\"#9aa1ab\"/><rect x=\"24\" y=\"40\" width=\"10\" height=\"40\" fill=\"#fff\"/><rect x=\"41\" y=\"40\" width=\"10\" height=\"40\" fill=\"#fff\"/><rect x=\"58\" y=\"40\" width=\"10\" height=\"40\" fill=\"#fff\"/><rect x=\"75\" y=\"40\" width=\"10\" height=\"40\" fill=\"#fff\"/><rect x=\"92\" y=\"40\" width=\"10\" height=\"40\" fill=\"#fff\"/><rect x=\"109\" y=\"40\" width=\"10\" height=\"40\" fill=\"#fff\"/></svg>"
+ },
+ {
+  "id": "sg-red",
+  "cat": "signals",
+  "name": "Red traffic light",
+  "text": "A steady red light.",
+  "tip": "Stop behind the line and wait.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"38\" y=\"8\" width=\"44\" height=\"104\" rx=\"10\" fill=\"#15181d\"/><circle cx=\"60\" cy=\"32\" r=\"13\" fill=\"#e02020\"/><circle cx=\"60\" cy=\"60\" r=\"13\" fill=\"#3a3f47\"/><circle cx=\"60\" cy=\"88\" r=\"13\" fill=\"#3a3f47\"/></svg>"
+ },
+ {
+  "id": "sg-red-amber",
+  "cat": "signals",
+  "name": "Red and amber traffic lights",
+  "text": "Red and amber shown together.",
+  "tip": "Stop and wait. Do not go until the green light shows.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"38\" y=\"8\" width=\"44\" height=\"104\" rx=\"10\" fill=\"#15181d\"/><circle cx=\"60\" cy=\"32\" r=\"13\" fill=\"#e02020\"/><circle cx=\"60\" cy=\"60\" r=\"13\" fill=\"#ffa500\"/><circle cx=\"60\" cy=\"88\" r=\"13\" fill=\"#3a3f47\"/></svg>"
+ },
+ {
+  "id": "sg-green",
+  "cat": "signals",
+  "name": "Green traffic light",
+  "text": "A steady green light.",
+  "tip": "Go only if the way is clear and safe.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"38\" y=\"8\" width=\"44\" height=\"104\" rx=\"10\" fill=\"#15181d\"/><circle cx=\"60\" cy=\"32\" r=\"13\" fill=\"#3a3f47\"/><circle cx=\"60\" cy=\"60\" r=\"13\" fill=\"#3a3f47\"/><circle cx=\"60\" cy=\"88\" r=\"13\" fill=\"#18b34a\"/></svg>"
+ },
+ {
+  "id": "sg-amber",
+  "cat": "signals",
+  "name": "Amber traffic light",
+  "text": "A steady amber light.",
+  "tip": "Stop at the line, unless you have already crossed it or are so close that stopping might cause an accident.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><rect x=\"38\" y=\"8\" width=\"44\" height=\"104\" rx=\"10\" fill=\"#15181d\"/><circle cx=\"60\" cy=\"32\" r=\"13\" fill=\"#3a3f47\"/><circle cx=\"60\" cy=\"60\" r=\"13\" fill=\"#ffa500\"/><circle cx=\"60\" cy=\"88\" r=\"13\" fill=\"#3a3f47\"/></svg>"
+ },
+ {
+  "id": "no-pedestrians",
+  "cat": "orders",
+  "name": "No pedestrians",
+  "text": "Pedestrians are not allowed on this road.",
+  "tip": "Seen on motorways and some bridges and tunnels.",
+  "svg": "<svg viewBox=\"0 0 120 120\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\"><circle cx=\"60\" cy=\"60\" r=\"53\" fill=\"#fff\" stroke=\"#d3202a\" stroke-width=\"11\"/><g stroke=\"#111\" stroke-width=\"8\" stroke-linecap=\"round\" fill=\"#111\"><circle cx=\"60\" cy=\"33\" r=\"8\" stroke=\"none\"/><path d=\"M60 46V72M60 54L47 68M60 54L73 62M60 72L50 94M60 72L70 94\" fill=\"none\"/></g></svg>"
  }
 ];
