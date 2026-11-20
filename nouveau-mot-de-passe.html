@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Nouveau mot de passe | Routis</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#1769e0" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <style>
+      .np-box { max-width: 460px; margin: 40px auto; padding: 0 16px; }
+      .np-box h1 { font-size: 1.8rem; margin-bottom: 8px; }
+      .np-box p { color: var(--muted); line-height: 1.5; }
+      .np-box form { display: grid; gap: 12px; margin-top: 18px; }
+    </style>
+  </head>
+  <body>
+    <div class="legal-top"><a href="index.html">← Retour à Routis</a></div>
+    <main class="np-box">
+      <h1 id="np-title">Nouveau mot de passe</h1>
+      <p id="np-intro">Choisis un nouveau mot de passe pour ton compte Routis.</p>
+      <p id="np-wait" hidden>Vérification du lien…</p>
+      <form id="np-form" hidden>
+        <label class="field"><span id="np-l1">Nouveau mot de passe</span><input type="password" id="np-p1" minlength="6" autocomplete="new-password" required /></label>
+        <label class="field"><span id="np-l2">Confirme le mot de passe</span><input type="password" id="np-p2" minlength="6" autocomplete="new-password" required /></label>
+        <p class="auth-error" id="np-err" hidden></p>
+        <p class="auth-success" id="np-ok" hidden></p>
+        <button class="button primary" type="submit" id="np-btn">Enregistrer</button>
+      </form>
+      <p id="np-bad" class="auth-error" hidden></p>
+    </main>
+    <script type="module">
+      var en = (navigator.language || "fr").toLowerCase().indexOf("en") === 0;
+      var T = en ? {
+        title: "New password", intro: "Choose a new password for your Routis account.", wait: "Checking the link…",
+        l1: "New password", l2: "Confirm the password", btn: "Save",
+        short: "The password must be at least 6 characters long.", diff: "The two passwords are different.",
+        ok: "Password updated. You are now signed in.", bad: "This link is invalid or has expired. Go back to the site and request a new one with “Forgot password”.",
+        fail: "Something went wrong. Please try again.", home: "Go to Routis"
+      } : {
+        title: "Nouveau mot de passe", intro: "Choisis un nouveau mot de passe pour ton compte Routis.", wait: "Vérification du lien…",
+        l1: "Nouveau mot de passe", l2: "Confirme le mot de passe", btn: "Enregistrer",
+        short: "Le mot de passe doit contenir au moins 6 caractères.", diff: "Les deux mots de passe sont différents.",
+        ok: "Mot de passe mis à jour. Tu es maintenant connecté.", bad: "Ce lien n'est pas valide ou a expiré. Retourne sur le site et demande un nouveau lien avec « Mot de passe oublié ».",
+        fail: "Une erreur est survenue. Réessaie dans un instant.", home: "Aller sur Routis"
+      };
+      var $ = function (id) { return document.getElementById(id); };
+      if (en) document.documentElement.lang = "en";
+      document.title = T.title + " | Routis";
+      $("np-title").textContent = T.title; $("np-intro").textContent = T.intro; $("np-wait").textContent = T.wait;
+      $("np-l1").textContent = T.l1; $("np-l2").textContent = T.l2; $("np-btn").textContent = T.btn;
+      $("np-wait").hidden = false;
+
+      var SUPABASE_URL = "https://wzsfwejmfxuuzljjavdb.supabase.co";
+      var SUPABASE_KEY = "sb_publishable_7vJT0UV984mM983Iaiv3wg_xnQQul8i";
+      var hash = new URLSearchParams(location.hash.replace(/^#/, ""));
+      var query = new URLSearchParams(location.search);
+      var hasToken = hash.get("type") === "recovery" || query.has("code") || hash.get("access_token");
+
+      function showForm() { $("np-wait").hidden = true; $("np-form").hidden = false; }
+      function showBad() { $("np-wait").hidden = true; $("np-form").hidden = true; $("np-bad").textContent = T.bad; $("np-bad").hidden = false; }
+
+      try {
+        var mod = await import("https://esm.sh/@supabase/supabase-js@2");
+        var client = mod.createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } });
+        var ready = false;
+        client.auth.onAuthStateChange(function (event) {
+          if (event === "PASSWORD_RECOVERY" || (event === "SIGNED_IN" && hasToken)) { ready = true; showForm(); }
+        });
+        setTimeout(async function () {
+          if (ready) return;
+          var r = await client.auth.getSession();
+          if (r && r.data && r.data.session && hasToken) { ready = true; showForm(); } else if (!ready) showBad();
+        }, 2500);
+
+        $("np-form").addEventListener("submit", async function (e) {
+          e.preventDefault();
+          $("np-err").hidden = true; $("np-ok").hidden = true;
+          var p1 = $("np-p1").value, p2 = $("np-p2").value;
+          if (p1.length < 6) { $("np-err").textContent = T.short; $("np-err").hidden = false; return; }
+          if (p1 !== p2) { $("np-err").textContent = T.diff; $("np-err").hidden = false; return; }
+          $("np-btn").disabled = true;
+          try {
+            var res = await client.auth.updateUser({ password: p1 });
+            if (res.error) { $("np-err").textContent = T.fail + " [" + String(res.error.message || "").slice(0, 100) + "]"; $("np-err").hidden = false; $("np-btn").disabled = false; return; }
+            $("np-ok").textContent = T.ok; $("np-ok").hidden = false;
+            setTimeout(function () { location.href = "index.html"; }, 2000);
+          } catch (err) {
+            $("np-err").textContent = T.fail; $("np-err").hidden = false; $("np-btn").disabled = false;
+          }
+        });
+      } catch (err) { showBad(); }
+    </script>
+  </body>
+</html>

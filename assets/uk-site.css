@@ -1,0 +1,40 @@
+/* Routis UK : même habillage que le site français (style.css), compléments propres au UK */
+body.uk-site, body.cx-uk { background: var(--paper, #f4f7fc); }
+.uk-vis { display: grid; place-items: center; font-size: 3.2rem; background: linear-gradient(135deg,#e8f0ff,#f6f9ff); }
+.uk-cta { margin: 22px 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.uk-cat { margin: 18px 0 6px; font-size: 1.05rem; }
+.uk-pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 6px; }
+.uk-pills a { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; font-weight: 700; font-size: .9rem; color: var(--ink); text-decoration: none; }
+.uk-pills a:hover { border-color: var(--blue); }
+.uk-sub { color: var(--muted); margin: 0 0 10px; }
+.uk-course ul { margin: 0 0 12px; padding-left: 20px; line-height: 1.6; }
+.uk-course li { margin-bottom: 8px; }
+.uk-course .tbl { overflow-x: auto; margin: 12px 0; }
+.uk-course table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+.uk-course th, .uk-course td { border: 1px solid var(--line); padding: 7px 9px; text-align: left; }
+.uk-course th { background: #eef4ff; }
+.uk-course .cap { color: var(--muted); font-size: .85rem; }
+.uk-src { font-size: .85rem; color: var(--muted); margin: 6px 4px 14px; }
+.uk-src a { color: var(--blue-dark, #0f4fb0); }
+/* mini quiz */
+.uk-q { border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin-bottom: 12px; background: #fff; }
+.uk-q strong { display: block; margin-bottom: 10px; }
+.uk-q .opt { display: block; width: 100%; text-align: left; margin: 6px 0; padding: 10px 12px; border: 2px solid var(--line); border-radius: 12px; background: #fff; font: inherit; cursor: pointer; }
+.uk-q .opt:hover:not(:disabled) { border-color: var(--blue); }
+.uk-q .opt.ok { background: #e3f6ec; border-color: #1f9d63; }
+.uk-q .opt.bad { background: #fdeaea; border-color: #d3202a; }
+.uk-q .why { display: none; margin: 8px 0 0; font-size: .92rem; color: var(--muted); }
+.uk-q.done .why { display: block; }
+.uk-score { font-weight: 800; }
+/* anciennes pages UK : le contenu garde sa largeur, sous le nouvel en-tête */
+body.cx-uk .uk-wrap { padding-top: 18px; }
+@media (max-width:700px){ .uk-vis { font-size: 2.4rem; } }
+
+/* centred container for course hub and course pages */
+body.uk-site main#top > *:not(.page-hero):not(.hm-wrap):not(.hm-hero),
+main#top > .fiche-index, main#top > .fiche-card, main#top > h2, main#top > p, main#top > section.section-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin-left: auto !important; margin-right: auto !important; box-sizing: border-box;
+}
+body.uk-site section.fiche-chapter { width: min(1180px, calc(100% - 32px)); margin: 0 auto 40px; box-sizing: border-box; }
+body.uk-site section.fiche-chapter > .fiche-card { margin-left: 0; margin-right: 0; }

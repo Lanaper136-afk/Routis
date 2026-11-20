@@ -189,7 +189,7 @@
           showSuccess(t("auth_success_signup"));
         }
       } else if (mode === "forgot") {
-        var resetResult = await client.auth.resetPasswordForEmail(email);
+        var resetResult = await client.auth.resetPasswordForEmail(email, { redirectTo: location.origin + "/nouveau-mot-de-passe.html" });
         if (resetResult.error) {
           showError(mapAuthError(resetResult.error));
         } else {
